@@ -846,6 +846,15 @@ blockquote {
     color: var(--color-text-secondary);
 }
 
+/* Añadir clases de severidad para el log */
+.log-warning .log-message {
+    color: #ffbd2e;
+}
+
+.log-success .log-message {
+    color: #27c93f;
+}
+
 /* Contact Section */
 .contact-container {
     display: grid;
@@ -915,25 +924,27 @@ blockquote {
     border-radius: 4px;
     color: var(--color-text-primary);
     font-family: var(--font-secondary);
+    font-size: 0.9rem;
     transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--color-accent);
+    box-shadow: 0 0 5px rgba(100, 255, 218, 0.3);
 }
 
 /* Footer */
 footer {
     background-color: var(--color-bg-secondary);
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .footer-logo a {
@@ -941,6 +952,7 @@ footer {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-accent);
+    text-decoration: none;
 }
 
 .footer-links ul {
@@ -949,37 +961,23 @@ footer {
 }
 
 .footer-links a {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(100, 255, 218, 0.1);
-    border-radius: 50%;
-    color: var(--color-accent);
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
     transition: var(--transition);
 }
 
 .footer-links a:hover {
-    background-color: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: var(--color-accent);
 }
 
 .footer-bottom {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-text-secondary);
     font-size: 0.8rem;
-}
-
-.easter-egg {
-    margin-top: 0.5rem;
-    font-family: var(--font-primary);
-    font-size: 0.7rem;
-    color: var(--color-bg-secondary);
-}
-
-.easter-egg:hover {
-    color: var(--color-accent);
 }
 
 /* Animaciones */
@@ -1001,12 +999,8 @@ footer {
 
 /* Media Queries */
 @media screen and (max-width: 1024px) {
-    .container {
-        width: var(--container-width-md);
-    }
-    
-    section {
-        padding: 80px 0;
+    :root {
+        --container-width-lg: var(--container-width-md);
     }
     
     .about-content {
@@ -1014,19 +1008,18 @@ footer {
         gap: 2rem;
     }
     
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    .about-image {
+        order: -1;
     }
     
-    .contact-container {
+    .dashboard-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        width: var(--container-width-sm);
+    :root {
+        --container-width-md: var(--container-width-sm);
     }
     
     .nav-links {
@@ -1034,7 +1027,7 @@ footer {
         top: var(--header-height);
         right: -100%;
         width: 70%;
-        height: 100vh;
+        height: calc(100vh - var(--header-height));
         background-color: var(--color-bg-secondary);
         flex-direction: column;
         padding: 2rem;
@@ -1048,7 +1041,7 @@ footer {
     
     .nav-links ul {
         flex-direction: column;
-        align-items: center;
+        gap: 1.5rem;
     }
     
     .hamburger {
@@ -1075,17 +1068,14 @@ footer {
         font-size: 1.2rem;
     }
     
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
+    .cta-buttons {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
@@ -1094,11 +1084,18 @@ footer {
         font-size: 2rem;
     }
     
-    .cta-buttons {
-        flex-direction: column;
+    .section-header::after {
+        width: 200px;
     }
     
-    .terminal-window {
-        width: 100%;
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
     }
 }

@@ -170,137 +170,154 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Inicializar gráficos del dashboard con datos aleatorios
-    if (typeof Chart !== 'undefined') {
-        // Gráfico de habilidades
-        if (document.getElementById('skills-chart')) {
-            const skillsChart = new Chart(document.getElementById('skills-chart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Cybersecurity', 'Programming', 'Networks', 'Databases', 'Standards', 'Web Development'],
-                    datasets: [{
-                        label: 'Skill Level',
-                        data: [90, 85, 80, 75, 80, 70],
-                        backgroundColor: 'rgba(100, 255, 218, 0.2)',
-                        borderColor: '#64ffda',
-                        pointBackgroundColor: '#64ffda',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#64ffda'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            pointLabels: {
-                                color: '#8892b0',
-                                font: {
-                                    family: "'Fira Code', monospace",
-                                    size: 10
-                                }
-                            },
-                            ticks: {
-                                backdropColor: 'transparent',
-                                color: '#8892b0',
-                                font: {
-                                    family: "'Fira Code', monospace",
-                                    size: 10
-                                },
-                                stepSize: 20,
-                                max: 100,
-                                min: 0
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
+    function initializeCharts() {
+        console.log("Inicializando gráficos del dashboard");
+        if (typeof Chart !== 'undefined') {
+            // Gráfico de habilidades
+            const skillsChartCanvas = document.getElementById('skills-chart-canvas');
+            if (skillsChartCanvas) {
+                console.log("Canvas de habilidades encontrado, creando gráfico");
+                const skillsChart = new Chart(skillsChartCanvas, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Cybersecurity', 'Programming', 'Networks', 'Databases', 'Standards', 'Web Development'],
+                        datasets: [{
+                            label: 'Skill Level',
+                            data: [90, 85, 80, 75, 80, 70],
+                            backgroundColor: 'rgba(100, 255, 218, 0.2)',
+                            borderColor: '#64ffda',
+                            pointBackgroundColor: '#64ffda',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#64ffda'
+                        }]
                     },
-                    plugins: {
-                        legend: {
-                            display: false
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                },
+                                pointLabels: {
+                                    color: '#8892b0',
+                                    font: {
+                                        family: "'Fira Code', monospace",
+                                        size: 10
+                                    }
+                                },
+                                ticks: {
+                                    backdropColor: 'transparent',
+                                    color: '#8892b0',
+                                    font: {
+                                        family: "'Fira Code', monospace",
+                                        size: 10
+                                    },
+                                    stepSize: 20,
+                                    max: 100,
+                                    min: 0
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
                         },
-                        tooltip: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                            titleFont: {
-                                family: "'Fira Code', monospace"
+                        plugins: {
+                            legend: {
+                                display: false
                             },
-                            bodyFont: {
-                                family: "'Fira Code', monospace"
-                            },
-                            callbacks: {
-                                label: function(context) {
-                                    return context.raw + '/100';
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleFont: {
+                                    family: "'Fira Code', monospace"
+                                },
+                                bodyFont: {
+                                    family: "'Fira Code', monospace"
+                                },
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.raw + '/100';
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            });
-        }
+                });
+            } else {
+                console.log("Canvas de habilidades no encontrado");
+            }
 
-        // Gráfico de proyectos
-        if (document.getElementById('projects-chart')) {
-            const projectsChart = new Chart(document.getElementById('projects-chart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Completed', 'In Progress', 'Planned'],
-                    datasets: [{
-                        data: [5, 2, 3],
-                        backgroundColor: [
-                            '#64ffda',
-                            '#ffbd2e',
-                            '#8892b0'
-                        ],
-                        borderColor: [
-                            '#64ffda',
-                            '#ffbd2e',
-                            '#8892b0'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '70%',
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#8892b0',
-                                font: {
-                                    family: "'Fira Code', monospace",
-                                    size: 10
+            // Gráfico de proyectos
+            const projectsChartCanvas = document.getElementById('projects-chart-canvas');
+            if (projectsChartCanvas) {
+                console.log("Canvas de proyectos encontrado, creando gráfico");
+                const projectsChart = new Chart(projectsChartCanvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Completed', 'In Progress', 'Planned'],
+                        datasets: [{
+                            data: [5, 2, 3],
+                            backgroundColor: [
+                                '#64ffda',
+                                '#ffbd2e',
+                                '#8892b0'
+                            ],
+                            borderColor: [
+                                '#64ffda',
+                                '#ffbd2e',
+                                '#8892b0'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#8892b0',
+                                    font: {
+                                        family: "'Fira Code', monospace",
+                                        size: 10
+                                    },
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleFont: {
+                                    family: "'Fira Code', monospace"
                                 },
-                                padding: 20,
-                                usePointStyle: true,
-                                pointStyle: 'circle'
+                                bodyFont: {
+                                    family: "'Fira Code', monospace"
+                                }
                             }
                         },
-                        tooltip: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                            titleFont: {
-                                family: "'Fira Code', monospace"
-                            },
-                            bodyFont: {
-                                family: "'Fira Code', monospace"
-                            }
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true
                         }
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
                     }
-                }
-            });
+                });
+            } else {
+                console.log("Canvas de proyectos no encontrado");
+            }
+        } else {
+            console.log("Chart.js no está disponible");
         }
     }
+    
+    // Ejecutar inicialización de gráficos después de que el DOM esté completamente cargado
+    // y también con un retraso para asegurar que los elementos estén disponibles
+    setTimeout(initializeCharts, 1000);
 
     // Efecto de escritura para el terminal - versión secuencial
     const terminalCommands = document.querySelectorAll('.terminal-body .command:not(.blink)');
@@ -319,13 +336,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function startTypingEffect() {
-        // Ocultar todos los comandos y salidas excepto el primero
-        for (let i = 0; i < terminalCommands.length; i++) {
-            if (i > 0) {
-                terminalCommands[i].style.display = 'none';
+        // Limpiar todos los comandos y salidas primero
+        terminalCommands.forEach(cmd => {
+            // Guardar el texto original como atributo data-text
+            const originalText = cmd.textContent;
+            cmd.setAttribute('data-text', originalText);
+            // Limpiar el texto visible
+            cmd.textContent = '';
+            // Ocultar todos los comandos excepto el primero
+            if (cmd !== terminalCommands[0]) {
+                cmd.style.display = 'none';
             }
-            terminalOutputs[i].style.display = 'none';
-        }
+        });
+        
+        // Ocultar todas las salidas
+        terminalOutputs.forEach(output => {
+            output.style.display = 'none';
+        });
         
         let currentIndex = 0;
         
@@ -333,11 +360,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentIndex < terminalCommands.length) {
                 const command = terminalCommands[currentIndex];
                 const output = terminalOutputs[currentIndex];
-                const commandText = command.getAttribute('data-text') || command.textContent;
+                const commandText = command.getAttribute('data-text');
                 
                 // Asegurarse de que el comando actual es visible
                 command.style.display = 'inline-block';
-                command.textContent = '';
                 
                 typeWriter(command, commandText, 0, function() {
                     // Mostrar la salida después de escribir el comando
@@ -357,11 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         }
-        
-        // Guardar el texto original de cada comando como atributo
-        terminalCommands.forEach(cmd => {
-            cmd.setAttribute('data-text', cmd.textContent);
-        });
         
         // Iniciar con el primer comando
         typeNextCommand();
@@ -412,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(contactForm);
             
             // Enviar datos a Formspree
-            fetch('https://formspree.io/f/javiergc100@protonmail.com', {
+            fetch('https://formspree.io/f/xbjnkwgj', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -509,29 +530,109 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Activity Log con entradas aleatorias
-    const logMessages = [
-        'System update completed successfully',
-        'New login detected from usual location',
-        'Firewall rules updated',
-        'Backup completed successfully',
-        'Security patches applied',
-        'Vulnerability scan started',
-        'Network traffic analysis completed',
-        'Authentication attempt blocked',
-        'Configuration changes detected',
-        'System resources optimized',
-        'Suspicious IP address blocked',
-        'Port scan detected and mitigated',
-        'Database backup completed',
-        'SSL certificate renewed',
-        'User permissions updated',
-        'Malware scan completed',
-        'System integrity check passed',
-        'New device connected to network',
-        'Software update available',
-        'Intrusion detection system alert'
-    ];
+    // Activity Log con entradas inteligentes y contextuales
+    const logCategories = {
+        security: [
+            'Vulnerability scan completed: {0} issues found',
+            'Firewall rules updated: {0} new rules applied',
+            'Suspicious IP {0} blocked from {1}',
+            'Authentication attempt from {0} {1}',
+            'Port scan from {0} detected and mitigated',
+            'Malware scan completed: System clean',
+            'Security patches applied: {0} updates installed',
+            'Intrusion detection alert: {0} activity detected',
+            'System integrity check: {1}'
+        ],
+        system: [
+            'System update {0}: {1} components updated',
+            'Backup completed: {0} files ({1} MB)',
+            'System resources optimized: {0}% improvement',
+            'Configuration changes detected in {0}',
+            'Database backup completed: {0} tables',
+            'SSL certificate for {0} {1}',
+            'User permissions updated for {0}',
+            'New device connected: {0} from {1}',
+            'Software update available: {0} v{1}'
+        ],
+        activity: [
+            'User login from {0} at {1}',
+            'File {0} {1} by user',
+            'Project {0} status changed to {1}',
+            'New comment on {0}: "{1}"',
+            'Resource {0} accessed by {1}',
+            'API request to {0} endpoint: {1}',
+            'Data export completed: {0} records',
+            'Search performed for "{0}" with {1} results',
+            'Profile information updated: {0}'
+        ]
+    };
+    
+    // Datos para generar entradas de log más realistas
+    const ipAddresses = ['192.168.1.45', '10.0.0.15', '172.16.254.1', '8.8.8.8', '1.1.1.1', '203.0.113.42'];
+    const countries = ['Spain', 'United States', 'Germany', 'Japan', 'Brazil', 'Australia'];
+    const statuses = ['successful', 'failed', 'pending', 'in progress', 'completed', 'verified'];
+    const components = ['kernel', 'network', 'security', 'database', 'application', 'interface'];
+    const projects = ['AES-app', 'CTF-Hackademics', 'Smart Home', 'ToDo App', 'Snake Game', 'ZooWeb'];
+    const users = ['admin', 'javier', 'guest', 'system', 'scheduler', 'api'];
+    
+    function getRandomItem(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+    
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    function formatLogMessage(template) {
+        // Reemplazar marcadores de posición con datos aleatorios
+        return template.replace(/{(\d+)}/g, function(match, number) {
+            switch (number) {
+                case '0':
+                    // Primer parámetro - varía según el contexto
+                    if (template.includes('IP')) return getRandomItem(ipAddresses);
+                    if (template.includes('scan')) return getRandomNumber(0, 5).toString();
+                    if (template.includes('rules')) return getRandomNumber(1, 10).toString();
+                    if (template.includes('update')) return getRandomItem(components);
+                    if (template.includes('files')) return getRandomNumber(100, 5000).toString();
+                    if (template.includes('improvement')) return getRandomNumber(5, 30).toString();
+                    if (template.includes('tables')) return getRandomNumber(5, 50).toString();
+                    if (template.includes('certificate')) return 'portfolio.javiergc.com';
+                    if (template.includes('permissions')) return getRandomItem(users);
+                    if (template.includes('device')) return 'MacBook Pro';
+                    if (template.includes('Software')) return 'Security Scanner';
+                    if (template.includes('login')) return getRandomItem(countries);
+                    if (template.includes('File')) return 'report-' + getRandomNumber(1, 100) + '.pdf';
+                    if (template.includes('Project')) return getRandomItem(projects);
+                    if (template.includes('comment')) return 'Pull Request #' + getRandomNumber(10, 99);
+                    if (template.includes('Resource')) return '/api/data/' + getRandomNumber(1000, 9999);
+                    if (template.includes('API')) return '/users';
+                    if (template.includes('export')) return getRandomNumber(50, 500).toString();
+                    if (template.includes('Search')) return 'cybersecurity best practices';
+                    if (template.includes('Profile')) return 'contact info';
+                    return 'unknown';
+                case '1':
+                    // Segundo parámetro
+                    if (template.includes('IP')) return getRandomItem(countries);
+                    if (template.includes('Authentication')) return getRandomItem(statuses);
+                    if (template.includes('integrity')) return Math.random() > 0.9 ? 'Warning: modified files detected' : 'All files verified';
+                    if (template.includes('update')) return getRandomNumber(1, 15).toString();
+                    if (template.includes('files')) return getRandomNumber(50, 500).toString();
+                    if (template.includes('certificate')) return Math.random() > 0.8 ? 'expires in 7 days' : 'renewed successfully';
+                    if (template.includes('device')) return getRandomItem(countries);
+                    if (template.includes('Software')) return '2.' + getRandomNumber(0, 9) + '.' + getRandomNumber(0, 9);
+                    if (template.includes('login')) return new Date().toLocaleTimeString('en-US', {hour12: false});
+                    if (template.includes('File')) return Math.random() > 0.7 ? 'uploaded' : 'downloaded';
+                    if (template.includes('Project')) return getRandomItem(['in progress', 'completed', 'on hold', 'testing']);
+                    if (template.includes('comment')) return 'Looks good, approved!';
+                    if (template.includes('Resource')) return getRandomItem(users);
+                    if (template.includes('API')) return Math.random() > 0.8 ? '403 Forbidden' : '200 OK';
+                    if (template.includes('Search')) return getRandomNumber(3, 25).toString();
+                    return '';
+                default:
+                    return match;
+            }
+        });
+    }
     
     function addLogEntry(message = null) {
         const logContainer = document.querySelector('.log-container');
@@ -541,14 +642,33 @@ document.addEventListener('DOMContentLoaded', function() {
                               now.getMinutes().toString().padStart(2, '0') + ':' + 
                               now.getSeconds().toString().padStart(2, '0');
             
-            // Si no se proporciona mensaje, elegir uno aleatorio
+            // Si no se proporciona mensaje, generar uno inteligente
             if (!message) {
-                const randomIndex = Math.floor(Math.random() * logMessages.length);
-                message = logMessages[randomIndex];
+                // Seleccionar una categoría aleatoria
+                const categories = Object.keys(logCategories);
+                const selectedCategory = categories[Math.floor(Math.random() * categories.length)];
+                const templates = logCategories[selectedCategory];
+                
+                // Seleccionar una plantilla aleatoria de la categoría
+                const templateIndex = Math.floor(Math.random() * templates.length);
+                const template = templates[templateIndex];
+                
+                // Formatear el mensaje con datos aleatorios
+                message = formatLogMessage(template);
+            }
+            
+            // Determinar la clase de severidad basada en el contenido del mensaje
+            let severityClass = '';
+            if (message.includes('alert') || message.includes('blocked') || message.includes('failed') || 
+                message.includes('suspicious') || message.includes('Warning')) {
+                severityClass = 'log-warning';
+            } else if (message.includes('successful') || message.includes('completed') || 
+                      message.includes('optimized') || message.includes('verified')) {
+                severityClass = 'log-success';
             }
             
             const newLog = document.createElement('div');
-            newLog.className = 'log-entry';
+            newLog.className = 'log-entry ' + severityClass;
             newLog.innerHTML = `<span class="log-time">${timeString}</span><span class="log-message">${message}</span>`;
             
             // Añadir al principio para que las entradas más recientes estén arriba
@@ -627,35 +747,50 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('loaded');
     
-    // Fix navigation buttons
-    const projectsBtn = document.getElementById('view-projects-btn');
-    if (projectsBtn) {
-        projectsBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                window.scrollTo({
-                    top: projectsSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
+    // Fix navigation buttons - Implementación directa en el evento principal
+    const setupNavigationButtons = function() {
+        console.log("Configurando botones de navegación");
+        
+        // Fix Projects button
+        const projectsBtn = document.getElementById('view-projects-btn');
+        if (projectsBtn) {
+            console.log("Botón de proyectos encontrado");
+            projectsBtn.onclick = function(e) {
+                e.preventDefault();
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                    window.scrollTo({
+                        top: projectsSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+        } else {
+            console.log("Botón de proyectos no encontrado");
+        }
+        
+        // Fix Contact button
+        const contactBtn = document.getElementById('contact-me-btn');
+        if (contactBtn) {
+            console.log("Botón de contacto encontrado");
+            contactBtn.onclick = function(e) {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+        } else {
+            console.log("Botón de contacto no encontrado");
+        }
+    };
     
-    // Contact button
-    const contactBtn = document.getElementById('contact-me-btn');
-    if (contactBtn) {
-        contactBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                window.scrollTo({
-                    top: contactSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
+    // Ejecutar inmediatamente y también después de un retraso para asegurar que los elementos estén cargados
+    setupNavigationButtons();
+    setTimeout(setupNavigationButtons, 1000);
 });
 
 // Estilos adicionales para animaciones
