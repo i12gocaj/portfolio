@@ -212,13 +212,32 @@ document.addEventListener('DOMContentLoaded', function() {
                                 font: {
                                     family: "'Fira Code', monospace",
                                     size: 10
-                                }
-                            }
+                                },
+                                stepSize: 20,
+                                max: 100,
+                                min: 0
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
                         }
                     },
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                family: "'Fira Code', monospace"
+                            },
+                            bodyFont: {
+                                family: "'Fira Code', monospace"
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw + '/100';
+                                }
+                            }
                         }
                     }
                 }
@@ -249,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    cutout: '70%',
                     plugins: {
                         legend: {
                             position: 'bottom',
@@ -258,16 +278,31 @@ document.addEventListener('DOMContentLoaded', function() {
                                     family: "'Fira Code', monospace",
                                     size: 10
                                 },
-                                padding: 20
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                family: "'Fira Code', monospace"
+                            },
+                            bodyFont: {
+                                family: "'Fira Code', monospace"
                             }
                         }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
                     }
                 }
             });
         }
     }
 
-    // Efecto de escritura para el terminal
+    // Efecto de escritura para el terminal - versión secuencial
     const terminalCommands = document.querySelectorAll('.terminal-body .command:not(.blink)');
     const terminalOutputs = document.querySelectorAll('.terminal-body .output');
     
@@ -284,30 +319,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function startTypingEffect() {
-        let i = 0;
+        // Ocultar todos los comandos y salidas excepto el primero
+        for (let i = 0; i < terminalCommands.length; i++) {
+            if (i > 0) {
+                terminalCommands[i].style.display = 'none';
+            }
+            terminalOutputs[i].style.display = 'none';
+        }
+        
+        let currentIndex = 0;
         
         function typeNextCommand() {
-            if (i < terminalCommands.length) {
-                const command = terminalCommands[i];
-                const output = terminalOutputs[i];
-                const commandText = command.textContent;
+            if (currentIndex < terminalCommands.length) {
+                const command = terminalCommands[currentIndex];
+                const output = terminalOutputs[currentIndex];
+                const commandText = command.getAttribute('data-text') || command.textContent;
                 
+                // Asegurarse de que el comando actual es visible
+                command.style.display = 'inline-block';
                 command.textContent = '';
                 
                 typeWriter(command, commandText, 0, function() {
+                    // Mostrar la salida después de escribir el comando
                     if (output) {
                         output.style.display = 'inline-block';
                     }
-                    i++;
-                    setTimeout(typeNextCommand, 500);
+                    
+                    currentIndex++;
+                    
+                    // Preparar el siguiente comando si existe
+                    if (currentIndex < terminalCommands.length) {
+                        setTimeout(function() {
+                            terminalCommands[currentIndex].style.display = 'inline-block';
+                            typeNextCommand();
+                        }, 1000);
+                    }
                 });
             }
         }
         
-        terminalOutputs.forEach(output => {
-            output.style.display = 'none';
+        // Guardar el texto original de cada comando como atributo
+        terminalCommands.forEach(cmd => {
+            cmd.setAttribute('data-text', cmd.textContent);
         });
         
+        // Iniciar con el primer comando
         typeNextCommand();
     }
     
@@ -342,15 +398,39 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simulación de envío de formulario
+            // Obtener elementos del formulario
             const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            const formStatus = contactForm.querySelector('.form-status');
+            const formStatusText = formStatus.querySelector('p');
+            const originalBtnText = submitBtn.textContent;
             
+            // Deshabilitar botón y mostrar estado de carga
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            setTimeout(function() {
-                submitBtn.textContent = 'Message Sent!';
+            // Recopilar datos del formulario
+            const formData = new FormData(contactForm);
+            
+            // Enviar datos a Formspree
+            fetch('https://formspree.io/f/javiergc100@protonmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                // Mostrar mensaje de éxito
+                formStatus.style.display = 'block';
+                formStatus.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+                formStatus.style.color = '#64ffda';
+                formStatusText.textContent = 'Message sent successfully! I will get back to you soon.';
                 
                 // Resetear formulario
                 contactForm.reset();
@@ -358,9 +438,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Restaurar botón después de un tiempo
                 setTimeout(function() {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                }, 3000);
-            }, 2000);
+                    submitBtn.textContent = originalBtnText;
+                    
+                    // Ocultar mensaje de éxito después de un tiempo
+                    setTimeout(function() {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }, 2000);
+            })
+            .catch(error => {
+                // Mostrar mensaje de error
+                formStatus.style.display = 'block';
+                formStatus.style.backgroundColor = 'rgba(255, 100, 100, 0.1)';
+                formStatus.style.color = '#ff6464';
+                formStatusText.textContent = 'There was a problem sending your message. Please try again or contact me directly via email.';
+                
+                // Restaurar botón
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                
+                console.error('Error:', error);
+            });
         });
     }
 
@@ -372,8 +470,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (vulnerabilityCount && securityScore && lastScanTime) {
             // Generar valores aleatorios para simular escaneos
-            const randomVulnerabilities = Math.floor(Math.random() * 3); // 0-2 vulnerabilidades
-            const randomScore = 95 + Math.floor(Math.random() * 6); // 95-100 score
+            const randomVulnerabilities = Math.floor(Math.random() * 5); // 0-4 vulnerabilidades
+            const randomScore = 85 + Math.floor(Math.random() * 16); // 85-100 score
             
             // Actualizar valores
             vulnerabilityCount.textContent = randomVulnerabilities;
@@ -385,8 +483,29 @@ document.addEventListener('DOMContentLoaded', function() {
                               now.getMinutes().toString().padStart(2, '0');
             lastScanTime.textContent = timeString;
             
-            // Añadir entrada al log
-            addLogEntry('Security scan completed. Found ' + randomVulnerabilities + ' potential issues.');
+            // Añadir entrada al log con mensaje específico basado en vulnerabilidades
+            let message = '';
+            if (randomVulnerabilities === 0) {
+                message = 'Security scan completed. No vulnerabilities found.';
+            } else if (randomVulnerabilities === 1) {
+                message = 'Security scan completed. Found 1 potential issue.';
+            } else {
+                message = `Security scan completed. Found ${randomVulnerabilities} potential issues.`;
+            }
+            addLogEntry(message);
+            
+            // Actualizar clase visual basada en vulnerabilidades
+            const scannerStatus = document.querySelector('.scanner-status');
+            if (scannerStatus) {
+                scannerStatus.className = 'scanner-status';
+                if (randomVulnerabilities === 0) {
+                    scannerStatus.classList.add('secure');
+                } else if (randomVulnerabilities <= 2) {
+                    scannerStatus.classList.add('warning');
+                } else {
+                    scannerStatus.classList.add('danger');
+                }
+            }
         }
     }
     
@@ -401,7 +520,17 @@ document.addEventListener('DOMContentLoaded', function() {
         'Network traffic analysis completed',
         'Authentication attempt blocked',
         'Configuration changes detected',
-        'System resources optimized'
+        'System resources optimized',
+        'Suspicious IP address blocked',
+        'Port scan detected and mitigated',
+        'Database backup completed',
+        'SSL certificate renewed',
+        'User permissions updated',
+        'Malware scan completed',
+        'System integrity check passed',
+        'New device connected to network',
+        'Software update available',
+        'Intrusion detection system alert'
     ];
     
     function addLogEntry(message = null) {
@@ -494,9 +623,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Añadir clase para animaciones CSS
+// Añadir clase para animaciones CSS y arreglar botones de navegación
 document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('loaded');
+    
+    // Fix navigation buttons
+    const projectsBtn = document.getElementById('view-projects-btn');
+    if (projectsBtn) {
+        projectsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                window.scrollTo({
+                    top: projectsSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+    
+    // Contact button
+    const contactBtn = document.getElementById('contact-me-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
 
 // Estilos adicionales para animaciones
