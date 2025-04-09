@@ -1,6 +1,6 @@
 /**
  * Portfolio Web - Javier González Casares
- * JavaScript principal
+ * JavaScript for dashboard randomization and enhanced functionality
  */
 
 // Esperar a que el DOM esté completamente cargado
@@ -25,13 +25,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Cerrar menú al hacer clic en un enlace (móvil)
-    const navItems = document.querySelectorAll('.nav-links a');
+    // Cerrar menú al hacer clic en un enlace (móvil) y scroll suave
+    const navItems = document.querySelectorAll('.nav-links a, .cta-buttons a');
     navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            if (hamburger.classList.contains('active')) {
+        item.addEventListener('click', function(e) {
+            // Cerrar menú móvil si está abierto
+            if (hamburger && hamburger.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+            }
+            
+            // Scroll suave para navegación
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -155,16 +169,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicializar gráficos del dashboard
+    // Inicializar gráficos del dashboard con datos aleatorios
     if (typeof Chart !== 'undefined') {
         // Gráfico de habilidades
         if (document.getElementById('skills-chart')) {
             const skillsChart = new Chart(document.getElementById('skills-chart'), {
                 type: 'radar',
                 data: {
-                    labels: ['Ciberseguridad', 'Programación', 'Redes', 'Bases de Datos', 'Normativas', 'Desarrollo Web'],
+                    labels: ['Cybersecurity', 'Programming', 'Networks', 'Databases', 'Standards', 'Web Development'],
                     datasets: [{
-                        label: 'Nivel de Habilidad',
+                        label: 'Skill Level',
                         data: [90, 85, 80, 75, 80, 70],
                         backgroundColor: 'rgba(100, 255, 218, 0.2)',
                         borderColor: '#64ffda',
@@ -216,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const projectsChart = new Chart(document.getElementById('projects-chart'), {
                 type: 'doughnut',
                 data: {
-                    labels: ['Completados', 'En Progreso', 'Planificados'],
+                    labels: ['Completed', 'In Progress', 'Planned'],
                     datasets: [{
                         data: [5, 2, 3],
                         backgroundColor: [
@@ -333,10 +347,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const originalText = submitBtn.textContent;
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
+            submitBtn.textContent = 'Sending...';
             
             setTimeout(function() {
-                submitBtn.textContent = '¡Mensaje Enviado!';
+                submitBtn.textContent = 'Message Sent!';
                 
                 // Resetear formulario
                 contactForm.reset();
@@ -350,28 +364,127 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Dashboard Security Scanner con aleatoriedad
+    function updateSecurityScanner() {
+        const vulnerabilityCount = document.getElementById('vulnerability-count');
+        const securityScore = document.getElementById('security-score');
+        const lastScanTime = document.getElementById('last-scan-time');
+        
+        if (vulnerabilityCount && securityScore && lastScanTime) {
+            // Generar valores aleatorios para simular escaneos
+            const randomVulnerabilities = Math.floor(Math.random() * 3); // 0-2 vulnerabilidades
+            const randomScore = 95 + Math.floor(Math.random() * 6); // 95-100 score
+            
+            // Actualizar valores
+            vulnerabilityCount.textContent = randomVulnerabilities;
+            securityScore.textContent = randomScore + '/100';
+            
+            // Actualizar tiempo de escaneo
+            const now = new Date();
+            const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                              now.getMinutes().toString().padStart(2, '0');
+            lastScanTime.textContent = timeString;
+            
+            // Añadir entrada al log
+            addLogEntry('Security scan completed. Found ' + randomVulnerabilities + ' potential issues.');
+        }
+    }
+    
+    // Activity Log con entradas aleatorias
+    const logMessages = [
+        'System update completed successfully',
+        'New login detected from usual location',
+        'Firewall rules updated',
+        'Backup completed successfully',
+        'Security patches applied',
+        'Vulnerability scan started',
+        'Network traffic analysis completed',
+        'Authentication attempt blocked',
+        'Configuration changes detected',
+        'System resources optimized'
+    ];
+    
+    function addLogEntry(message = null) {
+        const logContainer = document.querySelector('.log-container');
+        if (logContainer) {
+            const now = new Date();
+            const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                              now.getMinutes().toString().padStart(2, '0') + ':' + 
+                              now.getSeconds().toString().padStart(2, '0');
+            
+            // Si no se proporciona mensaje, elegir uno aleatorio
+            if (!message) {
+                const randomIndex = Math.floor(Math.random() * logMessages.length);
+                message = logMessages[randomIndex];
+            }
+            
+            const newLog = document.createElement('div');
+            newLog.className = 'log-entry';
+            newLog.innerHTML = `<span class="log-time">${timeString}</span><span class="log-message">${message}</span>`;
+            
+            // Añadir al principio para que las entradas más recientes estén arriba
+            logContainer.prepend(newLog);
+            
+            // Limitar a 10 entradas
+            const entries = logContainer.querySelectorAll('.log-entry');
+            if (entries.length > 10) {
+                logContainer.removeChild(entries[entries.length - 1]);
+            }
+        }
+    }
+    
+    // Inicializar el dashboard con datos aleatorios
+    function initDashboard() {
+        // Generar logs iniciales
+        const logContainer = document.querySelector('.log-container');
+        if (logContainer) {
+            // Limpiar logs existentes
+            logContainer.innerHTML = '';
+            
+            // Añadir 5 entradas iniciales con tiempos escalonados
+            const now = new Date();
+            for (let i = 0; i < 5; i++) {
+                const pastTime = new Date(now - (i * 5 * 60000)); // 5 minutos antes por cada entrada
+                const timeString = pastTime.getHours().toString().padStart(2, '0') + ':' + 
+                                  pastTime.getMinutes().toString().padStart(2, '0') + ':' + 
+                                  pastTime.getSeconds().toString().padStart(2, '0');
+                
+                const randomIndex = Math.floor(Math.random() * logMessages.length);
+                const message = logMessages[randomIndex];
+                
+                const newLog = document.createElement('div');
+                newLog.className = 'log-entry';
+                newLog.innerHTML = `<span class="log-time">${timeString}</span><span class="log-message">${message}</span>`;
+                
+                logContainer.appendChild(newLog);
+            }
+        }
+        
+        // Inicializar scanner
+        updateSecurityScanner();
+    }
+    
+    // Ejecutar inicialización del dashboard
+    initDashboard();
+    
+    // Actualizar dashboard periódicamente
+    setInterval(function() {
+        // 20% de probabilidad de añadir una entrada de log aleatoria
+        if (Math.random() < 0.2) {
+            addLogEntry();
+        }
+    }, 10000); // Cada 10 segundos
+    
     // Botón de actualización del dashboard
     const refreshBtn = document.querySelector('.refresh-btn');
     if (refreshBtn) {
         refreshBtn.addEventListener('click', function() {
-            // Actualizar logs
-            const logContainer = document.querySelector('.log-container');
-            if (logContainer) {
-                const now = new Date();
-                const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
-                                  now.getMinutes().toString().padStart(2, '0') + ':' + 
-                                  now.getSeconds().toString().padStart(2, '0');
-                
-                const newLog = document.createElement('div');
-                newLog.className = 'log-entry';
-                newLog.innerHTML = `<span class="log-time">${timeString}</span><span class="log-message">Actualización manual iniciada</span>`;
-                
-                logContainer.prepend(newLog);
-            }
+            // Actualizar scanner
+            updateSecurityScanner();
             
             // Efecto de actualización
             this.disabled = true;
-            this.textContent = 'Actualizando...';
+            this.textContent = 'Refreshing...';
             
             setTimeout(() => {
                 this.disabled = false;
