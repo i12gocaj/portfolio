@@ -336,20 +336,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function startTypingEffect() {
-        // Limpiar todos los comandos y salidas primero
+        // Get the terminal container element
+        const terminalBody = document.querySelector('.terminal-body');
+        const initialHeight = terminalBody ? terminalBody.offsetHeight : 'auto';
+        
+        // Set initial fixed height to prevent jumping
+        if (terminalBody) {
+            terminalBody.style.height = initialHeight + 'px';
+            terminalBody.style.overflow = 'hidden';
+            terminalBody.style.transition = 'height 0.5s ease';
+        }
+        
+        // Clear all commands and outputs first
         terminalCommands.forEach(cmd => {
-            // Guardar el texto original como atributo data-text
+            // Save the original text as a data-text attribute
             const originalText = cmd.textContent;
             cmd.setAttribute('data-text', originalText);
-            // Limpiar el texto visible
+            // Clear the visible text
             cmd.textContent = '';
-            // Ocultar todos los comandos excepto el primero
+            // Hide all commands except the first one
             if (cmd !== terminalCommands[0]) {
                 cmd.style.display = 'none';
             }
         });
         
-        // Ocultar todas las salidas
+        // Hide all outputs
         terminalOutputs.forEach(output => {
             output.style.display = 'none';
         });
@@ -362,29 +373,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 const output = terminalOutputs[currentIndex];
                 const commandText = command.getAttribute('data-text');
                 
-                // Asegurarse de que el comando actual es visible
+                // Make sure the current command is visible
                 command.style.display = 'inline-block';
                 
                 typeWriter(command, commandText, 0, function() {
-                    // Mostrar la salida después de escribir el comando
-                    if (output) {
-                        output.style.display = 'inline-block';
-                    }
-                    
-                    currentIndex++;
-                    
-                    // Preparar el siguiente comando si existe
-                    if (currentIndex < terminalCommands.length) {
-                        setTimeout(function() {
-                            terminalCommands[currentIndex].style.display = 'inline-block';
-                            typeNextCommand();
-                        }, 1000);
-                    }
+                    // Add a delay to simulate command execution time
+                    setTimeout(function() {
+                        // Show the output after typing the command and a brief delay
+                        if (output) {
+                            output.style.display = 'block';
+                            
+                            // Adjust terminal height after showing output
+                            if (terminalBody) {
+                                const contentHeight = getContentHeight(terminalBody);
+                                terminalBody.style.height = contentHeight + 'px';
+                            }
+                        }
+                        
+                        currentIndex++;
+                        
+                        // Prepare the next command if it exists
+                        if (currentIndex < terminalCommands.length) {
+                            setTimeout(function() {
+                                terminalCommands[currentIndex].style.display = 'inline-block';
+                                typeNextCommand();
+                            }, 1000);
+                        }
+                    }, 500); // 500ms delay to simulate command execution
                 });
             }
         }
         
-        // Iniciar con el primer comando
+        // Helper function to calculate the proper height of terminal content
+        function getContentHeight(element) {
+            let height = 0;
+            const children = element.children;
+            
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].style.display !== 'none') {
+                    height += children[i].offsetHeight;
+                }
+            }
+            
+            return Math.max(initialHeight, height);
+        }
+        
+        // Start with the first command
         typeNextCommand();
     }
     
