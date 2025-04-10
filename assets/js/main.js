@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(contactForm);
             
             // Enviar datos a Formspree
-            fetch('https://formspree.io/f/xbjnkwgj', {
+            fetch('https://formspree.io/f/myzelwak', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -690,30 +690,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    
     // Inicializar el dashboard con datos aleatorios
     function initDashboard() {
-        // Generar logs iniciales
         const logContainer = document.querySelector('.log-container');
         if (logContainer) {
             // Limpiar logs existentes
             logContainer.innerHTML = '';
             
-            // Añadir 5 entradas iniciales con tiempos escalonados
-            const now = new Date();
+            // Añadir 5 entradas iniciales usando addLogEntry para generar mensajes inteligentes
             for (let i = 0; i < 5; i++) {
-                const pastTime = new Date(now - (i * 5 * 60000)); // 5 minutos antes por cada entrada
-                const timeString = pastTime.getHours().toString().padStart(2, '0') + ':' + 
-                                  pastTime.getMinutes().toString().padStart(2, '0') + ':' + 
-                                  pastTime.getSeconds().toString().padStart(2, '0');
-                
-                const randomIndex = Math.floor(Math.random() * logMessages.length);
-                const message = logMessages[randomIndex];
-                
-                const newLog = document.createElement('div');
-                newLog.className = 'log-entry';
-                newLog.innerHTML = `<span class="log-time">${timeString}</span><span class="log-message">${message}</span>`;
-                
-                logContainer.appendChild(newLog);
+                addLogEntry();
             }
         }
         
