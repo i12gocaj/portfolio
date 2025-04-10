@@ -354,12 +354,6 @@ nav {
     font-size: 0.9rem;
 }
 
-.terminal-body .command,
-.terminal-body .output {
-    opacity: 0;
-    visibility: hidden;
-}
-
 .line {
     margin-bottom: 10px;
 }

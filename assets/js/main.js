@@ -5,6 +5,13 @@
 
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Implementación de la Alternativa 2: Ocultar inmediatamente el contenido de la terminal
+    const terminalElements = document.querySelectorAll('.terminal-body .command, .terminal-body .output');
+    terminalElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.visibility = 'hidden';
+    });
+
     // Preloader
     setTimeout(function() {
         const preloader = document.getElementById('preloader');
@@ -369,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Hacer visible el comando actual
                 command.style.display = 'inline-block';
-                command.style.visibility = 'visible';
                 setTimeout(() => {
                     command.style.opacity = '1';
                 }, 50);
