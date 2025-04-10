@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Iniciar efecto de escritura después de que se oculte el preloader
-    setTimeout(startTypingEffect, 3000);
+    setTimeout(startTypingEffect, 2500);
 
     // Animación de aparición al hacer scroll
     const observerOptions = {
