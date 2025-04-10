@@ -376,42 +376,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Make sure the current command is visible
                 command.style.display = 'inline-block';
                 
-                // Start typing the command
-                let i = 0;
-                function typeCharByChar() {
-                    if (i < commandText.length) {
-                        command.textContent += commandText.charAt(i);
-                        i++;
-                        setTimeout(typeCharByChar, 50);
-                    } else {
-                        // Command typing completed, show output after a small delay
-                        setTimeout(function() {
-                            // Show the output after typing the command
-                            if (output) {
-                                output.style.display = 'block';
-                                
-                                // Adjust terminal height after showing output
-                                if (terminalBody) {
-                                    const contentHeight = getContentHeight(terminalBody);
-                                    terminalBody.style.height = contentHeight + 'px';
-                                }
-                            }
+                typeWriter(command, commandText, 0, function() {
+                    // Add a delay to simulate command execution time
+                    setTimeout(function() {
+                        // Show the output after typing the command and a brief delay
+                        if (output) {
+                            output.style.display = 'block';
                             
-                            currentIndex++;
-                            
-                            // Prepare the next command if it exists
-                            if (currentIndex < terminalCommands.length) {
-                                setTimeout(function() {
-                                    terminalCommands[currentIndex].style.display = 'inline-block';
-                                    typeNextCommand();
-                                }, 1000);
+                            // Adjust terminal height after showing output
+                            if (terminalBody) {
+                                const contentHeight = getContentHeight(terminalBody);
+                                terminalBody.style.height = contentHeight + 'px';
                             }
-                        }, 500); // Wait 500ms after typing before showing output
-                    }
-                }
-                
-                // Start typing this command
-                typeCharByChar();
+                        }
+                        
+                        currentIndex++;
+                        
+                        // Prepare the next command if it exists
+                        if (currentIndex < terminalCommands.length) {
+                            setTimeout(function() {
+                                terminalCommands[currentIndex].style.display = 'inline-block';
+                                typeNextCommand();
+                            }, 1000);
+                        }
+                    }, 500); // 500ms delay to simulate command execution
+                });
             }
         }
         
