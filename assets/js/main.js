@@ -377,29 +377,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 command.style.display = 'inline-block';
                 
                 typeWriter(command, commandText, 0, function() {
-                    // Add a delay to simulate command execution time
-                    setTimeout(function() {
-                        // Show the output after typing the command and a brief delay
-                        if (output) {
-                            output.style.display = 'block';
-                            
-                            // Adjust terminal height after showing output
-                            if (terminalBody) {
-                                const contentHeight = getContentHeight(terminalBody);
-                                terminalBody.style.height = contentHeight + 'px';
-                            }
-                        }
+                    // Show the output after typing the command
+                    if (output) {
+                        output.style.display = 'block';
                         
-                        currentIndex++;
-                        
-                        // Prepare the next command if it exists
-                        if (currentIndex < terminalCommands.length) {
-                            setTimeout(function() {
-                                terminalCommands[currentIndex].style.display = 'inline-block';
-                                typeNextCommand();
-                            }, 1000);
+                        // Adjust terminal height after showing output
+                        if (terminalBody) {
+                            const contentHeight = getContentHeight(terminalBody);
+                            terminalBody.style.height = contentHeight + 'px';
                         }
-                    }, 500); // 500ms delay to simulate command execution
+                    }
+                    
+                    currentIndex++;
+                    
+                    // Prepare the next command if it exists
+                    if (currentIndex < terminalCommands.length) {
+                        setTimeout(function() {
+                            terminalCommands[currentIndex].style.display = 'inline-block';
+                            typeNextCommand();
+                        }, 1000);
+                    }
                 });
             }
         }
