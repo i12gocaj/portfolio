@@ -5,6 +5,16 @@
 
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Inmediatamente limpiar el contenido de la terminal para que esté vacía al cargar
+    const initialTerminalCommands = document.querySelectorAll('.terminal-body .command:not(.blink)');
+    initialTerminalCommands.forEach(cmd => {
+        // Almacenar el texto original para usarse en la animación si no está ya almacenado
+        if (!cmd.getAttribute('data-text')) {
+            cmd.setAttribute('data-text', cmd.textContent);
+        }
+        // Limpiar el texto visible de inmediato
+        cmd.textContent = '';
+    });
     // Preloader
     setTimeout(function() {
         const preloader = document.getElementById('preloader');
