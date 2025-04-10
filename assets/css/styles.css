@@ -219,7 +219,8 @@ nav {
 
 .hero-content {
     text-align: center;
-    z-index: 2;
+    position: relative;
+    z-index: 3;
     margin-top: 2rem;
 }
 
