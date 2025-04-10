@@ -73,8 +73,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <!-- Terminal modificada para animación -->
-            <div class="terminal-window hero-terminal">
+            <div class="terminal-window">
                 <div class="terminal-header">
                     <div class="terminal-buttons">
                         <span></span>
@@ -83,39 +82,38 @@
                     </div>
                     <div class="terminal-title">terminal</div>
                 </div>
-                <div class="terminal-body" id="hero-terminal-body">
-                    <div class="line" id="line-1" style="opacity: 0;">
+                <div class="terminal-body">
+                    <div class="line">
                         <span class="prompt">$</span>
-                        <span class="command" id="cmd-1"></span>
+                        <span class="command">whoami</span>
                     </div>
-                    <div class="line" id="line-2" style="opacity: 0;">
-                        <span class="output" id="out-1"></span>
+                    <div class="line">
+                        <span class="output">Javier González Casares</span>
                     </div>
-                    <div class="line" id="line-3" style="opacity: 0;">
+                    <div class="line">
                         <span class="prompt">$</span>
-                        <span class="command" id="cmd-2"></span>
+                        <span class="command">cat profile.txt</span>
                     </div>
-                    <div class="line" id="line-4" style="opacity: 0;">
-                        <span class="output" id="out-2"></span>
+                    <div class="line">
+                        <span class="output">Computer Engineer specialized in Cybersecurity</span>
                     </div>
-                    <div class="line" id="line-5" style="opacity: 0;">
+                    <div class="line">
                         <span class="prompt">$</span>
-                        <span class="command" id="cmd-3"></span>
+                        <span class="command">./scan_skills.sh</span>
                     </div>
-                    <div class="line" id="line-6" style="opacity: 0;">
-                        <span class="output" id="out-3"></span>
+                    <div class="line">
+                        <span class="output">Scanning skills...</span>
                     </div>
-                    <div class="line" id="line-7" style="opacity: 0;">
+                    <div class="line">
                         <span class="prompt">$</span>
-                        <span class="command blink" id="cursor">_</span>
+                        <span class="command blink">_</span>
                     </div>
                 </div>
             </div>
             <div class="hero-content">
                 <h1>Javier González Casares</h1>
                 <h2>Computer Engineer & Cybersecurity Specialist</h2>
-                 <!-- Botones con z-index explícito -->
-                <div class="cta-buttons" style="position: relative; z-index: 3;">
+                <div class="cta-buttons">
                     <a href="#projects" class="btn primary" id="view-projects-btn">View Projects</a>
                     <a href="#contact" class="btn secondary" id="contact-me-btn">Contact Me</a>
                 </div>
@@ -150,10 +148,6 @@
                             <i class="fab fa-github"></i>
                             <span>github.com/i12gocaj</span>
                         </div>
-                         <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+34 652 601 501</span>
-                        </div>
                     </div>
                     <blockquote>
                         "What I don't know yet is just a matter of time and determination to learn."
@@ -161,15 +155,14 @@
                 </div>
                 <div class="about-image">
                     <div class="image-container">
-                         <!-- Imagen de perfil añadida -->
-                        <img src="assets/img/profile.jpg" alt="Javier González Casares" class="profile-image" style="width: 250px; height: auto; border-radius: 50%; border: 3px solid var(--color-accent); margin: auto;">
+                        <img src="assets/img/profile.jpg" alt="Javier González Casares" class="profile-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Skills (Sin cambios aquí, ya estaba actualizado) -->
+    <!-- Technical Skills -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
@@ -180,105 +173,399 @@
                     <h3>Cybersecurity and Networks</h3>
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                            <div class="skill-info"><h4>HackTheBox / TryHackMe</h4><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div></div>
+                            <div class="skill-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>HackTheBox / TryHackMe</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-user-secret"></i></div>
-                            <div class="skill-info"><h4>Red Team</h4><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div>
+                            <div class="skill-icon">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Red Team</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-flag"></i></div>
-                            <div class="skill-info"><h4>CTFs</h4><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
+                            <div class="skill-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>CTFs</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
                         </div>
-                         <!-- Eliminados Nmap, Ghidra, etc. según CV y updates.md -->
                     </div>
                 </div>
-
+                
                 <div class="skills-category">
                     <h3>Programming and Development</h3>
-                     <div class="skills-grid">
-                        <div class="skill-item"><div class="skill-icon"><i class="fab fa-python"></i></div><div class="skill-info"><h4>Python</h4><div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-code"></i></div><div class="skill-info"><h4>C / C++</h4><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-database"></i></div><div class="skill-info"><h4>MySQL</h4><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fab fa-js"></i></div><div class="skill-info"><h4>JavaScript</h4><div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fab fa-java"></i></div><div class="skill-info"><h4>Java</h4><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div></div>
-                        <!-- Eliminado GitHub de aquí según updates.md -->
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Python</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>C / C++</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>MySQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Java</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                
                 <div class="skills-category">
                     <h3>Standards and Regulations</h3>
-                     <div class="skills-grid">
-                         <div class="skill-item"><div class="skill-icon"><i class="fas fa-file-contract"></i></div><div class="skill-info"><h4>ISA/IEC 62443</h4><div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div></div></div>
-                         <div class="skill-item"><div class="skill-icon"><i class="fas fa-lock"></i></div><div class="skill-info"><h4>ISO 27001 / 27032</h4><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div></div>
-                         <div class="skill-item"><div class="skill-icon"><i class="fas fa-shield-virus"></i></div><div class="skill-info"><h4>CCN-STIC 402 / 803</h4><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div></div>
-                     </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>ISA/IEC 62443</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>ISO 27001 / 27032</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-shield-virus"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>CCN-STIC 402 / 803</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
+                
                 <div class="skills-category">
                     <h3>Soft Skills</h3>
                     <div class="skills-grid">
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-users"></i></div><div class="skill-info"><h4>Teamwork</h4><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-comments"></i></div><div class="skill-info"><h4>Communication</h4><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-lightbulb"></i></div><div class="skill-info"><h4>Problem Solving</h4><div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-tasks"></i></div><div class="skill-info"><h4>Leadership</h4><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div></div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Teamwork</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Communication</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Problem Solving</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Leadership</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                 <div class="skills-category">
+                
+                <div class="skills-category">
                     <h3>Languages</h3>
-                     <div class="skills-grid">
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-language"></i></div><div class="skill-info"><h4>Spanish</h4><div class="skill-bar"><div class="skill-level" style="width: 100%"></div></div><span class="skill-level-text">Native</span></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fas fa-language"></i></div><div class="skill-info"><h4>English</h4><div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div><span class="skill-level-text">B2/C1 Level</span></div></div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Spanish</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%"></div>
+                                </div>
+                                <span class="skill-level-text">Native</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>English</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Projects (Sin cambios aquí, ya estaba actualizado) -->
-     <section id="projects" class="projects">
+    <!-- Featured Projects -->
+    <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
                 <h2><span class="accent">#</span> Featured Projects</h2>
             </div>
             <div class="projects-grid">
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-lock"></i></div></div>
-                    <div class="project-content"><h3>AES-app</h3><p>Encryption application implementing AES-128 in GCM mode with a user-friendly interface.</p><div class="project-tech"><span>Python</span><span>Cryptography</span></div><div class="project-links"><a href="https://github.com/i12gocaj/AES-app" target="_blank" class="btn small">GitHub</a></div></div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AES-app</h3>
+                        <p>Encryption application implementing AES-128 in GCM mode with a user-friendly interface.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Cryptography</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/AES-app" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-flag"></i></div></div>
-                    <div class="project-content"><h3>CTF-Hackademics-Forum</h3><p>Solutions for the Hackademics Forum CTF competition where I achieved 2nd position.</p><div class="project-tech"><span>Python</span><span>Cybersecurity</span></div><div class="project-links"><a href="https://github.com/i12gocaj/CTF-Hackademics-Forum-3" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>CTF-Hackademics-Forum</h3>
+                        <p>Solutions for the Hackademics Forum CTF competition where I achieved 2nd position.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Cybersecurity</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/CTF-Hackademics-Forum-3" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-ship"></i></div></div>
-                    <div class="project-content"><h3>HundirFlotaRedes</h3><p>Implementation of the classic Battleship game with network functionality and player communication.</p><div class="project-tech"><span>C</span><span>Networks</span></div><div class="project-links"><a href="https://github.com/i12gocaj/HundirFlotaRedes" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>HundirFlotaRedes</h3>
+                        <p>Implementation of the classic Battleship game with network functionality and player communication.</p>
+                        <div class="project-tech">
+                            <span>C</span>
+                            <span>Networks</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/HundirFlotaRedes" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-home"></i></div></div>
-                    <div class="project-content"><h3>Smart Home Interface</h3><p>Final project for an interface on a smart home, with device control and automation.</p><div class="project-tech"><span>Java</span><span>IoT</span></div><div class="project-links"><a href="https://github.com/i12gocaj/interfaz_SistemasInteractivos" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Home Interface</h3>
+                        <p>Final project for an interface on a smart home, with device control and automation.</p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>IoT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/interfaz_SistemasInteractivos" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-robot"></i></div></div>
-                    <div class="project-content"><h3>Artificial-Intelligent</h3><p>Artificial intelligence project with implementations of machine learning algorithms.</p><div class="project-tech"><span>Python</span><span>AI</span></div><div class="project-links"><a href="https://github.com/i12gocaj/Artificial-Intelligent" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Artificial-Intelligent</h3>
+                        <p>Artificial intelligence project with implementations of machine learning algorithms.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/Artificial-Intelligent" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-tasks"></i></div></div>
-                    <div class="project-content"><h3>ToDo App</h3><p>Task management application with intuitive interface and organization features.</p><div class="project-tech"><span>JavaScript</span><span>Web</span></div><div class="project-links"><a href="https://github.com/i12gocaj/ToDo_app" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ToDo App</h3>
+                        <p>Task management application with intuitive interface and organization features.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Web</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/ToDo_app" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-gamepad"></i></div></div>
-                    <div class="project-content"><h3>Snake Game</h3><p>Creation of Snake game with implementation of classic mechanics and additional features.</p><div class="project-tech"><span>Python</span><span>Games</span></div><div class="project-links"><a href="https://github.com/i12gocaj/snake_game" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Snake Game</h3>
+                        <p>Creation of Snake game with implementation of classic mechanics and additional features.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Games</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/snake_game" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-image"></i></div></div>
-                    <div class="project-content"><h3>Image Processing</h3><p>Jupyter notebook project for digital image processing and analysis techniques.</p><div class="project-tech"><span>Python</span><span>Computer Vision</span></div><div class="project-links"><a href="https://github.com/i12gocaj/ImageProcessing" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Image Processing</h3>
+                        <p>Jupyter notebook project for digital image processing and analysis techniques.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/ImageProcessing" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                 <div class="project-card">
-                    <div class="project-image"><div class="project-placeholder"><i class="fas fa-paw"></i></div></div>
-                    <div class="project-content"><h3>ZooWeb</h3><p>Web programming design project for a zoo management and information system.</p><div class="project-tech"><span>JavaScript</span><span>Web Development</span></div><div class="project-links"><a href="https://github.com/i12gocaj/ZooWeb" target="_blank" class="btn small">GitHub</a></div></div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ZooWeb</h3>
+                        <p>Web programming design project for a zoo management and information system.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/ZooWeb" target="_blank" class="btn small">GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,8 +578,7 @@
                 <h2><span class="accent">#</span> Experience & Education</h2>
             </div>
             <div class="timeline">
-                <!-- Ordenado cronológicamente -->
-                 <div class="timeline-item">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2009 - Present</div>
                     <div class="timeline-content">
@@ -300,8 +586,8 @@
                         <p>Former group president and youth group leader.</p>
                     </div>
                 </div>
-
-                 <div class="timeline-item">
+                
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2018 - 2021</div>
                     <div class="timeline-content">
@@ -309,8 +595,8 @@
                         <p>Champion in debate competitions (x2) and debate mentor.</p>
                     </div>
                 </div>
-
-                 <div class="timeline-item">
+                
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2021</div>
                     <div class="timeline-content">
@@ -319,18 +605,18 @@
                         <p>Participation in the National Cybersecurity League organized by the Civil Guard.</p>
                     </div>
                 </div>
-
+                
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 - 2025 (Expected)</div> <!-- Ajustado -->
+                    <div class="timeline-date">2021 - 2025</div>
                     <div class="timeline-content">
                         <h3>Degree in Computer Engineering - Specialization in Computing</h3>
                         <h4>Higher Polytechnic School of Córdoba</h4>
                         <p>Training in software engineering, operating systems, networks, and cybersecurity.</p>
                     </div>
                 </div>
-
-                 <div class="timeline-item">
+                
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2024</div>
                     <div class="timeline-content">
@@ -339,8 +625,8 @@
                         <p>Training in design and architecture of complex software systems.</p>
                     </div>
                 </div>
-
-                 <div class="timeline-item">
+                
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2024</div>
                     <div class="timeline-content">
@@ -349,25 +635,13 @@
                         <p>Specialized training in cybersecurity provided by the National Cryptologic Center.</p>
                     </div>
                 </div>
-
-                <!-- NUEVO ITEM AÑADIDO -->
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025</div>
-                    <div class="timeline-content">
-                        <h3>2nd Place - III Hackademics Forum CTF</h3>
-                        <h4>Aula de Ciberseguridad y Redes - EPSC</h4>
-                        <p>Achieved second position in the Capture The Flag competition during the 3rd edition of the Hackademics Forum.</p>
-                    </div>
-                </div>
-                <!-- FIN NUEVO ITEM -->
-
-                 <div class="timeline-item">
+                
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">Current</div>
                     <div class="timeline-content">
                         <h3>Member of CTF Caliphal Hounds team</h3>
-                        <p>Active participation in Capture The Flag competitions and cybersecurity challenges.</p>
+                        <p>Participation in Capture The Flag competitions and cybersecurity challenges.</p>
                     </div>
                 </div>
             </div>
@@ -387,22 +661,20 @@
                         <span class="status">Status: <span class="active">Active</span></span>
                     </div>
                     <div class="dashboard-controls">
-                        <button class="refresh-btn" id="refresh-dashboard-btn">Refresh</button>
+                        <button class="refresh-btn">Refresh</button>
                     </div>
                 </div>
                 <div class="dashboard-grid">
                     <div class="dashboard-card">
                         <h4>Skill Distribution</h4>
-                        <!-- Canvas añadido -->
-                        <div class="chart-container" id="skills-chart-container">
-                             <canvas id="skillsChartCanvas"></canvas>
+                        <div class="chart-container" id="skills-chart">
+                            <canvas id="skills-chart-canvas"></canvas>
                         </div>
                     </div>
                     <div class="dashboard-card">
                         <h4>Project Completion</h4>
-                         <!-- Canvas añadido -->
-                        <div class="chart-container" id="projects-chart-container">
-                             <canvas id="projectsChartCanvas"></canvas>
+                        <div class="chart-container" id="projects-chart">
+                            <canvas id="projects-chart-canvas"></canvas>
                         </div>
                     </div>
                     <div class="dashboard-card">
@@ -418,18 +690,17 @@
                                 </div>
                                 <div class="result-item">
                                     <span class="result-label">Security Score:</span>
-                                    <span class="result-value" id="security-score">100/100</span>
+                                    <span class="result-value" id="security-score">98/100</span>
                                 </div>
                                 <div class="result-item">
                                     <span class="result-label">Last Scan:</span>
-                                    <span class="result-value" id="last-scan-time">Initializing...</span>
+                                    <span class="result-value" id="last-scan-time">Just now</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="dashboard-card">
                         <h4>Activity Log</h4>
-                         <!-- Contenedor para logs dinámicos -->
                         <div class="log-container" id="activity-log">
                             <!-- Activity log entries will be dynamically generated -->
                         </div>
@@ -469,18 +740,15 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- ACTION URL: Asegúrate de que esta URL sea EXACTAMENTE la que te dio Formspree -->
-                    <form id="contactForm" action="https://formspree.io/f/javiergc100@protonmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Portfolio Contact Form Submission">
-                         <!-- URL a la que redirigir tras éxito. El #contact?success=true se usará en JS -->
-                        <input type="hidden" name="_next" value="https://i12gocaj.github.io/GitHub-portfolio/#contact?success=true">
+                    <form id="contactForm" action="https://formspree.io/f/xbjnkwgj" method="POST">
+                        <input type="hidden" name="_subject" value="Portfolio Contact Form">
+                        <input type="hidden" name="_next" value="https://portfolio.javiergc.com/#contact?success=true">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                             <!-- _replyto es importante para que puedas responder directamente -->
                             <input type="email" id="email" name="_replyto" required>
                         </div>
                         <div class="form-group">
@@ -492,8 +760,7 @@
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn primary">Send Message</button>
-                         <!-- Div para mostrar estado (éxito/error) -->
-                        <div id="form-status" class="form-status" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center;">
+                        <div class="form-status" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center;">
                             <p></p>
                         </div>
                     </form>
@@ -502,7 +769,7 @@
         </div>
     </section>
 
-    <!-- Footer (Sin cambios) -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -517,7 +784,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Javier González Casares. All rights reserved.</p>
+                <p>&copy; 2025 Javier González Casares. All rights reserved.</p>
                 <p class="easter-egg"><!-- c0d3_1s_p03try --></p>
             </div>
         </div>
