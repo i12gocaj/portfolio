@@ -821,49 +821,165 @@
                 <div class="dashboard-header">
                     <div class="dashboard-title">
                         <h3>Security Monitoring System</h3>
-                        <span class="status">Status: <span class="active">Active</span></span>
+                        <p class="dashboard-description">Operational overview of the initiatives I lead across cybersecurity, development, and continuous delivery.</p>
+                        <div class="status-badges">
+                            <span class="status-badge live"><i class="fas fa-circle"></i> Live</span>
+                            <span class="status-badge neutral"><i class="fas fa-shield-halved"></i> 24/7 Coverage</span>
+                            <span class="status-badge info" id="dashboard-sync"><i class="fas fa-clock"></i> <span class="status-text">Synced just now</span></span>
+                        </div>
                     </div>
                     <div class="dashboard-controls">
-                        <button class="refresh-btn">Refresh</button>
+                        <div class="refresh-meta">
+                            <span class="last-refresh-label">Last refresh</span>
+                            <span class="last-refresh-value" id="last-refresh">Just now</span>
+                        </div>
+                        <button class="refresh-btn"><i class="fas fa-rotate-right"></i> Refresh</button>
+                    </div>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-icon"><i class="fas fa-rocket"></i></span>
+                            <div>
+                                <p class="stat-label">Projects Delivered</p>
+                                <p class="stat-subtitle">Production-grade launches</p>
+                            </div>
+                        </div>
+                        <p class="stat-value" id="stat-projects">12</p>
+                        <p class="stat-trend positive"><i class="fas fa-arrow-up"></i> +3 this year</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-icon"><i class="fas fa-network-wired"></i></span>
+                            <div>
+                                <p class="stat-label">Active Engagements</p>
+                                <p class="stat-subtitle">Security &amp; research tracks</p>
+                            </div>
+                        </div>
+                        <p class="stat-value">3</p>
+                        <p class="stat-trend info"><i class="fas fa-circle-notch"></i> Cross-team collaboration</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-icon"><i class="fas fa-stopwatch"></i></span>
+                            <div>
+                                <p class="stat-label">Avg Response Time</p>
+                                <p class="stat-subtitle">Mean time to remediate</p>
+                            </div>
+                        </div>
+                        <p class="stat-value">38m</p>
+                        <p class="stat-trend warning"><i class="fas fa-bolt"></i> SLA &lt; 1h maintained</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-icon"><i class="fas fa-certificate"></i></span>
+                            <div>
+                                <p class="stat-label">Certifications</p>
+                                <p class="stat-subtitle">Industry-recognised</p>
+                            </div>
+                        </div>
+                        <p class="stat-value">6</p>
+                        <p class="stat-trend positive"><i class="fas fa-check"></i> Latest: eJPTv2</p>
                     </div>
                 </div>
                 <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <h4>Skill Distribution</h4>
+                    <div class="dashboard-card wide" id="skills-insight">
+                        <div class="card-header">
+                            <h4>Skill Distribution</h4>
+                            <span class="card-meta">Radar view of core competencies</span>
+                        </div>
                         <div class="chart-container" id="skills-chart">
                             <canvas id="skills-chart-canvas"></canvas>
                         </div>
                     </div>
-                    <div class="dashboard-card">
-                        <h4>Project Completion</h4>
+                    <div class="dashboard-card" id="projects-insight">
+                        <div class="card-header">
+                            <h4>Project Pipeline</h4>
+                            <span class="card-meta">Delivery focus across portfolio</span>
+                        </div>
                         <div class="chart-container" id="projects-chart">
                             <canvas id="projects-chart-canvas"></canvas>
                         </div>
+                        <div class="card-footer">
+                            <span class="tag success"><i class="fas fa-check-circle"></i> 5 delivered</span>
+                            <span class="tag warning"><i class="fas fa-hourglass-half"></i> 2 in progress</span>
+                            <span class="tag info"><i class="fas fa-lightbulb"></i> 3 planned</span>
+                        </div>
                     </div>
-                    <div class="dashboard-card">
-                        <h4>Security Scanner</h4>
+                    <div class="dashboard-card" id="scanner-insight">
+                        <div class="card-header">
+                            <h4>Security Scanner</h4>
+                            <span class="scanner-status secure">Secure</span>
+                        </div>
+                        <p class="card-meta">Continuous scanning of lab and production-like environments.</p>
                         <div class="scanner-container">
                             <div class="scanner-animation">
                                 <div class="scan-line"></div>
                             </div>
                             <div class="scanner-results">
                                 <div class="result-item">
-                                    <span class="result-label">Vulnerabilities:</span>
-                                    <span class="result-value" id="vulnerability-count">0</span>
+                                    <span class="result-label">Last Scan</span>
+                                    <span class="result-value" id="last-scan-time">Just now</span>
                                 </div>
                                 <div class="result-item">
-                                    <span class="result-label">Security Score:</span>
+                                    <span class="result-label">Security Score</span>
                                     <span class="result-value" id="security-score">98/100</span>
                                 </div>
                                 <div class="result-item">
-                                    <span class="result-label">Last Scan:</span>
-                                    <span class="result-value" id="last-scan-time">Just now</span>
+                                    <span class="result-label">Open Findings</span>
+                                    <span class="result-value" id="vulnerability-count">0</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <span class="tag info"><i class="fas fa-robot"></i> Automated nightly scans</span>
+                            <span class="tag"><i class="fas fa-shield-alt"></i> OWASP ASVS baseline</span>
+                        </div>
                     </div>
-                    <div class="dashboard-card">
-                        <h4>Activity Log</h4>
+                    <div class="dashboard-card" id="readiness-insight">
+                        <div class="card-header">
+                            <h4>Operational Readiness</h4>
+                            <span class="card-meta">Capability coverage across key disciplines</span>
+                        </div>
+                        <ul class="progress-list">
+                            <li class="progress-item">
+                                <div class="progress-label">
+                                    <span>Incident Response</span>
+                                    <span class="progress-value">92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <span class="progress-fill" style="width: 92%;"></span>
+                                </div>
+                            </li>
+                            <li class="progress-item">
+                                <div class="progress-label">
+                                    <span>Threat Research</span>
+                                    <span class="progress-value">88%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <span class="progress-fill" style="width: 88%;"></span>
+                                </div>
+                            </li>
+                            <li class="progress-item">
+                                <div class="progress-label">
+                                    <span>Secure Development</span>
+                                    <span class="progress-value">94%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <span class="progress-fill" style="width: 94%;"></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="tag success"><i class="fas fa-headset"></i> 24/7 monitoring</span>
+                            <span class="tag info"><i class="fas fa-book"></i> Playbooks documented</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-card wide" id="activity-insight">
+                        <div class="card-header">
+                            <h4>Activity Log</h4>
+                            <span class="card-meta">Latest automation and security events</span>
+                        </div>
                         <div class="log-container" id="activity-log">
                             <!-- Activity log entries will be dynamically generated -->
                         </div>

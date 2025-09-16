@@ -502,12 +502,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function formatTimeFromDate(date) {
+        return date.getHours().toString().padStart(2, '0') + ':' +
+               date.getMinutes().toString().padStart(2, '0');
+    }
+
+    function updateDashboardTimestamps(date) {
+        const formatted = formatTimeFromDate(date);
+        const lastRefresh = document.getElementById('last-refresh');
+        if (lastRefresh) {
+            lastRefresh.textContent = formatted;
+        }
+
+        const syncBadgeText = document.querySelector('#dashboard-sync .status-text');
+        if (syncBadgeText) {
+            syncBadgeText.textContent = `Synced ${formatted}`;
+        }
+    }
+
     // Dashboard Security Scanner con aleatoriedad
     function updateSecurityScanner() {
         const vulnerabilityCount = document.getElementById('vulnerability-count');
         const securityScore = document.getElementById('security-score');
         const lastScanTime = document.getElementById('last-scan-time');
-        
+
         if (vulnerabilityCount && securityScore && lastScanTime) {
             // Generar valores aleatorios para simular escaneos
             const randomVulnerabilities = Math.floor(Math.random() * 5); // 0-4 vulnerabilidades
@@ -519,10 +537,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Actualizar tiempo de escaneo
             const now = new Date();
-            const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
-                              now.getMinutes().toString().padStart(2, '0');
+            const timeString = formatTimeFromDate(now);
             lastScanTime.textContent = timeString;
-            
+
             // Añadir entrada al log con mensaje específico basado en vulnerabilidades
             let message = '';
             if (randomVulnerabilities === 0) {
@@ -540,12 +557,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 scannerStatus.className = 'scanner-status';
                 if (randomVulnerabilities === 0) {
                     scannerStatus.classList.add('secure');
+                    scannerStatus.textContent = 'Secure';
                 } else if (randomVulnerabilities <= 2) {
                     scannerStatus.classList.add('warning');
+                    scannerStatus.textContent = 'Monitor';
                 } else {
                     scannerStatus.classList.add('danger');
+                    scannerStatus.textContent = 'Action Required';
                 }
             }
+
+            updateDashboardTimestamps(now);
         }
     }
     
@@ -733,17 +755,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Botón de actualización del dashboard
     const refreshBtn = document.querySelector('.refresh-btn');
     if (refreshBtn) {
+        const setRefreshDefaultState = () => {
+            refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i> Refresh';
+        };
+
+        setRefreshDefaultState();
+
         refreshBtn.addEventListener('click', function() {
-            // Actualizar scanner
-            updateSecurityScanner();
-            
-            // Efecto de actualización
             this.disabled = true;
-            this.textContent = 'Refreshing...';
-            
+            this.innerHTML = '<i class="fas fa-circle-notch"></i> Refreshing...';
+
+            updateSecurityScanner();
+
             setTimeout(() => {
                 this.disabled = false;
-                this.textContent = 'Refresh';
+                setRefreshDefaultState();
             }, 2000);
         });
     }
