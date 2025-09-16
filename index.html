@@ -19,32 +19,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="terminal-title">initializing...</div>
-            </div>
-            <div class="terminal-body">
-                <div class="line">
-                    <span class="prompt">$</span>
-                    <span class="command">loading_portfolio</span>
-                </div>
-                <div class="line">
-                    <span class="output">Loading resources...</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Header/Navigation -->
     <header>
         <nav>
@@ -83,6 +57,18 @@
                     <div class="terminal-title">terminal</div>
                 </div>
                 <div class="terminal-body">
+                    <div class="line">
+                        <span class="prompt">$</span>
+                        <span class="command loading-command" data-delay-after="1600" data-output-delay="120">loading_portfolio</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">
+                            Loading resources...
+                            <span class="terminal-progress-wrapper">
+                                <span class="terminal-progress"></span>
+                            </span>
+                        </span>
+                    </div>
                     <div class="line">
                         <span class="prompt">$</span>
                         <span class="command">whoami</span>
