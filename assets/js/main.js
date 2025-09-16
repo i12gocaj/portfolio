@@ -5,15 +5,6 @@
 
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
-    setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        preloader.style.opacity = '0';
-        setTimeout(function() {
-            preloader.style.display = 'none';
-        }, 500);
-    }, 2500);
-
     // Navegación
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -322,82 +313,102 @@ document.addEventListener('DOMContentLoaded', function() {
     // Efecto de escritura para el terminal - versión secuencial
     const terminalCommands = document.querySelectorAll('.terminal-body .command:not(.blink)');
     const terminalOutputs = document.querySelectorAll('.terminal-body .output');
-    
-    function typeWriter(element, text, i, callback) {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(function() {
-                typeWriter(element, text, i, callback);
-            }, 50);
-        } else if (callback) {
-            setTimeout(callback, 500);
+    const DEFAULT_TYPING_SPEED = 25;
+    const DEFAULT_OUTPUT_DELAY = 150;
+    const DEFAULT_COMMAND_DELAY = 350;
+
+    const parseWithFallback = (value, fallback) => {
+        const parsed = parseInt(value, 10);
+        return Number.isNaN(parsed) ? fallback : parsed;
+    };
+
+    function typeWriter(element, text, index, speed, done) {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            setTimeout(() => typeWriter(element, text, index + 1, speed, done), speed);
+        } else if (typeof done === 'function') {
+            done();
         }
     }
-    
+
     function startTypingEffect() {
-        // Limpiar todos los comandos y salidas primero
-        terminalCommands.forEach(cmd => {
-            // Guardar el texto original como atributo data-text
+        if (!terminalCommands.length) {
+            return;
+        }
+
+        // Preparar comandos y salidas antes de iniciar la animación
+        terminalCommands.forEach((cmd, commandIndex) => {
             const originalText = cmd.textContent;
             cmd.setAttribute('data-text', originalText);
-            // Limpiar el texto visible
             cmd.textContent = '';
-            // Configurar transición para animación suave
             cmd.style.transition = 'opacity 0.3s';
             cmd.style.opacity = '0';
-            // Ocultar todos los comandos excepto el primero
-            if (cmd !== terminalCommands[0]) {
+
+            if (commandIndex !== 0) {
                 cmd.style.display = 'none';
             }
         });
-        
-        // Ocultar todas las salidas
+
         terminalOutputs.forEach(output => {
             output.style.display = 'none';
             output.style.opacity = '0';
             output.style.transition = 'opacity 0.3s';
         });
-        
+
         let currentIndex = 0;
-        
+
         function typeNextCommand() {
-            if (currentIndex < terminalCommands.length) {
-                const command = terminalCommands[currentIndex];
-                const output = terminalOutputs[currentIndex];
-                const commandText = command.getAttribute('data-text');
-                
-                // Hacer visible el comando actual
-                command.style.display = 'inline-block';
-                setTimeout(() => {
-                    command.style.opacity = '1';
-                }, 50);
-                
-                typeWriter(command, commandText, 0, function() {
-                    // Mostrar la salida después de escribir el comando
-                    if (output) {
-                        output.style.display = 'inline-block';
-                        setTimeout(() => {
-                            output.style.opacity = '1';
-                        }, 50);
-                    }
-                    
-                    currentIndex++;
-                    
-                    // Preparar el siguiente comando si existe
-                    if (currentIndex < terminalCommands.length) {
-                        setTimeout(typeNextCommand, 1000);
-                    }
-                });
+            if (currentIndex >= terminalCommands.length) {
+                return;
             }
+
+            const command = terminalCommands[currentIndex];
+            const output = terminalOutputs[currentIndex] || null;
+            const commandText = command.getAttribute('data-text') || '';
+            const typingSpeed = Math.max(parseWithFallback(command.dataset.typingSpeed, DEFAULT_TYPING_SPEED), 10);
+            const outputDelay = Math.max(parseWithFallback(command.dataset.outputDelay, DEFAULT_OUTPUT_DELAY), 0);
+            const delayAfter = Math.max(parseWithFallback(command.dataset.delayAfter, DEFAULT_COMMAND_DELAY), 0);
+
+            command.style.display = 'inline-block';
+            setTimeout(() => {
+                command.style.opacity = '1';
+            }, 40);
+
+            const proceedToNext = () => {
+                currentIndex++;
+                if (currentIndex < terminalCommands.length) {
+                    setTimeout(typeNextCommand, delayAfter);
+                }
+            };
+
+            typeWriter(command, commandText, 0, typingSpeed, () => {
+                if (output) {
+                    setTimeout(() => {
+                        output.style.display = 'block';
+                        requestAnimationFrame(() => {
+                            output.style.opacity = '1';
+                        });
+
+                        const progressElement = output.querySelector('.terminal-progress');
+                        if (progressElement) {
+                            progressElement.classList.remove('animate');
+                            void progressElement.offsetWidth;
+                            progressElement.classList.add('animate');
+                        }
+
+                        proceedToNext();
+                    }, outputDelay);
+                } else {
+                    proceedToNext();
+                }
+            });
         }
-        
-        // Iniciar con el primer comando
+
         typeNextCommand();
     }
-    
-    // Iniciar efecto de escritura después de que se oculte el preloader
-    setTimeout(startTypingEffect, 2500);
+
+    // Iniciar efecto de escritura una vez cargado el DOM
+    setTimeout(startTypingEffect, 400);
 
     // Animación de aparición al hacer scroll
     const observerOptions = {
