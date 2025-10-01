@@ -516,7 +516,11 @@ blockquote {
 .documents {
     background-color: rgba(17, 34, 64, 0.3);
     min-height: auto;
+
+    padding: 80px 0 32px;
+
     padding: 100px 0 60px;
+
 }
 
 .documents .section-header {
@@ -531,11 +535,57 @@ blockquote {
 }
 
 .documents-actions {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+}
+
+.pagination-controls {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pagination-controls .page-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination-controls .page-number {
+    min-width: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-accent);
+    background-color: transparent;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.pagination-controls .page-number:hover:not(:disabled) {
+    background-color: rgba(100, 255, 218, 0.12);
+}
+
+.pagination-controls .page-number.is-active {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    cursor: default;
+}
+
+.pagination-controls .page-number:disabled {
+    opacity: 0.7;
+}
+
+.project-card.is-hidden {
+    display: none !important;
 }
 
 .documents-actions .btn {
