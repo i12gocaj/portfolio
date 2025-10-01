@@ -352,6 +352,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+});
+
 // Añadir clase para animaciones CSS y arreglar botones de navegación
 document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('loaded');
@@ -400,6 +402,93 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ejecutar inmediatamente y también después de un retraso para asegurar que los elementos estén cargados
     setupNavigationButtons();
     setTimeout(setupNavigationButtons, 1000);
+
+    // Pagination for Projects Section
+    const projectsGrid = document.querySelector('#projects .projects-grid');
+    if (projectsGrid) {
+        const projectCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
+        const projectsPerPage = 6;
+        let currentPage = 1;
+        const totalPages = Math.max(1, Math.ceil(projectCards.length / projectsPerPage));
+
+        const toggleProjectVisibility = () => {
+            const startIndex = (currentPage - 1) * projectsPerPage;
+            const endIndex = startIndex + projectsPerPage;
+
+            projectCards.forEach((card, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    card.classList.remove('is-hidden');
+                } else {
+                    card.classList.add('is-hidden');
+                }
+            });
+        };
+
+        const updatePaginationInfo = () => {
+            const pageInfo = document.getElementById('page-info');
+            const prevButton = document.getElementById('prev-page');
+            const nextButton = document.getElementById('next-page');
+
+            if (pageInfo) {
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            }
+
+            if (prevButton) {
+                prevButton.disabled = currentPage === 1;
+            }
+
+            if (nextButton) {
+                nextButton.disabled = currentPage === totalPages;
+            }
+        };
+
+        const goToPage = (page) => {
+            const safePage = Math.min(Math.max(page, 1), totalPages);
+            if (safePage === currentPage) {
+                return;
+            }
+
+            currentPage = safePage;
+            toggleProjectVisibility();
+            updatePaginationInfo();
+        };
+
+        if (totalPages > 1) {
+            const paginationContainer = document.createElement('nav');
+            paginationContainer.classList.add('pagination-controls');
+            paginationContainer.setAttribute('aria-label', 'Projects pagination');
+            projectsGrid.insertAdjacentElement('afterend', paginationContainer);
+
+            const prevButton = document.createElement('button');
+            prevButton.id = 'prev-page';
+            prevButton.type = 'button';
+            prevButton.classList.add('btn', 'small');
+            prevButton.textContent = 'Previous';
+            prevButton.addEventListener('click', () => {
+                goToPage(currentPage - 1);
+            });
+
+            const pageInfo = document.createElement('span');
+            pageInfo.id = 'page-info';
+            pageInfo.classList.add('page-info');
+
+            const nextButton = document.createElement('button');
+            nextButton.id = 'next-page';
+            nextButton.type = 'button';
+            nextButton.classList.add('btn', 'small');
+            nextButton.textContent = 'Next';
+            nextButton.addEventListener('click', () => {
+                goToPage(currentPage + 1);
+            });
+
+            paginationContainer.append(prevButton, pageInfo, nextButton);
+
+            toggleProjectVisibility();
+            updatePaginationInfo();
+        } else {
+            toggleProjectVisibility();
+        }
+    }
 });
 
 // Estilos adicionales para animaciones
@@ -422,78 +511,4 @@ document.head.insertAdjacentHTML('beforeend', `
 </style>
 `);
 
-
-// Pagination for Projects Section
-const projectsGrid = document.querySelector('#projects .projects-grid');
-const projectCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
-const projectsPerPage = 6;
-let currentPage = 1;
-
-function displayProjects(page) {
-    currentPage = page;
-    const startIndex = (page - 1) * projectsPerPage;
-    const endIndex = startIndex + projectsPerPage;
-
-    projectCards.forEach((card, index) => {
-        if (index >= startIndex && index < endIndex) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    updatePaginationControls();
-}
-
-function createPaginationControls() {
-    const paginationContainer = document.createElement('div');
-    paginationContainer.classList.add('pagination-controls');
-    projectsGrid.parentNode.insertBefore(paginationContainer, projectsGrid.nextSibling);
-
-    const prevButton = document.createElement('button');
-    prevButton.textContent = 'Previous';
-    prevButton.classList.add('btn', 'small');
-    prevButton.id = 'prev-page';
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            displayProjects(currentPage - 1);
-        }
-    });
-    paginationContainer.appendChild(prevButton);
-
-    const pageInfo = document.createElement('span');
-    pageInfo.id = 'page-info';
-    pageInfo.classList.add('page-info');
-    paginationContainer.appendChild(pageInfo);
-
-    const nextButton = document.createElement('button');
-    nextButton.textContent = 'Next';
-    nextButton.classList.add('btn', 'small');
-    nextButton.id = 'next-page';
-    nextButton.addEventListener('click', () => {
-        if (currentPage < Math.ceil(projectCards.length / projectsPerPage)) {
-            displayProjects(currentPage + 1);
-        }
-    });
-    paginationContainer.appendChild(nextButton);
-
-    updatePaginationControls(); 
-}
-
-function updatePaginationControls() {
-    const totalPages = Math.ceil(projectCards.length / projectsPerPage);
-    const prevButton = document.getElementById('prev-page');
-    const nextButton = document.getElementById('next-page');
-    const pageInfo = document.getElementById('page-info');
-
-    if (prevButton) prevButton.disabled = currentPage === 1;
-    if (nextButton) nextButton.disabled = currentPage === totalPages;
-    if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-}
-
-// Initialize pagination if project cards exist
-if (projectCards.length > 0) {
-    createPaginationControls();
-    displayProjects(1);
-}
 

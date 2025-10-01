@@ -515,6 +515,8 @@ blockquote {
 /* Professional Documents */
 .documents {
     background-color: rgba(17, 34, 64, 0.3);
+    min-height: auto;
+    padding: 80px 0 32px;
 }
 
 .documents .section-header {
@@ -529,11 +531,29 @@ blockquote {
 }
 
 .documents-actions {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+}
+
+.pagination-controls {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pagination-controls .page-info {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.project-card.is-hidden {
+    display: none !important;
 }
 
 .documents-actions .btn {
