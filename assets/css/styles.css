@@ -547,9 +547,37 @@ blockquote {
     gap: 1rem;
 }
 
-.pagination-controls .page-info {
-    color: var(--color-text-secondary);
+.pagination-controls .page-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination-controls .page-number {
+    min-width: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-accent);
+    background-color: transparent;
+    color: var(--color-accent);
     font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.pagination-controls .page-number:hover:not(:disabled) {
+    background-color: rgba(100, 255, 218, 0.12);
+}
+
+.pagination-controls .page-number.is-active {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    cursor: default;
+}
+
+.pagination-controls .page-number:disabled {
+    opacity: 0.7;
 }
 
 .project-card.is-hidden {

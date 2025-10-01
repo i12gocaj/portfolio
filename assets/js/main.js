@@ -404,90 +404,136 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(setupNavigationButtons, 1000);
 
     // Pagination for Projects Section
-    const projectsGrid = document.querySelector('#projects .projects-grid');
-    if (projectsGrid) {
-        const projectCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
-        const projectsPerPage = 6;
-        let currentPage = 1;
-        const totalPages = Math.max(1, Math.ceil(projectCards.length / projectsPerPage));
+    class ProjectsPaginator {
+        constructor(gridElement, itemsPerPage = 6) {
+            this.grid = gridElement;
+            this.cards = Array.from(this.grid.querySelectorAll('.project-card'));
+            this.itemsPerPage = Math.max(1, itemsPerPage);
+            this.currentPage = 1;
+            this.totalPages = Math.max(1, Math.ceil(this.cards.length / this.itemsPerPage));
+            this.controls = null;
+            this.prevButton = null;
+            this.nextButton = null;
+            this.pageButtons = [];
 
-        const toggleProjectVisibility = () => {
-            const startIndex = (currentPage - 1) * projectsPerPage;
-            const endIndex = startIndex + projectsPerPage;
+            if (this.cards.length) {
+                this.initialize();
+            }
+        }
 
-            projectCards.forEach((card, index) => {
-                if (index >= startIndex && index < endIndex) {
-                    card.classList.remove('is-hidden');
-                } else {
-                    card.classList.add('is-hidden');
-                }
+        initialize() {
+            this.renderCurrentPage();
+
+            if (this.totalPages > 1) {
+                this.createControls();
+                this.updateControls();
+            }
+        }
+
+        renderCurrentPage() {
+            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+
+            this.cards.forEach((card, index) => {
+                const shouldShow = index >= startIndex && index < endIndex;
+                card.classList.toggle('is-hidden', !shouldShow);
             });
-        };
+        }
 
-        const updatePaginationInfo = () => {
-            const pageInfo = document.getElementById('page-info');
-            const prevButton = document.getElementById('prev-page');
-            const nextButton = document.getElementById('next-page');
+        createButton(label, onClick) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.classList.add('btn', 'small');
+            button.textContent = label;
+            button.addEventListener('click', onClick);
+            return button;
+        }
 
-            if (pageInfo) {
-                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        createControls() {
+            // Remove any existing pagination controls before creating new ones
+            const existingControls = this.grid.parentElement.querySelector('.pagination-controls');
+            if (existingControls) {
+                existingControls.remove();
             }
 
-            if (prevButton) {
-                prevButton.disabled = currentPage === 1;
-            }
-
-            if (nextButton) {
-                nextButton.disabled = currentPage === totalPages;
-            }
-        };
-
-        const goToPage = (page) => {
-            const safePage = Math.min(Math.max(page, 1), totalPages);
-            if (safePage === currentPage) {
-                return;
-            }
-
-            currentPage = safePage;
-            toggleProjectVisibility();
-            updatePaginationInfo();
-        };
-
-        if (totalPages > 1) {
             const paginationContainer = document.createElement('nav');
             paginationContainer.classList.add('pagination-controls');
             paginationContainer.setAttribute('aria-label', 'Projects pagination');
-            projectsGrid.insertAdjacentElement('afterend', paginationContainer);
 
-            const prevButton = document.createElement('button');
-            prevButton.id = 'prev-page';
-            prevButton.type = 'button';
-            prevButton.classList.add('btn', 'small');
-            prevButton.textContent = 'Previous';
-            prevButton.addEventListener('click', () => {
-                goToPage(currentPage - 1);
+            this.prevButton = this.createButton('Previous', () => {
+                this.goToPage(this.currentPage - 1);
             });
+            this.prevButton.setAttribute('aria-label', 'Previous projects page');
 
-            const pageInfo = document.createElement('span');
-            pageInfo.id = 'page-info';
-            pageInfo.classList.add('page-info');
-
-            const nextButton = document.createElement('button');
-            nextButton.id = 'next-page';
-            nextButton.type = 'button';
-            nextButton.classList.add('btn', 'small');
-            nextButton.textContent = 'Next';
-            nextButton.addEventListener('click', () => {
-                goToPage(currentPage + 1);
+            this.nextButton = this.createButton('Next', () => {
+                this.goToPage(this.currentPage + 1);
             });
+            this.nextButton.setAttribute('aria-label', 'Next projects page');
 
-            paginationContainer.append(prevButton, pageInfo, nextButton);
+            const pageNumbersWrapper = document.createElement('div');
+            pageNumbersWrapper.classList.add('page-buttons');
+            pageNumbersWrapper.setAttribute('role', 'group');
+            pageNumbersWrapper.setAttribute('aria-label', 'Project pages');
 
-            toggleProjectVisibility();
-            updatePaginationInfo();
-        } else {
-            toggleProjectVisibility();
+            for (let page = 1; page <= this.totalPages; page += 1) {
+                const pageButton = document.createElement('button');
+                pageButton.type = 'button';
+                pageButton.classList.add('page-number');
+                pageButton.dataset.page = page.toString();
+                pageButton.textContent = page.toString();
+                pageButton.setAttribute('aria-label', `Go to projects page ${page}`);
+                pageButton.addEventListener('click', () => {
+                    this.goToPage(page);
+                });
+
+                this.pageButtons.push(pageButton);
+                pageNumbersWrapper.appendChild(pageButton);
+            }
+
+            paginationContainer.append(this.prevButton, pageNumbersWrapper, this.nextButton);
+            this.grid.insertAdjacentElement('afterend', paginationContainer);
+
+            this.controls = paginationContainer;
         }
+
+        updateControls() {
+            if (!this.controls) {
+                return;
+            }
+
+            if (this.prevButton) {
+                this.prevButton.disabled = this.currentPage === 1;
+            }
+
+            if (this.nextButton) {
+                this.nextButton.disabled = this.currentPage === this.totalPages;
+            }
+
+            this.pageButtons.forEach(button => {
+                const buttonPage = parseInt(button.dataset.page, 10);
+                const isActive = buttonPage === this.currentPage;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-pressed', isActive.toString());
+                button.setAttribute('aria-current', isActive ? 'page' : 'false');
+                button.disabled = isActive;
+            });
+        }
+
+        goToPage(pageNumber) {
+            const safePage = Math.min(Math.max(pageNumber, 1), this.totalPages);
+            if (safePage === this.currentPage) {
+                return;
+            }
+
+            this.currentPage = safePage;
+            this.renderCurrentPage();
+            this.updateControls();
+        }
+    }
+
+    const projectsGrid = document.querySelector('#projects .projects-grid');
+    if (projectsGrid) {
+        new ProjectsPaginator(projectsGrid, 6);
     }
 });
 
