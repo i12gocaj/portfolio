@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Pagination for Projects Section
 
     class ProjectsPaginator {
-        constructor(gridElement, itemsPerPage = 6) {
+        constructor(gridElement, itemsPerPage = 4) {
             this.grid = gridElement;
             this.cards = Array.from(this.grid.querySelectorAll('.project-card'));
             this.itemsPerPage = Math.max(1, itemsPerPage);
@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const projectsGrid = document.querySelector('#projects .projects-grid');
     if (projectsGrid) {
-        new ProjectsPaginator(projectsGrid, 6);
+        new ProjectsPaginator(projectsGrid, 4);
     }
 });
 
