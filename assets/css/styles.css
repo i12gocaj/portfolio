@@ -695,6 +695,10 @@ blockquote {
     gap: 1rem;
 }
 
+.project-audio {
+    width: 100%;
+}
+
 /* Experience Section */
 .timeline {
     position: relative;
@@ -1022,5 +1026,4 @@ footer {
         text-align: center;
     }
 }
-
 
