@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javier González Casares | Computer Engineer & Cybersecurity</title>
+    <title>Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team</title>
     <!-- Meta tags -->
-    <meta name="description" content="Professional portfolio of Javier González Casares, Computer Engineer specialized in cybersecurity">
-    <meta name="keywords" content="cybersecurity, computer engineering, web development, portfolio, Javier González Casares">
-    <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico">
+    <meta name="description" content="Portfolio of Javier González Casares — Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024.">
+    <meta name="keywords" content="Javier González Casares, cybersecurity, cyber threat intelligence, CTI, DFIR, threat hunting, malware analysis, red team, penetration testing, OSCP, bug bounty, OSINT, computer engineering, Córdoba, Spain">
+    <meta name="author" content="Javier González Casares">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://i12gocaj.github.io/portfolio/">
+    <meta property="og:title" content="Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team">
+    <meta property="og:description" content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds).">
+    <meta property="og:image" content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://i12gocaj.github.io/portfolio/">
+    <meta name="twitter:title" content="Javier González Casares | Cybersecurity Engineer">
+    <meta name="twitter:description" content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds).">
+    <meta name="twitter:image" content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg">
+
+    <!-- Favicon (inline SVG, no extra request) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2310131e'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Fira Code, monospace' font-size='28' font-weight='700' fill='%2364ffda'%3EJGC%3C/text%3E%3C/svg%3E">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +141,8 @@
                     </div>
                     <div class="about-body">
                         <div class="about-text">
-                            <p>Computer Engineering student at the University of Córdoba, specializing in Computing with a strong focus on cybersecurity and software development while staying current with the latest security trends and AI-powered tooling.</p>
+                            <p>Computer Engineer focused on Cyber Threat Intelligence, malware analysis, digital forensics (DFIR) and offensive security. Graduated from the Higher Polytechnic School of Córdoba (2021–2025) with a Specialization in Computing, currently finishing my MSc in Offensive Security at Campus Internacional de Ciberseguridad while preparing for the OSCP (Dec 2026).</p>
+                            <p>Past internships at AllPentesting (DFIR &amp; CTI), Indra Group (OT Security) and Navantia (defence-sector cybersecurity). Active collaborator with the Spanish National Police on cybercrime investigations. <strong>$1,000 Meta Bug Bounty</strong> researcher and member of the <strong>Caliphal Hounds CTF team (#2 in Spain on CTFTime, 2024)</strong>.</p>
                         </div>
                         <blockquote>
                             "As a kid, I used to break things by accident, now I do it on purpose."
@@ -157,6 +175,48 @@
                 <h2><span class="accent">#</span> Featured Projects</h2>
             </div>
             <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>SecEmail</h3>
+                        <p>Open-source toolkit for SPF/DKIM/DMARC/ARC email-authentication audits and authorised SMTP/phishing simulations for Red Team engagements. Cryptographic DKIM verification, IDN homograph detection, MTA-STS / TLS-RPT / DANE / BIMI checks and campaign dashboard with tracking and credential capture (~5k LOC of Python, 167 tests).</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Email Security</span>
+                            <span>Red Team</span>
+                            <span>Cryptography</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/SecEmail" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>footactik</h3>
+                        <p>Local tactical-intelligence platform for Córdoba CF. Scrapes Sofascore, Transfermarkt and FBref and runs five ML models (lineup selection, injury risk, scouting via autoencoder embeddings, market-value forecasting and opponent style) on a zero-cost local stack.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Machine Learning</span>
+                            <span>Sports Analytics</span>
+                            <span>Data Engineering</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/i12gocaj/footactik" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
@@ -193,12 +253,9 @@
                             <span>Deep Learning</span>
                             <span>GDELT Sentiment</span>
                         </div>
-                        <audio class="project-audio" controls preload="metadata">
-                            <source src="assets/docs/tfg.m4a" type="audio/mp4">
-                            Your browser does not support embedded audio playback.
-                        </audio>
                         <div class="project-links">
-                            <a href="https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros" target="_blank" class="btn small">GitHub</a>
+                            <a href="https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
+                            <a href="https://github.com/i12gocaj/portfolio/releases/download/tfg-defense-audio/tfg.m4a" target="_blank" rel="noopener noreferrer" class="btn small">Defense Audio (12:17)</a>
                         </div>
                     </div>
                 </div>
@@ -211,10 +268,12 @@
                     </div>
                     <div class="project-content">
                         <h3>Instagram Notes Audio Leakage</h3>
-                        <p>Vulnerability in Instagram Web allowed extracting the original note audio via direct video URLs. Disclosed to Meta and rewarded.</p>
+                        <p>Vulnerability in Instagram Web that allowed extracting the original note audio via direct video URLs. Responsibly disclosed to Meta, validated and patched. <strong>Awarded $1,000</strong> through the Meta Bug Bounty Program.</p>
                         <div class="project-tech">
-                            <span>Vulnerability</span>
-                            <span>Bug Bounty</span>
+                            <span>Vulnerability Research</span>
+                            <span>Web Security</span>
+                            <span>Meta Bug Bounty</span>
+                            <span>$1,000</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed" target="_blank" class="btn small">GitHub</a>
@@ -538,59 +597,154 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2009 - Present</div>
+                    <div class="timeline-date">Apr 2026</div>
                     <div class="timeline-content">
-                        <h3>Scouts - La Salle Córdoba</h3>
-                        <p>Former group president and youth group leader.</p>
+                        <h3>Best Device Award &mdash; 4th Biotechnological Hackathon</h3>
+                        <h4>IMIBIC &amp; Escuela Politécnica Superior de Córdoba (EPSC)</h4>
+                        <p>Won the Best Device Award in the challenge "Intelligent counting device for post-surgery surgical material" during the 4th Biotechnological Hackathon.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2018 - 2021</div>
+                    <div class="timeline-date">Jan 2026 &mdash; May 2026</div>
                     <div class="timeline-content">
-                        <h3>Debate Team - La Salle Córdoba</h3>
-                        <p>Champion in debate competitions (x2) and debate mentor.</p>
+                        <h3>Digital Forensics Analyst &amp; Cyber Threat Intelligence Intern</h3>
+                        <h4>AllPentesting &middot; Córdoba, Spain</h4>
+                        <p>Supported cybercrime investigations through OSINT, intelligence analysis and tracing of fraudulent infrastructures across surface, deep and dark web (phishing, fraud, malicious APK campaigns). Forensic acquisition, log review and technical reporting on mobile devices, computers and storage media (FTK Imager, Autopsy, Volatility, Nirsoft, Proxmark3). Reverse-engineering of Android APKs and analysis of logs from VPN, RDP, NAS, Microsoft 365 and OneDrive for malware triage, IoC identification and TTP attribution. Built n8n automations and internal tooling for security audits, threat simulation and phishing analysis; deployed ATAK-CIV / TAK Server environments for tactical coordination with law-enforcement teams.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 - 2025</div>
+                    <div class="timeline-date">Nov 2025 &mdash; Dec 2025</div>
                     <div class="timeline-content">
-                        <h3>Participation in Free Software and Cybersecurity & Networks Classrooms</h3>
-                        <h4>University of Córdoba</h4>
-                        <p>I was part of the Free Software Classroom and the Cybersecurity & Networks Classroom.</p>
+                        <h3>OT Security Engineer Intern</h3>
+                        <h4>Deuser (Indra Group) &middot; Córdoba, Spain</h4>
+                        <p>Designed industrial network diagrams for OT (Operational Technology) environments: device mapping, segmentation and trust zones. Deployed and configured Microsoft Hyper-V virtual machines for internal labs and test scenarios. Completed firewall configuration training and hands-on laboratory work with Siemens PLCs (industrial control systems).</p>
                     </div>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 - 2025</div>
+                    <div class="timeline-date">Oct 2025 &mdash; Oct 2026</div>
                     <div class="timeline-content">
-                        <h3>Degree in Computer Engineering - Specialization in Computing</h3>
+                        <h3>MSc in Offensive Security</h3>
+                        <h4>Campus Internacional de Ciberseguridad</h4>
+                        <p>Master's degree focused on offensive security: cryptography, OSINT, malware analysis, reversing, vulnerability assessment, reconnaissance, enumeration, network/system/web hacking.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">In progress &middot; Expected Dec 2026</div>
+                    <div class="timeline-content">
+                        <h3>Offensive Security Certified Professional (OSCP)</h3>
+                        <h4>OffSec</h4>
+                        <p>Currently preparing for the OSCP certification, the industry-standard hands-on penetration-testing credential.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Nov 2025</div>
+                    <div class="timeline-content">
+                        <h3>8th Place (National) &mdash; Talent4Cyber Competition</h3>
+                        <h4>Mando Conjunto del Ciberespacio (MCCE) &amp; INCIBE</h4>
+                        <p>National cybersecurity competition with 100+ teams from Spain and abroad. Reached semifinals representing the Universidad de Córdoba; finished 8th nationally as part of the team "Estatua de gnomos de jardín gnomos de doble dedo".</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Sep 2025</div>
+                    <div class="timeline-content">
+                        <h3>Week 4 Winner &mdash; "El Bug de la Semana"</h3>
+                        <h4>INCIBE &amp; IMMUNE Technology Institute</h4>
+                        <p>Recognized as the Week 4 winner in the "El Bug de la Semana" challenge organized by INCIBE and IMMUNE.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jun 2025 &mdash; Sep 2025</div>
+                    <div class="timeline-content">
+                        <h3>Cybersecurity Engineer Intern, COEX Naval Systems</h3>
+                        <h4>Navantia, S.A., S.M.E. &middot; San Fernando, Spain</h4>
+                        <p>Designed and deployed the centre's monitoring and defence infrastructure (SIEM, IDS and router/firewall integration). Built a network testing laboratory for the passive combat systems of naval vessels. Delivered cybersecurity training sessions to colleagues across the department. Automated repetitive operational processes to improve efficiency and traceability.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jun 2025 &mdash; Present</div>
+                    <div class="timeline-content">
+                        <h3>Cybercrime Investigations Collaborator</h3>
+                        <h4>Spanish National Police (Policía Nacional) &middot; Remote</h4>
+                        <p>Provide OSINT and technical analysis for active investigations into web-based scams and online fraud targeting Spanish citizens. Document findings in case-ready evidence packages, applying chain-of-custody and operational discretion.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-content">
+                        <h3>$1,000 Meta Bug Bounty (Instagram)</h3>
+                        <h4>Meta Bug Bounty Program</h4>
+                        <p>Awarded for the responsible disclosure of an Instagram Notes privacy bypass (audio leakage via direct video URL extraction). Vulnerability validated and patched by Meta.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>BSc Thesis (TFG) graded 10/10</h3>
+                        <h4>Universidad de Córdoba</h4>
+                        <p>BSc Thesis "Predicción direccional de activos financieros con aprendizaje automático y datos alternativos" graded 10/10 by the evaluation committee.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Apr 2025</div>
+                    <div class="timeline-content">
+                        <h3>1st Prize &mdash; Hackademics Forum III CTF</h3>
+                        <h4>Cybersecurity and Networks Classroom, EPSC</h4>
+                        <p>Top finisher in the assistants' competition at Hackademics Forum III CTF, sponsored by Hack The Box.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Sep 2024 &mdash; Jun 2025</div>
+                    <div class="timeline-content">
+                        <h3>Erasmus Exchange &mdash; Computer Engineering</h3>
+                        <h4>Gheorghe Asachi Technical University of Iași &middot; Romania</h4>
+                        <p>Erasmus exchange semester abroad in Iași, Romania. Coursework in artificial intelligence, machine learning and software engineering.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>Caliphal Hounds CTF Team &mdash; #2 in Spain (CTFTime)</h3>
+                        <h4>Caliphal Labs</h4>
+                        <p>Member of the Caliphal Hounds CTF team during 2024; team finished the year ranked <strong>#2 in Spain</strong> on CTFTime. Specialised in Web, Reversing, Crypto and OSINT challenges.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>CCN Cybersecurity Course</h3>
                         <h4>Higher Polytechnic School of Córdoba</h4>
-                        <p>Training in software engineering, operating systems, networks, and cybersecurity.</p>
+                        <p>Specialized training in cybersecurity provided by the National Cryptologic Center (CCN).</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021</div>
-                    <div class="timeline-content">
-                        <h3>Cybersecurity Course - III National League</h3>
-                        <h4>Civil Guard</h4>
-                        <p>Participation in the National Cybersecurity League organized by the Civil Guard.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022</div>
-                    <div class="timeline-content">
-                        <h3>1st Place - Free Software Classroom Hackathon</h3>
-                        <h4>Free Software Classroom, University of Córdoba</h4>
-                        <p>Won the first Hackathon of the Free Software Classroom.</p>
-                    </div>
-                </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2024</div>
@@ -600,103 +754,62 @@
                         <p>Training in design and architecture of complex software systems.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
+                    <div class="timeline-date">2022</div>
                     <div class="timeline-content">
-                        <h3>CCN Cybersecurity Course</h3>
-                        <h4>Higher Polytechnic School of Córdoba</h4>
-                        <p>Specialized training in cybersecurity provided by the National Cryptologic Center.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Ex member of CTF Caliphal Hounds team</h3>
-                        <p>Participation in Capture The Flag competitions and cybersecurity challenges.</p>
+                        <h3>1st Place &mdash; Free Software Classroom Hackathon</h3>
+                        <h4>Free Software Classroom, University of Córdoba</h4>
+                        <p>Won the first Hackathon of the Free Software Classroom.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025</div>
+                    <div class="timeline-date">2021 &mdash; 2025</div>
                     <div class="timeline-content">
-                        <h3>1st Prize in the 3rd Edition of Hackademics Forum CTF</h3>
-                        <h4>Cybersecurity and Networks Classroom, EPSC</h4>
-                        <p>Achieved 1st prize in the Hackademics Forum CTF, demonstrating advanced skills in cybersecurity challenge resolution and problem-solving.</p>
+                        <h3>BSc in Computer Engineering &mdash; Specialization in Computing</h3>
+                        <h4>Higher Polytechnic School of Córdoba (EPSC), Universidad de Córdoba</h4>
+                        <p>Training in software engineering, operating systems, networks and cybersecurity. Final BSc Thesis graded 10/10.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jun 2025 - Present</div>
+                    <div class="timeline-date">2021 &mdash; 2025</div>
                     <div class="timeline-content">
-                        <h3>Fraud Investigation Collaborator</h3>
-                        <h4>Spanish National Police</h4>
-                        <p>Supporting investigations into online fraud by performing technical analyses, evidence preservation, and cybersecurity assessments alongside specialized units.</p>
+                        <h3>Free Software &amp; Cybersecurity / Networks Classrooms</h3>
+                        <h4>EPSC, University of Córdoba</h4>
+                        <p>Active member of the student-led Free Software Classroom and Cybersecurity &amp; Networks Classroom. Contributed talks, workshops and CTF coaching for fellow students.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jun 2025 - Sep 2025</div>
+                    <div class="timeline-date">2021</div>
                     <div class="timeline-content">
-                        <h3>Cybersecurity Intern</h3>
-                        <h4>Centro de Excelencia, Navantia Sistemas</h4>
-                        <p>Worked as a cybersecurity intern at the Navantia Sistemas Center of Excellence.</p>
+                        <h3>Cybersecurity Course &mdash; III National League</h3>
+                        <h4>Civil Guard</h4>
+                        <p>Participation in the National Cybersecurity League organized by the Civil Guard.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Sep 2025</div>
+                    <div class="timeline-date">2018 &mdash; 2021</div>
                     <div class="timeline-content">
-                        <h3>Week 4 Winner — “El Bug de la Semana”</h3>
-                        <h4>INCIBE & IMMUNE</h4>
-                        <p>Recognized as the Week 4 winner in the “El Bug de la Semana” challenge organized by INCIBE and IMMUNE.</p>
+                        <h3>Debate Team &mdash; La Salle Córdoba</h3>
+                        <p>Two-time champion in inter-school debate competitions and debate mentor for younger students.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Nov 2025</div>
+                    <div class="timeline-date">2008 &mdash; Present</div>
                     <div class="timeline-content">
-                        <h3>8th Place (National) - Talet4Cyber Competition</h3>
-                        <h4>Team "Estatua de gnomos de jardín gnomos de doble dedo"</h4>
-                        <p>Secured 8th place at the national level in the Talet4Cyber competition as part of the team "Estatua de gnomos de jardín gnomos de doble dedo."</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Nov 2025 - Dec 2025</div>
-                    <div class="timeline-content">
-                        <h3>Network and Cybersecurity Intern</h3>
-                        <h4>Deuser (Indra Group)</h4>
-                        <p>Completed an internship in network operations and cybersecurity, collaborating on infrastructure hardening and incident-response support tasks.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jan 2026 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Intelligence and Forensic Analysis Intern</h3>
-                        <h4>AllPentesting</h4>
-                        <p>Currently completing an internship focused on intelligence analysis and digital forensic investigations.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr 2026</div>
-                    <div class="timeline-content">
-                        <h3>Best Device Award - 4th Biotechnological Hackathon</h3>
-                        <h4>IMIBIC & Escuela Politécnica Superior de Córdoba (EPSC)</h4>
-                        <p>Won the Best Device Award in the challenge "Intelligent counting device for post-surgery surgical material" during the 4th Biotechnological Hackathon.</p>
+                        <h3>Scouts &mdash; La Salle Córdoba</h3>
+                        <p>Active scout since 2008. Served as President of the local youth group (2023&ndash;2024), coordinating volunteer teams and leading community-oriented projects.</p>
                     </div>
                 </div>
             </div>
@@ -718,7 +831,7 @@
                             <span class="icon"><i class="fab fa-github"></i></span>
                             <span>github.com/i12gocaj</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/javier-gonzález-casares-16427830b/" target="_blank" class="contact-link">
+                        <a href="https://www.linkedin.com/in/javier-gonzalez-casares/" target="_blank" class="contact-link">
                             <span class="icon"><i class="fab fa-linkedin"></i></span>
                             <span>LinkedIn</span>
                         </a>
@@ -735,7 +848,7 @@
                 <div class="contact-form">
                     <form id="contactForm" action="https://formspree.io/f/myzelwak" method="POST">
                         <input type="hidden" name="_subject" value="Portfolio Contact Form">
-                        <input type="hidden" name="_next" value="https://i12gocaj.github.io/GitHub-portfolio/#contact?success=true">
+                        <input type="hidden" name="_next" value="https://i12gocaj.github.io/portfolio/#contact?success=true">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -772,12 +885,12 @@
                 <div class="footer-links">
                     <ul>
                         <li><a href="https://github.com/i12gocaj" target="_blank"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/javier-gonzález-casares-16427830b/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/javier-gonzalez-casares/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Javier González Casares. All rights reserved.</p>
+                <p>&copy; <span id="footer-year">2026</span> Javier González Casares. All rights reserved.</p>
                 <p class="easter-egg"><!-- c0d3_1s_p03try --></p>
             </div>
         </div>

@@ -5,6 +5,12 @@
 
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Footer year dinámico
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+    }
+
     // Navegación
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
