@@ -34,13 +34,51 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org Person (rich results / knowledge card) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Javier González Casares",
+      "givenName": "Javier",
+      "familyName": "González Casares",
+      "url": "https://i12gocaj.github.io/portfolio/",
+      "image": "https://i12gocaj.github.io/portfolio/assets/img/profile.jpg",
+      "jobTitle": "Cybersecurity Engineer · CTI · DFIR · Red Team",
+      "description": "Computer Engineer focused on Cyber Threat Intelligence, malware analysis, digital forensics (DFIR) and offensive security. OSCP candidate, $1,000 Meta Bug Bounty researcher, ex-member of Caliphal Hounds CTF (#2 in Spain on CTFTime, 2024).",
+      "email": "mailto:javiergc100@protonmail.com",
+      "telephone": "+34652601501",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Córdoba",
+        "addressRegion": "Andalucía",
+        "addressCountry": "ES"
+      },
+      "alumniOf": [
+        {"@type": "CollegeOrUniversity", "name": "Escuela Politécnica Superior de Córdoba, Universidad de Córdoba"},
+        {"@type": "CollegeOrUniversity", "name": "Campus Internacional de Ciberseguridad"},
+        {"@type": "CollegeOrUniversity", "name": "Gheorghe Asachi Technical University of Iași"}
+      ],
+      "knowsAbout": [
+        "Cyber Threat Intelligence", "Digital Forensics", "DFIR", "Malware Analysis",
+        "Reverse Engineering", "Penetration Testing", "Red Team", "OSINT",
+        "Bug Bounty", "MITRE ATT&CK", "Python", "Linux"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/javier-gonzalez-casares/",
+        "https://github.com/i12gocaj"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <a href="#home" class="skip-to-content">Skip to content</a>
     <!-- Header/Navigation -->
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <div class="logo">
-                <a href="#home">JGC</a>
+                <a href="#home" aria-label="Javier González Casares — home">JGC</a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -52,11 +90,11 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -97,14 +135,14 @@
                         <span class="command">cat profile.txt</span>
                     </div>
                     <div class="line">
-                        <span class="output">Computer Engineer specialized in Cybersecurity</span>
+                        <span class="output">Cybersecurity Engineer · CTI · DFIR · Red Team</span>
                     </div>
                     <div class="line">
                         <span class="prompt">$</span>
-                        <span class="command">./open_documents.sh</span>
+                        <span class="command">cat highlights.txt</span>
                     </div>
                     <div class="line">
-                        <span class="output">Retrieving professional documents...</span>
+                        <span class="output">OSCP Candidate · $1,000 Meta Bug Bounty · #2 CTF Spain 2024</span>
                     </div>
                     <div class="line">
                         <span class="prompt">$</span>
@@ -114,9 +152,10 @@
             </div>
             <div class="hero-content">
                 <h1>Javier González Casares</h1>
-                <h2>Computer Engineer & Cybersecurity Specialist</h2>
+                <h2>Cybersecurity Engineer · CTI · DFIR · Red Team</h2>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn primary" id="view-projects-btn">View Projects</a>
+                    <a href="assets/docs/cv-javier-gonzalez-casares.pdf" class="btn primary" download>Download CV</a>
                     <a href="#contact" class="btn secondary" id="contact-me-btn">Contact Me</a>
                 </div>
             </div>
@@ -161,10 +200,22 @@
                 <p>Download an up-to-date copy of my curriculum and the recommendation letters that support my work ethic and technical skills.</p>
             </div>
             <div class="documents-actions">
-                <a href="assets/docs/cv-javier-gonzalez-casares.pdf" class="btn primary" download>Download CV</a>
-                <a href="assets/docs/carta-recomendacion-policia-nacional.pdf" class="btn secondary" download>Recommendation Letter &mdash; Spanish National Police</a>
-                <a href="assets/docs/carta-recomendacion-navantia.pdf" class="btn secondary" download>Recommendation Letter &mdash; Navantia</a>
-                <a href="assets/docs/carta-recomendacion-universidad.pdf" class="btn secondary" download>Recommendation Letter &mdash; University</a>
+                <a href="assets/docs/cv-javier-gonzalez-casares.pdf" class="btn primary doc-btn" download>
+                    <span class="doc-title">Download CV</span>
+                    <span class="doc-meta">PDF &middot; 2 pages</span>
+                </a>
+                <a href="assets/docs/carta-recomendacion-policia-nacional.pdf" class="btn secondary doc-btn" download>
+                    <span class="doc-title">Recommendation Letter &mdash; Spanish National Police</span>
+                    <span class="doc-meta">Inspector, Brigada Provincial de Policía Judicial &middot; Dec 2025 &middot; Digitally signed</span>
+                </a>
+                <a href="assets/docs/carta-recomendacion-navantia.pdf" class="btn secondary doc-btn" download>
+                    <span class="doc-title">Recommendation Letter &mdash; Navantia</span>
+                    <span class="doc-meta">Rafael Gómez Sánchez &middot; Sep 2025 &middot; Digitally signed</span>
+                </a>
+                <a href="assets/docs/carta-recomendacion-universidad.pdf" class="btn secondary doc-btn" download>
+                    <span class="doc-title">Recommendation Letter &mdash; University of Córdoba</span>
+                    <span class="doc-meta">Feb 2025</span>
+                </a>
             </div>
         </div>
     </section>
@@ -444,6 +495,9 @@
                             <span>Selenium</span>
                             <span>TelegramBotAPI</span>
                         </div>
+                        <div class="project-links">
+                            <span class="repo-private">Private repository</span>
+                        </div>
                     </div>
                 </div>
 
@@ -504,6 +558,9 @@
                             <span>Monitoring</span>
                             <span>Desktop</span>
                         </div>
+                        <div class="project-links">
+                            <span class="repo-private">Private repository</span>
+                        </div>
                     </div>
                 </div>
 
@@ -530,76 +587,20 @@
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <i class="fas fa-house"></i>
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Smart Home Interface</h3>
-                        <p>Final project for an interactive smart-home interface, with device control and automation flows.</p>
+                        <h3>Academic Coursework</h3>
+                        <p>Selected BSc coursework available on GitHub: Smart Home Interface (Java), AI implementations of classic ML algorithms (Python), task-management ToDo app (JavaScript) and digital image-processing notebooks (Python).</p>
                         <div class="project-tech">
                             <span>Java</span>
-                            <span>IoT</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/interfaz_SistemasInteractivos" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Artificial Intelligence Coursework</h3>
-                        <p>University AI project with implementations of classic machine-learning algorithms.</p>
-                        <div class="project-tech">
                             <span>Python</span>
-                            <span>AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/Artificial-Intelligent" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-list-check"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>ToDo App</h3>
-                        <p>Task management application with intuitive interface and organization features.</p>
-                        <div class="project-tech">
                             <span>JavaScript</span>
-                            <span>Web</span>
+                            <span>Coursework</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/i12gocaj/ToDo_app" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Image Processing</h3>
-                        <p>Jupyter notebook project for digital image-processing and analysis techniques.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Computer Vision</span>
-                            <span>Jupyter</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/ImageProcessing" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
+                            <a href="https://github.com/i12gocaj?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn small">All repositories</a>
                         </div>
                     </div>
                 </div>
@@ -869,21 +870,23 @@
                     <form id="contactForm" action="https://formspree.io/f/myzelwak" method="POST">
                         <input type="hidden" name="_subject" value="Portfolio Contact Form">
                         <input type="hidden" name="_next" value="https://i12gocaj.github.io/portfolio/#contact?success=true">
+                        <!-- Honeypot: bots fill this; humans never see it -->
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="_replyto" required>
+                            <input type="email" id="email" name="_replyto" autocomplete="email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <input type="text" id="subject" name="subject" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" autocomplete="off" required></textarea>
                         </div>
                         <button type="submit" class="btn primary">Send Message</button>
                         <div class="form-status" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center;">

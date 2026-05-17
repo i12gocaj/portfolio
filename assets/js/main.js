@@ -57,8 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Inicializar partículas
-    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+    // Inicializar partículas — respetar prefers-reduced-motion (a11y + batería en móvil)
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion && typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
