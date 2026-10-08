@@ -32,7 +32,7 @@ La extensión visual conserva todas las descripciones. Añade únicamente etique
 
 ## Conservación y límites
 
-Se mantienen los destinos de todos los enlaces originales, los cinco PDF y los datos de contacto. El formulario se elimina por petición expresa. Las descripciones se editaron durante la auditoría y se conservaron en el cambio de temática visual. Los PDF no se han reescrito.
+Se mantienen los cinco PDF y los datos de contacto. El formulario se elimina por petición expresa. Las descripciones se editaron durante la auditoría y se conservaron en el cambio de temática visual. Los PDF no se han reescrito. La auditoría final actualiza el dominio scout y sustituye los destinos inaccesibles de App Store y BuyTheTop por avisos breves de disponibilidad, conservando ambas fichas y el repositorio de BuyTheTop. Los cambios están documentados en [AUDIT.md](AUDIT.md).
 
 Los hechos proceden del contenido existente y de las correcciones del propietario. Esta revisión editorial no verifica de nuevo cada logro. La unificación de BrillanteSeguro se contrastó con su [repositorio público](https://github.com/i12gocaj/BrillanteSeguro.com).
 

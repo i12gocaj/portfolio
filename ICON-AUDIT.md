@@ -17,6 +17,8 @@ Símbolos propios de línea, redibujados sobre una cuadrícula de 24 × 24 en `a
 
 El sobre con una marca de verificación se reserva a SecEmail: representa comprobaciones de autenticación. El contacto utiliza el sobre simple para no sugerir verificación o entrega confirmada.
 
+La auditoría final comprueba que los 201 usos de símbolos resuelven correctamente. El menú abierto muestra un menos horizontal: se elimina la rotación heredada que lo convertía en una barra diagonal.
+
 ## Proyectos
 
 | Proyecto                                 | Símbolo y motivo                                  |

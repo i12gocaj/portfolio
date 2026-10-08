@@ -33,7 +33,19 @@
       menu.focus();
     }
   });
-  mobile.addEventListener("change", () => setMenu(false));
+  mobile.addEventListener("change", () => {
+    const focusWasInNavigation = navigation.contains(document.activeElement);
+    setMenu(false);
+    if (mobile.matches && focusWasInNavigation) menu.focus();
+  });
+  document.addEventListener("focusin", (event) => {
+    if (
+      mobile.matches &&
+      event.target !== menu &&
+      !navigation.contains(event.target)
+    )
+      setMenu(false);
+  });
   setMenu(false);
 
   const inspection = select(".inspect-button");
@@ -57,7 +69,11 @@
   const entries = [...document.querySelectorAll(".project-entry")];
   entries.forEach((entry) =>
     entry.addEventListener("toggle", () => {
-      if (!entry.open) return;
+      if (
+        !entry.open ||
+        document.documentElement.classList.contains("printing")
+      )
+        return;
       entries.forEach((other) => {
         if (other !== entry) other.open = false;
       });
@@ -65,6 +81,23 @@
   );
   const historyPanels = [...document.querySelectorAll("[data-history-group]")];
   const historyTabs = [...document.querySelectorAll("[data-history-tab]")];
+  const historyKeys = new Set(historyTabs.map((tab) => tab.dataset.historyTab));
+  function readHistory() {
+    const key = new URL(window.location.href).searchParams.get("background");
+    return historyKeys.has(key) ? key : "experience";
+  }
+  function writeHistory(key, push = true) {
+    const url = new URL(window.location.href);
+    key === "experience"
+      ? url.searchParams.delete("background")
+      : url.searchParams.set("background", key);
+    const linkedPanel = document
+      .getElementById(url.hash.slice(1))
+      ?.closest("[data-history-group]");
+    if (linkedPanel && linkedPanel.dataset.historyGroup !== key) url.hash = "";
+    if (url.href !== window.location.href)
+      window.history[push ? "pushState" : "replaceState"](null, "", url);
+  }
   function selectHistory(key, focus = false) {
     historyPanels.forEach((panel) => {
       panel.hidden = panel.dataset.historyGroup !== key;
@@ -86,11 +119,12 @@
       );
       panel.querySelector("h3").hidden = true;
     });
-    selectHistory("experience");
+    selectHistory(readHistory());
     historyTabs.forEach((tab, index) => {
-      tab.addEventListener("click", () =>
-        selectHistory(tab.dataset.historyTab),
-      );
+      tab.addEventListener("click", () => {
+        selectHistory(tab.dataset.historyTab);
+        writeHistory(tab.dataset.historyTab);
+      });
       tab.addEventListener("keydown", (event) => {
         let next;
         if (event.key === "ArrowRight") next = (index + 1) % historyTabs.length;
@@ -101,6 +135,7 @@
         else return;
         event.preventDefault();
         selectHistory(historyTabs[next].dataset.historyTab, true);
+        writeHistory(historyTabs[next].dataset.historyTab, false);
       });
     });
   }
@@ -179,12 +214,18 @@
     clearTimeout(searchTimer);
     searchTimer = setTimeout(writeFilters, 200);
   });
-  function openHashTarget() {
+  function openHashTarget(restore = false) {
     const target = document
       .getElementById(window.location.hash.slice(1))
       ?.closest("details");
+    if (restore)
+      entries.forEach((entry) => {
+        if (entry !== target) entry.open = false;
+      });
     if (target) {
       revealHistory(target);
+      const panel = target.closest("[data-history-group]");
+      if (panel) writeHistory(panel.dataset.historyGroup, false);
       if (target.hidden) {
         category = "all";
         search.value = "";
@@ -196,10 +237,40 @@
   }
   window.addEventListener("popstate", () => {
     readFilters();
-    openHashTarget();
+    selectHistory(readHistory());
+    openHashTarget(true);
   });
-  window.addEventListener("hashchange", openHashTarget);
+  window.addEventListener("hashchange", () => openHashTarget());
+  const ordinaryClick = (event) =>
+    event.button === 0 &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.shiftKey &&
+    !event.altKey;
+  document
+    .querySelectorAll(".project-entry > summary, .history-entry > summary")
+    .forEach((summary) => {
+      summary.addEventListener("click", (event) => {
+        if (!ordinaryClick(event)) return;
+        requestAnimationFrame(() => {
+          const entry = summary.parentElement;
+          const url = new URL(window.location.href);
+          const linkedEntry = document
+            .getElementById(url.hash.slice(1))
+            ?.closest("details");
+          if (entry.open) url.hash = entry.id;
+          else if (linkedEntry === entry) url.hash = "";
+          if (url.href !== window.location.href)
+            window.history[entry.open ? "pushState" : "replaceState"](
+              null,
+              "",
+              url,
+            );
+        });
+      });
+    });
   document.addEventListener("click", (event) => {
+    if (!ordinaryClick(event) || event.defaultPrevented) return;
     const anchor = event.target.closest('a[href^="#"]');
     if (!anchor) return;
     const target = document.getElementById(
@@ -245,7 +316,27 @@
   });
   window.addEventListener("resize", scheduleNavigationUpdate);
   window.addEventListener("load", scheduleNavigationUpdate);
-  updateCurrentSection();
+  if (document.readyState === "complete") scheduleNavigationUpdate();
+
+  let printState;
+  window.addEventListener("beforeprint", () => {
+    if (printState) return;
+    printState = [...document.querySelectorAll("details")].map((entry) => [
+      entry,
+      entry.open,
+    ]);
+    document.documentElement.classList.add("printing");
+    printState.forEach(([entry]) => {
+      entry.open = true;
+    });
+  });
+  window.addEventListener("afterprint", () => {
+    printState?.forEach(([entry, open]) => {
+      entry.open = open;
+    });
+    printState = undefined;
+    document.documentElement.classList.remove("printing");
+  });
   const findingTabs = [...document.querySelectorAll("[data-finding-tab]")];
   const findingViews = [...document.querySelectorAll("[data-finding-view]")];
   function selectFinding(key, focus = false) {

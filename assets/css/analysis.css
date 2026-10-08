@@ -2,9 +2,43 @@
 :root {
   --frame: #8b80b9;
 }
-/* Targets already reserve space for the sticky header with scroll-margin. */
+/* A single offset protects both anchor destinations and keyboard focus. */
 html {
-  scroll-padding-top: 0;
+  scroll-padding-top: 100px;
+}
+section[id],
+details[id],
+aside[id],
+[id] {
+  scroll-margin-top: 0;
+}
+.availability-note {
+  color: var(--slate);
+  font-size: 12px;
+  margin-top: 12px;
+}
+.menu-toggle[aria-expanded="true"] .icon {
+  transform: none;
+}
+html:not(.js) .site-header {
+  position: static;
+}
+.project-links {
+  flex-wrap: wrap;
+}
+.text-link {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.project-name,
+.project-description,
+.history-title,
+.milestone-map a {
+  overflow-wrap: anywhere;
+}
+.scene-file .audio-track svg {
+  transform-origin: center;
+  transform-box: fill-box;
 }
 #main-nav a {
   position: relative;
@@ -611,6 +645,9 @@ html {
   }
 }
 @media (max-width: 600px) {
+  .header-inner {
+    padding-block: 14px;
+  }
   #main-nav a {
     padding-inline: 12px;
   }
@@ -729,5 +766,191 @@ html {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 420px) {
+  #main-nav,
+  html.js #main-nav.is-open {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 12px;
+  }
+  #main-nav a {
+    min-width: 0;
+    width: fit-content;
+  }
+}
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  :root {
+    --paper: #fff;
+    --mist: #fff;
+    --ink: #111;
+    --slate: #333;
+    --cobalt: #333;
+  }
+  html {
+    scroll-padding-top: 0;
+  }
+  body {
+    font-size: 11pt;
+  }
+  .shell {
+    width: 100%;
+    max-width: none;
+  }
+  .site-header,
+  .skip-link,
+  .hero-actions,
+  .portrait-panel,
+  .archive-tools,
+  .results-count,
+  .empty-results,
+  .history-tabs,
+  .finding-tabs,
+  .copy-email,
+  .copy-status,
+  .site-footer > a {
+    display: none !important;
+  }
+  .hero,
+  .background-layout,
+  .documents-intro,
+  .document-list,
+  .email-contact,
+  #projects .curated-work {
+    display: block;
+  }
+  .hero,
+  .work-section,
+  .background-section,
+  .documents-section,
+  .contact-section {
+    padding-block: 20px;
+  }
+  .hero-copy {
+    padding: 0;
+  }
+  .hero-copy::before,
+  .analysis-frame::before,
+  .analysis-frame::after {
+    display: none;
+  }
+  h1 {
+    font-size: 32pt;
+  }
+  h2 {
+    font-size: 23pt;
+  }
+  .hero-role,
+  .hero-statement,
+  .hero-intro {
+    max-width: none;
+  }
+  .evidence-strip {
+    display: flex;
+    gap: 20px;
+  }
+  .evidence-value {
+    font-size: 20pt;
+  }
+  .project-desktop,
+  .history-grid {
+    display: block;
+  }
+  .project-entry[hidden],
+  .history-group[hidden],
+  .finding-view[hidden] {
+    display: block !important;
+  }
+  .history-group > h3[hidden],
+  .finding-nojs-label[hidden] {
+    display: block !important;
+  }
+  .history-group + .history-group {
+    margin-top: 20px;
+  }
+  .project-entry,
+  .history-entry {
+    margin-bottom: 16px;
+  }
+  .project-desktop .project-entry summary,
+  .history-grid .history-entry summary {
+    min-height: 0;
+    padding: 10px 0;
+  }
+  .project-desktop .project-entry > .project-description,
+  .history-grid .history-description {
+    padding: 10px 0;
+  }
+  .project-description > p,
+  .history-description,
+  .about-copy > p {
+    font-size: 10pt;
+  }
+  .visual-allosint,
+  .project-visual.visual-0 {
+    display: none;
+  }
+  #projects .curated-work .featured-project {
+    display: block;
+    margin-bottom: 24px;
+  }
+  .finding-comparison,
+  .authentication-diagram,
+  .milestone-map,
+  .document-list li {
+    break-inside: avoid;
+  }
+  .finding-comparison,
+  .authentication-diagram {
+    background: white;
+  }
+  .finding-view + .finding-view {
+    margin-top: 15px;
+  }
+  .document-list a,
+  .document-list li:first-child a {
+    display: grid;
+    grid-template-columns: 45px 1fr 16px;
+    min-height: 0;
+    border: 0;
+  }
+  .document-preview,
+  .document-list li:first-child .document-preview {
+    grid-column: 1;
+    width: 45px;
+  }
+  .document-list li:first-child {
+    border: 0;
+  }
+  .contact-section {
+    background: white;
+    color: #111;
+  }
+  .contact-copy > p,
+  .contact-socials {
+    color: #333;
+  }
+  .contact-envelope {
+    display: none;
+  }
+  .contact-email {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 17pt;
+  }
+  .contact-email::before,
+  .contact-email::after {
+    display: none;
+  }
+  .site-footer {
+    margin-top: 15px;
+  }
+  details::details-content {
+    content-visibility: visible;
+    block-size: auto;
   }
 }

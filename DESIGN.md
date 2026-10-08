@@ -38,7 +38,7 @@ La selección es AllOsint, la vulnerabilidad de Instagram Notes, SecEmail y Atla
 
 La trayectoria comienza con tres hitos: grado terminado en 2025, máster terminado en 2026 y diploma actual. Debajo, cuatro pestañas separan experiencia, formación, premios y comunidad. La vista inicial muestra las cuatro experiencias profesionales, con sus detalles desplegables. Los enlaces directos seleccionan la pestaña correspondiente. Sin JavaScript, todos los grupos siguen disponibles y etiquetados.
 
-Los documentos y el contacto cierran la página. Hay una sola descarga del CV. El contacto muestra el correo directamente y permite copiarlo; no hay formulario. Se conservan los enlaces anteriores a los proyectos, documentos y perfiles.
+Los documentos y el contacto cierran la página. Hay una sola descarga del CV. El contacto muestra el correo directamente y permite copiarlo; no hay formulario. La auditoría conserva los enlaces a documentos, código y perfiles, actualiza el dominio scout y sustituye dos destinos inaccesibles por avisos de disponibilidad: App Store devuelve 404 y BuyTheTop exige un token. Los proyectos siguen presentes.
 
 Los títulos y botones explican su función. Las descripciones dicen qué hizo Javier y para qué sirve cada proyecto. La revisión retiró el tratamiento de «investigador»: era una interpretación del concepto visual, no un cargo proporcionado por el propietario. También eliminó eslóganes, anotaciones redundantes y el subrayado curvo del logo.
 
