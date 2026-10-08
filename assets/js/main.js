@@ -234,6 +234,46 @@
       .querySelectorAll("main>section[id]")
       .forEach((section) => observer.observe(section));
   }
+  const findingTabs = [...document.querySelectorAll("[data-finding-tab]")];
+  const findingViews = [...document.querySelectorAll("[data-finding-view]")];
+  function selectFinding(key, focus = false) {
+    findingViews.forEach((view) => {
+      view.hidden = view.dataset.findingView !== key;
+    });
+    findingTabs.forEach((tab) => {
+      const active = tab.dataset.findingTab === key;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+  }
+  if (findingTabs.length) {
+    select(".finding-tabs").hidden = false;
+    findingViews.forEach((view) => {
+      view.setAttribute("role", "tabpanel");
+      view.setAttribute(
+        "aria-labelledby",
+        "finding-tab-" + view.dataset.findingView,
+      );
+      view.querySelector(".finding-nojs-label").hidden = true;
+    });
+    selectFinding("interface");
+    findingTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () =>
+        selectFinding(tab.dataset.findingTab),
+      );
+      tab.addEventListener("keydown", (event) => {
+        let next;
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft")
+          next = 1 - index;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = 1;
+        else return;
+        event.preventDefault();
+        selectFinding(findingTabs[next].dataset.findingTab, true);
+      });
+    });
+  }
   select("#footer-year").textContent = new Date().getFullYear();
 
   const copy = select(".copy-email");

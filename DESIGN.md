@@ -6,11 +6,13 @@ Se conservan HTML, CSS y JavaScript estáticos y la estructura de GitHub Pages, 
 
 ## Criterios visuales
 
-La temática parte de una mesa de análisis de malware: conexiones entre indicios, diagramas y estructura interna. La pieza propia de la portada es un insecto de línea que se desmonta al pulsar «Inspect the bug». Sus tres ramas muestran estructura, comportamiento y conexiones. La interacción cambia el dibujo y se puede restablecer; no representa un escáner ni resultados reales.
+La identidad se apoya en hallazgos y herramientas propios de Javier. La portada queda despejada; se retiran la ilustración del insecto, su control y su mensaje. La pieza distintiva está dentro de un trabajo real: una comparación del fallo de Instagram Notes entre la vista silenciada y el archivo original con audio.
+
+La comparación explica visualmente el mecanismo descrito en el [informe público de Javier](https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed). Se consultó el README el 8 de octubre de 2026, blob `0f9aadd5bd714bcdcc3e7295bedd3c45d89de589`. La fecha de mayo de 2025 y el estado corregido proceden de ese informe. La onda y las formas son un esquema ilustrativo; no son una captura de Instagram ni audio extraído de la grabación. El enlace a la prueba grabada conduce al archivo que Javier ya publicó en su repositorio.
 
 Hanken Grotesk se utiliza en toda la información: nombre completo, monograma, cifras y fechas. Se han eliminado Pixelify Sans y la mezcla de tratamientos del nombre. Los números de resultados y fechas usan cifras tabulares. El retrato mantiene la fotografía original con un recorte limpio y su nota personal opcional.
 
-Los símbolos SVG se han redibujado con trazos propios sobre una cuadrícula de 24 × 24. Cada uno representa el contenido de su proyecto; no se presentan como logos de empresas. Los controles tienen símbolos según su acción. Los nodos circulares y el diagrama de AllOsint comparten el lenguaje de conexiones de la portada. [ICON-AUDIT.md](ICON-AUDIT.md) recoge el criterio de cada caso.
+Los símbolos SVG se han redibujado con trazos propios sobre una cuadrícula de 24 × 24. Cada uno representa el contenido de su proyecto; no se presentan como logos de empresas. Los controles tienen símbolos según su acción. El diagrama de AllOsint y la comparación de Instagram muestran información del trabajo, con formas distintas según su contenido. [ICON-AUDIT.md](ICON-AUDIT.md) recoge el criterio de cada caso.
 
 | Color     | Uso                          |
 | --------- | ---------------------------- |
@@ -22,7 +24,7 @@ Los símbolos SVG se han redibujado con trazos propios sobre una cuadrícula de 
 | `#D3DBE6` | Interior de los símbolos     |
 | `#CE855E` | Nodos del diagrama y diploma |
 
-El movimiento responde a la inspección del insecto, al foco o a la apertura de contenido. Se ha retirado la animación de entrada de la portada. No hay bucles decorativos. La preferencia de movimiento reducido desactiva animaciones y transiciones; la ilustración sigue cambiando de estado al activarla.
+El movimiento responde al cambio de vista del hallazgo, al foco o a la apertura de contenido. No hay bucles decorativos ni animación de entrada en la portada. La preferencia de movimiento reducido desactiva animaciones y transiciones; la comparación sigue cambiando de estado al activarla. Sin JavaScript se muestran las dos vistas, etiquetadas.
 
 ## Contenido y orden
 
