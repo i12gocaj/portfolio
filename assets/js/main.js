@@ -1,568 +1,403 @@
-/**
- * Portfolio Web - Javier González Casares
- * JavaScript for interactive navigation, animations, and project pagination
- */
-
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Footer year dinámico
-    const footerYear = document.getElementById('footer-year');
-    if (footerYear) {
-        footerYear.textContent = new Date().getFullYear();
+/* Progressive enhancements; all work and background content is in the HTML. */
+(() => {
+  "use strict";
+  document.documentElement.classList.add("js");
+  const select = (selector) => document.querySelector(selector);
+  const menu = select(".menu-toggle");
+  const navigation = select("#main-nav");
+  const mobile = window.matchMedia("(max-width: 600px)");
+  menu.hidden = false;
+  function setMenu(open) {
+    menu.setAttribute("aria-expanded", String(open));
+    navigation.classList.toggle("is-open", open);
+    navigation.inert = mobile.matches && !open;
+    menu
+      .querySelector("use")
+      .setAttribute(
+        "href",
+        `assets/img/analysis-symbols.svg#${open ? "minus" : "plus"}`,
+      );
+  }
+  menu.addEventListener("click", () =>
+    setMenu(menu.getAttribute("aria-expanded") !== "true"),
+  );
+  navigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMenu(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      menu.getAttribute("aria-expanded") === "true"
+    ) {
+      setMenu(false);
+      menu.focus();
     }
+  });
+  mobile.addEventListener("change", () => {
+    const focusWasInNavigation = navigation.contains(document.activeElement);
+    setMenu(false);
+    if (mobile.matches && focusWasInNavigation) menu.focus();
+  });
+  document.addEventListener("focusin", (event) => {
+    if (
+      mobile.matches &&
+      event.target !== menu &&
+      !navigation.contains(event.target)
+    )
+      setMenu(false);
+  });
+  setMenu(false);
 
-    // Navegación
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
+  const inspection = select(".inspect-button");
+  const quote = select("#inspection-quote");
+  inspection.hidden = false;
+  inspection.addEventListener("click", () => {
+    const open = inspection.getAttribute("aria-expanded") !== "true";
+    inspection.setAttribute("aria-expanded", String(open));
+    quote.hidden = !open;
+    inspection
+      .querySelector("use")
+      .setAttribute(
+        "href",
+        `assets/img/analysis-symbols.svg#${open ? "back" : "speech"}`,
+      );
+    inspection.querySelector("span").textContent = open
+      ? "Back to photo"
+      : "Personal note";
+  });
 
-    // Cerrar menú al hacer clic en un enlace (móvil) y scroll suave
-    const navItems = document.querySelectorAll('.nav-links a, .cta-buttons a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Cerrar menú móvil si está abierto
-            if (hamburger && hamburger.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-            
-            // Scroll suave para navegación
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#') && targetId.length > 1) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
+  const entries = [...document.querySelectorAll(".project-entry")];
+  entries.forEach((entry) =>
+    entry.addEventListener("toggle", () => {
+      if (
+        !entry.open ||
+        document.documentElement.classList.contains("printing")
+      )
+        return;
+      entries.forEach((other) => {
+        if (other !== entry) other.open = false;
+      });
+    }),
+  );
+  const historyPanels = [...document.querySelectorAll("[data-history-group]")];
+  const historyTabs = [...document.querySelectorAll("[data-history-tab]")];
+  const historyKeys = new Set(historyTabs.map((tab) => tab.dataset.historyTab));
+  function readHistory() {
+    const key = new URL(window.location.href).searchParams.get("background");
+    return historyKeys.has(key) ? key : "experience";
+  }
+  function writeHistory(key, push = true) {
+    const url = new URL(window.location.href);
+    key === "experience"
+      ? url.searchParams.delete("background")
+      : url.searchParams.set("background", key);
+    const linkedPanel = document
+      .getElementById(url.hash.slice(1))
+      ?.closest("[data-history-group]");
+    if (linkedPanel && linkedPanel.dataset.historyGroup !== key) url.hash = "";
+    if (url.href !== window.location.href)
+      window.history[push ? "pushState" : "replaceState"](null, "", url);
+  }
+  function selectHistory(key, focus = false) {
+    historyPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.historyGroup !== key;
     });
-
-    // Cambiar estilo de la navegación al hacer scroll
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    historyTabs.forEach((tab) => {
+      const active = tab.dataset.historyTab === key;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
     });
-
-    // Inicializar partículas — respetar prefers-reduced-motion (a11y + batería en móvil)
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion && typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#64ffda"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#64ffda",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    }
-
-    // Efecto de escritura para el terminal - versión secuencial
-    const terminalCommands = document.querySelectorAll('.terminal-body .command:not(.blink)');
-    const terminalOutputs = document.querySelectorAll('.terminal-body .output');
-    const DEFAULT_TYPING_SPEED = 25;
-    const DEFAULT_OUTPUT_DELAY = 150;
-    const DEFAULT_COMMAND_DELAY = 350;
-
-    const parseWithFallback = (value, fallback) => {
-        const parsed = parseInt(value, 10);
-        return Number.isNaN(parsed) ? fallback : parsed;
-    };
-
-    function typeWriter(element, text, index, speed, done) {
-        if (index < text.length) {
-            element.textContent += text.charAt(index);
-            setTimeout(() => typeWriter(element, text, index + 1, speed, done), speed);
-        } else if (typeof done === 'function') {
-            done();
-        }
-    }
-
-    function startTypingEffect() {
-        if (!terminalCommands.length) {
-            return;
-        }
-
-        // Preparar comandos y salidas antes de iniciar la animación
-        terminalCommands.forEach((cmd, commandIndex) => {
-            const originalText = cmd.textContent;
-            cmd.setAttribute('data-text', originalText);
-            cmd.textContent = '';
-            cmd.style.transition = 'opacity 0.3s';
-            cmd.style.opacity = '0';
-
-            if (commandIndex !== 0) {
-                cmd.style.display = 'none';
-            }
-        });
-
-        terminalOutputs.forEach(output => {
-            output.style.display = 'none';
-            output.style.opacity = '0';
-            output.style.transition = 'opacity 0.3s';
-        });
-
-        let currentIndex = 0;
-
-        function typeNextCommand() {
-            if (currentIndex >= terminalCommands.length) {
-                return;
-            }
-
-            const command = terminalCommands[currentIndex];
-            const output = terminalOutputs[currentIndex] || null;
-            const commandText = command.getAttribute('data-text') || '';
-            const typingSpeed = Math.max(parseWithFallback(command.dataset.typingSpeed, DEFAULT_TYPING_SPEED), 10);
-            const outputDelay = Math.max(parseWithFallback(command.dataset.outputDelay, DEFAULT_OUTPUT_DELAY), 0);
-            const delayAfter = Math.max(parseWithFallback(command.dataset.delayAfter, DEFAULT_COMMAND_DELAY), 0);
-
-            command.style.display = 'inline-block';
-            setTimeout(() => {
-                command.style.opacity = '1';
-            }, 40);
-
-            const proceedToNext = () => {
-                currentIndex++;
-                if (currentIndex < terminalCommands.length) {
-                    setTimeout(typeNextCommand, delayAfter);
-                }
-            };
-
-            typeWriter(command, commandText, 0, typingSpeed, () => {
-                if (output) {
-                    setTimeout(() => {
-                        output.style.display = 'block';
-                        requestAnimationFrame(() => {
-                            output.style.opacity = '1';
-                        });
-
-                        const progressElement = output.querySelector('.terminal-progress');
-                        if (progressElement) {
-                            progressElement.classList.remove('animate');
-                            void progressElement.offsetWidth;
-                            progressElement.classList.add('animate');
-                        }
-
-                        proceedToNext();
-                    }, outputDelay);
-                } else {
-                    proceedToNext();
-                }
-            });
-        }
-
-        typeNextCommand();
-    }
-
-    // Iniciar efecto de escritura una vez cargado el DOM
-    setTimeout(startTypingEffect, 400);
-
-    // Animación de aparición al hacer scroll
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    const sections = document.querySelectorAll('section:not(.hero)');
-    sections.forEach(section => {
-        section.classList.add('fade-in');
-        observer.observe(section);
+  }
+  if (historyTabs.length) {
+    select(".history-tabs").hidden = false;
+    historyPanels.forEach((panel) => {
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute(
+        "aria-labelledby",
+        `tab-${panel.dataset.historyGroup}`,
+      );
+      panel.querySelector("h3").hidden = true;
     });
-
-    // Formulario de contacto
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener elementos del formulario
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const formStatus = contactForm.querySelector('.form-status');
-            const formStatusText = formStatus.querySelector('p');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Deshabilitar botón y mostrar estado de carga
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            // Recopilar datos del formulario
-            const formData = new FormData(contactForm);
-            
-            // Enviar datos a Formspree
-            fetch('https://formspree.io/f/myzelwak', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                // Mostrar mensaje de éxito
-                formStatus.style.display = 'block';
-                formStatus.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
-                formStatus.style.color = '#64ffda';
-                formStatusText.textContent = 'Message sent successfully! I will get back to you soon.';
-                
-                // Resetear formulario
-                contactForm.reset();
-                
-                // Restaurar botón después de un tiempo
-                setTimeout(function() {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                    
-                    // Ocultar mensaje de éxito después de un tiempo
-                    setTimeout(function() {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                }, 2000);
-            })
-            .catch(error => {
-                // Mostrar mensaje de error
-                formStatus.style.display = 'block';
-                formStatus.style.backgroundColor = 'rgba(255, 100, 100, 0.1)';
-                formStatus.style.color = '#ff6464';
-                formStatusText.textContent = 'There was a problem sending your message. Please try again or contact me directly via email.';
-                
-                // Restaurar botón
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-                
-                console.error('Error:', error);
-            });
+    selectHistory(readHistory());
+    historyTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        selectHistory(tab.dataset.historyTab);
+        writeHistory(tab.dataset.historyTab);
+      });
+      tab.addEventListener("keydown", (event) => {
+        let next;
+        if (event.key === "ArrowRight") next = (index + 1) % historyTabs.length;
+        else if (event.key === "ArrowLeft")
+          next = (index + historyTabs.length - 1) % historyTabs.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = historyTabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectHistory(historyTabs[next].dataset.historyTab, true);
+        writeHistory(historyTabs[next].dataset.historyTab, false);
+      });
+    });
+  }
+  function revealHistory(target) {
+    const panel = target.closest("[data-history-group]");
+    if (panel) selectHistory(panel.dataset.historyGroup);
+  }
+  const filters = [...document.querySelectorAll("[data-filter]")];
+  const search = select("#project-search");
+  const count = select("#project-results");
+  const empty = select(".empty-results");
+  const params = () => new URL(window.location.href).searchParams;
+  const categories = new Set(filters.map((button) => button.dataset.filter));
+  let category = "all";
+  let searchTimer;
+  const normalize = (value) =>
+    value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  const searchable = new Map(
+    entries.map((entry) => [entry, normalize(entry.textContent)]),
+  );
+  select(".archive-tools").hidden = false;
+  count.hidden = false;
+  function filterProjects() {
+    const query = normalize(search.value.trim());
+    let visible = 0;
+    entries.forEach((entry) => {
+      entry.hidden =
+        !(category === "all" || entry.dataset.category === category) ||
+        !searchable.get(entry).includes(query);
+      if (!entry.hidden) visible++;
+    });
+    filters.forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.filter === category),
+      ),
+    );
+    count.textContent = `${visible} of ${entries.length} projects`;
+    empty.hidden = visible !== 0;
+  }
+  function writeFilters(push = false) {
+    const url = new URL(window.location.href);
+    category === "all"
+      ? url.searchParams.delete("category")
+      : url.searchParams.set("category", category);
+    search.value.trim()
+      ? url.searchParams.set("q", search.value.trim())
+      : url.searchParams.delete("q");
+    const linkedProject = document
+      .getElementById(url.hash.slice(1))
+      ?.closest(".project-entry");
+    if (linkedProject?.hidden) url.hash = "";
+    if (url.href !== window.location.href)
+      window.history[push ? "pushState" : "replaceState"](null, "", url);
+  }
+  function readFilters() {
+    category = categories.has(params().get("category"))
+      ? params().get("category")
+      : "all";
+    search.value = params().get("q") || "";
+    filterProjects();
+  }
+  filters.forEach((button) =>
+    button.addEventListener("click", () => {
+      clearTimeout(searchTimer);
+      category = button.dataset.filter;
+      filterProjects();
+      writeFilters(true);
+    }),
+  );
+  search.addEventListener("input", () => {
+    filterProjects();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(writeFilters, 200);
+  });
+  function openHashTarget(restore = false) {
+    const target = document
+      .getElementById(window.location.hash.slice(1))
+      ?.closest("details");
+    if (restore)
+      entries.forEach((entry) => {
+        if (entry !== target) entry.open = false;
+      });
+    if (target) {
+      revealHistory(target);
+      const panel = target.closest("[data-history-group]");
+      if (panel) writeHistory(panel.dataset.historyGroup, false);
+      if (target.hidden) {
+        category = "all";
+        search.value = "";
+        filterProjects();
+        writeFilters();
+      }
+      target.open = true;
+    }
+  }
+  window.addEventListener("popstate", () => {
+    readFilters();
+    selectHistory(readHistory());
+    openHashTarget(true);
+  });
+  window.addEventListener("hashchange", () => openHashTarget());
+  const ordinaryClick = (event) =>
+    event.button === 0 &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.shiftKey &&
+    !event.altKey;
+  document
+    .querySelectorAll(".project-entry > summary, .history-entry > summary")
+    .forEach((summary) => {
+      summary.addEventListener("click", (event) => {
+        if (!ordinaryClick(event)) return;
+        requestAnimationFrame(() => {
+          const entry = summary.parentElement;
+          const url = new URL(window.location.href);
+          const linkedEntry = document
+            .getElementById(url.hash.slice(1))
+            ?.closest("details");
+          if (entry.open) url.hash = entry.id;
+          else if (linkedEntry === entry) url.hash = "";
+          if (url.href !== window.location.href)
+            window.history[entry.open ? "pushState" : "replaceState"](
+              null,
+              "",
+              url,
+            );
         });
+      });
+    });
+  document.addEventListener("click", (event) => {
+    if (!ordinaryClick(event) || event.defaultPrevented) return;
+    const anchor = event.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const target = document.getElementById(
+      anchor.getAttribute("href").slice(1),
+    );
+    const disclosure = target?.closest("details");
+    if (disclosure) {
+      revealHistory(disclosure);
+      disclosure.open = true;
     }
+  });
+  readFilters();
+  openHashTarget();
 
-});
-
-// Añadir clase para animaciones CSS y arreglar botones de navegación
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.classList.add('loaded');
-    
-    // Fix navigation buttons - Implementación directa en el evento principal
-    const setupNavigationButtons = function() {
-        console.log("Configurando botones de navegación");
-        
-        // Fix Projects button
-        const projectsBtn = document.getElementById('view-projects-btn');
-        if (projectsBtn) {
-            console.log("Botón de proyectos encontrado");
-            projectsBtn.onclick = function(e) {
-                e.preventDefault();
-                const projectsSection = document.getElementById('projects');
-                if (projectsSection) {
-                    window.scrollTo({
-                        top: projectsSection.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            };
-        } else {
-            console.log("Botón de proyectos no encontrado");
-        }
-        
-        // Fix Contact button
-        const contactBtn = document.getElementById('contact-me-btn');
-        if (contactBtn) {
-            console.log("Botón de contacto encontrado");
-            contactBtn.onclick = function(e) {
-                e.preventDefault();
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                    window.scrollTo({
-                        top: contactSection.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            };
-        } else {
-            console.log("Botón de contacto no encontrado");
-        }
-    };
-    
-    // Ejecutar inmediatamente y también después de un retraso para asegurar que los elementos estén cargados
-    setupNavigationButtons();
-    setTimeout(setupNavigationButtons, 1000);
-
-    // Pagination for Projects Section
-
-    class ProjectsPaginator {
-        constructor(gridElement, itemsPerPage = 4) {
-            this.grid = gridElement;
-            this.cards = Array.from(this.grid.querySelectorAll('.project-card'));
-            this.itemsPerPage = Math.max(1, itemsPerPage);
-            this.currentPage = 1;
-            this.totalPages = Math.max(1, Math.ceil(this.cards.length / this.itemsPerPage));
-            this.controls = null;
-            this.prevButton = null;
-            this.nextButton = null;
-            this.pageButtons = [];
-
-            if (this.cards.length) {
-                this.initialize();
-            }
-        }
-
-        initialize() {
-            this.renderCurrentPage();
-
-            if (this.totalPages > 1) {
-                this.createControls();
-                this.updateControls();
-            }
-        }
-
-        renderCurrentPage() {
-            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-            const endIndex = startIndex + this.itemsPerPage;
-
-            this.cards.forEach((card, index) => {
-                const shouldShow = index >= startIndex && index < endIndex;
-                card.classList.toggle('is-hidden', !shouldShow);
-            });
-        }
-
-        createButton(label, onClick) {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.classList.add('btn', 'small');
-            button.textContent = label;
-            button.addEventListener('click', onClick);
-            return button;
-        }
-
-        createControls() {
-            // Remove any existing pagination controls before creating new ones
-            const existingControls = this.grid.parentElement.querySelector('.pagination-controls');
-            if (existingControls) {
-                existingControls.remove();
-            }
-
-            const paginationContainer = document.createElement('nav');
-            paginationContainer.classList.add('pagination-controls');
-            paginationContainer.setAttribute('aria-label', 'Projects pagination');
-
-            this.prevButton = this.createButton('Previous', () => {
-                this.goToPage(this.currentPage - 1);
-            });
-            this.prevButton.setAttribute('aria-label', 'Previous projects page');
-
-            this.nextButton = this.createButton('Next', () => {
-                this.goToPage(this.currentPage + 1);
-            });
-            this.nextButton.setAttribute('aria-label', 'Next projects page');
-
-            const pageNumbersWrapper = document.createElement('div');
-            pageNumbersWrapper.classList.add('page-buttons');
-            pageNumbersWrapper.setAttribute('role', 'group');
-            pageNumbersWrapper.setAttribute('aria-label', 'Project pages');
-
-            for (let page = 1; page <= this.totalPages; page += 1) {
-                const pageButton = document.createElement('button');
-                pageButton.type = 'button';
-                pageButton.classList.add('page-number');
-                pageButton.dataset.page = page.toString();
-                pageButton.textContent = page.toString();
-                pageButton.setAttribute('aria-label', `Go to projects page ${page}`);
-                pageButton.addEventListener('click', () => {
-                    this.goToPage(page);
-                });
-
-                this.pageButtons.push(pageButton);
-                pageNumbersWrapper.appendChild(pageButton);
-            }
-
-            paginationContainer.append(this.prevButton, pageNumbersWrapper, this.nextButton);
-            this.grid.insertAdjacentElement('afterend', paginationContainer);
-
-            this.controls = paginationContainer;
-        }
-
-        updateControls() {
-            if (!this.controls) {
-                return;
-            }
-
-            if (this.prevButton) {
-                this.prevButton.disabled = this.currentPage === 1;
-            }
-
-            if (this.nextButton) {
-                this.nextButton.disabled = this.currentPage === this.totalPages;
-            }
-
-            this.pageButtons.forEach(button => {
-                const buttonPage = parseInt(button.dataset.page, 10);
-                const isActive = buttonPage === this.currentPage;
-                button.classList.toggle('is-active', isActive);
-                button.setAttribute('aria-pressed', isActive.toString());
-                button.setAttribute('aria-current', isActive ? 'page' : 'false');
-                button.disabled = isActive;
-            });
-        }
-
-        goToPage(pageNumber) {
-            const safePage = Math.min(Math.max(pageNumber, 1), this.totalPages);
-            if (safePage === this.currentPage) {
-                return;
-            }
-
-            this.currentPage = safePage;
-            this.renderCurrentPage();
-            this.updateControls();
-        }
+  const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+  const navSections = [...document.querySelectorAll("main>section[id]")];
+  let navigationFrame;
+  function updateCurrentSection() {
+    navigationFrame = undefined;
+    const readingLine = select(".site-header").offsetHeight + 80;
+    let current = navSections[0];
+    for (const section of navSections) {
+      if (section.getBoundingClientRect().top <= readingLine) current = section;
     }
+    // The short final section may never reach the reading line on a tall screen.
+    if (
+      window.scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight - 2
+    )
+      current = navSections.at(-1);
+    navLinks.forEach((link) => {
+      if (link.hash === `#${current.id}`)
+        link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+  function scheduleNavigationUpdate() {
+    if (navigationFrame === undefined)
+      navigationFrame = requestAnimationFrame(updateCurrentSection);
+  }
+  window.addEventListener("scroll", scheduleNavigationUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", scheduleNavigationUpdate);
+  window.addEventListener("load", scheduleNavigationUpdate);
+  if (document.readyState === "complete") scheduleNavigationUpdate();
 
-    const projectsGrid = document.querySelector('#projects .projects-grid');
-    if (projectsGrid) {
-        new ProjectsPaginator(projectsGrid, 4);
-    }
-});
+  let printState;
+  window.addEventListener("beforeprint", () => {
+    if (printState) return;
+    printState = [...document.querySelectorAll("details")].map((entry) => [
+      entry,
+      entry.open,
+    ]);
+    document.documentElement.classList.add("printing");
+    printState.forEach(([entry]) => {
+      entry.open = true;
+    });
+  });
+  window.addEventListener("afterprint", () => {
+    printState?.forEach(([entry, open]) => {
+      entry.open = open;
+    });
+    printState = undefined;
+    document.documentElement.classList.remove("printing");
+  });
+  const findingTabs = [...document.querySelectorAll("[data-finding-tab]")];
+  const findingViews = [...document.querySelectorAll("[data-finding-view]")];
+  function selectFinding(key, focus = false) {
+    findingViews.forEach((view) => {
+      view.hidden = view.dataset.findingView !== key;
+    });
+    findingTabs.forEach((tab) => {
+      const active = tab.dataset.findingTab === key;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+  }
+  if (findingTabs.length) {
+    select(".finding-tabs").hidden = false;
+    findingViews.forEach((view) => {
+      view.setAttribute("role", "tabpanel");
+      view.setAttribute(
+        "aria-labelledby",
+        "finding-tab-" + view.dataset.findingView,
+      );
+      view.querySelector(".finding-nojs-label").hidden = true;
+    });
+    selectFinding("interface");
+    findingTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () =>
+        selectFinding(tab.dataset.findingTab),
+      );
+      tab.addEventListener("keydown", (event) => {
+        let next;
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft")
+          next = 1 - index;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = 1;
+        else return;
+        event.preventDefault();
+        selectFinding(findingTabs[next].dataset.findingTab, true);
+      });
+    });
+  }
+  select("#footer-year").textContent = new Date().getFullYear();
 
-// Estilos adicionales para animaciones
-document.head.insertAdjacentHTML('beforeend', `
-<style>
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-.loaded .hero h1,
-.loaded .hero h2,
-.loaded .cta-buttons {
-    animation-play-state: running;
-}
-</style>
-`);
-
-
+  const copy = select(".copy-email");
+  const copyLabel = copy.innerHTML;
+  if (navigator.clipboard && window.isSecureContext) {
+    copy.hidden = false;
+    let resetTimer;
+    copy.addEventListener("click", async () => {
+      clearTimeout(resetTimer);
+      try {
+        await navigator.clipboard.writeText("javiergc100@protonmail.com");
+        copy.textContent = "Email copied";
+        select(".copy-status").textContent = "Email copied.";
+      } catch {
+        copy.textContent = "Select the address to copy it";
+        select(".copy-status").textContent =
+          "Copying is unavailable. Select the address to copy it.";
+      }
+      resetTimer = setTimeout(() => {
+        copy.innerHTML = copyLabel;
+      }, 3500);
+    });
+  }
+})();

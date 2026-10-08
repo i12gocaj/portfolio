@@ -1,0 +1,691 @@
+{
+  "date": "2026-10-08",
+  "baseline": "cbdbd9d0699335cc41c16b0fba4455f773b2877a",
+  "environment": "Local HTTP server; headless Chrome 154; no production or physical-device measurement",
+  "functional": {
+    "tests": [
+      {
+        "name": "All local anchor destinations and external link protection",
+        "pass": true,
+        "detail": {
+          "anchors": 20,
+          "external": 33
+        }
+      },
+      {
+        "name": "All referenced local resources respond successfully",
+        "pass": true
+      },
+      {
+        "name": "Skip link bypasses header navigation by keyboard",
+        "pass": true
+      },
+      {
+        "name": "Every project and background deep link reveals its content",
+        "pass": true,
+        "detail": 46
+      },
+      {
+        "name": "Selected background survives reload and a stale deep link",
+        "pass": true
+      },
+      {
+        "name": "Browser Back restores background category",
+        "pass": true
+      },
+      {
+        "name": "Open project can be shared and close clears stale fragment",
+        "pass": true
+      },
+      {
+        "name": "Control-click does not alter current background tab",
+        "pass": true
+      },
+      {
+        "name": "Browser Back restores project filters and search",
+        "pass": true
+      },
+      {
+        "name": "Search handles accents and uppercase, then empty results",
+        "pass": true
+      },
+      {
+        "name": "Clipboard failure provides a usable fallback",
+        "pass": true
+      },
+      {
+        "name": "Resize from desktop keeps keyboard focus on a visible menu control",
+        "pass": true
+      },
+      {
+        "name": "Keyboard focus is not covered by the fixed header",
+        "pass": true
+      },
+      {
+        "name": "No-JS and blocked-JS preserve all content and mobile navigation",
+        "pass": true
+      },
+      {
+        "name": "Print contains all background groups and expanded project descriptions",
+        "pass": true
+      },
+      {
+        "name": "Text spacing and 400% reflow",
+        "pass": true
+      }
+    ],
+    "resources": [
+      {
+        "url": "assets/css/styles.css",
+        "status": 200
+      },
+      {
+        "url": "assets/css/personality.css",
+        "status": 200
+      },
+      {
+        "url": "assets/css/analysis.css",
+        "status": 200
+      },
+      {
+        "url": "assets/img/profile-800.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/img/atlas-1080.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/docs/cv-javier-gonzalez-casares.pdf",
+        "status": 200
+      },
+      {
+        "url": "assets/img/cv-javier-gonzalez-casares-preview.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/docs/carta-reconocimiento-nasa-vdp.pdf",
+        "status": 200
+      },
+      {
+        "url": "assets/img/carta-reconocimiento-nasa-vdp-preview.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/docs/carta-recomendacion-policia-nacional.pdf",
+        "status": 200
+      },
+      {
+        "url": "assets/img/carta-recomendacion-policia-nacional-preview.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/docs/carta-recomendacion-navantia.pdf",
+        "status": 200
+      },
+      {
+        "url": "assets/img/carta-recomendacion-navantia-preview.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/docs/carta-recomendacion-universidad.pdf",
+        "status": 200
+      },
+      {
+        "url": "assets/img/carta-recomendacion-universidad-preview.webp",
+        "status": 200
+      },
+      {
+        "url": "assets/js/main.js",
+        "status": 200
+      }
+    ],
+    "focus": [],
+    "links": [
+      "https://github.com/i12gocaj/allosint-tfm",
+      "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed",
+      "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed/blob/main/instagram_notes_audio_leakage.mov",
+      "https://github.com/i12gocaj/SecEmail",
+      "https://github.com/i12gocaj/Atlas",
+      "https://github.com/i12gocaj/passwow",
+      "https://github.com/i12gocaj/BrillanteSeguro.com",
+      "https://brillanteseguro.es/",
+      "https://github.com/i12gocaj/instagram-password-bypass",
+      "https://github.com/i12gocaj/CTF-Hackademics-Forum-3",
+      "https://github.com/i12gocaj/ig-audio-downloader-extension",
+      "https://github.com/i12gocaj/club-gym-sierra-time-bypass",
+      "https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros",
+      "https://github.com/i12gocaj/portfolio/releases/download/tfg-defense-audio/tfg.m4a",
+      "https://github.com/i12gocaj/footactik",
+      "https://github.com/i12gocaj/AES-app",
+      "https://helionlabs.es/",
+      "https://github.com/i12gocaj/BuyTheTop",
+      "https://t.me/transcriptapp_bot",
+      "https://scoutlasallecordoba.es/",
+      "https://github.com/i12gocaj/HundirFlotaRedes",
+      "https://github.com/i12gocaj?tab=repositories",
+      "https://github.com/i12gocaj/interfaz_SistemasInteractivos",
+      "https://github.com/i12gocaj/Artificial-Intelligent",
+      "https://github.com/i12gocaj/ImageProcessing",
+      "https://github.com/i12gocaj/ToDo_app",
+      "https://github.com/i12gocaj/ZooWeb",
+      "https://github.com/i12gocaj/snake_game",
+      "https://www.linkedin.com/in/javier-gonzalez-casares/",
+      "https://www.nics.uma.es/viii-edicion-diploma-experto-en-ingenieria-inversa-e-inteligencia-malware/",
+      "https://github.com/i12gocaj"
+    ],
+    "errors": []
+  },
+  "edgeCases": {
+    "mobile": [
+      {
+        "width": 320,
+        "menuOpen": true,
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 390,
+        "menuOpen": true,
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 420,
+        "menuOpen": true,
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 421,
+        "menuOpen": true,
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 600,
+        "menuOpen": true,
+        "violations": [],
+        "incomplete": []
+      }
+    ],
+    "restoredPrint": true,
+    "history": true
+  },
+  "contentAndAccessibility": {
+    "content": {
+      "projects": 21,
+      "history": 25,
+      "unchangedDescriptions": true,
+      "linkExceptions": [
+        "Scouts canonical domain updated",
+        "App Store 404 replaced with notice",
+        "BuyTheTop token access replaced with notice"
+      ],
+      "formRemoved": true,
+      "lineSymbolsResolved": 201,
+      "defaultHistoryEntries": 4
+    },
+    "layouts": [
+      {
+        "width": 1920,
+        "noOverflow": true
+      },
+      {
+        "width": 1440,
+        "noOverflow": true
+      },
+      {
+        "width": 1024,
+        "noOverflow": true
+      },
+      {
+        "width": 900,
+        "noOverflow": true
+      },
+      {
+        "width": 768,
+        "noOverflow": true
+      },
+      {
+        "width": 600,
+        "noOverflow": true
+      },
+      {
+        "width": 601,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "noOverflow": true
+      },
+      {
+        "width": 320,
+        "noOverflow": true
+      }
+    ],
+    "accessibility": [
+      {
+        "width": 1440,
+        "tab": "experience",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 1440,
+        "tab": "education",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 1440,
+        "tab": "awards",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 1440,
+        "tab": "community",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 390,
+        "tab": "experience",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 390,
+        "tab": "education",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 390,
+        "tab": "awards",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 390,
+        "tab": "community",
+        "violations": [],
+        "incomplete": []
+      }
+    ],
+    "interactions": [
+      "Email copy, note toggle, finding comparison and history tabs with arrows/Home/End",
+      "Project index opens one detail at a time; filters, search persistence, empty results and legacy deep links",
+      "Mobile menu and correct open/closed glyph",
+      "All content, both finding views and email work without JavaScript",
+      "Reduced motion disables finding animation"
+    ],
+    "errors": []
+  },
+  "documentsAndComponents": {
+    "documents": [
+      {
+        "file": "assets/docs/cv-javier-gonzalez-casares.pdf",
+        "unchanged": true,
+        "previewDecoded": true
+      },
+      {
+        "file": "assets/docs/carta-reconocimiento-nasa-vdp.pdf",
+        "unchanged": true,
+        "previewDecoded": true
+      },
+      {
+        "file": "assets/docs/carta-recomendacion-policia-nacional.pdf",
+        "unchanged": true,
+        "previewDecoded": true
+      },
+      {
+        "file": "assets/docs/carta-recomendacion-navantia.pdf",
+        "unchanged": true,
+        "previewDecoded": true
+      },
+      {
+        "file": "assets/docs/carta-recomendacion-universidad.pdf",
+        "unchanged": true,
+        "previewDecoded": true
+      }
+    ],
+    "evidenceLinks": [
+      {
+        "history": "background-2",
+        "document": "document-nasa",
+        "working": true
+      },
+      {
+        "history": "background-11",
+        "document": "document-police",
+        "working": true
+      },
+      {
+        "history": "background-10",
+        "document": "document-navantia",
+        "working": true
+      }
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 1024,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 900,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 768,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 601,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 600,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 320,
+        "sectionsChecked": 5,
+        "noOverflow": true
+      }
+    ],
+    "audits": [
+      {
+        "width": 1440,
+        "selector": ".authentication-diagram",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 1440,
+        "selector": "#documents",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 320,
+        "selector": ".authentication-diagram",
+        "violations": [],
+        "incomplete": []
+      },
+      {
+        "width": 320,
+        "selector": "#documents",
+        "violations": [],
+        "incomplete": []
+      }
+    ]
+  },
+  "externalLinks": [
+    {
+      "url": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed"
+    },
+    {
+      "url": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed/blob/main/instagram_notes_audio_leakage.mov",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed/blob/main/instagram_notes_audio_leakage.mov"
+    },
+    {
+      "url": "https://github.com/i12gocaj/SecEmail",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/SecEmail"
+    },
+    {
+      "url": "https://github.com/i12gocaj/allosint-tfm",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/allosint-tfm"
+    },
+    {
+      "url": "https://brillanteseguro.es/",
+      "status": 200,
+      "finalUrl": "https://brillanteseguro.es/"
+    },
+    {
+      "url": "https://github.com/i12gocaj/Atlas",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/Atlas"
+    },
+    {
+      "url": "https://github.com/i12gocaj/passwow",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/passwow"
+    },
+    {
+      "url": "https://github.com/i12gocaj/BrillanteSeguro.com",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/BrillanteSeguro.com"
+    },
+    {
+      "url": "https://github.com/i12gocaj/instagram-password-bypass",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/instagram-password-bypass"
+    },
+    {
+      "url": "https://github.com/i12gocaj/CTF-Hackademics-Forum-3",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/CTF-Hackademics-Forum-3"
+    },
+    {
+      "url": "https://github.com/i12gocaj/ig-audio-downloader-extension",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/ig-audio-downloader-extension"
+    },
+    {
+      "url": "https://github.com/i12gocaj/club-gym-sierra-time-bypass",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/club-gym-sierra-time-bypass"
+    },
+    {
+      "url": "https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros"
+    },
+    {
+      "url": "https://helionlabs.es/",
+      "status": 200,
+      "finalUrl": "https://helionlabs.es/"
+    },
+    {
+      "url": "https://github.com/i12gocaj/portfolio/releases/download/tfg-defense-audio/tfg.m4a",
+      "status": 200,
+      "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/963568383/fc1e7975-fd4c-4d3b-b4d6-71c3f4039f74?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-08T21%3A26%3A45Z&rscd=attachment%3B+filename%3Dtfg.m4a&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-08T20%3A26%3A45Z&ske=2026-10-08T21%3A26%3A45Z&sks=b&skv=2018-11-09&sig=wYYfpTljfZwniV2zGui7ppqjuYoLvYBgMSgAu70lhn8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTQ5NDQ1NSwibmJmIjoxNzkxNDkyNjU1LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.A2ak281HC_qcZlClNDP5PQ4faXTTrm-iB1MsLqhK0OU&response-content-disposition=attachment%3B%20filename%3Dtfg.m4a&response-content-type=application%2Foctet-stream"
+    },
+    {
+      "url": "https://github.com/i12gocaj/footactik",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/footactik"
+    },
+    {
+      "url": "https://github.com/i12gocaj/AES-app",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/AES-app"
+    },
+    {
+      "url": "https://t.me/transcriptapp_bot",
+      "status": 200,
+      "finalUrl": "https://t.me/transcriptapp_bot"
+    },
+    {
+      "url": "https://scoutlasallecordoba.es/",
+      "status": 200,
+      "finalUrl": "https://scoutlasallecordoba.es/"
+    },
+    {
+      "url": "https://github.com/i12gocaj/BuyTheTop",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/BuyTheTop"
+    },
+    {
+      "url": "https://github.com/i12gocaj/HundirFlotaRedes",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/HundirFlotaRedes"
+    },
+    {
+      "url": "https://github.com/i12gocaj?tab=repositories",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj?tab=repositories"
+    },
+    {
+      "url": "https://github.com/i12gocaj/interfaz_SistemasInteractivos",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/interfaz_SistemasInteractivos"
+    },
+    {
+      "url": "https://github.com/i12gocaj/Artificial-Intelligent",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/Artificial-Intelligent"
+    },
+    {
+      "url": "https://github.com/i12gocaj/ImageProcessing",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/ImageProcessing"
+    },
+    {
+      "url": "https://github.com/i12gocaj/ToDo_app",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/ToDo_app"
+    },
+    {
+      "url": "https://github.com/i12gocaj/ZooWeb",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/ZooWeb"
+    },
+    {
+      "url": "https://www.linkedin.com/in/javier-gonzalez-casares/",
+      "status": 405,
+      "finalUrl": "https://www.linkedin.com/in/javier-gonzalez-casares/"
+    },
+    {
+      "url": "https://www.nics.uma.es/viii-edicion-diploma-experto-en-ingenieria-inversa-e-inteligencia-malware/",
+      "status": 200,
+      "finalUrl": "https://www.nics.uma.es/viii-edicion-diploma-experto-en-ingenieria-inversa-e-inteligencia-malware/"
+    },
+    {
+      "url": "https://github.com/i12gocaj/snake_game",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj/snake_game"
+    },
+    {
+      "url": "https://github.com/i12gocaj",
+      "status": 200,
+      "finalUrl": "https://github.com/i12gocaj"
+    }
+  ],
+  "htmlValidation": {
+    "valid": true,
+    "errors": 0,
+    "warnings": 0
+  },
+  "lighthouse": {
+    "mobile-before": {
+      "version": "13.5.0",
+      "time": "2026-10-08T20:25:39.972Z",
+      "url": "http://127.0.0.1:4173/",
+      "scores": {
+        "performance": 89,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 2109.1316781824244,
+          "display": "2.1 s"
+        },
+        "largest-contentful-paint": {
+          "value": 3084.1316781824244,
+          "display": "3.1 s"
+        },
+        "total-blocking-time": {
+          "value": 195,
+          "display": "200 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      }
+    },
+    "mobile-final": {
+      "version": "13.5.0",
+      "time": "2026-10-08T20:47:55.235Z",
+      "url": "http://127.0.0.1:4173/",
+      "scores": {
+        "performance": 93,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1957.1512810516206,
+          "display": "2.0 s"
+        },
+        "largest-contentful-paint": {
+          "value": 2707.1512810516206,
+          "display": "2.7 s"
+        },
+        "total-blocking-time": {
+          "value": 169,
+          "display": "170 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      }
+    },
+    "desktop-final": {
+      "version": "13.5.0",
+      "time": "2026-10-08T20:48:26.777Z",
+      "url": "http://127.0.0.1:4173/",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 448.1742223584239,
+          "display": "0.4 s"
+        },
+        "largest-contentful-paint": {
+          "value": 532.2613335376359,
+          "display": "0.5 s"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "display": "0 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      }
+    }
+  }
+}
