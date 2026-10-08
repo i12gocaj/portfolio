@@ -8,19 +8,6 @@
 :root {
   --annotation: #e6c963;
 }
-.brand-mark {
-  position: relative;
-}
-.brand-swoop {
-  position: absolute;
-  width: 57px;
-  height: 14px;
-  left: -2px;
-  bottom: -11px;
-  fill: none;
-  stroke: var(--cobalt);
-  stroke-width: 2;
-}
 .hand-note {
   font:
     600 25px/1 "Caveat",
@@ -34,20 +21,6 @@
 }
 .portrait-window {
   border-radius: 2px 28px 2px 2px;
-}
-.portrait-note {
-  position: absolute;
-  top: -18px;
-  right: 3%;
-  color: var(--ink);
-  transform: rotate(-7deg);
-  pointer-events: none;
-}
-.portrait-note svg {
-  display: block;
-  width: 78px;
-  height: 42px;
-  margin-left: auto;
 }
 .current-study {
   display: flex;
@@ -157,31 +130,6 @@
 .featured-project:focus-within .project-heading-mark .project-mark {
   transform: rotate(-7deg);
 }
-.project-outcome {
-  margin-top: 23px;
-  border-top: 1px solid var(--line);
-  padding-top: 17px;
-  font-size: 12px;
-  color: var(--ink);
-}
-.outcome-stroke {
-  display: inline-block;
-  width: 18px;
-  height: 4px;
-  background: var(--annotation);
-  vertical-align: middle;
-  margin-right: 8px;
-}
-.section-note {
-  font:
-    600 22px/1.1 "Caveat",
-    cursive;
-  color: var(--cobalt);
-  white-space: normal;
-  max-width: 210px;
-  text-align: right;
-  transform: rotate(-3deg);
-}
 .visual-allosint {
   background: var(--ink);
   color: var(--paper);
@@ -275,14 +223,6 @@
   font-size: 11px;
   background: var(--ink);
 }
-.signal-note {
-  position: absolute;
-  top: 3%;
-  right: 10%;
-  color: var(--annotation);
-  transform: rotate(-8deg);
-  background: var(--ink);
-}
 .audio-bars span {
   transition: transform 0.35s var(--ease);
   transform-origin: center;
@@ -342,10 +282,6 @@ details[open] > .history-description {
   .signal-map {
     min-height: 0;
   }
-  .signal-note {
-    font-size: 23px;
-    right: 5%;
-  }
   .curated-work .featured-copy h3 {
     font-size: 28px;
   }
@@ -368,20 +304,8 @@ details[open] > .history-description {
   .curated-work .featured-project:last-child {
     padding-top: 38px;
   }
-  .signal-note {
-    font-size: 27px;
-    right: 9%;
-  }
 }
 @media (max-width: 600px) {
-  .portrait-topline {
-    margin-bottom: 36px;
-  }
-  .portrait-note {
-    font-size: 24px;
-    top: -19px;
-    right: 2%;
-  }
   .current-study {
     margin-top: 17px;
   }
@@ -398,10 +322,6 @@ details[open] > .history-description {
     font-size: 10px;
     bottom: 0;
   }
-  .signal-note {
-    font-size: 24px;
-    right: 8%;
-  }
   .signal-node {
     font-size: 31px;
   }
@@ -412,11 +332,6 @@ details[open] > .history-description {
   .node-phone svg {
     width: 28px;
     height: 28px;
-  }
-  .section-note {
-    text-align: left;
-    margin-top: 17px;
-    max-width: none;
   }
   .project-entry summary {
     gap: 13px;
@@ -439,4 +354,41 @@ details[open] > .history-description {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.portrait-topline .location {
+  margin-left: auto;
+}
+.portrait-bottomline .inspect-button {
+  margin-left: auto;
+}
+.legacy-anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.technical-details {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.technical-details summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--cobalt);
+}
+.technical-details > p,
+.tool-note {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--slate);
+}
+.technical-details > p {
+  padding: 8px 0 12px;
+}
+.history-description .tool-note {
+  margin-top: 12px;
 }

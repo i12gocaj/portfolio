@@ -38,8 +38,8 @@
     inspection.setAttribute("aria-expanded", String(open));
     quote.hidden = !open;
     inspection.querySelector("span").textContent = open
-      ? "Back to the portrait"
-      : "Look closer";
+      ? "Back to photo"
+      : "Personal note";
   });
 
   const entries = [...document.querySelectorAll(".project-entry")];
@@ -76,7 +76,7 @@
         String(button.dataset.filter === category),
       ),
     );
-    count.textContent = `${visible} of ${entries.length} archive projects`;
+    count.textContent = `${visible} of ${entries.length} projects`;
     empty.hidden = visible !== 0;
   }
   function writeFilters(push = false) {
@@ -111,8 +111,10 @@
     searchTimer = setTimeout(writeFilters, 200);
   });
   function openHashTarget() {
-    const target = document.getElementById(window.location.hash.slice(1));
-    if (target?.matches("details")) {
+    const target = document
+      .getElementById(window.location.hash.slice(1))
+      ?.closest("details");
+    if (target) {
       if (target.hidden) {
         category = "all";
         search.value = "";
@@ -133,7 +135,8 @@
     const target = document.getElementById(
       anchor.getAttribute("href").slice(1),
     );
-    if (target?.matches("details")) target.open = true;
+    const disclosure = target?.closest("details");
+    if (disclosure) disclosure.open = true;
   });
   readFilters();
   openHashTarget();
@@ -168,16 +171,15 @@
       clearTimeout(resetTimer);
       try {
         await navigator.clipboard.writeText("javiergc100@protonmail.com");
-        copy.textContent = "Email address copied";
-        select(".copy-status").textContent =
-          "Email address copied to clipboard.";
+        copy.textContent = "Email copied";
+        select(".copy-status").textContent = "Email copied.";
       } catch {
-        copy.textContent = "Select the email address to copy";
+        copy.textContent = "Select the address to copy it";
         select(".copy-status").textContent =
-          "Clipboard unavailable. Select the email address to copy it.";
+          "Copying is unavailable. Select the address to copy it.";
       }
       resetTimer = setTimeout(() => {
-        copy.textContent = "Copy email address";
+        copy.textContent = "Copy email";
       }, 3500);
     });
   }
@@ -208,12 +210,12 @@
       if (!response.ok || receipt.ok !== true)
         throw new Error("The message could not be delivered.");
       status.dataset.state = "success";
-      status.textContent = "Message sent. Thank you for getting in touch.";
+      status.textContent = "Message sent. Thanks for writing.";
       form.reset();
     } catch {
       status.dataset.state = "error";
       status.textContent =
-        "Your message wasn’t sent. Your text is still here. Try again or email ";
+        "Couldn’t confirm delivery. Your message is still here. Try again or email ";
       const fallback = document.createElement("a");
       fallback.href = "mailto:javiergc100@protonmail.com";
       fallback.textContent = "javiergc100@protonmail.com";

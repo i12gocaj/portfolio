@@ -1,38 +1,36 @@
 # Javier González Casares · Portfolio
 
-A complete portfolio redesign built around **A closer look**: curiosity, investigation and evidence. Cool daylight colours, locally hosted Hanken Grotesk, handwritten Caveat annotations, 22 original project symbols and optional portrait and tiny-bug discoveries.
+Portfolio de ciberseguridad y análisis de malware, construido con HTML, CSS y JavaScript estáticos.
 
-![Desktop preview](preview-desktop.png)
+![Vista de escritorio](preview-desktop.png)
 
-## Content and navigation
+La web reúne cuatro proyectos destacados y otros 17 con búsqueda y filtros, 25 entradas de trayectoria y cinco PDF. BrillanteSeguro tiene una sola ficha para su repositorio y su web. El máster figura como terminado y el diploma de ingeniería inversa e inteligencia de malware como en curso, según lo confirmado por Javier.
 
-- Four selected projects: AllOsint (MSc thesis), Instagram disclosure, SecEmail and Atlas; then an 18-project archive with category filters and search. Security projects appear first.
-- All 21 original project descriptions, technologies and links are retained.
-- All 25 background entries are organised into experience, education, recognition and community. The MSc is completed and the Google GSEC reverse engineering and malware intelligence diploma is in progress, as confirmed by Javier.
-- Malware analysis is part of the headline and current focus. One CV download remains in Documents.
-- Original portrait, Atlas screenshot, five downloadable PDF documents, contact details and Formspree integration are retained.
-- Native section anchors remain available: `#home`, `#projects`, `#experience`, `#about`, `#documents`, `#contact`.
+El contenido público está en inglés. [COPY-AUDIT.md](COPY-AUDIT.md) explica la revisión del texto; [DESIGN.md](DESIGN.md), los criterios visuales; y [VALIDATION.md](VALIDATION.md), las comprobaciones.
 
-The site is in English, matching its original content. The complete creative rationale and research sources are in [DESIGN.md](DESIGN.md); verification and its limits are in [VALIDATION.md](VALIDATION.md).
+## Ejecutar en local
 
-## Run locally
-
-No build step or package installation is needed. From this directory:
+No requiere instalación ni compilación. Desde esta carpeta:
 
 ```sh
 python -m http.server 4173
 ```
 
-Open `http://localhost:4173/`. The site also opens directly from `index.html`; serving over localhost allows testing clipboard and form enhancements in their normal browser context.
+Abre `http://localhost:4173/`. Un servidor local permite probar el portapapeles, los símbolos SVG y el formulario en el contexto normal del navegador.
 
-## Deployment
+## Publicación y edición
 
-The existing GitHub Pages layout is preserved: `index.html` and relative `assets/` paths at the repository root. Integrating this branch into the Pages publishing branch uses the existing deployment settings. There is no framework, bundler, particle library, icon CDN or remote font dependency.
+Se mantiene la estructura de GitHub Pages: `index.html` y rutas relativas a `assets/`. La web pública cambia cuando se integra la propuesta en la rama de publicación.
 
-## Maintain
+- Contenido: `index.html`.
+- Tipografía, colores y estructura: `assets/css/styles.css`.
+- Ilustraciones y ajustes de proyectos: `assets/css/personality.css`.
+- Menú, filtros, enlaces directos y formulario: `assets/js/main.js`.
+- Detalle opcional del insecto: `assets/js/personality.js`.
+- Símbolos de proyectos: `assets/img/project-marks.svg`.
 
-Edit content in `index.html`, tokens and layout in `assets/css/styles.css`, and progressive enhancements in `assets/js/main.js`. The project artwork, annotations and responsive refinements live in `assets/css/personality.css`; the optional bug discovery is in `assets/js/personality.js`. Custom project symbols are in `assets/img/project-marks.svg`. HTML remains the source of truth for project and background content. Project archive categories are declared with `data-category`; `category` and `q` URL parameters retain filters across reloads. Editorial priority is the DOM order, so it also works without JavaScript.
+El orden está en el HTML y se conserva sin JavaScript. Las categorías usan `data-category`; los parámetros `category` y `q` conservan el filtro y la búsqueda. El antiguo enlace `#project-13` abre la ficha unificada de BrillanteSeguro.
 
-The form action is `https://formspree.io/f/myzelwak`; enhanced and native submissions use this action. On 8 October 2026, one explicitly authorised real test returned HTTP 200 with `ok: true`. Inbox receipt requires confirmation in the associated mailbox. The enhanced form only resets after an explicit acceptance response.
+El formulario usa `https://formspree.io/f/myzelwak`. Una única prueba real, autorizada el 8 de octubre de 2026, recibió HTTP 200 y `ok: true`; la recepción en el buzón sigue pendiente de confirmación. Las comprobaciones posteriores usan respuestas simuladas.
 
-Hanken Grotesk and Caveat are self-hosted under the SIL Open Font License; see `assets/fonts/OFL.txt` and `assets/fonts/Caveat-OFL.txt`. Supporting documents and original images are unchanged.
+Hanken Grotesk y Caveat se alojan localmente con licencia SIL Open Font License. Las licencias están en `assets/fonts/`. Los PDF y las imágenes originales no se han editado.

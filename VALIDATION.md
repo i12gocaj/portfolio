@@ -6,9 +6,8 @@ Verified locally in headless desktop Chrome using Playwright and axe-core 4.10.3
 
 Compared the redesigned DOM with an inventory extracted from the original site at commit `2b54ad2499f822c8abba21a380a6809859e173d8`:
 
-- 21 of 21 project titles and full descriptions retained.
-- All 25 background entries retained. The two education descriptions were updated to reflect the owner's confirmed MSc completion and diploma attendance; the other 23 descriptions remain unchanged.
-- AllOsint, the public MSc thesis edition, added as the 22nd project after reviewing the owner's GitHub repositories.
+- All original project subjects retained, with their copy rewritten for clarity. BrillanteSeguro's website and repository are combined in one entry. AllOsint's public thesis edition was added after reviewing GitHub; the page now has 21 distinct project entries.
+- All 25 background entries retained and edited. Dates and achievements are retained, with the owner's confirmed MSc completion and diploma attendance.
 - Public coursework repositories and the BuyTheTop source repository linked from their existing entries.
 - 5 of 5 supporting PDF documents retained.
 - All original external, document, email and telephone link destinations retained, including the thesis defence audio and the private-repository notice.
@@ -22,19 +21,21 @@ The diploma is marked in progress at Google's GSEC, Málaga; the MSc is marked c
 - Desktop and mobile screenshots reviewed for type, spacing, composition and portrait interaction.
 - Archive category filters, search, empty state, URL persistence and reload checked.
 - Project and history deep links open the relevant disclosure; a direct link to a filtered-out project restores its visibility.
+- The former BrillanteSeguro website fragment `#project-13` opens the unified entry, including when filtered out.
 - Native project disclosure opens using Enter.
 - Mobile navigation announces its state, supports Escape and focus return, and closes when navigating.
 - Section navigation highlights the active section.
 - Navigation and all project and history content remain available without JavaScript; native disclosure remains usable.
 - Reduced-motion preference disables decorative animation and smooth scrolling.
 - The optional tiny-bug disclosure supports keyboard activation and announces its state.
-- All 22 custom SVG symbols are available in the local sprite. Portrait annotations do not overlap the location at 320 px.
+- Project SVG symbols are available in the local sprite. The curved logo underline and redundant portrait annotations have been removed.
+- SecEmail's technical details can be opened with Enter and remain available without JavaScript.
 - All local linked assets and five PDF downloads respond successfully over the preview server.
 - No page JavaScript errors or failed local resource requests detected.
 
 ## Accessibility
 
-axe-core scans used WCAG A/AA tags through WCAG 2.2. Desktop and mobile scans with all disclosures expanded returned **0 violations**. One contrast check remains incomplete because axe cannot resolve the rotated handwritten annotation over the SVG illustration. Its actual colours (#E6C963 on #172842) give a manually calculated contrast ratio of **9.09:1**. Keyboard focus, labels, live status feedback, native semantics, contrast and reflow were also reviewed.
+axe-core scans used WCAG A/AA tags through WCAG 2.2. The final desktop and mobile scans with disclosures expanded returned **0 violations and 0 incomplete checks**. Keyboard focus, labels, live status feedback, native semantics, contrast and reflow were also reviewed.
 
 Automated checks are evidence, not a certification of full WCAG compliance. Real screen-reader and additional browser/device testing were not performed.
 
@@ -44,6 +45,7 @@ Network requests to Formspree were intercepted locally:
 
 - Simulated success shows persistent confirmation and resets the form.
 - Simulated server failure preserves the entered message, re-enables the button and offers the direct email address.
+- Error text reports that delivery could not be confirmed, rather than claiming a failed request proves that nothing was sent.
 - Submission uses the existing JavaScript endpoint consistently in the HTML action and fetch request.
 - In-flight submissions are disabled, live progress is announced, and requests have a 15-second timeout.
 - A simulated HTTP 200 response with `ok: false` is treated as failure and preserves the entered message; only explicit acceptance resets the form.
