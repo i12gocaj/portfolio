@@ -1,1022 +1,2759 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team
+    </title>
     <!-- Meta tags -->
-    <meta name="description" content="Portfolio of Javier González Casares — Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024.">
-    <meta name="keywords" content="Javier González Casares, cybersecurity, cyber threat intelligence, CTI, DFIR, threat hunting, malware analysis, red team, penetration testing, OSCP, bug bounty, OSINT, AI governance, AI assurance, copilot auditing, computer engineering, Córdoba, Spain">
-    <meta name="author" content="Javier González Casares">
+    <meta
+      name="description"
+      content="Portfolio of Javier González Casares — Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024."
+    />
+    <meta
+      name="keywords"
+      content="Javier González Casares, cybersecurity, cyber threat intelligence, CTI, DFIR, threat hunting, malware analysis, red team, penetration testing, OSCP, bug bounty, OSINT, AI governance, AI assurance, copilot auditing, computer engineering, Córdoba, Spain"
+    />
+    <meta name="author" content="Javier González Casares" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://i12gocaj.github.io/portfolio/">
-    <meta property="og:title" content="Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team">
-    <meta property="og:description" content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds).">
-    <meta property="og:image" content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://i12gocaj.github.io/portfolio/" />
+    <meta
+      property="og:title"
+      content="Javier González Casares | Cybersecurity Engineer · CTI · DFIR · Red Team"
+    />
+    <meta
+      property="og:description"
+      content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds)."
+    />
+    <meta
+      property="og:image"
+      content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg"
+    />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://i12gocaj.github.io/portfolio/">
-    <meta name="twitter:title" content="Javier González Casares | Cybersecurity Engineer">
-    <meta name="twitter:description" content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds).">
-    <meta name="twitter:image" content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://i12gocaj.github.io/portfolio/" />
+    <meta
+      name="twitter:title"
+      content="Javier González Casares | Cybersecurity Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Computer Engineer focused on Cyber Threat Intelligence, DFIR and offensive security. OSCP candidate, $1,000 Meta Bug Bounty, #2 CTF Spain 2024 (Caliphal Hounds)."
+    />
+    <meta
+      name="twitter:image"
+      content="https://i12gocaj.github.io/portfolio/assets/img/profile.jpg"
+    />
 
-    <!-- Favicon (inline SVG, no extra request) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2310131e'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Fira Code, monospace' font-size='28' font-weight='700' fill='%2364ffda'%3EJGC%3C/text%3E%3C/svg%3E">
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://i12gocaj.github.io/portfolio/" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link
+      rel="preload"
+      href="assets/fonts/hanken-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="theme-color" content="#F8FAFC" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
     <!-- Schema.org Person (rich results / knowledge card) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Javier González Casares",
-      "givenName": "Javier",
-      "familyName": "González Casares",
-      "url": "https://i12gocaj.github.io/portfolio/",
-      "image": "https://i12gocaj.github.io/portfolio/assets/img/profile.jpg",
-      "jobTitle": "Cybersecurity Engineer · CTI · DFIR · Red Team",
-      "description": "Computer Engineer focused on Cyber Threat Intelligence, malware analysis, digital forensics (DFIR) and offensive security. OSCP candidate, $1,000 Meta Bug Bounty researcher, ex-member of Caliphal Hounds CTF (#2 in Spain on CTFTime, 2024).",
-      "email": "mailto:javiergc100@protonmail.com",
-      "telephone": "+34652601501",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Córdoba",
-        "addressRegion": "Andalucía",
-        "addressCountry": "ES"
-      },
-      "alumniOf": [
-        {"@type": "CollegeOrUniversity", "name": "Escuela Politécnica Superior de Córdoba, Universidad de Córdoba"},
-        {"@type": "CollegeOrUniversity", "name": "Campus Internacional de Ciberseguridad"},
-        {"@type": "CollegeOrUniversity", "name": "Gheorghe Asachi Technical University of Iași"}
-      ],
-      "knowsAbout": [
-        "Cyber Threat Intelligence", "Digital Forensics", "DFIR", "Malware Analysis",
-        "Reverse Engineering", "Penetration Testing", "Red Team", "OSINT",
-        "Bug Bounty", "MITRE ATT&CK", "AI Governance", "AI Assurance",
-        "Copilot Auditing", "Python", "Linux"
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/javier-gonzalez-casares/",
-        "https://github.com/i12gocaj"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Javier González Casares",
+        "givenName": "Javier",
+        "familyName": "González Casares",
+        "url": "https://i12gocaj.github.io/portfolio/",
+        "image": "https://i12gocaj.github.io/portfolio/assets/img/profile.jpg",
+        "jobTitle": "Cybersecurity Engineer · CTI · DFIR · Red Team",
+        "description": "Computer Engineer focused on Cyber Threat Intelligence, malware analysis, digital forensics (DFIR) and offensive security. OSCP candidate, $1,000 Meta Bug Bounty researcher, ex-member of Caliphal Hounds CTF (#2 in Spain on CTFTime, 2024).",
+        "email": "mailto:javiergc100@protonmail.com",
+        "telephone": "+34652601501",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Córdoba",
+          "addressRegion": "Andalucía",
+          "addressCountry": "ES"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Escuela Politécnica Superior de Córdoba, Universidad de Córdoba"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Campus Internacional de Ciberseguridad"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Gheorghe Asachi Technical University of Iași"
+          }
+        ],
+        "knowsAbout": [
+          "Cyber Threat Intelligence",
+          "Digital Forensics",
+          "DFIR",
+          "Malware Analysis",
+          "Reverse Engineering",
+          "Penetration Testing",
+          "Red Team",
+          "OSINT",
+          "Bug Bounty",
+          "MITRE ATT&CK",
+          "AI Governance",
+          "AI Assurance",
+          "Copilot Auditing",
+          "Python",
+          "Linux"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/javier-gonzalez-casares/",
+          "https://github.com/i12gocaj"
+        ]
+      }
     </script>
-</head>
-<body>
-    <a href="#home" class="skip-to-content">Skip to content</a>
-    <!-- Header/Navigation -->
-    <header>
-        <nav aria-label="Main navigation">
-            <div class="logo">
-                <a href="#home" aria-label="Javier González Casares — home">JGC</a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#documents">Documents</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a
+          class="brand"
+          href="#home"
+          aria-label="Javier González Casares — home"
+          ><span class="brand-mark" aria-hidden="true"
+            >jg<span class="brand-dot">.</span></span
+          ><span class="brand-name">Javier González Casares</span></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          hidden
+        >
+          Menu
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14m-7-7v14" />
+          </svg>
+        </button>
+        <nav id="main-nav" aria-label="Main navigation">
+          <a href="#projects">Work</a><a href="#experience">Background</a
+          ><a href="#documents">Documents</a
+          ><a href="#contact"
+            >Let’s talk
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7M7 7h10v10" /></svg
+          ></a>
         </nav>
+      </div>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="terminal-title">terminal</div>
-                </div>
-                <div class="terminal-body">
-                    <div class="line">
-                        <span class="prompt">$</span>
-                        <span class="command loading-command" data-delay-after="1600" data-output-delay="120">loading_portfolio</span>
-                    </div>
-                    <div class="line">
-                        <span class="output">
-                            Loading resources...
-                            <span class="terminal-progress-wrapper">
-                                <span class="terminal-progress"></span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="line">
-                        <span class="prompt">$</span>
-                        <span class="command">whoami</span>
-                    </div>
-                    <div class="line">
-                        <span class="output">Javier González Casares</span>
-                    </div>
-                    <div class="line">
-                        <span class="prompt">$</span>
-                        <span class="command">cat profile.txt</span>
-                    </div>
-                    <div class="line">
-                        <span class="output">Cybersecurity Engineer · CTI · DFIR · Red Team</span>
-                    </div>
-                    <div class="line">
-                        <span class="prompt">$</span>
-                        <span class="command">cat highlights.txt</span>
-                    </div>
-                    <div class="line">
-                        <span class="output">OSCP Candidate · $1,000 Meta Bug Bounty · #2 CTF Spain 2024</span>
-                    </div>
-                    <div class="line">
-                        <span class="prompt">$</span>
-                        <span class="command blink">_</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-content">
-                <h1>Javier González Casares</h1>
-                <h2>Cybersecurity Engineer · CTI · DFIR · Red Team</h2>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn primary" id="view-projects-btn">View Projects</a>
-                    <a href="#contact" class="btn secondary" id="contact-me-btn">Contact Me</a>
-                </div>
-            </div>
+    <main id="main">
+      <section id="home" class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-role">Cybersecurity engineer</p>
+          <h1 id="hero-title">
+            Javier<br />González Casares<span class="name-period">.</span>
+          </h1>
+          <p class="hero-statement">A closer look makes all the difference.</p>
+          <p class="hero-intro">
+            I investigate threats, uncover vulnerabilities and build tools that
+            make complex systems easier to trust.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects"
+              >Explore my work
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-6-6 6 6-6 6" /></svg></a
+            ><a
+              class="text-link"
+              href="assets/docs/cv-javier-gonzalez-casares.pdf"
+              download
+              >Download CV
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </div>
         </div>
-        <div class="particles-container" id="particles-js">
-            <!-- Background particles -->
+        <div class="portrait-panel">
+          <div class="portrait-topline">
+            <span>Curiosity, by nature.</span
+            ><span class="location">Córdoba, Spain</span>
+          </div>
+          <div class="portrait-window">
+            <img
+              src="assets/img/profile.jpg"
+              alt="Javier González Casares at a professional event"
+              width="800"
+              height="800"
+              fetchpriority="high"
+            />
+            <div class="inspection-quote" id="inspection-quote" hidden>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote>
+                As a kid, I used to break things by accident, now I do it on
+                purpose.
+              </blockquote>
+              <p>With permission, of course.</p>
+            </div>
+            <svg
+              class="portrait-reticle"
+              viewBox="0 0 400 400"
+              aria-hidden="true"
+            >
+              <path
+                d="M25 65V25h40M335 25h40v40M375 335v40h-40M65 375H25v-40"
+              />
+              <circle cx="200" cy="200" r="180" />
+            </svg>
+          </div>
+          <div class="portrait-bottomline">
+            <span>CTI / DFIR / Offensive security</span
+            ><button
+              class="inspect-button"
+              type="button"
+              aria-expanded="false"
+              aria-controls="inspection-quote"
+              hidden
+            >
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="10" cy="10" r="6" />
+                <path d="m15 15 5 5" /></svg
+              ><span>Look closer</span>
+            </button>
+          </div>
         </div>
-    </section>
-
-    <!-- About Me -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="accent">#</span> About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-card">
-                    <div class="about-image">
-                        <div class="image-container">
-                            <img src="assets/img/profile.jpg" alt="Javier González Casares" class="profile-image">
-                        </div>
-                    </div>
-                    <div class="about-body">
-                        <div class="about-text">
-                            <p>Computer Engineer focused on Cyber Threat Intelligence, malware analysis, digital forensics (DFIR) and offensive security. Graduated from the Higher Polytechnic School of Córdoba (2021–2025) with a Specialization in Computing, currently finishing my MSc in Offensive Security at Campus Internacional de Ciberseguridad while preparing for the OSCP (Dec 2026).</p>
-                            <p>Past internships at AllPentesting (DFIR &amp; CTI), Indra Group (OT Security) and Navantia (defence-sector cybersecurity). Active collaborator with the Spanish National Police on cybercrime investigations. <strong>$1,000 Meta Bug Bounty</strong> researcher and ex-member of the <strong>Caliphal Hounds CTF team (#2 in Spain on CTFTime, 2024)</strong>.</p>
-                        </div>
-                        <blockquote>
-                            "As a kid, I used to break things by accident, now I do it on purpose."
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+      </section>
+      <nav class="shell evidence-strip" aria-label="Selected highlights">
+        <a href="#project-1"
+          ><span class="evidence-value">$1,000</span
+          ><span>Meta Bug Bounty<br /><small>Validated & patched</small></span
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M7 7h10v10" /></svg></a
+        ><a href="#documents"
+          ><span class="evidence-value">NASA</span
+          ><span
+            >VDP recognition<br /><small
+              >Responsible disclosure, 2026</small
+            ></span
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M7 7h10v10" /></svg></a
+        ><a href="#background-16"
+          ><span class="evidence-value">#2</span
+          ><span
+            >CTFTime, Spain<br /><small>Caliphal Hounds team, 2024</small></span
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M7 7h10v10" /></svg
+        ></a>
+      </nav>
+      <section
+        id="projects"
+        class="work-section shell"
+        aria-labelledby="work-title"
+      >
+        <div class="section-heading">
+          <div>
+            <h2 id="work-title">The work speaks.</h2>
+            <p>
+              Security research, useful tools and things built out of curiosity.
+            </p>
+          </div>
+          <span class="section-note">21 projects. A few different angles.</span>
         </div>
-    </section>
-
-    <!-- Professional Documents -->
-    <section id="documents" class="documents">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="accent">#</span> Professional Documents</h2>
-                <p>Download an up-to-date copy of my curriculum and the recommendation letters that support my work ethic and technical skills.</p>
+        <div class="featured-list">
+          <article class="featured-project" id="project-1">
+            <div class="project-visual visual-1">
+              <div class="audio-visual" aria-hidden="true">
+                <div class="audio-bars">
+                  <span style="--bar: 16px"></span
+                  ><span style="--bar: 28px"></span
+                  ><span style="--bar: 45px"></span
+                  ><span style="--bar: 24px"></span
+                  ><span style="--bar: 65px"></span
+                  ><span style="--bar: 88px"></span
+                  ><span style="--bar: 52px"></span
+                  ><span style="--bar: 110px"></span
+                  ><span style="--bar: 72px"></span
+                  ><span style="--bar: 45px"></span
+                  ><span style="--bar: 91px"></span
+                  ><span style="--bar: 127px"></span
+                  ><span style="--bar: 65px"></span
+                  ><span style="--bar: 40px"></span
+                  ><span style="--bar: 81px"></span
+                  ><span style="--bar: 111px"></span
+                  ><span style="--bar: 54px"></span
+                  ><span style="--bar: 74px"></span
+                  ><span style="--bar: 36px"></span
+                  ><span style="--bar: 22px"></span
+                  ><span style="--bar: 52px"></span
+                  ><span style="--bar: 32px"></span
+                  ><span style="--bar: 15px"></span>
+                </div>
+                <div class="audio-caption">
+                  <span>Private voice. Public URL.</span
+                  ><span class="patch-state">Patched</span>
+                </div>
+                <span class="visual-note"
+                  >Instagram Notes / responsible disclosure</span
+                >
+              </div>
             </div>
-            <div class="documents-actions">
-                <a href="assets/docs/cv-javier-gonzalez-casares.pdf" class="btn primary doc-btn" download>
-                    <span class="doc-title">Download CV</span>
-                    <span class="doc-meta">PDF &middot; 2 pages</span>
-                </a>
-                <a href="assets/docs/carta-reconocimiento-nasa-vdp.pdf" class="btn secondary doc-btn" download>
-                    <span class="doc-title">NASA VDP Letter of Recognition</span>
-                    <span class="doc-meta">NASA Office of the CIO (SAISO) &middot; Jun 2026</span>
-                </a>
-                <a href="assets/docs/carta-recomendacion-policia-nacional.pdf" class="btn secondary doc-btn" download>
-                    <span class="doc-title">Recommendation Letter &mdash; Spanish National Police</span>
-                    <span class="doc-meta">Inspector, Brigada Provincial de Policía Judicial &middot; Dec 2025</span>
-                </a>
-                <a href="assets/docs/carta-recomendacion-navantia.pdf" class="btn secondary doc-btn" download>
-                    <span class="doc-title">Recommendation Letter &mdash; Navantia</span>
-                    <span class="doc-meta">Rafael Gómez Sánchez &middot; Sep 2025</span>
-                </a>
-                <a href="assets/docs/carta-recomendacion-universidad.pdf" class="btn secondary doc-btn" download>
-                    <span class="doc-title">Recommendation Letter &mdash; University of Córdoba</span>
-                    <span class="doc-meta">Feb 2025</span>
-                </a>
+            <div class="featured-copy">
+              <p class="work-context">Security research</p>
+              <h3>Instagram Notes Audio Leakage</h3>
+              <div class="project-description">
+                <p>
+                  Vulnerability in Instagram Web that allowed extracting the
+                  original note audio via direct video URLs. Responsibly
+                  disclosed to Meta, validated and patched.
+                  <strong>Awarded $1,000</strong> through the Meta Bug Bounty
+                  Program.
+                </p>
+                <ul class="tags" aria-label="Technologies and disciplines">
+                  <li>Vulnerability Research</li>
+                  <li>Web Security</li>
+                  <li>Meta Bug Bounty</li>
+                  <li>$1,000</li>
+                </ul>
+                <div class="project-links">
+                  <a
+                    class="text-link"
+                    href="https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub<svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" /></svg
+                  ></a>
+                </div>
+              </div>
             </div>
+          </article>
+          <article class="featured-project" id="project-0">
+            <div class="project-visual visual-0">
+              <div class="atlas-visual">
+                <img
+                  src="assets/img/atlas-overview.png"
+                  alt="Atlas dashboard summarising AI copilot usage, teams, cost and unaccepted output"
+                  width="1080"
+                  height="434"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="featured-copy">
+              <p class="work-context">AI assurance</p>
+              <h3>Atlas — Copilot Auditor</h3>
+              <div class="project-description">
+                <p>
+                  Local-first AI governance prototype created and presented at
+                  the 2026 Cátedra Atmira × OpenAI × Big Data Hackathon. Atlas
+                  audits exported copilot telemetry for cost, adoption,
+                  sensitive data and policy compliance, using deterministic
+                  controls for the numbers and a local LLM only where
+                  interpretation adds value.
+                </p>
+                <ul class="tags" aria-label="Technologies and disciplines">
+                  <li>AI Assurance</li>
+                  <li>AI Governance</li>
+                  <li>Python</li>
+                  <li>Ollama</li>
+                </ul>
+                <div class="project-links">
+                  <a
+                    class="text-link"
+                    href="https://github.com/i12gocaj/Atlas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub<svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" /></svg
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="featured-project" id="project-4">
+            <div class="project-visual visual-4">
+              <div class="email-visual" aria-hidden="true">
+                <div class="envelope">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 6 9 7 9-7" /></svg
+                  ><span>Trust has layers.</span>
+                </div>
+                <div class="email-protocols">
+                  <span>SPF</span><span>DKIM</span><span>DMARC</span
+                  ><span>ARC</span>
+                </div>
+              </div>
+            </div>
+            <div class="featured-copy">
+              <p class="work-context">Open-source security tooling</p>
+              <h3>SecEmail</h3>
+              <div class="project-description">
+                <p>
+                  Open-source toolkit for SPF/DKIM/DMARC/ARC
+                  email-authentication audits and authorised SMTP/phishing
+                  simulations for Red Team engagements. Cryptographic DKIM
+                  verification, IDN homograph detection, MTA-STS / TLS-RPT /
+                  DANE / BIMI checks and campaign dashboard with tracking and
+                  credential capture (~5k LOC of Python, 167 tests).
+                </p>
+                <ul class="tags" aria-label="Technologies and disciplines">
+                  <li>Python</li>
+                  <li>Email Security</li>
+                  <li>Red Team</li>
+                  <li>Cryptography</li>
+                </ul>
+                <div class="project-links">
+                  <a
+                    class="text-link"
+                    href="https://github.com/i12gocaj/SecEmail"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub<svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" /></svg
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
-    </section>
-
-    <!-- Featured Projects -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="accent">#</span> Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/img/atlas-overview.png" alt="Atlas dashboard summarising AI copilot usage, teams, cost and unaccepted output" class="project-cover contain">
-                    </div>
-                    <div class="project-content">
-                        <h3>Atlas — Copilot Auditor</h3>
-                        <p>Local-first AI governance prototype created and presented at the 2026 Cátedra Atmira × OpenAI × Big Data Hackathon. Atlas audits exported copilot telemetry for cost, adoption, sensitive data and policy compliance, using deterministic controls for the numbers and a local LLM only where interpretation adds value.</p>
-                        <div class="project-tech">
-                            <span>AI Assurance</span>
-                            <span>AI Governance</span>
-                            <span>Python</span>
-                            <span>Ollama</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/Atlas" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== TIER 1: Bug Bounty & Security Research ===== -->
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Instagram Notes Audio Leakage</h3>
-                        <p>Vulnerability in Instagram Web that allowed extracting the original note audio via direct video URLs. Responsibly disclosed to Meta, validated and patched. <strong>Awarded $1,000</strong> through the Meta Bug Bounty Program.</p>
-                        <div class="project-tech">
-                            <span>Vulnerability Research</span>
-                            <span>Web Security</span>
-                            <span>Meta Bug Bounty</span>
-                            <span>$1,000</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fab fa-chrome"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>IG Audio Grabber Local</h3>
-                        <p>Local Manifest V3 Chrome extension for saving Instagram Direct voice notes from the browser. It detects exposed <code>audioclip-*</code> resources, matches them against playback duration, and downloads the original file or converts it to MP3 locally.</p>
-                        <div class="project-tech">
-                            <span>Chrome Extension</span>
-                            <span>Manifest V3</span>
-                            <span>JavaScript</span>
-                            <span>Browser APIs</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/ig-audio-downloader-extension" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-map-location-dot"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>BrillanteSeguro</h3>
-                        <p>Neighbourhood platform for El Brillante, Córdoba. It turns scattered WhatsApp alerts into structured reports with maps, heatmaps, statistics, filters, association enrollment workflows, a local marketplace and a professional directory. It reached 300+ registered users in the neighbourhood.</p>
-                        <div class="project-tech">
-                            <span>Next.js</span>
-                            <span>Supabase</span>
-                            <span>Cloudflare</span>
-                            <span>Geospatial UX</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/BrillanteSeguro.com" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-shield-halved"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>SecEmail</h3>
-                        <p>Open-source toolkit for SPF/DKIM/DMARC/ARC email-authentication audits and authorised SMTP/phishing simulations for Red Team engagements. Cryptographic DKIM verification, IDN homograph detection, MTA-STS / TLS-RPT / DANE / BIMI checks and campaign dashboard with tracking and credential capture (~5k LOC of Python, 167 tests).</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Email Security</span>
-                            <span>Red Team</span>
-                            <span>Cryptography</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/SecEmail" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Instagram Password Bypass</h3>
-                        <p>Account-takeover vulnerability that allowed changing any password without knowing the current one. Responsibly disclosed to Meta and silently patched.</p>
-                        <div class="project-tech">
-                            <span>Vulnerability Research</span>
-                            <span>Account Takeover</span>
-                            <span>Meta Bug Bounty</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/instagram-password-bypass" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Club Gym Sierra Time Bypass</h3>
-                        <p>Client-side time-manipulation vulnerability in the Club Gym Sierra mobile app that enabled unfair early class booking. Responsibly disclosed and patched in version 4.4.19.</p>
-                        <div class="project-tech">
-                            <span>Mobile Security</span>
-                            <span>Logical Vulnerability</span>
-                            <span>Responsible Disclosure</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/club-gym-sierra-time-bypass" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-flag"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Hackademics Forum III CTF</h3>
-                        <p>Writeups and solutions from the 3rd edition of Hackademics Forum CTF, where I achieved 1st prize in the assistants' competition (sponsored by Hack The Box).</p>
-                        <div class="project-tech">
-                            <span>CTF</span>
-                            <span>Reverse Engineering</span>
-                            <span>Web Exploitation</span>
-                            <span>Pwn</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/CTF-Hackademics-Forum-3" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== TIER 2: Strong technical projects ===== -->
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>BSc Thesis: Directional Asset Prediction with ML</h3>
-                        <p>BSc Thesis (graded 10/10) that compares baseline, machine learning and deep learning models to predict market direction in BTC-USD, TSLA and NVDA, including alternative news-sentiment data (GDELT) to evaluate its impact on predictive performance.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Machine Learning</span>
-                            <span>Deep Learning</span>
-                            <span>GDELT Sentiment</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                            <a href="https://github.com/i12gocaj/portfolio/releases/download/tfg-defense-audio/tfg.m4a" target="_blank" rel="noopener noreferrer" class="btn small">Defense Audio (12:17)</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-key"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>passwow</h3>
-                        <p>Secure, minimalist local password manager using AES-256 GCM and Scrypt key derivation. Includes a CLI for managing encrypted vaults (init, add, list, get, remove, export, import).</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Cryptography</span>
-                            <span>CLI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/passwow" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-futbol"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>footactik</h3>
-                        <p>Local tactical-intelligence platform for Córdoba CF. Scrapes Sofascore, Transfermarkt and FBref and runs five ML models (lineup selection, injury risk, scouting via autoencoder embeddings, market-value forecasting and opponent style) on a zero-cost local stack.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Machine Learning</span>
-                            <span>Sports Analytics</span>
-                            <span>Data Engineering</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/footactik" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>AES-app</h3>
-                        <p>Encryption application implementing AES-128 in GCM mode with a Tkinter GUI. Authenticated-encryption with key+nonce generation and integrity verification.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Cryptography</span>
-                            <span>AES-GCM</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/AES-app" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== TIER 3: Personal / Business products ===== -->
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>helionlabs.es</h3>
-                        <p>Founder of Helion Labs, a company focused on AI business automation that designs and deploys intelligent workflows to streamline operations, reduce repetitive work and help companies scale more efficiently.</p>
-                        <div class="project-tech">
-                            <span>Artificial Intelligence</span>
-                            <span>Business Automation</span>
-                            <span>Workflow Design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://helionlabs.es" target="_blank" rel="noopener noreferrer" class="btn small">Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-map-location-dot"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>brillanteseguro.es</h3>
-                        <p>Platform built pro-bono for my neighborhood community: residents visualise incidents on a map (security alerts, public-road issues, lost pets) and access a marketplace for professional services and second-hand items. Includes an admin dashboard to triage and coordinate responses.</p>
-                        <div class="project-tech">
-                            <span>Community Platform</span>
-                            <span>Interactive Maps</span>
-                            <span>Marketplace</span>
-                            <span>Admin Panel</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://brillanteseguro.es" target="_blank" rel="noopener noreferrer" class="btn small">Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>buythetop.vip</h3>
-                        <p>Developer of buythetop.vip, a monetary ranking platform that aggregates performance metrics and highlights top contributors with automated leaderboard updates and payout tracking.</p>
-                        <div class="project-tech">
-                            <span>Web</span>
-                            <span>Product Design</span>
-                            <span>Automation</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://buythetop.vip" target="_blank" rel="noopener noreferrer" class="btn small">Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Bot Trading</h3>
-                        <p>Automated trading bot focused on keeping orders at the top of the book with adaptive spread control, inventory balancing and risk management for crypto-fiat pairs. Variations deployed on KuCoin and other exchanges with venue-specific tuning.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Selenium</span>
-                            <span>TelegramBotAPI</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="repo-private">Private repository</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>transcriptapp_bot</h3>
-                        <p>Telegram bot that transcribes audio and video, automatically improves the generated text and exports results in multiple timestamped formats.</p>
-                        <div class="project-tech">
-                            <span>Telegram Bot</span>
-                            <span>Transcription</span>
-                            <span>AI</span>
-                            <span>Export</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://t.me/transcriptapp_bot" target="_blank" rel="noopener noreferrer" class="btn small">Telegram</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>gslasalle.es (web manager)</h3>
-                        <p>Ongoing stewardship of the Scouts La Salle Córdoba website: keeping content fresh, ensuring availability and reinforcing secure communication for the entire community.</p>
-                        <div class="project-tech">
-                            <span>Web</span>
-                            <span>Maintenance</span>
-                            <span>SEO</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://gslasalle.es" target="_blank" rel="noopener noreferrer" class="btn small">Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== TIER 4: Coursework / smaller projects ===== -->
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Network Monitor Pro</h3>
-                        <p>Desktop application that reports real-time upload and download usage alongside latency, interface saturation and alerting thresholds so users can understand the bandwidth footprint of their devices at any moment. Published on the App Store.</p>
-                        <div class="project-tech">
-                            <span>Swift</span>
-                            <span>macOS</span>
-                            <span>Monitoring</span>
-                            <span>App Store</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://apps.apple.com/app/network-monitor-pro/id6752895732" target="_blank" rel="noopener noreferrer" class="btn small">App Store</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-ship"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>HundirFlotaRedes</h3>
-                        <p>Implementation of the classic Battleship game with network functionality and player communication, written in C using sockets.</p>
-                        <div class="project-tech">
-                            <span>C</span>
-                            <span>Networks</span>
-                            <span>Sockets</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj/HundirFlotaRedes" target="_blank" rel="noopener noreferrer" class="btn small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Academic Coursework</h3>
-                        <p>Selected BSc coursework available on GitHub: Smart Home Interface (Java), AI implementations of classic ML algorithms (Python), task-management ToDo app (JavaScript) and digital image-processing notebooks (Python).</p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>Python</span>
-                            <span>JavaScript</span>
-                            <span>Coursework</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/i12gocaj?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn small">All repositories</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+        <div class="archive-heading">
+          <h3>More to explore.</h3>
+          <p>From local-first experiments to tools used by real communities.</p>
         </div>
-    </section>
-
-    <!-- Experience and Education -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="accent">#</span> Experience & Education</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Upcoming &middot; 21 Sep &mdash; 14 Dec 2026</div>
-                    <div class="timeline-content">
-                        <h3>VIII Diploma of Expert in Reverse Engineering and Malware Intelligence</h3>
-                        <h4>University of Málaga &middot; NICS Lab &middot; Google-VirusTotal, in collaboration with Google</h4>
-                        <p>Scheduled postgraduate diploma focused on static and dynamic malware analysis, binary reverse engineering, Frida instrumentation and YARA-based detection. 18 ECTS and 180 in-person hours at the Google Safety Engineering Center in Málaga. <a href="https://www.nics.uma.es/viii-edicion-diploma-experto-en-ingenieria-inversa-e-inteligencia-malware/" target="_blank" rel="noopener noreferrer">Official programme</a>.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jul 2026</div>
-                    <div class="timeline-content">
-                        <h3>Participant — Atmira × OpenAI Hackathon 2026</h3>
-                        <h4>Cátedra Atmira · OpenAI · Big Data</h4>
-                        <p>Participated in the junior category with <a href="https://github.com/i12gocaj/Atlas" target="_blank" rel="noopener noreferrer">Atlas</a>, a proposal for the challenge on governance and control of AI use in software development. Developed and presented a local, read-only copilot designed to audit other copilots.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jun 2026</div>
-                    <div class="timeline-content">
-                        <h3>NASA Vulnerability Disclosure Program (VDP) Recognition</h3>
-                        <h4>National Aeronautics and Space Administration (NASA) &middot; Office of the CIO</h4>
-                        <p>Recognized by NASA's Vulnerability Disclosure Program as an independent security researcher for identifying and responsibly reporting a security vulnerability affecting NASA systems, following NASA's VDP policy and guidelines. Letter of appreciation signed by the Senior Agency Information Security Officer (SAISO), NASA Office of the Chief Information Officer (OCIO). <a href="assets/docs/carta-reconocimiento-nasa-vdp.pdf" target="_blank" rel="noopener noreferrer">Read the recognition letter</a>.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr 2026</div>
-                    <div class="timeline-content">
-                        <h3>Best Device Award &mdash; 4th Biotechnological Hackathon</h3>
-                        <h4>IMIBIC &amp; Escuela Politécnica Superior de Córdoba (EPSC)</h4>
-                        <p>Won the Best Device Award in the challenge "Intelligent counting device for post-surgery surgical material" during the 4th Biotechnological Hackathon.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jan 2026 &mdash; May 2026</div>
-                    <div class="timeline-content">
-                        <h3>Digital Forensics Analyst &amp; Cyber Threat Intelligence Intern</h3>
-                        <h4>AllPentesting &middot; Córdoba, Spain</h4>
-                        <p>Supported cybercrime investigations through OSINT, intelligence analysis and tracing of fraudulent infrastructures across surface, deep and dark web (phishing, fraud, malicious APK campaigns). Forensic acquisition, log review and technical reporting on mobile devices, computers and storage media (FTK Imager, Autopsy, Volatility, Nirsoft, Proxmark3). Reverse-engineering of Android APKs and analysis of logs from VPN, RDP, NAS, Microsoft 365 and OneDrive for malware triage, IoC identification and TTP attribution. Built n8n automations and internal tooling for security audits, threat simulation and phishing analysis; deployed ATAK-CIV / TAK Server environments for tactical coordination with law-enforcement teams.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Nov 2025 &mdash; Dec 2025</div>
-                    <div class="timeline-content">
-                        <h3>OT Security Engineer Intern</h3>
-                        <h4>Deuser (Indra Group) &middot; Córdoba, Spain</h4>
-                        <p>Designed industrial network diagrams for OT (Operational Technology) environments: device mapping, segmentation and trust zones. Deployed and configured Microsoft Hyper-V virtual machines for internal labs and test scenarios. Completed firewall configuration training and hands-on laboratory work with Siemens PLCs (industrial control systems).</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Oct 2025 &mdash; Oct 2026</div>
-                    <div class="timeline-content">
-                        <h3>MSc in Offensive Security</h3>
-                        <h4>Campus Internacional de Ciberseguridad</h4>
-                        <p>Master's degree focused on offensive security: cryptography, OSINT, malware analysis, reversing, vulnerability assessment, reconnaissance, enumeration, network/system/web hacking.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">In progress &middot; Expected Dec 2026</div>
-                    <div class="timeline-content">
-                        <h3>Offensive Security Certified Professional (OSCP)</h3>
-                        <h4>OffSec</h4>
-                        <p>Currently preparing for the OSCP certification, the industry-standard hands-on penetration-testing credential.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Nov 2025</div>
-                    <div class="timeline-content">
-                        <h3>8th Place (National) &mdash; Talent4Cyber Competition</h3>
-                        <h4>Mando Conjunto del Ciberespacio (MCCE) &amp; INCIBE</h4>
-                        <p>National cybersecurity competition with 100+ teams from Spain and abroad. Reached semifinals representing the Universidad de Córdoba; finished 8th nationally as part of the team "Estatua de gnomos de jardín gnomos de doble dedo".</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Sep 2025</div>
-                    <div class="timeline-content">
-                        <h3>Week 4 Winner &mdash; "El Bug de la Semana"</h3>
-                        <h4>INCIBE &amp; IMMUNE Technology Institute</h4>
-                        <p>Recognized as the Week 4 winner in the "El Bug de la Semana" challenge organized by INCIBE and IMMUNE.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jun 2025 &mdash; Sep 2025</div>
-                    <div class="timeline-content">
-                        <h3>Cybersecurity Engineer Intern, COEX Naval Systems</h3>
-                        <h4>Navantia, S.A., S.M.E. &middot; San Fernando, Spain</h4>
-                        <p>Designed and deployed the centre's monitoring and defence infrastructure (SIEM, IDS and router/firewall integration). Built a network testing laboratory for the passive combat systems of naval vessels. Delivered cybersecurity training sessions to colleagues across the department. Automated repetitive operational processes to improve efficiency and traceability.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jun 2025 &mdash; Present</div>
-                    <div class="timeline-content">
-                        <h3>Cybercrime Investigations Collaborator</h3>
-                        <h4>Spanish National Police (Policía Nacional) &middot; Remote</h4>
-                        <p>Provide OSINT and technical analysis for active investigations into web-based scams and online fraud targeting Spanish citizens. Document findings in case-ready evidence packages, applying chain-of-custody and operational discretion.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">May 2025</div>
-                    <div class="timeline-content">
-                        <h3>$1,000 Meta Bug Bounty (Instagram)</h3>
-                        <h4>Meta Bug Bounty Program</h4>
-                        <p>Awarded for the responsible disclosure of an Instagram Notes privacy bypass (audio leakage via direct video URL extraction). Vulnerability validated and patched by Meta.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025</div>
-                    <div class="timeline-content">
-                        <h3>BSc Thesis (TFG) graded 10/10</h3>
-                        <h4>Universidad de Córdoba</h4>
-                        <p>BSc Thesis "Predicción direccional de activos financieros con aprendizaje automático y datos alternativos" graded 10/10 by the evaluation committee.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr 2025</div>
-                    <div class="timeline-content">
-                        <h3>1st Prize &mdash; Hackademics Forum III CTF</h3>
-                        <h4>Cybersecurity and Networks Classroom, EPSC</h4>
-                        <p>Top finisher in the assistants' competition at Hackademics Forum III CTF, sponsored by Hack The Box.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Sep 2024 &mdash; Jun 2025</div>
-                    <div class="timeline-content">
-                        <h3>Erasmus Exchange &mdash; Computer Engineering</h3>
-                        <h4>Gheorghe Asachi Technical University of Iași &middot; Romania</h4>
-                        <p>Erasmus exchange semester abroad in Iași, Romania. Coursework in artificial intelligence, machine learning and software engineering.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Ex-member &mdash; Caliphal Hounds CTF Team (#2 in Spain on CTFTime)</h3>
-                        <h4>Caliphal Labs</h4>
-                        <p>One-year member of the Caliphal Hounds CTF team during 2024; the team finished the year ranked <strong>#2 in Spain</strong> on CTFTime. Specialised in Web, Reversing, Crypto and OSINT challenges.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>CCN Cybersecurity Course</h3>
-                        <h4>Higher Polytechnic School of Córdoba</h4>
-                        <p>Specialized training in cybersecurity provided by the National Cryptologic Center (CCN).</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Software Architecture Course</h3>
-                        <h4>Higher Polytechnic School of Córdoba</h4>
-                        <p>Training in design and architecture of complex software systems.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022</div>
-                    <div class="timeline-content">
-                        <h3>1st Place &mdash; Free Software Classroom Hackathon</h3>
-                        <h4>Free Software Classroom, University of Córdoba</h4>
-                        <p>Won the first Hackathon of the Free Software Classroom.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 &mdash; 2025</div>
-                    <div class="timeline-content">
-                        <h3>BSc in Computer Engineering &mdash; Specialization in Computing</h3>
-                        <h4>Higher Polytechnic School of Córdoba (EPSC), Universidad de Córdoba</h4>
-                        <p>Training in software engineering, operating systems, networks and cybersecurity. Final BSc Thesis graded 10/10.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 &mdash; 2025</div>
-                    <div class="timeline-content">
-                        <h3>Free Software &amp; Cybersecurity / Networks Classrooms</h3>
-                        <h4>EPSC, University of Córdoba</h4>
-                        <p>Active member of the student-led Free Software Classroom and Cybersecurity &amp; Networks Classroom. Contributed talks, workshops and CTF coaching for fellow students.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021</div>
-                    <div class="timeline-content">
-                        <h3>Cybersecurity Course &mdash; III National League</h3>
-                        <h4>Civil Guard</h4>
-                        <p>Participation in the National Cybersecurity League organized by the Civil Guard.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2018 &mdash; 2021</div>
-                    <div class="timeline-content">
-                        <h3>Debate Team &mdash; La Salle Córdoba</h3>
-                        <p>Two-time champion in inter-school debate competitions and debate mentor for younger students.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2008 &mdash; Present</div>
-                    <div class="timeline-content">
-                        <h3>Scouts &mdash; La Salle Córdoba</h3>
-                        <p>Active scout since 2008. Served as President of the local youth group (2023&ndash;2024), coordinating volunteer teams and leading community-oriented projects.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="archive-tools" hidden>
+          <div
+            class="filter-group"
+            role="group"
+            aria-label="Filter project archive"
+          >
+            <button type="button" data-filter="all" aria-pressed="true">
+              Everything</button
+            ><button type="button" data-filter="research" aria-pressed="false">
+              Security</button
+            ><button type="button" data-filter="products" aria-pressed="false">
+              Products</button
+            ><button
+              type="button"
+              data-filter="experiments"
+              aria-pressed="false"
+            >
+              Experiments
+            </button>
+          </div>
+          <label class="search-field"
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="10" r="6" />
+              <path d="m15 15 5 5" /></svg
+            ><span class="sr-only">Search the project archive</span
+            ><input
+              id="project-search"
+              type="search"
+              name="q"
+              placeholder="Find a project…"
+              autocomplete="off"
+          /></label>
         </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="accent">#</span> Contact</h2>
+        <p id="project-results" class="results-count" role="status" hidden></p>
+        <div class="project-archive">
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-2"
+          >
+            <summary>
+              <span class="project-name">IG Audio Grabber Local</span
+              ><span class="project-discipline">Chrome Extension</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Local Manifest V3 Chrome extension for saving Instagram Direct
+                voice notes from the browser. It detects exposed
+                <code>audioclip-*</code> resources, matches them against
+                playback duration, and downloads the original file or converts
+                it to MP3 locally.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Chrome Extension</li>
+                <li>Manifest V3</li>
+                <li>JavaScript</li>
+                <li>Browser APIs</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/ig-audio-downloader-extension"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Interested in collaborating?</h3>
-                    <p>I'm open to collaboration opportunities, interesting projects, and new challenges.</p>
-                    <div class="contact-links">
-                        <a href="https://github.com/i12gocaj" target="_blank" class="contact-link">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                            <span>github.com/i12gocaj</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/javier-gonzalez-casares/" target="_blank" class="contact-link">
-                            <span class="icon"><i class="fab fa-linkedin"></i></span>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="mailto:javiergc100@protonmail.com" class="contact-link">
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
-                            <span>javiergc100@protonmail.com</span>
-                        </a>
-                        <a href="tel:+34652601501" class="contact-link">
-                            <span class="icon"><i class="fas fa-phone"></i></span>
-                            <span>652 601 501</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/myzelwak" method="POST">
-                        <input type="hidden" name="_subject" value="Portfolio Contact Form">
-                        <input type="hidden" name="_next" value="https://i12gocaj.github.io/portfolio/#contact?success=true">
-                        <!-- Honeypot: bots fill this; humans never see it -->
-                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" autocomplete="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="_replyto" autocomplete="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" autocomplete="off" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary">Send Message</button>
-                        <div class="form-status" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center;">
-                            <p></p>
-                        </div>
-                    </form>
-                </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-3"
+          >
+            <summary>
+              <span class="project-name">BrillanteSeguro</span
+              ><span class="project-discipline">Next.js</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Neighbourhood platform for El Brillante, Córdoba. It turns
+                scattered WhatsApp alerts into structured reports with maps,
+                heatmaps, statistics, filters, association enrollment workflows,
+                a local marketplace and a professional directory. It reached
+                300+ registered users in the neighbourhood.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Next.js</li>
+                <li>Supabase</li>
+                <li>Cloudflare</li>
+                <li>Geospatial UX</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/BrillanteSeguro.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
             </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-5"
+          >
+            <summary>
+              <span class="project-name">Instagram Password Bypass</span
+              ><span class="project-discipline">Vulnerability Research</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Account-takeover vulnerability that allowed changing any
+                password without knowing the current one. Responsibly disclosed
+                to Meta and silently patched.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Vulnerability Research</li>
+                <li>Account Takeover</li>
+                <li>Meta Bug Bounty</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/instagram-password-bypass"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-6"
+          >
+            <summary>
+              <span class="project-name">Club Gym Sierra Time Bypass</span
+              ><span class="project-discipline">Mobile Security</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Client-side time-manipulation vulnerability in the Club Gym
+                Sierra mobile app that enabled unfair early class booking.
+                Responsibly disclosed and patched in version 4.4.19.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Mobile Security</li>
+                <li>Logical Vulnerability</li>
+                <li>Responsible Disclosure</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/club-gym-sierra-time-bypass"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-7"
+          >
+            <summary>
+              <span class="project-name">Hackademics Forum III CTF</span
+              ><span class="project-discipline">CTF</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Writeups and solutions from the 3rd edition of Hackademics Forum
+                CTF, where I achieved 1st prize in the assistants' competition
+                (sponsored by Hack The Box).
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>CTF</li>
+                <li>Reverse Engineering</li>
+                <li>Web Exploitation</li>
+                <li>Pwn</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/CTF-Hackademics-Forum-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="experiments"
+            id="project-8"
+          >
+            <summary>
+              <span class="project-name"
+                >BSc Thesis: Directional Asset Prediction with ML</span
+              ><span class="project-discipline">Python</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                BSc Thesis (graded 10/10) that compares baseline, machine
+                learning and deep learning models to predict market direction in
+                BTC-USD, TSLA and NVDA, including alternative news-sentiment
+                data (GDELT) to evaluate its impact on predictive performance.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Python</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>GDELT Sentiment</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/tfg-prediccion-direccional-activos-financieros"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg></a
+                ><a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/portfolio/releases/download/tfg-defense-audio/tfg.m4a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Defense Audio (12:17)<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-9"
+          >
+            <summary>
+              <span class="project-name">passwow</span
+              ><span class="project-discipline">Python</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Secure, minimalist local password manager using AES-256 GCM and
+                Scrypt key derivation. Includes a CLI for managing encrypted
+                vaults (init, add, list, get, remove, export, import).
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Python</li>
+                <li>Cryptography</li>
+                <li>CLI</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/passwow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="experiments"
+            id="project-10"
+          >
+            <summary>
+              <span class="project-name">footactik</span
+              ><span class="project-discipline">Python</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Local tactical-intelligence platform for Córdoba CF. Scrapes
+                Sofascore, Transfermarkt and FBref and runs five ML models
+                (lineup selection, injury risk, scouting via autoencoder
+                embeddings, market-value forecasting and opponent style) on a
+                zero-cost local stack.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Python</li>
+                <li>Machine Learning</li>
+                <li>Sports Analytics</li>
+                <li>Data Engineering</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/footactik"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="research"
+            id="project-11"
+          >
+            <summary>
+              <span class="project-name">AES-app</span
+              ><span class="project-discipline">Python</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Encryption application implementing AES-128 in GCM mode with a
+                Tkinter GUI. Authenticated-encryption with key+nonce generation
+                and integrity verification.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Python</li>
+                <li>Cryptography</li>
+                <li>AES-GCM</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/AES-app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-12"
+          >
+            <summary>
+              <span class="project-name">helionlabs.es</span
+              ><span class="project-discipline">Artificial Intelligence</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Founder of Helion Labs, a company focused on AI business
+                automation that designs and deploys intelligent workflows to
+                streamline operations, reduce repetitive work and help companies
+                scale more efficiently.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Artificial Intelligence</li>
+                <li>Business Automation</li>
+                <li>Workflow Design</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://helionlabs.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Website<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-13"
+          >
+            <summary>
+              <span class="project-name">brillanteseguro.es</span
+              ><span class="project-discipline">Community Platform</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Platform built pro-bono for my neighborhood community: residents
+                visualise incidents on a map (security alerts, public-road
+                issues, lost pets) and access a marketplace for professional
+                services and second-hand items. Includes an admin dashboard to
+                triage and coordinate responses.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Community Platform</li>
+                <li>Interactive Maps</li>
+                <li>Marketplace</li>
+                <li>Admin Panel</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://brillanteseguro.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Website<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-14"
+          >
+            <summary>
+              <span class="project-name">buythetop.vip</span
+              ><span class="project-discipline">Web</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Developer of buythetop.vip, a monetary ranking platform that
+                aggregates performance metrics and highlights top contributors
+                with automated leaderboard updates and payout tracking.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Web</li>
+                <li>Product Design</li>
+                <li>Automation</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://buythetop.vip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Website<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-15"
+          >
+            <summary>
+              <span class="project-name">Bot Trading</span
+              ><span class="project-discipline">Python</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Automated trading bot focused on keeping orders at the top of
+                the book with adaptive spread control, inventory balancing and
+                risk management for crypto-fiat pairs. Variations deployed on
+                KuCoin and other exchanges with venue-specific tuning.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Python</li>
+                <li>Selenium</li>
+                <li>TelegramBotAPI</li>
+              </ul>
+              <div class="project-links">
+                <span class="private-note">Private repository</span>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-16"
+          >
+            <summary>
+              <span class="project-name">transcriptapp_bot</span
+              ><span class="project-discipline">Telegram Bot</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Telegram bot that transcribes audio and video, automatically
+                improves the generated text and exports results in multiple
+                timestamped formats.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Telegram Bot</li>
+                <li>Transcription</li>
+                <li>AI</li>
+                <li>Export</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://t.me/transcriptapp_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Telegram<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-17"
+          >
+            <summary>
+              <span class="project-name">gslasalle.es (web manager)</span
+              ><span class="project-discipline">Web</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Ongoing stewardship of the Scouts La Salle Córdoba website:
+                keeping content fresh, ensuring availability and reinforcing
+                secure communication for the entire community.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Web</li>
+                <li>Maintenance</li>
+                <li>SEO</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://gslasalle.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Website<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="products"
+            id="project-18"
+          >
+            <summary>
+              <span class="project-name">Network Monitor Pro</span
+              ><span class="project-discipline">Swift</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Desktop application that reports real-time upload and download
+                usage alongside latency, interface saturation and alerting
+                thresholds so users can understand the bandwidth footprint of
+                their devices at any moment. Published on the App Store.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Swift</li>
+                <li>macOS</li>
+                <li>Monitoring</li>
+                <li>App Store</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://apps.apple.com/app/network-monitor-pro/id6752895732"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >App Store<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="experiments"
+            id="project-19"
+          >
+            <summary>
+              <span class="project-name">HundirFlotaRedes</span
+              ><span class="project-discipline">C</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Implementation of the classic Battleship game with network
+                functionality and player communication, written in C using
+                sockets.
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>C</li>
+                <li>Networks</li>
+                <li>Sockets</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj/HundirFlotaRedes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
+          <details
+            class="project-entry"
+            data-category="experiments"
+            id="project-20"
+          >
+            <summary>
+              <span class="project-name">Academic Coursework</span
+              ><span class="project-discipline">Java</span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14m-7-7v14" />
+              </svg>
+            </summary>
+            <div class="project-description">
+              <p>
+                Selected BSc coursework available on GitHub: Smart Home
+                Interface (Java), AI implementations of classic ML algorithms
+                (Python), task-management ToDo app (JavaScript) and digital
+                image-processing notebooks (Python).
+              </p>
+              <ul class="tags" aria-label="Technologies and disciplines">
+                <li>Java</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Coursework</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="text-link"
+                  href="https://github.com/i12gocaj?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >All repositories<svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" /></svg
+                ></a>
+              </div>
+            </div>
+          </details>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#home">JGC</a>
-                </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="https://github.com/i12gocaj" target="_blank"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/javier-gonzalez-casares/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
+        <p class="empty-results" hidden>
+          No projects match. Try another search or choose Everything.
+        </p>
+      </section>
+      <section
+        id="experience"
+        class="background-section"
+        aria-labelledby="background-title"
+      >
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <h2 id="background-title">Behind the work.</h2>
+              <p>The people, places and lessons that shaped how I think.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="footer-year">2026</span> Javier González Casares. All rights reserved.</p>
-                <p class="easter-egg"><!-- c0d3_1s_p03try --></p>
+            <a
+              class="text-link"
+              href="assets/docs/cv-javier-gonzalez-casares.pdf"
+              download
+              >Full CV
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </div>
+          <div class="background-layout">
+            <aside id="about" class="about-copy">
+              <h3>Always asking why.</h3>
+              <p>
+                Computer Engineer focused on Cyber Threat Intelligence, malware
+                analysis, digital forensics (DFIR) and offensive security.
+                Graduated from the Higher Polytechnic School of Córdoba
+                (2021–2025) with a Specialization in Computing, currently
+                finishing my MSc in Offensive Security at Campus Internacional
+                de Ciberseguridad while preparing for the OSCP (Dec 2026).
+              </p>
+              <p>
+                Past internships at AllPentesting (DFIR &amp; CTI), Indra Group
+                (OT Security) and Navantia (defence-sector cybersecurity).
+                Active collaborator with the Spanish National Police on
+                cybercrime investigations.
+                <strong>$1,000 Meta Bug Bounty</strong> researcher and ex-member
+                of the
+                <strong
+                  >Caliphal Hounds CTF team (#2 in Spain on CTFTime,
+                  2024)</strong
+                >.
+              </p>
+              <div class="focus-note">
+                <span class="focus-dot" aria-hidden="true"></span>
+                <p>
+                  Current focus<br /><strong
+                    >Threat intelligence, DFIR<br />& offensive
+                    security.</strong
+                  >
+                </p>
+              </div>
+              <a
+                class="text-link"
+                href="https://www.linkedin.com/in/javier-gonzalez-casares/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Connect on LinkedIn
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M7 7h10v10" /></svg
+              ></a>
+            </aside>
+            <div class="history-list">
+              <section class="history-group" aria-label="Experience">
+                <h3>Experience</h3>
+                <p class="group-note">
+                  Investigation, intelligence and defence.
+                </p>
+                <details class="history-entry" id="background-4">
+                  <summary>
+                    <span class="history-date">Jan 2026 — May 2026</span
+                    ><span class="history-title"
+                      >Digital Forensics Analyst &amp; Cyber Threat Intelligence
+                      Intern<span class="organization"
+                        >AllPentesting · Córdoba, Spain</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Supported cybercrime investigations through OSINT,
+                      intelligence analysis and tracing of fraudulent
+                      infrastructures across surface, deep and dark web
+                      (phishing, fraud, malicious APK campaigns). Forensic
+                      acquisition, log review and technical reporting on mobile
+                      devices, computers and storage media (FTK Imager, Autopsy,
+                      Volatility, Nirsoft, Proxmark3). Reverse-engineering of
+                      Android APKs and analysis of logs from VPN, RDP, NAS,
+                      Microsoft 365 and OneDrive for malware triage, IoC
+                      identification and TTP attribution. Built n8n automations
+                      and internal tooling for security audits, threat
+                      simulation and phishing analysis; deployed ATAK-CIV / TAK
+                      Server environments for tactical coordination with
+                      law-enforcement teams.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-5">
+                  <summary>
+                    <span class="history-date">Nov 2025 — Dec 2025</span
+                    ><span class="history-title"
+                      >OT Security Engineer Intern<span class="organization"
+                        >Deuser (Indra Group) · Córdoba, Spain</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Designed industrial network diagrams for OT (Operational
+                      Technology) environments: device mapping, segmentation and
+                      trust zones. Deployed and configured Microsoft Hyper-V
+                      virtual machines for internal labs and test scenarios.
+                      Completed firewall configuration training and hands-on
+                      laboratory work with Siemens PLCs (industrial control
+                      systems).
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-10">
+                  <summary>
+                    <span class="history-date">Jun 2025 — Sep 2025</span
+                    ><span class="history-title"
+                      >Cybersecurity Engineer Intern, COEX Naval Systems<span
+                        class="organization"
+                        >Navantia, S.A., S.M.E. · San Fernando, Spain</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Designed and deployed the centre's monitoring and defence
+                      infrastructure (SIEM, IDS and router/firewall
+                      integration). Built a network testing laboratory for the
+                      passive combat systems of naval vessels. Delivered
+                      cybersecurity training sessions to colleagues across the
+                      department. Automated repetitive operational processes to
+                      improve efficiency and traceability.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-11">
+                  <summary>
+                    <span class="history-date">Jun 2025 — Present</span
+                    ><span class="history-title"
+                      >Cybercrime Investigations Collaborator<span
+                        class="organization"
+                        >Spanish National Police (Policía Nacional) ·
+                        Remote</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Provide OSINT and technical analysis for active
+                      investigations into web-based scams and online fraud
+                      targeting Spanish citizens. Document findings in
+                      case-ready evidence packages, applying chain-of-custody
+                      and operational discretion.
+                    </p>
+                  </div>
+                </details>
+              </section>
+              <section
+                class="history-group"
+                aria-label="Education &amp; training"
+              >
+                <h3>Education &amp; training</h3>
+                <p class="group-note">A foundation that keeps growing.</p>
+                <details class="history-entry" id="background-0">
+                  <summary>
+                    <span class="history-date">21 Sep — 14 Dec 2026</span
+                    ><span class="history-title"
+                      >VIII Diploma of Expert in Reverse Engineering and Malware
+                      Intelligence<span class="organization"
+                        >University of Málaga · NICS Lab · Google-VirusTotal, in
+                        collaboration with Google</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Scheduled postgraduate diploma focused on static and
+                      dynamic malware analysis, binary reverse engineering,
+                      Frida instrumentation and YARA-based detection. 18 ECTS
+                      and 180 in-person hours at the Google Safety Engineering
+                      Center in Málaga.
+                      <a
+                        href="https://www.nics.uma.es/viii-edicion-diploma-experto-en-ingenieria-inversa-e-inteligencia-malware/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Official programme</a
+                      >.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-6">
+                  <summary>
+                    <span class="history-date">Oct 2025 — Oct 2026</span
+                    ><span class="history-title"
+                      >MSc in Offensive Security<span class="organization"
+                        >Campus Internacional de Ciberseguridad</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Master's degree focused on offensive security:
+                      cryptography, OSINT, malware analysis, reversing,
+                      vulnerability assessment, reconnaissance, enumeration,
+                      network/system/web hacking.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-7">
+                  <summary>
+                    <span class="history-date"
+                      >In progress · Expected Dec 2026</span
+                    ><span class="history-title"
+                      >Offensive Security Certified Professional (OSCP)<span
+                        class="organization"
+                        >OffSec</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Currently preparing for the OSCP certification, the
+                      industry-standard hands-on penetration-testing credential.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-15">
+                  <summary>
+                    <span class="history-date">Sep 2024 — Jun 2025</span
+                    ><span class="history-title"
+                      >Erasmus Exchange — Computer Engineering<span
+                        class="organization"
+                        >Gheorghe Asachi Technical University of Iași ·
+                        Romania</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Erasmus exchange semester abroad in Iași, Romania.
+                      Coursework in artificial intelligence, machine learning
+                      and software engineering.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-17">
+                  <summary>
+                    <span class="history-date">2024</span
+                    ><span class="history-title"
+                      >CCN Cybersecurity Course<span class="organization"
+                        >Higher Polytechnic School of Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Specialized training in cybersecurity provided by the
+                      National Cryptologic Center (CCN).
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-18">
+                  <summary>
+                    <span class="history-date">2024</span
+                    ><span class="history-title"
+                      >Software Architecture Course<span class="organization"
+                        >Higher Polytechnic School of Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Training in design and architecture of complex software
+                      systems.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-20">
+                  <summary>
+                    <span class="history-date">2021 — 2025</span
+                    ><span class="history-title"
+                      >BSc in Computer Engineering — Specialization in
+                      Computing<span class="organization"
+                        >Higher Polytechnic School of Córdoba (EPSC),
+                        Universidad de Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Training in software engineering, operating systems,
+                      networks and cybersecurity. Final BSc Thesis graded 10/10.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-22">
+                  <summary>
+                    <span class="history-date">2021</span
+                    ><span class="history-title"
+                      >Cybersecurity Course — III National League<span
+                        class="organization"
+                        >Civil Guard</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Participation in the National Cybersecurity League
+                      organized by the Civil Guard.
+                    </p>
+                  </div>
+                </details>
+              </section>
+              <section class="history-group" aria-label="Recognition">
+                <h3>Recognition</h3>
+                <p class="group-note">
+                  Awards, competitions and responsible disclosure.
+                </p>
+                <details class="history-entry" id="background-1">
+                  <summary>
+                    <span class="history-date">Jul 2026</span
+                    ><span class="history-title"
+                      >Participant — Atmira × OpenAI Hackathon 2026<span
+                        class="organization"
+                        >Cátedra Atmira · OpenAI · Big Data</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Participated in the junior category with
+                      <a
+                        href="https://github.com/i12gocaj/Atlas"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Atlas</a
+                      >, a proposal for the challenge on governance and control
+                      of AI use in software development. Developed and presented
+                      a local, read-only copilot designed to audit other
+                      copilots.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-2">
+                  <summary>
+                    <span class="history-date">Jun 2026</span
+                    ><span class="history-title"
+                      >NASA Vulnerability Disclosure Program (VDP)
+                      Recognition<span class="organization"
+                        >National Aeronautics and Space Administration (NASA) ·
+                        Office of the CIO</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Recognized by NASA's Vulnerability Disclosure Program as
+                      an independent security researcher for identifying and
+                      responsibly reporting a security vulnerability affecting
+                      NASA systems, following NASA's VDP policy and guidelines.
+                      Letter of appreciation signed by the Senior Agency
+                      Information Security Officer (SAISO), NASA Office of the
+                      Chief Information Officer (OCIO).
+                      <a
+                        href="assets/docs/carta-reconocimiento-nasa-vdp.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Read the recognition letter</a
+                      >.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-3">
+                  <summary>
+                    <span class="history-date">Apr 2026</span
+                    ><span class="history-title"
+                      >Best Device Award — 4th Biotechnological Hackathon<span
+                        class="organization"
+                        >IMIBIC &amp; Escuela Politécnica Superior de Córdoba
+                        (EPSC)</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Won the Best Device Award in the challenge "Intelligent
+                      counting device for post-surgery surgical material" during
+                      the 4th Biotechnological Hackathon.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-8">
+                  <summary>
+                    <span class="history-date">Nov 2025</span
+                    ><span class="history-title"
+                      >8th Place (National) — Talent4Cyber Competition<span
+                        class="organization"
+                        >Mando Conjunto del Ciberespacio (MCCE) &amp;
+                        INCIBE</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      National cybersecurity competition with 100+ teams from
+                      Spain and abroad. Reached semifinals representing the
+                      Universidad de Córdoba; finished 8th nationally as part of
+                      the team "Estatua de gnomos de jardín gnomos de doble
+                      dedo".
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-9">
+                  <summary>
+                    <span class="history-date">Sep 2025</span
+                    ><span class="history-title"
+                      >Week 4 Winner — &quot;El Bug de la Semana&quot;<span
+                        class="organization"
+                        >INCIBE &amp; IMMUNE Technology Institute</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Recognized as the Week 4 winner in the "El Bug de la
+                      Semana" challenge organized by INCIBE and IMMUNE.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-12">
+                  <summary>
+                    <span class="history-date">May 2025</span
+                    ><span class="history-title"
+                      >$1,000 Meta Bug Bounty (Instagram)<span
+                        class="organization"
+                        >Meta Bug Bounty Program</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Awarded for the responsible disclosure of an Instagram
+                      Notes privacy bypass (audio leakage via direct video URL
+                      extraction). Vulnerability validated and patched by Meta.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-13">
+                  <summary>
+                    <span class="history-date">2025</span
+                    ><span class="history-title"
+                      >BSc Thesis (TFG) graded 10/10<span class="organization"
+                        >Universidad de Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      BSc Thesis "Predicción direccional de activos financieros
+                      con aprendizaje automático y datos alternativos" graded
+                      10/10 by the evaluation committee.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-14">
+                  <summary>
+                    <span class="history-date">Apr 2025</span
+                    ><span class="history-title"
+                      >1st Prize — Hackademics Forum III CTF<span
+                        class="organization"
+                        >Cybersecurity and Networks Classroom, EPSC</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Top finisher in the assistants' competition at Hackademics
+                      Forum III CTF, sponsored by Hack The Box.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-16">
+                  <summary>
+                    <span class="history-date">2024</span
+                    ><span class="history-title"
+                      >Ex-member — Caliphal Hounds CTF Team (#2 in Spain on
+                      CTFTime)<span class="organization"
+                        >Caliphal Labs</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      One-year member of the Caliphal Hounds CTF team during
+                      2024; the team finished the year ranked
+                      <strong>#2 in Spain</strong> on CTFTime. Specialised in
+                      Web, Reversing, Crypto and OSINT challenges.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-19">
+                  <summary>
+                    <span class="history-date">2022</span
+                    ><span class="history-title"
+                      >1st Place — Free Software Classroom Hackathon<span
+                        class="organization"
+                        >Free Software Classroom, University of Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Won the first Hackathon of the Free Software Classroom.
+                    </p>
+                  </div>
+                </details>
+              </section>
+              <section class="history-group" aria-label="Beyond the work">
+                <h3>Beyond the work</h3>
+                <p class="group-note">
+                  Community, teaching and a little perspective.
+                </p>
+                <details class="history-entry" id="background-21">
+                  <summary>
+                    <span class="history-date">2021 — 2025</span
+                    ><span class="history-title"
+                      >Free Software &amp; Cybersecurity / Networks
+                      Classrooms<span class="organization"
+                        >EPSC, University of Córdoba</span
+                      ></span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Active member of the student-led Free Software Classroom
+                      and Cybersecurity &amp; Networks Classroom. Contributed
+                      talks, workshops and CTF coaching for fellow students.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-23">
+                  <summary>
+                    <span class="history-date">2018 — 2021</span
+                    ><span class="history-title"
+                      >Debate Team — La Salle Córdoba</span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Two-time champion in inter-school debate competitions and
+                      debate mentor for younger students.
+                    </p>
+                  </div>
+                </details>
+                <details class="history-entry" id="background-24">
+                  <summary>
+                    <span class="history-date">2008 — Present</span
+                    ><span class="history-title">Scouts — La Salle Córdoba</span
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14m-7-7v14" />
+                    </svg>
+                  </summary>
+                  <div class="history-description">
+                    <p>
+                      Active scout since 2008. Served as President of the local
+                      youth group (2023–2024), coordinating volunteer teams and
+                      leading community-oriented projects.
+                    </p>
+                  </div>
+                </details>
+              </section>
             </div>
+          </div>
         </div>
+      </section>
+      <section
+        id="documents"
+        class="documents-section shell"
+        aria-labelledby="documents-title"
+      >
+        <div class="documents-intro">
+          <h2 id="documents-title">The supporting<br />evidence.</h2>
+          <p>
+            Download an up-to-date copy of my curriculum and the recommendation
+            letters that support my work ethic and technical skills.
+          </p>
+          <span class="document-note"
+            >Five documents. Direct PDF downloads.</span
+          >
+        </div>
+        <ul class="document-list">
+          <li>
+            <a href="assets/docs/cv-javier-gonzalez-casares.pdf" download
+              ><span class="document-format">PDF</span
+              ><span
+                ><strong>Download CV</strong
+                ><span class="document-meta">PDF · 2 pages</span></span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </li>
+          <li>
+            <a href="assets/docs/carta-reconocimiento-nasa-vdp.pdf" download
+              ><span class="document-format">PDF</span
+              ><span
+                ><strong>NASA VDP Letter of Recognition</strong
+                ><span class="document-meta"
+                  >NASA Office of the CIO (SAISO) · Jun 2026</span
+                ></span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </li>
+          <li>
+            <a
+              href="assets/docs/carta-recomendacion-policia-nacional.pdf"
+              download
+              ><span class="document-format">PDF</span
+              ><span
+                ><strong>Recommendation Letter — Spanish National Police</strong
+                ><span class="document-meta"
+                  >Inspector, Brigada Provincial de Policía Judicial · Dec
+                  2025</span
+                ></span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </li>
+          <li>
+            <a href="assets/docs/carta-recomendacion-navantia.pdf" download
+              ><span class="document-format">PDF</span
+              ><span
+                ><strong>Recommendation Letter — Navantia</strong
+                ><span class="document-meta"
+                  >Rafael Gómez Sánchez · Sep 2025</span
+                ></span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </li>
+          <li>
+            <a href="assets/docs/carta-recomendacion-universidad.pdf" download
+              ><span class="document-format">PDF</span
+              ><span
+                ><strong>Recommendation Letter — University of Córdoba</strong
+                ><span class="document-meta">Feb 2025</span></span
+              ><svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" /></svg
+            ></a>
+          </li>
+        </ul>
+      </section>
+      <section
+        id="contact"
+        class="contact-section"
+        aria-labelledby="contact-title"
+      >
+        <div class="shell contact-layout">
+          <div class="contact-copy">
+            <h2 id="contact-title">Something<br />worth a closer look?</h2>
+            <p>
+              I'm open to collaboration opportunities, interesting projects, and
+              new challenges.
+            </p>
+            <a class="contact-email" href="mailto:javiergc100@protonmail.com"
+              >javiergc100@protonmail.com
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 17 17 7M7 7h10v10" /></svg></a
+            ><button class="copy-email" type="button" hidden>
+              Copy email address
+            </button>
+            <p class="copy-status sr-only" role="status"></p>
+            <div class="contact-socials">
+              <a
+                href="https://github.com/i12gocaj"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M7 7h10v10" /></svg></a
+              ><a
+                href="https://www.linkedin.com/in/javier-gonzalez-casares/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M7 7h10v10" /></svg></a
+              ><a href="tel:+34652601501"
+                >652 601 501
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M7 7h10v10" /></svg
+              ></a>
+            </div>
+          </div>
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/myzelwak"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Portfolio Contact Form"
+            /><input
+              type="hidden"
+              name="_next"
+              value="https://i12gocaj.github.io/portfolio/#contact"
+            />
+            <div hidden>
+              <label for="website">Leave this field empty</label
+              ><input
+                type="text"
+                id="website"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Your name</label
+                ><input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  placeholder="How should I call you?"
+                />
+              </div>
+              <div class="form-field">
+                <label for="email">Email address</label
+                ><input
+                  type="email"
+                  id="email"
+                  name="_replyto"
+                  autocomplete="email"
+                  spellcheck="false"
+                  required
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="subject">What’s it about?</label
+              ><input
+                type="text"
+                id="subject"
+                name="subject"
+                autocomplete="off"
+                required
+                placeholder="A project, a question, an idea…"
+              />
+            </div>
+            <div class="form-field">
+              <label for="message">Your message</label
+              ><textarea
+                id="message"
+                name="message"
+                rows="4"
+                autocomplete="off"
+                required
+                placeholder="Tell me a little more…"
+              ></textarea>
+            </div>
+            <div class="form-submit">
+              <button class="button light" type="submit">
+                Send message
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+              <p>Delivered to my inbox.<br />No mailing lists.</p>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="shell site-footer">
+      <a
+        class="brand-mark"
+        href="#home"
+        aria-label="Back to Javier González Casares introduction"
+        >jg.</a
+      >
+      <p>
+        © <span id="footer-year">2026</span> Javier González Casares. All rights
+        reserved.
+      </p>
+      <a class="text-link" href="#home"
+        >Back to top
+        <svg
+          class="icon up-arrow"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 19V5m-6 6 6-6 6 6" /></svg
+      ></a>
     </footer>
-
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
