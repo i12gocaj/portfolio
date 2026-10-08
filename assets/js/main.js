@@ -15,7 +15,7 @@
       .querySelector("use")
       .setAttribute(
         "href",
-        `assets/img/pixel-symbols.svg#${open ? "minus" : "plus"}`,
+        `assets/img/analysis-symbols.svg#${open ? "minus" : "plus"}`,
       );
   }
   menu.addEventListener("click", () =>
@@ -47,7 +47,7 @@
       .querySelector("use")
       .setAttribute(
         "href",
-        `assets/img/pixel-symbols.svg#${open ? "back" : "speech"}`,
+        `assets/img/analysis-symbols.svg#${open ? "back" : "speech"}`,
       );
     inspection.querySelector("span").textContent = open
       ? "Back to photo"

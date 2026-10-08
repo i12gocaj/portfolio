@@ -1,10 +1,10 @@
 # Verificación · 8 de octubre de 2026
 
-Comprobado localmente en Chrome mediante Playwright y axe-core 4.10.3, tras el cambio de temática y la eliminación del formulario.
+Comprobado localmente en Chrome mediante Playwright y axe-core 4.10.3, tras el cambio a la temática de análisis de malware y la retirada de la tipografía pixel.
 
 ## Contenido
 
-El inventario anterior al cambio visual, en el commit `7f50900cf171621c41b396dfe438103dc8b942cf`, se comparó con el DOM actual:
+El inventario anterior al cambio visual, en el commit `8216fa428da0ad92f689b13d37d182ef732f4acd`, se comparó con el DOM actual:
 
 - Los títulos y las descripciones de los 21 proyectos coinciden exactamente, tras normalizar los espacios.
 - Las descripciones de las 25 entradas de trayectoria coinciden exactamente. La reorganización conserva sus identificadores y fechas.
@@ -23,9 +23,10 @@ El inventario anterior al cambio visual, en el commit `7f50900cf171621c41b396dfe
 - Las pestañas funcionan con flechas, Home y End; mantienen selección y foco mediante ARIA.
 - El menú móvil anuncia su estado y se cierra con Escape. Su símbolo cambia al abrirlo y cerrarlo.
 - La navegación marca la sección activa. Los cinco enlaces de descarga responden con archivos PDF válidos.
-- La nota del retrato y el pequeño insecto funcionan con teclado y anuncian su estado.
+- La nota del retrato y la ilustración del insecto funcionan con teclado y anuncian su estado. La ilustración se puede inspeccionar y restablecer.
 - Sin JavaScript, las 25 entradas siguen visibles en sus grupos, los desplegables nativos funcionan y el correo permanece disponible.
-- La preferencia de movimiento reducido desactiva las transiciones de píxeles y el resto del movimiento decorativo.
+- Nombre, logo, fechas y resultados usan Hanken Grotesk. Se han retirado la fuente pixel y sus archivos.
+- La preferencia de movimiento reducido desactiva las transiciones de la ilustración y el resto del movimiento decorativo.
 - Los 194 usos de símbolos SVG de la página resuelven a un identificador existente en el sprite local. Los símbolos se han revisado por significado: [ICON-AUDIT.md](ICON-AUDIT.md).
 - Sin errores de JavaScript ni respuestas fallidas de los recursos locales solicitados durante las pruebas.
 
@@ -36,6 +37,8 @@ El formulario, los campos y el código de envío se han eliminado. No se produce
 ## Accesibilidad y límites
 
 Ocho análisis de axe-core —las cuatro pestañas a 1440 y 390 px, con detalles abiertos— devuelven **0 infracciones y 0 comprobaciones incompletas** para las etiquetas WCAG A/AA hasta 2.2. También se comprobaron teclado, selección, foco, estados, contraste y reflujo.
+
+La ilustración inspeccionada se comprobó además a 1440 y 320 px: sin desbordamiento, con el restablecimiento funcionando y sin infracciones ni comprobaciones incompletas de axe-core. Las etiquetas de la ilustración usan texto HTML; el dibujo SVG es decorativo.
 
 Las comprobaciones automatizadas no certifican cumplimiento completo de WCAG. No se han realizado pruebas con un lector de pantalla real ni con todos los navegadores o dispositivos. Los destinos externos se conservan; no se ha probado exhaustivamente su disponibilidad.
 

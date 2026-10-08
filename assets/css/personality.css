@@ -1,22 +1,14 @@
-@font-face {
-  font-family: "Pixelify Sans";
-  src: url("../fonts/pixelify-sans.ttf") format("truetype");
-  font-weight: 400 700;
-  font-display: swap;
-}
 :root {
-  --paper: #f5f8fa;
-  --ink: #203048;
-  --cobalt: #3555b5;
-  --mist: #e8eef3;
+  --paper: #f2f4f7;
+  --ink: #25303f;
+  --cobalt: #5746a6;
+  --mist: #e8ecf1;
   --slate: #526078;
-  --ice: #c7dce9;
-  --line: #c6d1dd;
-  --annotation: #e6c963;
-  --pixel-font: "Pixelify Sans", "Hanken Grotesk", sans-serif;
+  --ice: #d3dbe6;
+  --line: #c8d0dc;
+  --annotation: #ce855e;
 }
 .brand-mark {
-  font-family: var(--pixel-font);
   font-size: 42px;
   font-weight: 600;
   letter-spacing: -0.07em;
@@ -44,13 +36,7 @@ h1 {
   font-size: clamp(48px, 4.7vw, 69px);
   line-height: 1.05;
 }
-.pixel-name {
-  font-family: var(--pixel-font);
-  font-size: 1.5em;
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
+
 .hero-statement {
   font-size: 23px;
   max-width: 36ch;
@@ -69,12 +55,14 @@ h1 {
 }
 .icon,
 .project-mark,
-.history-pixel,
-.node-pixel,
+.history-symbol,
+.node-symbol,
 .milestone-icon {
-  fill: currentColor;
-  stroke: none;
-  shape-rendering: crispEdges;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .icon {
   width: 16px;
@@ -111,29 +99,7 @@ h1 {
   transform: none;
   filter: saturate(1);
 }
-.pixel-corner {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background: var(--cobalt);
-}
-.corner-one {
-  left: 0;
-  top: 0;
-  box-shadow:
-    24px 0 0 var(--cobalt),
-    0 24px 0 var(--cobalt);
-}
-.corner-two {
-  right: 0;
-  bottom: 0;
-  background: var(--paper);
-  box-shadow:
-    -12px 0 0 var(--paper),
-    0 -12px 0 var(--paper);
-  width: 12px;
-  height: 12px;
-}
+
 .portrait-bottomline {
   margin-top: 10px;
 }
@@ -198,7 +164,6 @@ h1 {
   transform: translate(4px, -4px);
 }
 .bug-note {
-  font-family: var(--pixel-font);
   font-size: 23px;
   color: var(--cobalt);
   margin-top: 4px;
@@ -207,7 +172,6 @@ h1 {
   padding-block: 24px;
 }
 .evidence-value {
-  font-family: var(--pixel-font);
   font-size: 40px;
   letter-spacing: -0.03em;
 }
@@ -295,22 +259,22 @@ h2 {
   color: var(--ink);
   box-shadow: 4px 4px 0 var(--ink);
 }
-.compact-project-stamp .case-pixel {
+.compact-project-stamp .case-symbol {
   width: 64px;
   height: 64px;
   fill: currentColor;
-  shape-rendering: crispEdges;
+  shape-rendering: geometricPrecision;
 }
 #project-1 .compact-project-stamp {
   background: var(--ink);
   color: var(--ice);
   box-shadow: 4px 4px 0 var(--annotation);
 }
-.featured-project:hover .case-pixel,
-.featured-project:focus-within .case-pixel {
+.featured-project:hover .case-symbol,
+.featured-project:focus-within .case-symbol {
   transform: translateY(-4px);
 }
-.case-pixel {
+.case-symbol {
   transition: transform 0.2s steps(2, end);
 }
 .project-description > p {
@@ -362,7 +326,7 @@ h2 {
   gap: 4px;
   transform: translate(-50%, -50%);
 }
-.node-pixel {
+.node-symbol {
   width: 24px;
   height: 24px;
 }
@@ -540,7 +504,6 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   min-width: 0;
 }
 .milestone-year {
-  font-family: var(--pixel-font);
   font-size: 25px;
   color: var(--cobalt);
   grid-column: 1 / -1;
@@ -640,7 +603,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   padding: 16px 8px;
   border-bottom: 1px solid #bac7d7;
 }
-.history-pixel {
+.history-symbol {
   width: 24px;
   height: 24px;
   color: var(--cobalt);
@@ -684,7 +647,6 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   gap: 70px;
 }
 .document-format {
-  font-family: var(--pixel-font);
   border-radius: 0;
 }
 .contact-section {
@@ -695,12 +657,12 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   gap: 45px;
   align-items: start;
 }
-.pixel-mail {
+.contact-envelope {
   width: 80px;
   height: 80px;
   fill: currentColor;
   color: var(--ice);
-  shape-rendering: crispEdges;
+  shape-rendering: geometricPrecision;
 }
 .contact-copy > p {
   max-width: none;
@@ -748,7 +710,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
     width: 80px;
     height: 80px;
   }
-  .compact-project-stamp .case-pixel {
+  .compact-project-stamp .case-symbol {
     width: 48px;
     height: 48px;
   }
@@ -854,9 +816,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
     font-size: clamp(33px, 8.8vw, 51px);
     line-height: 1.1;
   }
-  .pixel-name {
-    font-size: 1.7em;
-  }
+
   .hero-role {
     font-size: 15px;
     margin-bottom: 15px;
@@ -875,22 +835,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   .tiny-bug {
     margin-top: 13px;
   }
-  .pixel-corner {
-    width: 16px;
-    height: 16px;
-  }
-  .corner-one {
-    box-shadow:
-      16px 0 0 var(--cobalt),
-      0 16px 0 var(--cobalt);
-  }
-  .corner-two {
-    width: 8px;
-    height: 8px;
-    box-shadow:
-      -8px 0 0 var(--paper),
-      0 -8px 0 var(--paper);
-  }
+
   .inspection-quote blockquote {
     font-size: 23px;
   }
@@ -927,7 +872,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
     height: 64px;
     margin: 0;
   }
-  .compact-project-stamp .case-pixel {
+  .compact-project-stamp .case-symbol {
     width: 40px;
     height: 40px;
   }
@@ -1055,7 +1000,7 @@ details[open] > summary > .disclosure-glyph .open-glyph {
     grid-template-columns: 1fr;
     gap: 22px;
   }
-  .pixel-mail {
+  .contact-envelope {
     width: 48px;
     height: 48px;
   }
@@ -1073,6 +1018,297 @@ details[open] > summary > .disclosure-glyph .open-glyph {
   .contact-section::before {
     margin-top: -45px;
     margin-bottom: 37px;
+  }
+}
+/* The analysis illustration carries the theme; all information stays legible. */
+.brand-mark {
+  font-family: var(--font);
+  font-size: 39px;
+  font-weight: 750;
+  letter-spacing: -0.065em;
+}
+.site-footer .brand-mark {
+  font-size: 31px;
+}
+.site-header {
+  border-bottom-width: 1px;
+}
+.hero {
+  padding-block: 52px;
+  align-items: center;
+}
+.hero-role {
+  max-width: 40ch;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+h1 {
+  font-size: clamp(48px, 4.6vw, 66px);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+.hero-statement {
+  margin-top: 27px;
+  max-width: 33ch;
+}
+.hero-actions {
+  margin-top: 27px;
+}
+.button {
+  border-radius: 4px;
+}
+.button.primary {
+  box-shadow: none;
+  background: var(--ink);
+}
+.button.primary:hover {
+  background: var(--cobalt);
+}
+.button:hover {
+  transform: none;
+}
+.portrait-window {
+  aspect-ratio: 1.08;
+  background: transparent;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.portrait-window > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  filter: saturate(0.85);
+}
+.inspection-quote {
+  inset: 0;
+  border-radius: 4px;
+  padding: 35px;
+}
+.analysis-specimen {
+  margin-top: 25px;
+  max-width: 500px;
+  padding-block: 8px;
+  border-top: 1px solid var(--line);
+}
+.specimen-drawing {
+  display: block;
+  width: 66%;
+  height: auto;
+  color: var(--cobalt);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.specimen-traces {
+  color: #778498;
+  stroke-dasharray: 3 6;
+  transition:
+    color 0.3s,
+    stroke-dashoffset 0.3s;
+}
+.specimen-stage {
+  position: relative;
+}
+.specimen-labels {
+  position: absolute;
+  left: 66%;
+  top: 14%;
+  bottom: 8%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  color: var(--slate);
+  font-family: var(--font);
+  font-size: 14px;
+}
+.containment-ring {
+  stroke: var(--line);
+  stroke-dasharray: 2 7;
+}
+.specimen-left,
+.specimen-right,
+.specimen-head,
+.specimen-legs {
+  transition: transform 0.4s var(--ease);
+}
+.specimen-core {
+  fill: var(--ice);
+  stroke-width: 1;
+}
+.is-open .specimen-left {
+  transform: translateX(-9px);
+}
+.is-open .specimen-right {
+  transform: translateX(9px);
+}
+.is-open .specimen-head {
+  transform: translateY(-7px);
+}
+.is-open .specimen-legs {
+  transform: translateY(4px);
+}
+.is-open .specimen-traces {
+  color: var(--cobalt);
+  stroke-dasharray: none;
+}
+.is-open .specimen-terminals {
+  color: #995332;
+}
+.specimen-controls {
+  display: flex;
+  gap: 12px 20px;
+  align-items: center;
+  min-height: 44px;
+  flex-wrap: wrap;
+}
+.tiny-bug {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  min-height: 44px;
+  gap: 8px;
+  padding: 4px 0;
+  margin: 0;
+  font-size: 12px;
+}
+.tiny-bug .icon {
+  width: 18px;
+  height: 18px;
+  transition: none;
+}
+.tiny-bug:hover .icon,
+.tiny-bug:focus-visible .icon {
+  transform: none;
+}
+.tiny-bug:hover span {
+  text-decoration: underline;
+}
+.bug-note {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--slate);
+}
+.evidence-value {
+  font-family: var(--font);
+  font-size: 34px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.035em;
+}
+.milestone-year {
+  font-family: var(--font);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.history-date {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.compact-project-stamp,
+#project-1 .compact-project-stamp {
+  position: relative;
+  background: transparent;
+  color: var(--cobalt);
+  box-shadow: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.compact-project-stamp::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  right: 9px;
+  bottom: 10px;
+  background: var(--paper);
+  border: 1px solid var(--cobalt);
+  border-radius: 50%;
+}
+.compact-project-stamp .case-symbol,
+.contact-envelope {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  shape-rendering: geometricPrecision;
+}
+.compact-project-stamp .case-symbol {
+  width: 51px;
+  height: 51px;
+}
+.case-symbol,
+.signal-halo {
+  transition-timing-function: var(--ease);
+}
+.featured-project:hover .case-symbol,
+.featured-project:focus-within .case-symbol {
+  transform: none;
+}
+.visual-allosint {
+  border-radius: 4px;
+  background-image: radial-gradient(#ffffff13 0.8px, transparent 0.8px);
+  background-size: 16px 16px;
+}
+.signal-caption {
+  border-left: 2px solid var(--annotation);
+  padding-left: 8px;
+}
+.project-desktop .project-entry[open] {
+  box-shadow: none;
+  border-left: 2px solid var(--cobalt);
+  border-radius: 0 4px 4px 0;
+}
+.history-grid .history-entry[open] {
+  box-shadow: none;
+}
+.contact-section::before {
+  display: none;
+}
+@media (max-width: 600px) {
+  .hero {
+    padding-block: 35px 45px;
+  }
+  .hero-role {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: clamp(35px, 9.5vw, 54px);
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+  }
+  .hero-statement {
+    font-size: 19px;
+  }
+  .analysis-specimen {
+    margin-top: 24px;
+    padding-bottom: 0;
+  }
+  .specimen-controls {
+    gap: 0 12px;
+  }
+  .specimen-labels {
+    font-size: 11px;
+  }
+  .evidence-value {
+    font-size: 29px;
+  }
+  .milestone-year {
+    font-size: 22px;
+  }
+  .compact-project-stamp .case-symbol {
+    width: 32px;
+    height: 32px;
+  }
+  .compact-project-stamp::after {
+    width: 6px;
+    height: 6px;
+    right: 4px;
+    bottom: 6px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

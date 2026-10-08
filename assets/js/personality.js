@@ -1,12 +1,21 @@
 (() => {
   "use strict";
-  const bug = document.querySelector(".tiny-bug");
+  const button = document.querySelector(".tiny-bug");
+  const specimen = document.querySelector(".analysis-specimen");
   const note = document.getElementById("bug-note");
-  if (!bug || !note) return;
-  bug.hidden = false;
-  bug.addEventListener("click", () => {
-    const open = bug.getAttribute("aria-expanded") !== "true";
-    bug.setAttribute("aria-expanded", String(open));
+  if (!button || !specimen || !note) return;
+  button.hidden = false;
+  button.addEventListener("click", () => {
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute(
+      "aria-label",
+      open ? "Reset illustration" : "Inspect illustration",
+    );
+    button.querySelector("span").textContent = open
+      ? "Reset view"
+      : "Inspect the bug";
+    specimen.classList.toggle("is-open", open);
     note.hidden = !open;
   });
 })();

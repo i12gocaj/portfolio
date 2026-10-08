@@ -1,6 +1,6 @@
 # Revisión de iconos
 
-Símbolos propios dibujados sobre una cuadrícula de 16 × 16 en `assets/img/pixel-symbols.svg`. Representan contenido o acciones; no son logotipos oficiales. Los SVG decorativos llevan `aria-hidden="true"` y acompañan a etiquetas de texto.
+Símbolos propios de línea, redibujados sobre una cuadrícula de 24 × 24 en `assets/img/analysis-symbols.svg`. Representan contenido o acciones; no son logotipos oficiales. Los SVG decorativos llevan `aria-hidden="true"` y acompañan a etiquetas de texto. Nombre, logo, fechas y cifras utilizan tipografía legible y uniforme.
 
 ## Acciones
 
@@ -47,4 +47,4 @@ El sobre con una marca de verificación se reserva a SecEmail: representa compro
 
 Birrete para títulos y trabajos académicos; lupa para análisis forense; documento para colaboración en casos; chip para sistemas industriales y hackathon de IA; barco para Navantia; bandera para CTF; premio para reconocimientos; escudo para formación de seguridad; globo para Erasmus; personas, bocadillo y flor de lis para grupos, debate y scouts. El reconocimiento del programa de divulgación de NASA usa un sobre simple, sin inventar un logo institucional.
 
-La pieza del diploma utiliza un insecto como referencia visual al malware. El detalle opcional del insecto en la portada utiliza el mismo lenguaje gráfico.
+La pieza del diploma utiliza un insecto como referencia visual al malware. La portada incorpora otra ilustración propia: un insecto que se desmonta al inspeccionarlo y conecta con tres nodos de estructura, comportamiento y conexiones.

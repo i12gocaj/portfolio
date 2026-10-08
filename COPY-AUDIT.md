@@ -26,7 +26,7 @@ Se han revisado la presentación, las 21 fichas de proyectos, las 25 entradas de
 | Something worth a closer look?          | Contact                                                                                    |
 | Every audit leaves a forensic trail.    | Eliminado. Las funciones verificadas y las 167 pruebas quedan en los detalles de SecEmail. |
 
-La personalidad se apoya en el trabajo real, los símbolos de píxeles de los proyectos y la nota personal del retrato. La nueva organización visual conserva los títulos y las descripciones de los 21 proyectos y las 25 entradas ya revisados.
+La personalidad se apoya en el trabajo real, los símbolos propios de los proyectos, la ilustración del insecto y la nota personal del retrato. La nueva organización visual conserva los títulos y las descripciones de los 21 proyectos y las 25 entradas ya revisados. El insecto solo añade un control breve y el mensaje «Harmless. It’s only an illustration.» al inspeccionarlo.
 
 ## Conservación y límites
 

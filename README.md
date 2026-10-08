@@ -26,13 +26,13 @@ Se mantiene la estructura de GitHub Pages: `index.html` y rutas relativas a `ass
 - Tipografía, colores y estructura: `assets/css/styles.css`.
 - Ilustraciones y ajustes de proyectos: `assets/css/personality.css`.
 - Menú, filtros, pestañas, enlaces directos y copia del correo: `assets/js/main.js`.
-- Detalle opcional del insecto: `assets/js/personality.js`.
-- Símbolos de proyectos y acciones: `assets/img/pixel-symbols.svg`.
+- Ilustración interactiva del insecto: `assets/js/personality.js`.
+- Símbolos de proyectos y acciones: `assets/img/analysis-symbols.svg`.
 
 El orden está en el HTML y se conserva sin JavaScript. Las categorías usan `data-category`; los parámetros `category` y `q` conservan el filtro y la búsqueda. El antiguo enlace `#project-13` abre la ficha unificada de BrillanteSeguro.
 
-La identidad visual utiliza pequeños símbolos de píxeles, un marco escalonado para el retrato y Pixelify Sans en el nombre y algunos hitos. El texto largo mantiene Hanken Grotesk. El índice de proyectos abre una ficha a la vez; la trayectoria combina tres hitos de formación con pestañas de experiencia, formación, premios y comunidad. Sin JavaScript se muestran todos los grupos.
+La identidad visual parte de una mesa de análisis: diagramas de relaciones, símbolos de línea y un insecto que se desmonta al inspeccionar la ilustración. Nombre completo, logo, fechas, cifras y texto usan Hanken Grotesk. El índice de proyectos abre una ficha a la vez; la trayectoria combina tres hitos de formación con pestañas de experiencia, formación, premios y comunidad. Sin JavaScript se muestran todos los grupos.
 
 El contacto ofrece el correo directamente mediante `mailto:` y un botón para copiarlo. El formulario y su código de envío se han eliminado. Se conservan los enlaces a GitHub, LinkedIn y teléfono.
 
-Hanken Grotesk y Pixelify Sans se alojan localmente con licencia SIL Open Font License. Las licencias están en `assets/fonts/`. Los PDF y las imágenes originales no se han editado. [ICON-AUDIT.md](ICON-AUDIT.md) documenta los símbolos y sus funciones.
+Hanken Grotesk se aloja localmente con licencia SIL Open Font License, incluida en `assets/fonts/`. La fuente pixel se ha retirado por legibilidad y coherencia del nombre. Los PDF y las imágenes originales no se han editado. [ICON-AUDIT.md](ICON-AUDIT.md) documenta los símbolos y sus funciones.
