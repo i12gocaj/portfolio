@@ -16,7 +16,7 @@ No requiere instalación ni compilación. Desde esta carpeta:
 python -m http.server 4173
 ```
 
-Abre `http://localhost:4173/`. Un servidor local permite probar el portapapeles, los símbolos SVG y el formulario en el contexto normal del navegador.
+Abre `http://localhost:4173/`. Un servidor local permite probar el portapapeles y los símbolos SVG en el contexto normal del navegador.
 
 ## Publicación y edición
 
@@ -25,12 +25,14 @@ Se mantiene la estructura de GitHub Pages: `index.html` y rutas relativas a `ass
 - Contenido: `index.html`.
 - Tipografía, colores y estructura: `assets/css/styles.css`.
 - Ilustraciones y ajustes de proyectos: `assets/css/personality.css`.
-- Menú, filtros, enlaces directos y formulario: `assets/js/main.js`.
+- Menú, filtros, pestañas, enlaces directos y copia del correo: `assets/js/main.js`.
 - Detalle opcional del insecto: `assets/js/personality.js`.
-- Símbolos de proyectos: `assets/img/project-marks.svg`.
+- Símbolos de proyectos y acciones: `assets/img/pixel-symbols.svg`.
 
 El orden está en el HTML y se conserva sin JavaScript. Las categorías usan `data-category`; los parámetros `category` y `q` conservan el filtro y la búsqueda. El antiguo enlace `#project-13` abre la ficha unificada de BrillanteSeguro.
 
-El formulario usa `https://formspree.io/f/myzelwak`. Una única prueba real, autorizada el 8 de octubre de 2026, recibió HTTP 200 y `ok: true`; la recepción en el buzón sigue pendiente de confirmación. Las comprobaciones posteriores usan respuestas simuladas.
+La identidad visual utiliza pequeños símbolos de píxeles, un marco escalonado para el retrato y Pixelify Sans en el nombre y algunos hitos. El texto largo mantiene Hanken Grotesk. El índice de proyectos abre una ficha a la vez; la trayectoria combina tres hitos de formación con pestañas de experiencia, formación, premios y comunidad. Sin JavaScript se muestran todos los grupos.
 
-Hanken Grotesk y Caveat se alojan localmente con licencia SIL Open Font License. Las licencias están en `assets/fonts/`. Los PDF y las imágenes originales no se han editado.
+El contacto ofrece el correo directamente mediante `mailto:` y un botón para copiarlo. El formulario y su código de envío se han eliminado. Se conservan los enlaces a GitHub, LinkedIn y teléfono.
+
+Hanken Grotesk y Pixelify Sans se alojan localmente con licencia SIL Open Font License. Las licencias están en `assets/fonts/`. Los PDF y las imágenes originales no se han editado. [ICON-AUDIT.md](ICON-AUDIT.md) documenta los símbolos y sus funciones.

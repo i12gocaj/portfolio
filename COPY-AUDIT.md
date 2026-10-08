@@ -12,7 +12,7 @@ Se han revisado la presentación, las 21 fichas de proyectos, las 25 entradas de
 - **Detalles técnicos:** se conservan cuando aportan información. SecEmail ofrece un desplegable para protocolos, funciones y pruebas; el texto principal explica para qué sirve.
 - **Repetición:** BrillanteSeguro y su web tienen una sola ficha con ambos enlaces. Se conserva el ancla antigua `#project-13`.
 - **Trayectoria:** cargos y descripciones más breves, conservando las fechas y los logros. OSCP figura como preparación con objetivo en diciembre de 2026, sin afirmar que el examen esté reservado.
-- **Documentos y contacto:** nombres claros, una descarga del CV y mensajes breves. Retirada la promesa «Delivered to my inbox»; un fallo indica que no se ha podido confirmar la entrega y conserva el mensaje.
+- **Documentos y contacto:** nombres claros, una descarga del CV y mensajes breves. El formulario y sus mensajes se han retirado a petición de Javier; queda el correo con un enlace para escribir y un botón para copiarlo.
 - **Logo:** eliminado el subrayado curvo del HTML y del CSS.
 
 ## Ejemplos
@@ -26,11 +26,11 @@ Se han revisado la presentación, las 21 fichas de proyectos, las 25 entradas de
 | Something worth a closer look?          | Contact                                                                                    |
 | Every audit leaves a forensic trail.    | Eliminado. Las funciones verificadas y las 167 pruebas quedan en los detalles de SecEmail. |
 
-La personalidad se apoya en el trabajo real, los símbolos de los proyectos y la nota personal del retrato.
+La personalidad se apoya en el trabajo real, los símbolos de píxeles de los proyectos y la nota personal del retrato. La nueva organización visual conserva los títulos y las descripciones de los 21 proyectos y las 25 entradas ya revisados.
 
 ## Conservación y límites
 
-Se mantienen los destinos de todos los enlaces originales, los cinco PDF, los datos de contacto y las funcionalidades. Las descripciones ya no se conservan palabra por palabra: su edición es el objeto de esta revisión. Los PDF no se han reescrito.
+Se mantienen los destinos de todos los enlaces originales, los cinco PDF y los datos de contacto. El formulario se elimina por petición expresa. Las descripciones se editaron durante la auditoría y se conservaron en el cambio de temática visual. Los PDF no se han reescrito.
 
 Los hechos proceden del contenido existente y de las correcciones del propietario. Esta revisión editorial no verifica de nuevo cada logro. La unificación de BrillanteSeguro se contrastó con su [repositorio público](https://github.com/i12gocaj/BrillanteSeguro.com).
 

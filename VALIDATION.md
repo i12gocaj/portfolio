@@ -1,59 +1,44 @@
-# Verification · 8 October 2026
+# Verificación · 8 de octubre de 2026
 
-Verified locally in headless desktop Chrome using Playwright and axe-core 4.10.3. Automated form tests used intercepted requests. One separate real message was sent with the owner's explicit authorisation.
+Comprobado localmente en Chrome mediante Playwright y axe-core 4.10.3, tras el cambio de temática y la eliminación del formulario.
 
-## Content preservation
+## Contenido
 
-Compared the redesigned DOM with an inventory extracted from the original site at commit `2b54ad2499f822c8abba21a380a6809859e173d8`:
+El inventario anterior al cambio visual, en el commit `7f50900cf171621c41b396dfe438103dc8b942cf`, se comparó con el DOM actual:
 
-- All original project subjects retained, with their copy rewritten for clarity. BrillanteSeguro's website and repository are combined in one entry. AllOsint's public thesis edition was added after reviewing GitHub; the page now has 21 distinct project entries.
-- All 25 background entries retained and edited. Dates and achievements are retained, with the owner's confirmed MSc completion and diploma attendance.
-- Public coursework repositories and the BuyTheTop source repository linked from their existing entries.
-- 5 of 5 supporting PDF documents retained.
-- All original external, document, email and telephone link destinations retained, including the thesis defence audio and the private-repository notice.
-- Original source image and PDF files retained without modification.
+- Los títulos y las descripciones de los 21 proyectos coinciden exactamente, tras normalizar los espacios.
+- Las descripciones de las 25 entradas de trayectoria coinciden exactamente. La reorganización conserva sus identificadores y fechas.
+- Todos los destinos de enlaces del inventario anterior siguen presentes, incluidos los cinco PDF, el audio de defensa del TFG, el correo y el teléfono.
+- BrillanteSeguro mantiene una sola ficha para su web y su repositorio. El antiguo enlace `#project-13` abre esa ficha.
+- El máster figura como terminado y el diploma de ingeniería inversa e inteligencia de malware como en curso, según las correcciones del propietario.
+- El CV tiene un único enlace. Sus contenidos, los otros PDF y las imágenes originales no se han modificado.
 
-The diploma is marked in progress at Google's GSEC, Málaga; the MSc is marked completed. These statuses come directly from the owner. Malware analysis is included in the headline, current focus and metadata. The CV is linked once, in Documents; the existing PDF itself has not been edited.
+## Navegación y presentación
 
-## Browser and interaction checks
+- Sin desbordamiento horizontal a 320, 390, 600, 601, 768, 900, 1024, 1440 y 1920 px, con las cuatro pestañas y entradas desplegadas.
+- Capturas de escritorio, móvil, proyectos, índice y trayectoria revisadas visualmente.
+- El índice abre una ficha de proyecto a la vez. Búsqueda, filtros, estado sin resultados y persistencia de la consulta al recargar comprobados.
+- Una búsqueda que oculta el proyecto enlazado elimina ese fragmento obsoleto de la URL; recargar conserva la consulta.
+- Los enlaces directos abren proyectos ocultos por un filtro y seleccionan la pestaña correcta de trayectoria. Los hitos de formación abren sus detalles.
+- Las pestañas funcionan con flechas, Home y End; mantienen selección y foco mediante ARIA.
+- El menú móvil anuncia su estado y se cierra con Escape. Su símbolo cambia al abrirlo y cerrarlo.
+- La navegación marca la sección activa. Los cinco enlaces de descarga responden con archivos PDF válidos.
+- La nota del retrato y el pequeño insecto funcionan con teclado y anuncian su estado.
+- Sin JavaScript, las 25 entradas siguen visibles en sus grupos, los desplegables nativos funcionan y el correo permanece disponible.
+- La preferencia de movimiento reducido desactiva las transiciones de píxeles y el resto del movimiento decorativo.
+- Los 194 usos de símbolos SVG de la página resuelven a un identificador existente en el sprite local. Los símbolos se han revisado por significado: [ICON-AUDIT.md](ICON-AUDIT.md).
+- Sin errores de JavaScript ni respuestas fallidas de los recursos locales solicitados durante las pruebas.
 
-- No horizontal document overflow at widths 320, 375, 390, 430, 600, 601, 640, 768, 1024, 1440 and 1920 px, including with background and project disclosures expanded.
-- Desktop and mobile screenshots reviewed for type, spacing, composition and portrait interaction.
-- Archive category filters, search, empty state, URL persistence and reload checked.
-- Project and history deep links open the relevant disclosure; a direct link to a filtered-out project restores its visibility.
-- The former BrillanteSeguro website fragment `#project-13` opens the unified entry, including when filtered out.
-- Native project disclosure opens using Enter.
-- Mobile navigation announces its state, supports Escape and focus return, and closes when navigating.
-- Section navigation highlights the active section.
-- Navigation and all project and history content remain available without JavaScript; native disclosure remains usable.
-- Reduced-motion preference disables decorative animation and smooth scrolling.
-- The optional tiny-bug disclosure supports keyboard activation and announces its state.
-- Project SVG symbols are available in the local sprite. The curved logo underline and redundant portrait annotations have been removed.
-- SecEmail's technical details can be opened with Enter and remain available without JavaScript.
-- All local linked assets and five PDF downloads respond successfully over the preview server.
-- No page JavaScript errors or failed local resource requests detected.
+## Contacto
 
-## Accessibility
+El formulario, los campos y el código de envío se han eliminado. No se producen peticiones POST durante las pruebas. El enlace de correo contiene `mailto:javiergc100@protonmail.com`; el botón copia esa misma dirección y anuncia el resultado. El portapapeles se simula en la comprobación para no modificar el del usuario. Se mantienen los destinos de GitHub, LinkedIn y teléfono.
 
-axe-core scans used WCAG A/AA tags through WCAG 2.2. The final desktop and mobile scans with disclosures expanded returned **0 violations and 0 incomplete checks**. Keyboard focus, labels, live status feedback, native semantics, contrast and reflow were also reviewed.
+## Accesibilidad y límites
 
-Automated checks are evidence, not a certification of full WCAG compliance. Real screen-reader and additional browser/device testing were not performed.
+Ocho análisis de axe-core —las cuatro pestañas a 1440 y 390 px, con detalles abiertos— devuelven **0 infracciones y 0 comprobaciones incompletas** para las etiquetas WCAG A/AA hasta 2.2. También se comprobaron teclado, selección, foco, estados, contraste y reflujo.
 
-## Form behaviour
+Las comprobaciones automatizadas no certifican cumplimiento completo de WCAG. No se han realizado pruebas con un lector de pantalla real ni con todos los navegadores o dispositivos. Los destinos externos se conservan; no se ha probado exhaustivamente su disponibilidad.
 
-Network requests to Formspree were intercepted locally:
+## Entrega
 
-- Simulated success shows persistent confirmation and resets the form.
-- Simulated server failure preserves the entered message, re-enables the button and offers the direct email address.
-- Error text reports that delivery could not be confirmed, rather than claiming a failed request proves that nothing was sent.
-- Submission uses the existing JavaScript endpoint consistently in the HTML action and fetch request.
-- In-flight submissions are disabled, live progress is announced, and requests have a 15-second timeout.
-- A simulated HTTP 200 response with `ok: false` is treated as failure and preserves the entered message; only explicit acceptance resets the form.
-
-The single authorised real submission used the subject **Prueba del portfolio** and the message **Prueba autorizada del formulario de contacto. No requiere respuesta**. Formspree returned HTTP **200** and `{"ok": true, "next": "/thanks?language=es"}`. The interface displayed its confirmation and reset. Receipt in the associated inbox remains for the owner to confirm; server acceptance does not itself prove inbox delivery. No further real submissions were made.
-
-External project destinations were not exhaustively availability-tested; original destinations were preserved. Newly added repositories were verified as public through GitHub.
-
-## Shipping
-
-Static HTML/CSS/JS with locally hosted fonts, inline SVG illustrations and a local SVG symbol sprite. GitHub Pages publishing layout remains unchanged. No application dependencies or build pipeline were introduced. Changes are prepared on the redesign branch and draft pull request; the production Pages site is not changed until integration.
+HTML/CSS/JS estáticos, fuentes alojadas localmente y símbolos SVG propios. Se conserva la estructura de publicación en GitHub Pages, sin dependencias de aplicación ni compilación. La propuesta sigue en la rama de rediseño y en una PR en borrador.

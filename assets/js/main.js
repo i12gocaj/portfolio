@@ -11,6 +11,12 @@
     menu.setAttribute("aria-expanded", String(open));
     navigation.classList.toggle("is-open", open);
     navigation.inert = mobile.matches && !open;
+    menu
+      .querySelector("use")
+      .setAttribute(
+        "href",
+        `assets/img/pixel-symbols.svg#${open ? "minus" : "plus"}`,
+      );
   }
   menu.addEventListener("click", () =>
     setMenu(menu.getAttribute("aria-expanded") !== "true"),
@@ -37,12 +43,71 @@
     const open = inspection.getAttribute("aria-expanded") !== "true";
     inspection.setAttribute("aria-expanded", String(open));
     quote.hidden = !open;
+    inspection
+      .querySelector("use")
+      .setAttribute(
+        "href",
+        `assets/img/pixel-symbols.svg#${open ? "back" : "speech"}`,
+      );
     inspection.querySelector("span").textContent = open
       ? "Back to photo"
       : "Personal note";
   });
 
   const entries = [...document.querySelectorAll(".project-entry")];
+  entries.forEach((entry) =>
+    entry.addEventListener("toggle", () => {
+      if (!entry.open) return;
+      entries.forEach((other) => {
+        if (other !== entry) other.open = false;
+      });
+    }),
+  );
+  const historyPanels = [...document.querySelectorAll("[data-history-group]")];
+  const historyTabs = [...document.querySelectorAll("[data-history-tab]")];
+  function selectHistory(key, focus = false) {
+    historyPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.historyGroup !== key;
+    });
+    historyTabs.forEach((tab) => {
+      const active = tab.dataset.historyTab === key;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+  }
+  if (historyTabs.length) {
+    select(".history-tabs").hidden = false;
+    historyPanels.forEach((panel) => {
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute(
+        "aria-labelledby",
+        `tab-${panel.dataset.historyGroup}`,
+      );
+      panel.querySelector("h3").hidden = true;
+    });
+    selectHistory("experience");
+    historyTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () =>
+        selectHistory(tab.dataset.historyTab),
+      );
+      tab.addEventListener("keydown", (event) => {
+        let next;
+        if (event.key === "ArrowRight") next = (index + 1) % historyTabs.length;
+        else if (event.key === "ArrowLeft")
+          next = (index + historyTabs.length - 1) % historyTabs.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = historyTabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectHistory(historyTabs[next].dataset.historyTab, true);
+      });
+    });
+  }
+  function revealHistory(target) {
+    const panel = target.closest("[data-history-group]");
+    if (panel) selectHistory(panel.dataset.historyGroup);
+  }
   const filters = [...document.querySelectorAll("[data-filter]")];
   const search = select("#project-search");
   const count = select("#project-results");
@@ -87,6 +152,10 @@
     search.value.trim()
       ? url.searchParams.set("q", search.value.trim())
       : url.searchParams.delete("q");
+    const linkedProject = document
+      .getElementById(url.hash.slice(1))
+      ?.closest(".project-entry");
+    if (linkedProject?.hidden) url.hash = "";
     if (url.href !== window.location.href)
       window.history[push ? "pushState" : "replaceState"](null, "", url);
   }
@@ -115,6 +184,7 @@
       .getElementById(window.location.hash.slice(1))
       ?.closest("details");
     if (target) {
+      revealHistory(target);
       if (target.hidden) {
         category = "all";
         search.value = "";
@@ -136,7 +206,10 @@
       anchor.getAttribute("href").slice(1),
     );
     const disclosure = target?.closest("details");
-    if (disclosure) disclosure.open = true;
+    if (disclosure) {
+      revealHistory(disclosure);
+      disclosure.open = true;
+    }
   });
   readFilters();
   openHashTarget();
@@ -164,6 +237,7 @@
   select("#footer-year").textContent = new Date().getFullYear();
 
   const copy = select(".copy-email");
+  const copyLabel = copy.innerHTML;
   if (navigator.clipboard && window.isSecureContext) {
     copy.hidden = false;
     let resetTimer;
@@ -179,52 +253,8 @@
           "Copying is unavailable. Select the address to copy it.";
       }
       resetTimer = setTimeout(() => {
-        copy.textContent = "Copy email";
+        copy.innerHTML = copyLabel;
       }, 3500);
     });
   }
-
-  const form = select("#contactForm");
-  const submit = form.querySelector('button[type="submit"]');
-  const status = form.querySelector(".form-status");
-  const originalLabel = submit.innerHTML;
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (submit.disabled || !form.reportValidity()) return;
-    if (form.elements._gotcha.value) return;
-    submit.disabled = true;
-    form.setAttribute("aria-busy", "true");
-    submit.textContent = "Sending…";
-    status.dataset.state = "sending";
-    status.textContent = "Sending your message…";
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-        signal: controller.signal,
-      });
-      const receipt = await response.json();
-      if (!response.ok || receipt.ok !== true)
-        throw new Error("The message could not be delivered.");
-      status.dataset.state = "success";
-      status.textContent = "Message sent. Thanks for writing.";
-      form.reset();
-    } catch {
-      status.dataset.state = "error";
-      status.textContent =
-        "Couldn’t confirm delivery. Your message is still here. Try again or email ";
-      const fallback = document.createElement("a");
-      fallback.href = "mailto:javiergc100@protonmail.com";
-      fallback.textContent = "javiergc100@protonmail.com";
-      status.append(fallback, ".");
-    } finally {
-      clearTimeout(timeout);
-      submit.disabled = false;
-      submit.innerHTML = originalLabel;
-      form.removeAttribute("aria-busy");
-    }
-  });
 })();
