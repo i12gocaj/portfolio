@@ -28,6 +28,8 @@ Se han revisado la presentación, las 21 fichas de proyectos, las 25 entradas de
 
 La personalidad se apoya en el trabajo real, los símbolos propios de los proyectos y la nota personal del retrato. Se han retirado el insecto decorativo, su botón y su mensaje. La comparación de Instagram añade dos explicaciones breves, basadas en el informe del propietario, para entender la diferencia entre la vista silenciada y el archivo original. Los títulos y las descripciones de los 21 proyectos y las 25 entradas se conservan; se añade el enlace a la prueba grabada pública.
 
+La extensión visual conserva todas las descripciones. Añade únicamente etiquetas de los tres controles de autenticación de SecEmail y enlaces a las cartas de tres entradas de trayectoria. Las etiquetas explican el gráfico; no afirman resultados, niveles de protección o experiencia nuevos. Los documentos mantienen sus títulos y metadatos. No se introduce una narrativa ficticia de agente, investigador o laboratorio.
+
 ## Conservación y límites
 
 Se mantienen los destinos de todos los enlaces originales, los cinco PDF y los datos de contacto. El formulario se elimina por petición expresa. Las descripciones se editaron durante la auditoría y se conservaron en el cambio de temática visual. Los PDF no se han reescrito.

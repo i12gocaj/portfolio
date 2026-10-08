@@ -6,7 +6,13 @@ Se conservan HTML, CSS y JavaScript estáticos y la estructura de GitHub Pages, 
 
 ## Criterios visuales
 
-La identidad se apoya en hallazgos y herramientas propios de Javier. La portada queda despejada; se retiran la ilustración del insecto, su control y su mensaje. La pieza distintiva está dentro de un trabajo real: una comparación del fallo de Instagram Notes entre la vista silenciada y el archivo original con audio.
+La identidad recorre toda la página con un lenguaje de análisis: marcos abiertos, conexiones entre fuentes y anotaciones en los márgenes. Se mantiene la estructura limpia y la tipografía legible. La portada combina el nombre sin efectos con un retrato de esquina recortada y un marco abierto; su ubicación y formación actual se conectan con el retrato.
+
+Los cuatro proyectos destacados comparten el marco, pero muestran contenidos diferentes: relaciones entre fuentes de AllOsint, comparación del fallo de Instagram, capas de autenticación de SecEmail y captura real de Atlas. El esquema de SecEmail muestra SPF (servidores remitentes), DKIM (firma del mensaje) y DMARC (alineación y política). Procede del [README del propietario](https://github.com/i12gocaj/SecEmail), consultado el 8 de octubre de 2026, blob `eb6eca7e79f03e3e70fc394bdcd25ce9449ab85c`; no es un resultado de auditoría ni una simulación en ejecución.
+
+La formación utiliza una conexión continua para los títulos terminados y discontinua para el diploma en curso. Las pestañas y los símbolos de trayectoria e índice siguen el mismo lenguaje, conservando su función. El archivo de documentos muestra miniaturas de la primera página de los cinco PDF reales: CV destacado y cuatro cartas, sin añadir otra descarga del CV. Las entradas de NASA, Policía y Navantia enlazan sus respectivas cartas. El correo cierra la página con el mismo marco abierto.
+
+Los marcos se reservan para identidad, ilustraciones, foco y acciones. No se añaden terminales ficticios, datos de análisis inventados, números decorativos o animaciones al desplazarse. El insecto decorativo, su control y su mensaje permanecen retirados.
 
 La comparación explica visualmente el mecanismo descrito en el [informe público de Javier](https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed). Se consultó el README el 8 de octubre de 2026, blob `0f9aadd5bd714bcdcc3e7295bedd3c45d89de589`. La fecha de mayo de 2025 y el estado corregido proceden de ese informe. La onda y las formas son un esquema ilustrativo; no son una captura de Instagram ni audio extraído de la grabación. El enlace a la prueba grabada conduce al archivo que Javier ya publicó en su repositorio.
 

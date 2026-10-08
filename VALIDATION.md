@@ -1,10 +1,10 @@
 # Verificación · 8 de octubre de 2026
 
-Comprobado localmente en Chrome mediante Playwright y axe-core 4.10.3, tras retirar el insecto decorativo y añadir la comparación del hallazgo documentado de Instagram.
+Comprobado localmente en Chrome mediante Playwright y axe-core 4.10.3, después de extender la identidad visual a toda la página, añadir el diagrama de SecEmail y las miniaturas reales de documentos.
 
 ## Contenido
 
-El inventario anterior al cambio visual, en el commit `7a645f54930bded81d8873ace2b2ea6caa995a93`, se comparó con el DOM actual:
+El inventario anterior al cambio visual, en el commit `4db9f4d06e54b3a3d2403836855b9e185f07232d`, se comparó con el DOM actual:
 
 - Los títulos y las descripciones de los 21 proyectos coinciden exactamente, tras normalizar los espacios y comparar el texto descriptivo por separado de los enlaces. Se añade un enlace a la prueba grabada pública de Instagram.
 - Las descripciones de las 25 entradas de trayectoria coinciden exactamente. La reorganización conserva sus identificadores y fechas.
@@ -22,12 +22,14 @@ El inventario anterior al cambio visual, en el commit `7a645f54930bded81d8873ace
 - Los enlaces directos abren proyectos ocultos por un filtro y seleccionan la pestaña correcta de trayectoria. Los hitos de formación abren sus detalles.
 - Las pestañas funcionan con flechas, Home y End; mantienen selección y foco mediante ARIA.
 - El menú móvil anuncia su estado y se cierra con Escape. Su símbolo cambia al abrirlo y cerrarlo.
-- La navegación marca la sección activa. Los cinco enlaces de descarga responden con archivos PDF válidos.
+- La navegación marca las cuatro secciones al seguir sus enlaces. Al final de una pantalla alta marca Contacto, aunque esa sección no pueda llegar a la línea de lectura. Se elimina el espacio duplicado entre el destino y la cabecera fija.
+- Los cinco enlaces de descarga responden con archivos PDF válidos; sus bytes coinciden con los originales. Sus cinco miniaturas WebP, generadas a partir de la primera página con Poppler, cargan correctamente y se han revisado visualmente. Se comprueba también el reflujo interno de los enlaces entre 320 y 1440 px.
+- Las tres referencias desde NASA, Policía y Navantia llegan a la carta correcta y destacan su miniatura.
 - La nota del retrato funciona con teclado y anuncia su estado. La comparación de Instagram funciona con flechas, Home y End; muestra una vista a la vez y anuncia su selección.
 - Sin JavaScript, las 25 entradas siguen visibles en sus grupos, los desplegables nativos funcionan y el correo permanece disponible.
 - Nombre, logo, fechas y resultados usan Hanken Grotesk. Se han retirado la fuente pixel y sus archivos.
 - La preferencia de movimiento reducido desactiva la animación de la onda y el resto del movimiento decorativo.
-- Los 194 usos de símbolos SVG de la página resuelven a un identificador existente en el sprite local. Los símbolos se han revisado por significado: [ICON-AUDIT.md](ICON-AUDIT.md).
+- Los 203 usos de símbolos SVG de la página resuelven a un identificador existente en el sprite local. Los símbolos se han revisado por significado: [ICON-AUDIT.md](ICON-AUDIT.md).
 - Sin errores de JavaScript ni respuestas fallidas de los recursos locales solicitados durante las pruebas.
 
 ## Contacto
@@ -40,7 +42,7 @@ Ocho análisis de axe-core —las cuatro pestañas a 1440 y 390 px, con detalles
 
 Las dos vistas del hallazgo se comprueban también a 1440 y 320 px, con axe-core limitado al componente nuevo: 0 infracciones y 0 comprobaciones incompletas. Sin JavaScript aparecen ambas, con sus etiquetas. El insecto decorativo y su script se han eliminado. El contenido nuevo procede del README público del propietario; el esquema no reproduce datos ni audio del vídeo publicado.
 
-En una comprobación adicional de toda la página, desplazada a 320 px, axe-core solicita revisión manual del contraste del nombre de la cabecera al superponerse a un SVG del contenido. Se revisó visualmente: la cabecera tiene fondo opaco `#F2F4F7` y el nombre conserva su contraste. Los ocho análisis globales anteriores se realizan con la página situada arriba.
+Se realizan cuatro comprobaciones adicionales, limitadas al esquema de SecEmail y a Documentos a 1440 y 320 px: 0 infracciones y 0 comprobaciones incompletas. Los ocho análisis globales se realizan con la página situada arriba; los análisis adicionales se limitan a los componentes indicados.
 
 Las comprobaciones automatizadas no certifican cumplimiento completo de WCAG. No se han realizado pruebas con un lector de pantalla real ni con todos los navegadores o dispositivos. Los destinos externos se conservan; no se ha probado exhaustivamente su disponibilidad.
 

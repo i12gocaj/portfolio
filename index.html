@@ -117,6 +117,7 @@
       }
     </script>
     <link rel="stylesheet" href="assets/css/personality.css" />
+    <link rel="stylesheet" href="assets/css/analysis.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -283,11 +284,14 @@
         <div class="section-heading">
           <div>
             <h2 id="work-title">Selected projects</h2>
+            <svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="assets/img/analysis-symbols.svg#lens"></use>
+            </svg>
           </div>
         </div>
         <div class="featured-list curated-work">
           <article class="featured-project" id="project-21">
-            <div class="project-visual visual-allosint">
+            <div class="project-visual visual-allosint analysis-frame">
               <div class="signal-map" aria-hidden="true">
                 <svg
                   class="signal-connections"
@@ -411,7 +415,7 @@
           </article>
           <article class="featured-project" id="project-1">
             <figure
-              class="finding-comparison"
+              class="finding-comparison analysis-frame"
               aria-label="Diagram of the reported Instagram Notes behaviour"
             >
               <div
@@ -556,16 +560,47 @@
             </div>
           </article>
           <article class="featured-project" id="project-4">
-            <div class="project-visual compact-project-stamp">
-              <svg
-                class="case-symbol"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <use href="assets/img/analysis-symbols.svg#email"></use>
-              </svg>
-            </div>
+            <figure
+              class="authentication-diagram analysis-frame"
+              aria-label="Three email authentication checks in SecEmail"
+            >
+              <div class="authentication-source">
+                <svg
+                  class="authentication-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <use href="assets/img/analysis-symbols.svg#mail"></use></svg
+                ><span>Email authentication</span>
+              </div>
+              <div class="authentication-layers">
+                <div class="authentication-layer">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <use
+                      href="assets/img/analysis-symbols.svg#server"
+                    ></use></svg
+                  ><strong>SPF</strong><span>Sending servers</span>
+                </div>
+                <div class="authentication-layer">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <use
+                      href="assets/img/analysis-symbols.svg#lockedfile"
+                    ></use></svg
+                  ><strong>DKIM</strong><span>Message signature</span>
+                </div>
+                <div class="authentication-layer">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <use
+                      href="assets/img/analysis-symbols.svg#shield"
+                    ></use></svg
+                  ><strong>DMARC</strong
+                  ><span>Sender alignment &amp; policy</span>
+                </div>
+              </div>
+              <figcaption>
+                Authentication layers checked by the toolkit.
+              </figcaption>
+            </figure>
             <div class="featured-copy">
               <div class="project-heading-mark">
                 <svg
@@ -640,7 +675,7 @@
             </div>
           </article>
           <article class="featured-project" id="project-0">
-            <div class="project-visual visual-0">
+            <div class="project-visual visual-0 analysis-frame">
               <div class="atlas-visual">
                 <img
                   src="assets/img/atlas-overview.png"
@@ -1971,6 +2006,13 @@
           <div class="section-heading">
             <div>
               <h2 id="background-title">Background</h2>
+              <svg
+                class="section-symbol"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <use href="assets/img/analysis-symbols.svg#workflow"></use>
+              </svg>
             </div>
           </div>
           <nav class="milestone-map" aria-label="Education milestones">
@@ -2153,6 +2195,18 @@
                         evidence according to chain-of-custody requirements.
                       </p>
                     </div>
+                    <a
+                      class="evidence-reference text-link"
+                      href="#document-police"
+                      >Recommendation letter<svg
+                        class="icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <use
+                          href="assets/img/analysis-symbols.svg#down"
+                        ></use></svg
+                    ></a>
                   </details>
                   <details class="history-entry" id="background-4">
                     <summary>
@@ -2290,6 +2344,18 @@
                         cybersecurity and automated recurring operational tasks.
                       </p>
                     </div>
+                    <a
+                      class="evidence-reference text-link"
+                      href="#document-navantia"
+                      >Recommendation letter<svg
+                        class="icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <use
+                          href="assets/img/analysis-symbols.svg#down"
+                        ></use></svg
+                    ></a>
                   </details>
                 </div>
               </section>
@@ -2742,6 +2808,18 @@
                         >.
                       </p>
                     </div>
+                    <a
+                      class="evidence-reference text-link"
+                      href="#document-nasa"
+                      >Recognition letter<svg
+                        class="icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <use
+                          href="assets/img/analysis-symbols.svg#down"
+                        ></use></svg
+                    ></a>
                   </details>
                   <details class="history-entry" id="background-3">
                     <summary>
@@ -3202,13 +3280,25 @@
         aria-labelledby="documents-title"
       >
         <div class="documents-intro">
-          <h2 id="documents-title">CV &amp; letters</h2>
+          <div class="document-heading">
+            <h2 id="documents-title">CV &amp; letters</h2>
+            <svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="assets/img/analysis-symbols.svg#document"></use>
+            </svg>
+          </div>
           <p>My CV and letters of recognition and recommendation.</p>
         </div>
         <ul class="document-list">
-          <li>
+          <li id="document-cv">
             <a href="assets/docs/cv-javier-gonzalez-casares.pdf" download=""
-              ><span class="document-format">PDF</span
+              ><span class="document-preview" aria-hidden="true"
+                ><img
+                  src="assets/img/cv-javier-gonzalez-casares-preview.webp"
+                  alt=""
+                  width="424"
+                  height="600"
+                  loading="lazy"
+                /><span>PDF</span></span
               ><span
                 ><strong>Download my CV</strong
                 ><span class="document-meta">2 pages</span></span
@@ -3221,9 +3311,16 @@
                 <use href="assets/img/analysis-symbols.svg#download"></use></svg
             ></a>
           </li>
-          <li>
+          <li id="document-nasa">
             <a href="assets/docs/carta-reconocimiento-nasa-vdp.pdf" download=""
-              ><span class="document-format">PDF</span
+              ><span class="document-preview" aria-hidden="true"
+                ><img
+                  src="assets/img/carta-reconocimiento-nasa-vdp-preview.webp"
+                  alt=""
+                  width="424"
+                  height="600"
+                  loading="lazy"
+                /><span>PDF</span></span
               ><span
                 ><strong>NASA recognition letter</strong
                 ><span class="document-meta"
@@ -3238,11 +3335,18 @@
                 <use href="assets/img/analysis-symbols.svg#download"></use></svg
             ></a>
           </li>
-          <li>
+          <li id="document-police">
             <a
               href="assets/docs/carta-recomendacion-policia-nacional.pdf"
               download=""
-              ><span class="document-format">PDF</span
+              ><span class="document-preview" aria-hidden="true"
+                ><img
+                  src="assets/img/carta-recomendacion-policia-nacional-preview.webp"
+                  alt=""
+                  width="424"
+                  height="600"
+                  loading="lazy"
+                /><span>PDF</span></span
               ><span
                 ><strong>Spanish National Police recommendation</strong
                 ><span class="document-meta"
@@ -3258,9 +3362,16 @@
                 <use href="assets/img/analysis-symbols.svg#download"></use></svg
             ></a>
           </li>
-          <li>
+          <li id="document-navantia">
             <a href="assets/docs/carta-recomendacion-navantia.pdf" download=""
-              ><span class="document-format">PDF</span
+              ><span class="document-preview" aria-hidden="true"
+                ><img
+                  src="assets/img/carta-recomendacion-navantia-preview.webp"
+                  alt=""
+                  width="424"
+                  height="600"
+                  loading="lazy"
+                /><span>PDF</span></span
               ><span
                 ><strong>Navantia recommendation</strong
                 ><span class="document-meta"
@@ -3275,11 +3386,18 @@
                 <use href="assets/img/analysis-symbols.svg#download"></use></svg
             ></a>
           </li>
-          <li>
+          <li id="document-university">
             <a
               href="assets/docs/carta-recomendacion-universidad.pdf"
               download=""
-              ><span class="document-format">PDF</span
+              ><span class="document-preview" aria-hidden="true"
+                ><img
+                  src="assets/img/carta-recomendacion-universidad-preview.webp"
+                  alt=""
+                  width="424"
+                  height="600"
+                  loading="lazy"
+                /><span>PDF</span></span
               ><span
                 ><strong>University of Córdoba recommendation</strong
                 ><span class="document-meta">Feb 2025</span></span

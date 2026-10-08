@@ -214,26 +214,38 @@
   readFilters();
   openHashTarget();
 
-  if ("IntersectionObserver" in window) {
-    const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (!visible.length) return;
-        navLinks.forEach((link) => {
-          if (link.hash === `#${visible[0].target.id}`)
-            link.setAttribute("aria-current", "location");
-          else link.removeAttribute("aria-current");
-        });
-      },
-      { rootMargin: "-15% 0px -65% 0px", threshold: 0 },
-    );
-    document
-      .querySelectorAll("main>section[id]")
-      .forEach((section) => observer.observe(section));
+  const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+  const navSections = [...document.querySelectorAll("main>section[id]")];
+  let navigationFrame;
+  function updateCurrentSection() {
+    navigationFrame = undefined;
+    const readingLine = select(".site-header").offsetHeight + 80;
+    let current = navSections[0];
+    for (const section of navSections) {
+      if (section.getBoundingClientRect().top <= readingLine) current = section;
+    }
+    // The short final section may never reach the reading line on a tall screen.
+    if (
+      window.scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight - 2
+    )
+      current = navSections.at(-1);
+    navLinks.forEach((link) => {
+      if (link.hash === `#${current.id}`)
+        link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
   }
+  function scheduleNavigationUpdate() {
+    if (navigationFrame === undefined)
+      navigationFrame = requestAnimationFrame(updateCurrentSection);
+  }
+  window.addEventListener("scroll", scheduleNavigationUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", scheduleNavigationUpdate);
+  window.addEventListener("load", scheduleNavigationUpdate);
+  updateCurrentSection();
   const findingTabs = [...document.querySelectorAll("[data-finding-tab]")];
   const findingViews = [...document.querySelectorAll("[data-finding-view]")];
   function selectFinding(key, focus = false) {

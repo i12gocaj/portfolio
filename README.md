@@ -25,12 +25,13 @@ Se mantiene la estructura de GitHub Pages: `index.html` y rutas relativas a `ass
 - Contenido: `index.html`.
 - Tipografía, colores y estructura: `assets/css/styles.css`.
 - Ilustraciones y ajustes de proyectos: `assets/css/personality.css`.
+- Identidad común, marcos, diagramas, conexiones y archivo de documentos: `assets/css/analysis.css` (se carga al final).
 - Menú, filtros, pestañas, comparación del hallazgo, enlaces directos y copia del correo: `assets/js/main.js`.
 - Símbolos de proyectos y acciones: `assets/img/analysis-symbols.svg`.
 
 El orden está en el HTML y se conserva sin JavaScript. Las categorías usan `data-category`; los parámetros `category` y `q` conservan el filtro y la búsqueda. El antiguo enlace `#project-13` abre la ficha unificada de BrillanteSeguro.
 
-La identidad visual se apoya en el trabajo de Javier: diagramas de relaciones, símbolos propios y una comparación que explica su hallazgo en Instagram Notes. Permite ver la diferencia entre el vídeo silenciado en la interfaz y el audio que conservaba el archivo original, y enlaza la prueba grabada pública. El insecto decorativo se ha eliminado.
+La identidad visual recorre portada, proyectos, trayectoria, documentos y contacto con marcos abiertos, diagramas, conexiones y anotaciones. Cada proyecto destacado muestra su propio contenido: el mapa OSINT, la comparación del fallo de Instagram con enlace a su prueba grabada, las capas de autenticación de SecEmail y la captura real de Atlas. El archivo de documentos utiliza miniaturas de sus páginas reales; tres experiencias enlazan sus cartas.
 
 Nombre completo, logo, fechas, cifras y texto usan Hanken Grotesk. El índice de proyectos abre una ficha a la vez; la trayectoria combina tres hitos de formación con pestañas de experiencia, formación, premios y comunidad. Sin JavaScript se muestran todos los grupos y las dos vistas del hallazgo.
 
