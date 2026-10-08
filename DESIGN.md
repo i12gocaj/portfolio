@@ -4,7 +4,7 @@
 
 Redesign of `i12gocaj/portfolio`, based on commit `2b54ad2499f822c8abba21a380a6809859e173d8`. The existing site is buildless HTML/CSS/JS on GitHub Pages. Retain that deployment model and the English content.
 
-The current terminal delays the introduction and particles compete with it. The navy/mint palette, monospace headings and repeated icon cards suggest a generic developer theme. Four-item pagination hides the range of 21 projects. A single timeline mixes 25 jobs, awards, education and community activities. Documents precede the work rather than supporting it. JavaScript intercepts anchor navigation repeatedly and the mobile menu does not update its announced state. The form's HTML and JavaScript disagree on its Formspree endpoint; preserve the existing JavaScript endpoint, which is the one used by the current interactive form.
+The original terminal delays the introduction and particles compete with it. The navy/mint palette, monospace headings and repeated icon cards suggest a generic developer theme. Four-item pagination hides the range of 21 projects. A single timeline mixes 25 jobs, awards, education and community activities. Documents precede the work rather than supporting it. JavaScript intercepts anchor navigation repeatedly and the mobile menu does not update its announced state. Preserve the Formspree endpoint and verify its actual submission behaviour.
 
 ## Creative direction
 
@@ -33,7 +33,7 @@ Large personal introduction          Portrait / inspection interaction
 Focused role and actions             Córdoba, Spain
 Three evidence highlights
 
-Selected work: Meta disclosure → Atlas → SecEmail
+Selected work: AllOsint thesis → Meta disclosure → SecEmail → Atlas
 Project archive: category filters + searchable expandable project rows
 
 About / current focus                Work / Learning / Recognition / Community
@@ -48,7 +48,15 @@ Left-aligned text, a consistent shared grid, deliberate shifts in scale and back
 
 ## Interaction and quality floor
 
-Native links and details elements, progressive enhancement, no dependency on JavaScript to read projects or history. Filters and search reflect in URL parameters. Inspection works with keyboard and touch, and reduced motion suppresses entry/transition effects. Visible focus, proper form labels, persistent live feedback, escaped UI text, local images with dimensions, no framework or runtime dependencies. Form tests intercept network requests instead of sending real messages.
+Native links and details elements, progressive enhancement, no dependency on JavaScript to read projects or history. Filters and search reflect in URL parameters. Inspection works with keyboard and touch, and reduced motion suppresses transition effects. Visible focus, proper form labels, persistent live feedback, escaped UI text, local images with dimensions, no framework or runtime dependencies. Automated form checks intercept network requests; one separate real test was explicitly authorised by the owner and accepted by Formspree.
+
+## Personal identity refinement
+
+The owner confirmed completion of the MSc and current attendance at the Google GSEC diploma. The headline and focus now explicitly include malware analysis. A review of the public GitHub repositories identified [AllOsint's public thesis edition](https://github.com/i12gocaj/allosint-tfm) as the substantive missing project. It leads the selection because it links recent academic work with investigation practice. Existing academic repositories are linked from the coursework entry rather than inflating the featured selection.
+
+Each of the 22 projects has a hand-authored SVG symbol tied to its subject: a correlation lens for AllOsint, an interrupted waveform for the Instagram disclosure, a verified envelope for SecEmail, and distinct symbols for the archive. AllOsint's signal diagram reflects email, phone, breach intelligence and report generation. Small Caveat annotations, a cobalt signature stroke and a warm yellow study marker add a human accent. The tiny optional bug discovery rewards curiosity without obscuring content.
+
+Motion follows interaction: waveform changes, a shifted envelope, a rotating correlation halo and a gentle disclosure movement on hover, keyboard focus or opening. No continuous decorative loops. The four featured entries alternate a lead investigation, two related security cases and a supporting AI assurance project. Archive order prioritises security tools and research, then products and academic work. A single CV download stays in Documents.
 
 ## Research
 

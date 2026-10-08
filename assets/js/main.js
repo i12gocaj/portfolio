@@ -204,7 +204,9 @@
         headers: { Accept: "application/json" },
         signal: controller.signal,
       });
-      if (!response.ok) throw new Error("The message could not be delivered.");
+      const receipt = await response.json();
+      if (!response.ok || receipt.ok !== true)
+        throw new Error("The message could not be delivered.");
       status.dataset.state = "success";
       status.textContent = "Message sent. Thank you for getting in touch.";
       form.reset();

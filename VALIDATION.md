@@ -1,18 +1,20 @@
 # Verification · 8 October 2026
 
-Verified locally in headless desktop Chrome using Playwright and axe-core 4.10.3. No real messages were sent through the contact form.
+Verified locally in headless desktop Chrome using Playwright and axe-core 4.10.3. Automated form tests used intercepted requests. One separate real message was sent with the owner's explicit authorisation.
 
 ## Content preservation
 
 Compared the redesigned DOM with an inventory extracted from the original site at commit `2b54ad2499f822c8abba21a380a6809859e173d8`:
 
 - 21 of 21 project titles and full descriptions retained.
-- 25 of 25 background descriptions retained.
+- All 25 background entries retained. The two education descriptions were updated to reflect the owner's confirmed MSc completion and diploma attendance; the other 23 descriptions remain unchanged.
+- AllOsint, the public MSc thesis edition, added as the 22nd project after reviewing the owner's GitHub repositories.
+- Public coursework repositories and the BuyTheTop source repository linked from their existing entries.
 - 5 of 5 supporting PDF documents retained.
 - All original external, document, email and telephone link destinations retained, including the thesis defence audio and the private-repository notice.
 - Original source image and PDF files retained without modification.
 
-The stale “Upcoming” label was removed from the dated diploma entry; its dates and original description remain. No completion or attendance status was inferred.
+The diploma is marked in progress at Google's GSEC, Málaga; the MSc is marked completed. These statuses come directly from the owner. Malware analysis is included in the headline, current focus and metadata. The CV is linked once, in Documents; the existing PDF itself has not been edited.
 
 ## Browser and interaction checks
 
@@ -25,12 +27,14 @@ The stale “Upcoming” label was removed from the dated diploma entry; its dat
 - Section navigation highlights the active section.
 - Navigation and all project and history content remain available without JavaScript; native disclosure remains usable.
 - Reduced-motion preference disables decorative animation and smooth scrolling.
+- The optional tiny-bug disclosure supports keyboard activation and announces its state.
+- All 22 custom SVG symbols are available in the local sprite. Portrait annotations do not overlap the location at 320 px.
 - All local linked assets and five PDF downloads respond successfully over the preview server.
 - No page JavaScript errors or failed local resource requests detected.
 
 ## Accessibility
 
-axe-core scans used WCAG A/AA tags through WCAG 2.2. The desktop scan with all disclosures expanded returned **0 violations and 0 incomplete checks**. The standard mobile scan returned **0 violations**. Keyboard focus, labels, live status feedback, native semantics, contrast and reflow were also reviewed.
+axe-core scans used WCAG A/AA tags through WCAG 2.2. Desktop and mobile scans with all disclosures expanded returned **0 violations**. One contrast check remains incomplete because axe cannot resolve the rotated handwritten annotation over the SVG illustration. Its actual colours (#E6C963 on #172842) give a manually calculated contrast ratio of **9.09:1**. Keyboard focus, labels, live status feedback, native semantics, contrast and reflow were also reviewed.
 
 Automated checks are evidence, not a certification of full WCAG compliance. Real screen-reader and additional browser/device testing were not performed.
 
@@ -42,9 +46,12 @@ Network requests to Formspree were intercepted locally:
 - Simulated server failure preserves the entered message, re-enables the button and offers the direct email address.
 - Submission uses the existing JavaScript endpoint consistently in the HTML action and fetch request.
 - In-flight submissions are disabled, live progress is announced, and requests have a 15-second timeout.
+- A simulated HTTP 200 response with `ok: false` is treated as failure and preserves the entered message; only explicit acceptance resets the form.
 
-Actual inbox delivery and the remote Formspree account configuration remain unverified. No external project destination was exhaustively availability-tested; original destinations were preserved.
+The single authorised real submission used the subject **Prueba del portfolio** and the message **Prueba autorizada del formulario de contacto. No requiere respuesta**. Formspree returned HTTP **200** and `{"ok": true, "next": "/thanks?language=es"}`. The interface displayed its confirmation and reset. Receipt in the associated inbox remains for the owner to confirm; server acceptance does not itself prove inbox delivery. No further real submissions were made.
+
+External project destinations were not exhaustively availability-tested; original destinations were preserved. Newly added repositories were verified as public through GitHub.
 
 ## Shipping
 
-Static HTML/CSS/JS with locally hosted fonts and inline SVG icons. GitHub Pages publishing layout remains unchanged. No application dependencies or build pipeline were introduced.
+Static HTML/CSS/JS with locally hosted fonts, inline SVG illustrations and a local SVG symbol sprite. GitHub Pages publishing layout remains unchanged. No application dependencies or build pipeline were introduced. Changes are prepared on the redesign branch and draft pull request; the production Pages site is not changed until integration.

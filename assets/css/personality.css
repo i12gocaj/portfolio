@@ -1,0 +1,442 @@
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/caveat-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --annotation: #e6c963;
+}
+.brand-mark {
+  position: relative;
+}
+.brand-swoop {
+  position: absolute;
+  width: 57px;
+  height: 14px;
+  left: -2px;
+  bottom: -11px;
+  fill: none;
+  stroke: var(--cobalt);
+  stroke-width: 2;
+}
+.hand-note {
+  font:
+    600 25px/1 "Caveat",
+    cursive;
+}
+.hero-copy {
+  position: relative;
+}
+.hero-role {
+  max-width: 31ch;
+}
+.portrait-window {
+  border-radius: 2px 28px 2px 2px;
+}
+.portrait-note {
+  position: absolute;
+  top: -18px;
+  right: 3%;
+  color: var(--ink);
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+.portrait-note svg {
+  display: block;
+  width: 78px;
+  height: 42px;
+  margin-left: auto;
+}
+.current-study {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--slate);
+}
+.current-study strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.current-study:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.current-study .icon {
+  width: 17px;
+  height: 17px;
+  margin: 3px 0 0 auto;
+  color: var(--cobalt);
+}
+.study-pin {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--annotation);
+  border: 1px solid #85692a;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.tiny-bug {
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background: transparent;
+  color: var(--slate);
+  margin-top: 26px;
+  margin-left: -8px;
+}
+.tiny-bug svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s var(--ease);
+}
+.tiny-bug:hover svg,
+.tiny-bug:focus-visible svg {
+  transform: rotate(-12deg) translateY(-3px);
+  color: var(--cobalt);
+}
+.tiny-bug[aria-expanded="true"] svg {
+  transform: rotate(12deg);
+}
+.bug-note {
+  font:
+    600 21px/1.2 "Caveat",
+    cursive;
+  color: var(--cobalt);
+  margin-top: 5px;
+}
+.curated-work {
+  grid-template-columns: 1fr 1fr;
+  gap: 65px 54px;
+}
+.curated-work .featured-project {
+  grid-template-columns: 1fr;
+  gap: 27px;
+  align-content: start;
+}
+.curated-work .featured-project:first-child,
+.curated-work .featured-project:last-child {
+  grid-column: 1 / -1;
+  grid-template-columns: 1.13fr 1fr;
+  gap: 66px;
+  align-items: center;
+}
+.curated-work .featured-project:nth-child(2) .project-visual {
+  order: 0;
+}
+.curated-work .featured-project:last-child {
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.project-heading-mark {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 19px;
+}
+.project-heading-mark .work-context {
+  margin: 0;
+}
+.project-mark {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  color: var(--cobalt);
+  transition:
+    transform 0.3s var(--ease),
+    color 0.3s;
+}
+.featured-project:hover .project-heading-mark .project-mark,
+.featured-project:focus-within .project-heading-mark .project-mark {
+  transform: rotate(-7deg);
+}
+.project-outcome {
+  margin-top: 23px;
+  border-top: 1px solid var(--line);
+  padding-top: 17px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.outcome-stroke {
+  display: inline-block;
+  width: 18px;
+  height: 4px;
+  background: var(--annotation);
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.section-note {
+  font:
+    600 22px/1.1 "Caveat",
+    cursive;
+  color: var(--cobalt);
+  white-space: normal;
+  max-width: 210px;
+  text-align: right;
+  transform: rotate(-3deg);
+}
+.visual-allosint {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px 28px 2px 2px;
+  aspect-ratio: 1.3;
+}
+.signal-map {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 520 / 360;
+}
+.signal-connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  stroke: #7990b0;
+  stroke-width: 1;
+}
+.signal-connections circle:first-of-type {
+  stroke: var(--annotation);
+  stroke-width: 1.5;
+}
+.signal-halo {
+  stroke-dasharray: 2 10;
+  transform-origin: 50% 49.44%;
+  transition: transform 0.7s var(--ease);
+}
+.featured-project:hover .signal-halo,
+.featured-project:focus-within .signal-halo {
+  transform: rotate(30deg);
+}
+.signal-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  line-height: 1;
+}
+.signal-node span {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--ice);
+  background: var(--ink);
+  padding: 3px 5px;
+}
+.node-email {
+  top: 33.3%;
+  left: 17.7%;
+}
+.node-phone {
+  top: 26.1%;
+  left: 82.3%;
+}
+.node-report {
+  top: 49.4%;
+  left: 50%;
+}
+.node-breach {
+  top: 78.9%;
+  left: 23.1%;
+}
+.node-export {
+  top: 75%;
+  left: 80%;
+}
+.node-breach svg,
+.node-export svg {
+  width: 27px;
+  height: 27px;
+}
+.node-phone svg {
+  width: 32px;
+  height: 32px;
+}
+.node-report .project-mark {
+  width: 44px;
+  height: 44px;
+  color: var(--annotation);
+}
+.signal-caption {
+  position: absolute;
+  left: 7%;
+  bottom: 0;
+  color: var(--ice);
+  font-size: 11px;
+  background: var(--ink);
+}
+.signal-note {
+  position: absolute;
+  top: 3%;
+  right: 10%;
+  color: var(--annotation);
+  transform: rotate(-8deg);
+  background: var(--ink);
+}
+.audio-bars span {
+  transition: transform 0.35s var(--ease);
+  transform-origin: center;
+}
+.featured-project:hover .audio-bars span:nth-child(2n),
+.featured-project:focus-within .audio-bars span:nth-child(2n) {
+  transform: scaleY(0.65);
+}
+.featured-project:hover .audio-bars span:nth-child(3n),
+.featured-project:focus-within .audio-bars span:nth-child(3n) {
+  transform: scaleY(1.12);
+}
+.envelope {
+  transition: transform 0.4s var(--ease);
+}
+.featured-project:hover .envelope,
+.featured-project:focus-within .envelope {
+  transform: translateY(-5px) rotate(-2deg);
+}
+.project-entry summary {
+  gap: 20px;
+}
+.project-entry summary .project-mark {
+  width: 28px;
+  height: 28px;
+}
+.project-entry summary:hover .project-mark,
+.project-entry summary:focus-visible .project-mark {
+  transform: translateY(-2px) rotate(-6deg);
+}
+.project-entry[open] summary .project-mark {
+  color: var(--ink);
+}
+.project-entry > .project-description {
+  padding-left: 56px;
+}
+details[open] > .project-description,
+details[open] > .history-description {
+  animation: unfold 0.25s var(--ease);
+}
+@keyframes unfold {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (max-width: 1000px) {
+  .curated-work {
+    gap: 55px 32px;
+  }
+  .curated-work .featured-project:first-child,
+  .curated-work .featured-project:last-child {
+    gap: 36px;
+  }
+  .signal-map {
+    min-height: 0;
+  }
+  .signal-note {
+    font-size: 23px;
+    right: 5%;
+  }
+  .curated-work .featured-copy h3 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 800px) {
+  .curated-work {
+    grid-template-columns: 1fr;
+  }
+  .curated-work .featured-project:first-child,
+  .curated-work .featured-project:last-child {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+  .curated-work .project-visual {
+    aspect-ratio: 1.5;
+  }
+  .signal-map {
+    min-height: 0;
+  }
+  .curated-work .featured-project:last-child {
+    padding-top: 38px;
+  }
+  .signal-note {
+    font-size: 27px;
+    right: 9%;
+  }
+}
+@media (max-width: 600px) {
+  .portrait-topline {
+    margin-bottom: 36px;
+  }
+  .portrait-note {
+    font-size: 24px;
+    top: -19px;
+    right: 2%;
+  }
+  .current-study {
+    margin-top: 17px;
+  }
+  .tiny-bug {
+    margin-top: 15px;
+  }
+  .curated-work {
+    gap: 48px;
+  }
+  .curated-work .project-visual {
+    aspect-ratio: 1.25;
+  }
+  .signal-caption {
+    font-size: 10px;
+    bottom: 0;
+  }
+  .signal-note {
+    font-size: 24px;
+    right: 8%;
+  }
+  .signal-node {
+    font-size: 31px;
+  }
+  .node-report .project-mark {
+    width: 36px;
+    height: 36px;
+  }
+  .node-phone svg {
+    width: 28px;
+    height: 28px;
+  }
+  .section-note {
+    text-align: left;
+    margin-top: 17px;
+    max-width: none;
+  }
+  .project-entry summary {
+    gap: 13px;
+  }
+  .project-entry summary .project-mark {
+    width: 24px;
+    height: 24px;
+  }
+  .project-entry > .project-description {
+    padding-left: 2px;
+  }
+  .project-heading-mark {
+    margin-bottom: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
