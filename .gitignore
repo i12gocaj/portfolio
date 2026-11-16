@@ -17,3 +17,10 @@ npm-debug.log*
 # OS
 Thumbs.db
 desktop.ini
+
+# Internal working notes and screenshots (not part of the site)
+*AUDIT*.md
+VALIDATION.md
+DESIGN.md
+audit-results.json
+preview-*.png

@@ -99,6 +99,7 @@
       window.history[push ? "pushState" : "replaceState"](null, "", url);
   }
   function selectHistory(key, focus = false) {
+    if (!historyTabs.length) return;
     historyPanels.forEach((panel) => {
       panel.hidden = panel.dataset.historyGroup !== key;
     });
@@ -159,9 +160,13 @@
   const searchable = new Map(
     entries.map((entry) => [entry, normalize(entry.textContent)]),
   );
-  select(".archive-tools").hidden = false;
-  count.hidden = false;
+  const hasArchiveTools = Boolean(search && count);
+  if (hasArchiveTools) {
+    select(".archive-tools").hidden = false;
+    count.hidden = false;
+  }
   function filterProjects() {
+    if (!hasArchiveTools) return;
     const query = normalize(search.value.trim());
     let visible = 0;
     entries.forEach((entry) => {
@@ -180,6 +185,7 @@
     empty.hidden = visible !== 0;
   }
   function writeFilters(push = false) {
+    if (!hasArchiveTools) return;
     const url = new URL(window.location.href);
     category === "all"
       ? url.searchParams.delete("category")
@@ -195,6 +201,7 @@
       window.history[push ? "pushState" : "replaceState"](null, "", url);
   }
   function readFilters() {
+    if (!hasArchiveTools) return;
     category = categories.has(params().get("category"))
       ? params().get("category")
       : "all";
@@ -209,7 +216,7 @@
       writeFilters(true);
     }),
   );
-  search.addEventListener("input", () => {
+  search?.addEventListener("input", () => {
     filterProjects();
     clearTimeout(searchTimer);
     searchTimer = setTimeout(writeFilters, 200);
@@ -224,6 +231,8 @@
       });
     if (target) {
       revealHistory(target);
+      const group = target.parentElement?.closest("details");
+      if (group) group.open = true;
       const panel = target.closest("[data-history-group]");
       if (panel) writeHistory(panel.dataset.historyGroup, false);
       if (target.hidden) {
@@ -279,6 +288,8 @@
     const disclosure = target?.closest("details");
     if (disclosure) {
       revealHistory(disclosure);
+      const group = disclosure.parentElement?.closest("details");
+      if (group) group.open = true;
       disclosure.open = true;
     }
   });
