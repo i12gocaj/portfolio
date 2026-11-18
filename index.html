@@ -57,6 +57,16 @@
       crossorigin=""
     />
     <meta name="theme-color" content="#F2F4F7" />
+    <!-- Hide the page until a saved Spanish preference has been applied (max 1.5 s). -->
+    <script>
+      try {
+        var lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang");
+        if (lang === "es") {
+          document.documentElement.classList.add("i18n-pending");
+          setTimeout(function () { document.documentElement.classList.remove("i18n-pending"); }, 1500);
+        }
+      } catch (e) {}
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
 
     <!-- Schema.org Person (rich results / knowledge card) -->
@@ -151,6 +161,11 @@
           <a href="#projects">Projects</a><a href="#experience">Background</a
           ><a href="#documents">Documents</a><a href="#contact">Contact </a>
         </nav>
+        <button class="lang-toggle" type="button" lang="es" aria-label="Cambiar a español" hidden="">
+          <span data-lang="en" class="is-active">EN</span
+          ><span class="lang-divider" aria-hidden="true">/</span
+          ><span data-lang="es">ES</span>
+        </button>
       </div>
     </header>
     <main id="main">
@@ -3415,6 +3430,7 @@
           <use href="assets/img/analysis-symbols.svg#up"></use></svg
       ></a>
     </footer>
+    <script src="assets/js/i18n.js" defer=""></script>
     <script src="assets/js/main.js" defer=""></script>
   </body>
 </html>

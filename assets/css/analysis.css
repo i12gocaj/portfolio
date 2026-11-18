@@ -1049,3 +1049,82 @@ html:not(.js) .site-header {
     order: 3;
   }
 }
+
+/* Language switch (EN / ES) */
+html.i18n-pending body {
+  visibility: hidden;
+}
+#main-nav {
+  margin-left: auto;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0 10px 4px;
+  background: none;
+  border: 0;
+  color: var(--slate);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.lang-toggle[hidden] {
+  display: none;
+}
+.lang-toggle [data-lang] {
+  position: relative;
+  padding-inline: 5px;
+  transition: color 0.18s;
+}
+.lang-toggle [data-lang].is-active {
+  color: var(--cobalt);
+}
+.lang-toggle [data-lang].is-active::before,
+.lang-toggle [data-lang].is-active::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 4px);
+  width: 3px;
+  height: 9px;
+  border-block: 1px solid var(--cobalt);
+}
+.lang-toggle [data-lang].is-active::before {
+  left: 0;
+  border-left: 1px solid var(--cobalt);
+}
+.lang-toggle [data-lang].is-active::after {
+  right: 0;
+  border-right: 1px solid var(--cobalt);
+}
+.lang-toggle:hover [data-lang]:not(.is-active) {
+  color: var(--ink);
+}
+.lang-divider {
+  color: var(--line);
+}
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+@media (max-width: 600px) {
+  .lang-toggle {
+    order: 1;
+    margin-left: auto;
+    margin-right: 18px;
+  }
+  .menu-toggle {
+    order: 2;
+  }
+  #main-nav {
+    order: 3;
+    margin-left: 0;
+  }
+}
+@media print {
+  .lang-toggle {
+    display: none !important;
+  }
+}

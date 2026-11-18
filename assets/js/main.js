@@ -3,6 +3,7 @@
   "use strict";
   document.documentElement.classList.add("js");
   const select = (selector) => document.querySelector(selector);
+  const t = (text) => window.portfolioI18n?.t(text) ?? text;
   const menu = select(".menu-toggle");
   const navigation = select("#main-nav");
   const mobile = window.matchMedia("(max-width: 600px)");
@@ -61,9 +62,9 @@
         "href",
         `assets/img/analysis-symbols.svg#${open ? "back" : "speech"}`,
       );
-    inspection.querySelector("span").textContent = open
-      ? "Back to photo"
-      : "Personal note";
+    inspection.querySelector("span").textContent = t(
+      open ? "Back to photo" : "Personal note",
+    );
   });
 
   const entries = [...document.querySelectorAll(".project-entry")];
@@ -399,15 +400,17 @@
       clearTimeout(resetTimer);
       try {
         await navigator.clipboard.writeText("javiergc100@protonmail.com");
-        copy.textContent = "Email copied";
-        select(".copy-status").textContent = "Email copied.";
+        copy.textContent = t("Email copied");
+        select(".copy-status").textContent = t("Email copied.");
       } catch {
-        copy.textContent = "Select the address to copy it";
-        select(".copy-status").textContent =
-          "Copying is unavailable. Select the address to copy it.";
+        copy.textContent = t("Select the address to copy it");
+        select(".copy-status").textContent = t(
+          "Copying is unavailable. Select the address to copy it.",
+        );
       }
       resetTimer = setTimeout(() => {
         copy.innerHTML = copyLabel;
+        window.portfolioI18n?.apply(copy);
       }, 3500);
     });
   }
