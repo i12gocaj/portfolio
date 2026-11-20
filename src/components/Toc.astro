@@ -1,0 +1,25 @@
+---
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+  label: string;
+}
+const { headings, label } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2);
+---
+
+{
+  toc.length > 2 && (
+    <nav aria-label={label} class="border-l-2 border-line pl-4">
+      <p class="meta mb-2">{label}</p>
+      <ol class="space-y-1 text-[0.9375rem]">
+        {toc.map((h) => (
+          <li>
+            <a href={`#${h.slug}`} class="text-slate transition-colors duration-150 hover:text-accent">
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}

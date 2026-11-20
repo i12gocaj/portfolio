@@ -1,0 +1,15 @@
+---
+import ProjectDetail from "@/components/ProjectDetail.astro";
+import { featured, type Project } from "@/data/content";
+
+export function getStaticPaths() {
+  return featured.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<ProjectDetail project={project} lang="es" />

@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ReflectionRow from "@/components/ReflectionRow.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { reflectionListing } from "@/lib/content";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const items = await reflectionListing(lang);
+---
+
+<BaseLayout lang={lang} route="reflections" title={t("reflections.title")} description={t("reflections.lead")}>
+  <div class="mx-auto max-w-3xl px-5 md:px-8">
+    <header class="pt-14 pb-10 md:pt-20">
+      <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("reflections.title")}</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate">{t("reflections.lead")}</p>
+    </header>
+    <div class="pb-24">
+      {items.length === 0 && <p class="border-t border-line py-10 text-slate">{t("reflections.empty")}</p>}
+      {items.map((r) => <ReflectionRow reflection={r} lang={lang} />)}
+    </div>
+  </div>
+</BaseLayout>

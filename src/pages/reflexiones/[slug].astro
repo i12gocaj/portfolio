@@ -1,0 +1,16 @@
+---
+import ReflectionArticle from "@/components/ReflectionArticle.astro";
+import { reflectionsIn, slugOf, type Reflection } from "@/lib/content";
+
+export async function getStaticPaths() {
+  const items = await reflectionsIn("es");
+  return items.map((reflection) => ({ params: { slug: slugOf(reflection) }, props: { reflection } }));
+}
+
+interface Props {
+  reflection: Reflection;
+}
+const { reflection } = Astro.props;
+---
+
+<ReflectionArticle reflection={reflection} />

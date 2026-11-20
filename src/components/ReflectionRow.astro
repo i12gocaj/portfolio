@@ -1,0 +1,37 @@
+---
+import BookCover from "@/components/BookCover.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { formatDate, langOf, readingMinutes, reflectionUrl, type Reflection } from "@/lib/content";
+
+interface Props {
+  reflection: Reflection;
+  lang: Lang;
+}
+const { reflection: r, lang } = Astro.props;
+const t = useTranslations(lang);
+const { data } = r;
+const foreign = langOf(r) !== lang;
+---
+
+<article class="border-t border-line">
+  <a
+    href={reflectionUrl(r)}
+    hreflang={foreign ? langOf(r) : undefined}
+    class="group grid grid-cols-[78px_minmax(0,1fr)] items-center gap-5 py-6 sm:grid-cols-[104px_minmax(0,1fr)] sm:gap-7"
+  >
+    <BookCover tone={data.tone} image={data.cover} />
+    <div class="min-w-0">
+      <p class="meta flex flex-wrap gap-x-3 gap-y-1">
+        <time datetime={data.date.toISOString()}>{formatDate(data.date, lang)}</time>
+        <span>{readingMinutes(r)} {t("text.min")}</span>
+        {foreign && <span>[{t("reflections.onlyEs")}]</span>}
+        {data.draft && <span class="!text-copper">[{t("text.draft")}]</span>}
+      </p>
+      <h3 class="mt-2 text-lg font-semibold tracking-tight leading-snug transition-colors duration-150 group-hover:text-accent">
+        {data.title}
+      </h3>
+      <p class="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-slate sm:line-clamp-3">{data.description}</p>
+      <span class="meta mt-2.5 inline-block !text-accent">{t("reflections.read")} <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

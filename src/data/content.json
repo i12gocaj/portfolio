@@ -1,162 +1,6 @@
 {
   "projects": [
     {
-      "id": "P-01",
-      "group": "featured",
-      "title": {
-        "en": "AllOsint",
-        "es": "AllOsint"
-      },
-      "kind": {
-        "en": "Master’s project",
-        "es": "Proyecto de máster"
-      },
-      "body": [
-        {
-          "en": "I built AllOsint for my master’s in Offensive Security. It combines checks on email addresses and phone numbers, messaging app signals and data breach records, then exports selected results as PDF reports. It runs on your own machine and reports when a data source is unavailable.",
-          "es": "Desarrollé AllOsint como proyecto de mi máster en Seguridad Ofensiva. Combina comprobaciones de correos electrónicos y números de teléfono, señales de apps de mensajería y registros de filtraciones de datos, y exporta los resultados seleccionados como informes PDF. Se ejecuta en tu propio equipo e indica cuándo una fuente de datos no está disponible."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "OSINT",
-        "Python",
-        "FastAPI",
-        "Next.js"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/allosint-tfm",
-          "label": {
-            "en": "View thesis repository",
-            "es": "Ver repositorio del TFM"
-          }
-        }
-      ],
-      "tone": "#8a9db5",
-      "cover": "allosint"
-    },
-    {
-      "id": "P-02",
-      "group": "featured",
-      "title": {
-        "en": "Instagram Notes audio leak",
-        "es": "Fuga de audio en Instagram Notes"
-      },
-      "kind": {
-        "en": "Vulnerability disclosure",
-        "es": "Divulgación de vulnerabilidad"
-      },
-      "body": [
-        {
-          "en": "I found a flaw in Instagram Web that made Notes audio accessible through direct video links. I reported it to Meta, which confirmed the issue, fixed it and awarded me $1,000.",
-          "es": "Encontré un fallo en Instagram Web que dejaba accesible el audio de las Notas mediante enlaces directos al vídeo. Lo reporté a Meta, que confirmó el problema, lo corrigió y me premió con 1.000 $."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "Vulnerability Research",
-        "Web Security",
-        "Meta Bug Bounty",
-        "$1,000"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed",
-          "label": {
-            "en": "View report",
-            "es": "Ver informe"
-          }
-        },
-        {
-          "href": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed/blob/main/instagram_notes_audio_leakage.mov",
-          "label": {
-            "en": "View recorded proof",
-            "es": "Ver prueba grabada"
-          }
-        }
-      ],
-      "tone": "#c98568",
-      "cover": "instagram-notes"
-    },
-    {
-      "id": "P-03",
-      "group": "featured",
-      "title": {
-        "en": "SecEmail",
-        "es": "SecEmail"
-      },
-      "kind": {
-        "en": "Email security",
-        "es": "Seguridad del correo"
-      },
-      "body": [
-        {
-          "en": "A Python toolkit for checking email authentication and running authorised phishing simulations. It checks the settings that help prevent sender spoofing, verifies email signatures and detects lookalike domains.",
-          "es": "Un conjunto de herramientas en Python para comprobar la autenticación del correo y lanzar simulaciones de phishing autorizadas. Revisa la configuración que ayuda a evitar la suplantación del remitente, verifica las firmas de los correos y detecta dominios parecidos."
-        }
-      ],
-      "details": [
-        {
-          "en": "SPF, DKIM, DMARC and ARC checks; DKIM signature verification; IDN lookalike detection; MTA-STS, TLS-RPT, DANE and BIMI checks. Includes a campaign dashboard with activity tracking and credential capture for authorised tests.",
-          "es": "Comprobaciones de SPF, DKIM, DMARC y ARC; verificación de firmas DKIM; detección de dominios IDN parecidos; comprobaciones de MTA-STS, TLS-RPT, DANE y BIMI. Incluye un panel de campañas con seguimiento de actividad y captura de credenciales para pruebas autorizadas."
-        }
-      ],
-      "tags": [
-        "Python",
-        "Email Security",
-        "Red Team",
-        "Cryptography"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/SecEmail",
-          "label": {
-            "en": "View code",
-            "es": "Ver código"
-          }
-        }
-      ],
-      "tone": "#a898c9",
-      "cover": "secemail"
-    },
-    {
-      "id": "P-04",
-      "group": "featured",
-      "title": {
-        "en": "Atlas",
-        "es": "Atlas"
-      },
-      "kind": {
-        "en": "AI usage audit",
-        "es": "Auditoría del uso de IA"
-      },
-      "body": [
-        {
-          "en": "A prototype I built for the 2026 Atmira × OpenAI × Big Data Hackathon. It reviews exported AI coding-assistant usage to report costs, adoption, possible sensitive-data exposure and compliance with usage policies. It runs locally, using fixed rules for calculations and a local language model for interpretation.",
-          "es": "Un prototipo que desarrollé para el Atmira × OpenAI × Big Data Hackathon 2026. Revisa el uso exportado de asistentes de programación con IA para informar de costes, adopción, posible exposición de datos sensibles y cumplimiento de las políticas de uso. Funciona en local, con reglas fijas para los cálculos y un modelo de lenguaje local para la interpretación."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "AI Assurance",
-        "AI Governance",
-        "Python",
-        "Ollama"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/Atlas",
-          "label": {
-            "en": "View code",
-            "es": "Ver código"
-          }
-        }
-      ],
-      "tone": "#93ab8f",
-      "cover": "atlas"
-    },
-    {
       "group": "featured",
       "title": {
         "en": "CCBHash collision study",
@@ -206,12 +50,174 @@
           }
         }
       ],
-      "tone": "#b9a98a",
-      "id": "P-05"
+      "tone": "#d9b48f",
+      "id": "P-01",
+      "slug": "ccbhash",
+      "cover": "ccbhash"
+    },
+    {
+      "id": "P-02",
+      "group": "featured",
+      "title": {
+        "en": "Instagram Notes audio leak",
+        "es": "Fuga de audio en Instagram Notes"
+      },
+      "kind": {
+        "en": "Vulnerability disclosure",
+        "es": "Divulgación de vulnerabilidad"
+      },
+      "body": [
+        {
+          "en": "I found a flaw in Instagram Web that made Notes audio accessible through direct video links. I reported it to Meta, which confirmed the issue, fixed it and awarded me $1,000.",
+          "es": "Encontré un fallo en Instagram Web que dejaba accesible el audio de las Notas mediante enlaces directos al vídeo. Lo reporté a Meta, que confirmó el problema, lo corrigió y me premió con 1.000 $."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Vulnerability Research",
+        "Web Security",
+        "Meta Bug Bounty",
+        "$1,000"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed",
+          "label": {
+            "en": "View report",
+            "es": "Ver informe"
+          }
+        },
+        {
+          "href": "https://github.com/i12gocaj/Instagram-Notes-Audio-Leakage-via-URL-Extraction-Fixed/blob/main/instagram_notes_audio_leakage.mov",
+          "label": {
+            "en": "View recorded proof",
+            "es": "Ver prueba grabada"
+          }
+        }
+      ],
+      "tone": "#c98568",
+      "cover": "instagram-notes",
+      "slug": "instagram-notes"
+    },
+    {
+      "id": "P-03",
+      "group": "featured",
+      "title": {
+        "en": "AllOsint",
+        "es": "AllOsint"
+      },
+      "kind": {
+        "en": "Master’s project",
+        "es": "Proyecto de máster"
+      },
+      "body": [
+        {
+          "en": "I built AllOsint for my master’s in Offensive Security. It combines checks on email addresses and phone numbers, messaging app signals and data breach records, then exports selected results as PDF reports. It runs on your own machine and reports when a data source is unavailable.",
+          "es": "Desarrollé AllOsint como proyecto de mi máster en Seguridad Ofensiva. Combina comprobaciones de correos electrónicos y números de teléfono, señales de apps de mensajería y registros de filtraciones de datos, y exporta los resultados seleccionados como informes PDF. Se ejecuta en tu propio equipo e indica cuándo una fuente de datos no está disponible."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "OSINT",
+        "Python",
+        "FastAPI",
+        "Next.js"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/allosint-tfm",
+          "label": {
+            "en": "View thesis repository",
+            "es": "Ver repositorio del TFM"
+          }
+        }
+      ],
+      "tone": "#8a9db5",
+      "cover": "allosint",
+      "slug": "allosint"
+    },
+    {
+      "id": "P-04",
+      "group": "featured",
+      "title": {
+        "en": "SecEmail",
+        "es": "SecEmail"
+      },
+      "kind": {
+        "en": "Email security",
+        "es": "Seguridad del correo"
+      },
+      "body": [
+        {
+          "en": "A Python toolkit for checking email authentication and running authorised phishing simulations. It checks the settings that help prevent sender spoofing, verifies email signatures and detects lookalike domains.",
+          "es": "Un conjunto de herramientas en Python para comprobar la autenticación del correo y lanzar simulaciones de phishing autorizadas. Revisa la configuración que ayuda a evitar la suplantación del remitente, verifica las firmas de los correos y detecta dominios parecidos."
+        }
+      ],
+      "details": [
+        {
+          "en": "SPF, DKIM, DMARC and ARC checks; DKIM signature verification; IDN lookalike detection; MTA-STS, TLS-RPT, DANE and BIMI checks. Includes a campaign dashboard with activity tracking and credential capture for authorised tests.",
+          "es": "Comprobaciones de SPF, DKIM, DMARC y ARC; verificación de firmas DKIM; detección de dominios IDN parecidos; comprobaciones de MTA-STS, TLS-RPT, DANE y BIMI. Incluye un panel de campañas con seguimiento de actividad y captura de credenciales para pruebas autorizadas."
+        }
+      ],
+      "tags": [
+        "Python",
+        "Email Security",
+        "Red Team",
+        "Cryptography"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/SecEmail",
+          "label": {
+            "en": "View code",
+            "es": "Ver código"
+          }
+        }
+      ],
+      "tone": "#a898c9",
+      "cover": "secemail",
+      "slug": "secemail"
+    },
+    {
+      "id": "P-05",
+      "group": "featured",
+      "title": {
+        "en": "Atlas",
+        "es": "Atlas"
+      },
+      "kind": {
+        "en": "AI usage audit",
+        "es": "Auditoría del uso de IA"
+      },
+      "body": [
+        {
+          "en": "A prototype I built for the 2026 Atmira × OpenAI × Big Data Hackathon. It reviews exported AI coding-assistant usage to report costs, adoption, possible sensitive-data exposure and compliance with usage policies. It runs locally, using fixed rules for calculations and a local language model for interpretation.",
+          "es": "Un prototipo que desarrollé para el Atmira × OpenAI × Big Data Hackathon 2026. Revisa el uso exportado de asistentes de programación con IA para informar de costes, adopción, posible exposición de datos sensibles y cumplimiento de las políticas de uso. Funciona en local, con reglas fijas para los cálculos y un modelo de lenguaje local para la interpretación."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "AI Assurance",
+        "AI Governance",
+        "Python",
+        "Ollama"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/Atlas",
+          "label": {
+            "en": "View code",
+            "es": "Ver código"
+          }
+        }
+      ],
+      "tone": "#93ab8f",
+      "cover": "atlas",
+      "slug": "atlas"
     },
     {
       "id": "P-06",
-      "group": "security",
+      "group": "featured",
       "title": {
         "en": "Instagram Password Bypass",
         "es": "Bypass de contraseña en Instagram"
@@ -241,11 +247,12 @@
           }
         }
       ],
-      "tone": "#8fa3b8"
+      "tone": "#b9a3a8",
+      "slug": "instagram-password-bypass"
     },
     {
       "id": "P-07",
-      "group": "security",
+      "group": "featured",
       "title": {
         "en": "Club Gym Sierra Time Bypass",
         "es": "Bypass horario en Club Gym Sierra"
@@ -275,7 +282,8 @@
           }
         }
       ],
-      "tone": "#c98f73"
+      "tone": "#9db0b3",
+      "slug": "club-gym-sierra"
     },
     {
       "id": "P-08",
@@ -736,40 +744,6 @@
       "id": "P-21",
       "group": "other",
       "title": {
-        "en": "HundirFlotaRedes",
-        "es": "HundirFlotaRedes"
-      },
-      "kind": {
-        "en": "C",
-        "es": "C"
-      },
-      "body": [
-        {
-          "en": "A networked Battleship game written in C, with sockets for communication between players.",
-          "es": "Un Hundir la flota en red escrito en C, con sockets para la comunicación entre jugadores."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "C",
-        "Networks",
-        "Sockets"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/HundirFlotaRedes",
-          "label": {
-            "en": "GitHub",
-            "es": "GitHub"
-          }
-        }
-      ],
-      "tone": "#9fb39a"
-    },
-    {
-      "id": "P-22",
-      "group": "other",
-      "title": {
         "en": "University projects",
         "es": "Proyectos universitarios"
       },
@@ -779,8 +753,8 @@
       },
       "body": [
         {
-          "en": "University projects in smart-home interfaces, machine learning algorithms, task management, image processing, web development and games. Built with Java, Python and JavaScript.",
-          "es": "Proyectos universitarios de interfaces para casas inteligentes, algoritmos de machine learning, gestión de tareas, procesamiento de imágenes, desarrollo web y juegos. Hechos con Java, Python y JavaScript."
+          "en": "University projects in smart-home interfaces, machine learning algorithms, task management, image processing, web development, networking and games. Built with Java, Python, JavaScript and C.",
+          "es": "Proyectos universitarios de interfaces para casas inteligentes, algoritmos de machine learning, gestión de tareas, procesamiento de imágenes, desarrollo web, redes y juegos. Hechos con Java, Python, JavaScript y C."
         }
       ],
       "details": [],
@@ -788,6 +762,7 @@
         "Java",
         "Python",
         "JavaScript",
+        "C",
         "Coursework"
       ],
       "links": [
@@ -838,6 +813,13 @@
           "label": {
             "en": "Snake",
             "es": "Snake"
+          }
+        },
+        {
+          "href": "https://github.com/i12gocaj/HundirFlotaRedes",
+          "label": {
+            "en": "Networked Battleship (C)",
+            "es": "Hundir la flota en red (C)"
           }
         }
       ],
@@ -1419,8 +1401,8 @@
     {
       "href": "/docs/cv-javier-gonzalez-casares.pdf",
       "title": {
-        "en": "Download my CV",
-        "es": "Descargar mi CV"
+        "en": "CV",
+        "es": "CV"
       },
       "meta": {
         "en": "2 pages",

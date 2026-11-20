@@ -6,15 +6,15 @@ import profile from "@/assets/profile.jpg";
 import { type Lang, route, useTranslations } from "@/i18n/ui";
 import { contact, highlights } from "@/data/home";
 import { featured } from "@/data/content";
-import PostRow from "@/components/PostRow.astro";
-import { listingFor } from "@/lib/writing";
+import ReflectionRow from "@/components/ReflectionRow.astro";
+import { reflectionListing } from "@/lib/content";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const latest = (await listingFor(lang)).slice(0, 3);
+const latest = (await reflectionListing(lang)).slice(0, 3);
 ---
 
 <BaseLayout lang={lang} route="home">
@@ -28,10 +28,9 @@ const latest = (await listingFor(lang)).slice(0, 3);
         <p class="font-mono text-sm text-slate mb-4">Javier González Casares</p>
         <h1
           id="hero-title"
-          class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance"
-        >
-          {t("hero.headline")}
-        </h1>
+          class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance [&_em]:not-italic [&_em]:text-accent"
+          set:html={t("hero.headline")}
+        />
         <p class="meta mt-6 !text-accent">
           <span aria-hidden="true" class="text-frame">[</span>
           {t("hero.context")}
@@ -89,23 +88,6 @@ const latest = (await listingFor(lang)).slice(0, 3);
       </dl>
     </section>
 
-    <!-- Escritos -->
-    {
-      latest.length > 0 && (
-        <section aria-labelledby="writing-title" class="pb-16 md:pb-24">
-          <div class="mb-3 flex items-baseline justify-between gap-4">
-            <h2 id="writing-title" class="meta !text-accent !text-xs">
-              {t("writing.latest")}
-            </h2>
-            <a href={route(lang, "writing")} class="meta transition-colors duration-150 hover:text-accent">
-              {t("projects.all")} <span aria-hidden="true">→</span>
-            </a>
-          </div>
-          {latest.map((post) => <PostRow post={post} lang={lang} />)}
-        </section>
-      )
-    }
-
     <!-- Proyectos -->
     <section id="proyectos" aria-labelledby="projects-title" class="scroll-mt-24 pb-20 md:pb-28">
       <div class="mb-9 flex items-baseline justify-between gap-4">
@@ -114,16 +96,33 @@ const latest = (await listingFor(lang)).slice(0, 3);
           {t("projects.all")} <span aria-hidden="true">→</span>
         </a>
       </div>
-      <ul class="grid gap-x-10 gap-y-14 md:grid-cols-2">
+      <ul class="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
         {
-          featured.slice(0, 4).map((p) => (
+          featured.slice(0, 6).map((p) => (
             <li>
-              <ProjectCard project={p} lang={lang} compact />
+              <ProjectCard project={p} lang={lang} />
             </li>
           ))
         }
       </ul>
     </section>
+
+    <!-- Reflexiones -->
+    {
+      latest.length > 0 && (
+        <section aria-labelledby="reflections-title" class="pb-20 md:pb-28">
+          <div class="mb-3 flex items-baseline justify-between gap-4">
+            <h2 id="reflections-title" class="meta !text-accent !text-xs">
+              {t("reflections.latest")}
+            </h2>
+            <a href={route(lang, "reflections")} class="meta transition-colors duration-150 hover:text-accent">
+              {t("projects.all")} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          {latest.map((r) => <ReflectionRow reflection={r} lang={lang} />)}
+        </section>
+      )
+    }
 
     <!-- Contacto -->
     <section id="contacto" aria-labelledby="contact-title" class="scroll-mt-24 border-t border-line py-16 md:py-20">

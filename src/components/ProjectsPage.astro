@@ -23,11 +23,11 @@ const other = projects.filter((p) => p.group === "other");
 
     <section aria-labelledby="featured-title" class="pb-20">
       <h2 id="featured-title" class="meta !text-accent !text-xs mb-9">{t("projects.title")}</h2>
-      <ul class="grid gap-x-10 gap-y-14 md:grid-cols-2">
+      <ul class="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
         {
           featured.map((p) => (
             <li>
-              <ProjectCard project={p} lang={lang} detailsLabel={t("projects.details")} />
+              <ProjectCard project={p} lang={lang} />
             </li>
           ))
         }

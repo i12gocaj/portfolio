@@ -1,0 +1,58 @@
+---
+/** Portada vertical con aspecto de libro, para las reflexiones. */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  tone: string;
+  image?: ImageMetadata;
+  alt?: string;
+  sizes?: string;
+  eager?: boolean;
+}
+const { tone, image, alt = "", sizes = "116px", eager = false } = Astro.props;
+---
+
+<div class="book" style={`background: ${tone};`}>
+  {
+    image && (
+      <Image
+        src={image}
+        alt={alt}
+        widths={[120, 240, 480]}
+        sizes={sizes}
+        loading={eager ? "eager" : "lazy"}
+        class="block h-full w-full object-cover"
+      />
+    )
+  }
+</div>
+
+<style>
+  .book {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    border-radius: 2px 4px 4px 2px;
+    border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+    box-shadow: 5px 7px 18px rgb(0 0 0 / 0.14);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  /* Lomo: una franja fina más oscura en el borde izquierdo. */
+  .book::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6%;
+    background: linear-gradient(90deg, rgb(0 0 0 / 0.22), rgb(0 0 0 / 0.04) 70%, transparent);
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    :global(.group:hover) .book {
+      transform: translateY(-3px);
+      box-shadow: 7px 11px 26px rgb(0 0 0 / 0.2);
+    }
+  }
+</style>

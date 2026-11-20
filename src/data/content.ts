@@ -1,6 +1,6 @@
 import raw from "./content.json";
 import type { ImageMetadata } from "astro";
-import type { Localized } from "@/i18n/ui";
+import { type Lang, type Localized, route } from "@/i18n/ui";
 
 export interface Link {
   href: string;
@@ -20,6 +20,8 @@ export interface Project {
   tone: string;
   /** Nombre del fichero en src/assets/covers, sin extensión. */
   cover?: string;
+  /** Solo los destacados: da nombre a su página propia. */
+  slug?: string;
 }
 
 export interface HistoryEntry {
@@ -55,5 +57,9 @@ const previews = byName(import.meta.glob<{ default: ImageMetadata }>("../assets/
 
 export const coverOf = (p: Project): ImageMetadata | undefined => (p.cover ? covers[p.cover] : undefined);
 export const previewOf = (d: Doc): ImageMetadata | undefined => (d.preview ? previews[d.preview] : undefined);
+
+/** Página propia del proyecto, si la tiene. */
+export const projectUrl = (p: Project, lang: Lang): string | undefined =>
+  p.slug ? `${route(lang, "projects")}${p.slug}/` : undefined;
 
 export const isExternal = (href: string) => /^https?:\/\//.test(href);
