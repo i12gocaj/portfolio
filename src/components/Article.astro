@@ -1,0 +1,123 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Cover from "@/components/Cover.astro";
+import { type Lang, route, useTranslations } from "@/i18n/ui";
+import { projects } from "@/data/content";
+import {
+  formatDate,
+  langOf,
+  postUrl,
+  readingMinutes,
+  toneOf,
+  translationOf,
+  typeLabels,
+  type Post,
+} from "@/lib/writing";
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const lang: Lang = langOf(post);
+const t = useTranslations(lang);
+const { data } = post;
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+const translation = await translationOf(post);
+const other: Lang = lang === "es" ? "en" : "es";
+// Sin traducción, el cambio de idioma lleva al listado del otro idioma.
+const alternates = {
+  [lang]: postUrl(post),
+  [other]: translation ? postUrl(translation) : route(other, "writing"),
+} as Record<Lang, string>;
+const project = data.project ? projects.find((p) => p.id === data.project) : undefined;
+const book = data.type === "reflexion";
+---
+
+<BaseLayout
+  lang={lang}
+  route="writing"
+  alternates={alternates}
+  title={data.title}
+  description={data.description}
+  image={data.cover?.src}
+  article
+>
+  <article class="mx-auto max-w-3xl px-5 pb-24 md:px-8">
+    <header class="pt-12 md:pt-16">
+      <a href={route(lang, "writing")} class="meta transition-colors duration-150 hover:text-accent">
+        <span aria-hidden="true">←</span>{" "}{t("writing.back")}
+      </a>
+      <p class="meta mt-8 flex flex-wrap gap-x-3 gap-y-1">
+        <span class="!text-accent">{typeLabels[data.type][lang]}</span>
+        <time datetime={data.date.toISOString()}>{formatDate(data.date, lang)}</time>
+        <span>{readingMinutes(post)} {t("writing.min")}</span>
+        {data.draft && <span class="!text-copper">[{t("writing.draft")}]</span>}
+      </p>
+      <h1 class="mt-3 text-[2rem] font-semibold tracking-tight leading-[1.15] text-balance md:text-[2.5rem]">
+        {data.title}
+      </h1>
+      <p class="mt-4 text-lg leading-relaxed text-slate">{data.description}</p>
+    </header>
+
+    <div class:list={["mt-10", book && "mx-auto max-w-[220px]"]}>
+      <Cover
+        tone={toneOf(post)}
+        image={data.cover}
+        alt={data.coverAlt}
+        ratio={book ? "2/3" : "2/1"}
+        sizes="(min-width: 768px) 704px, 100vw"
+        eager
+      />
+    </div>
+
+    {
+      toc.length > 2 && (
+        <nav aria-labelledby="toc-title" class="mt-12 border-l-2 border-line pl-4">
+          <h2 id="toc-title" class="meta mb-2">
+            {t("writing.contents")}
+          </h2>
+          <ol class="space-y-1 text-[0.9375rem]">
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`} class="text-slate transition-colors duration-150 hover:text-accent">
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+
+    <div class="prose mt-12">
+      <Content />
+    </div>
+
+    <footer class="mt-16 border-t border-line pt-6">
+      {
+        project && (
+          <p class="mb-5 text-[0.9375rem]">
+            <span class="meta block mb-1">{t("writing.related")}</span>
+            <a
+              href={`${route(lang, "projects")}#${project.id}`}
+              class="font-semibold underline decoration-frame underline-offset-4 hover:text-accent"
+            >
+              <span class="font-mono text-sm font-medium text-accent">{project.id}</span>{" "}{project.title[lang]}
+            </a>
+          </p>
+        )
+      }
+      {
+        data.tags.length > 0 && (
+          <ul class="meta flex flex-wrap gap-x-4 gap-y-1">
+            {data.tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+    </footer>
+  </article>
+</BaseLayout>

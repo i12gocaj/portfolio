@@ -12,14 +12,20 @@ interface Props {
   title?: string;
   description?: string;
   route?: RouteKey;
+  /** Rutas de esta página en cada idioma, cuando no son las de `route`. */
+  alternates?: Record<Lang, string>;
+  /** Imagen para redes, ruta absoluta dentro del sitio. */
+  image?: string;
+  article?: boolean;
 }
 
-const { lang, title, description, route = "home" } = Astro.props;
+const { lang, title, description, route = "home", alternates, image, article = false } = Astro.props;
+const paths: Record<Lang, string> = alternates ?? { es: routeFor("es", route), en: routeFor("en", route) };
 const t = useTranslations(lang);
 const name = "Javier González Casares";
 const fullTitle = title ? `${title} · ${name}` : name;
 const desc = description ?? t("site.description");
-const abs = (l: Lang) => new URL(routeFor(l, route), Astro.site).href;
+const abs = (l: Lang) => new URL(paths[l], Astro.site).href;
 ---
 
 <!doctype html>
@@ -34,7 +40,9 @@ const abs = (l: Lang) => new URL(routeFor(l, route), Astro.site).href;
     <link rel="alternate" hreflang="en" href={abs("en")} />
     <link rel="alternate" hreflang="x-default" href={abs("es")} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site).href} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:url" content={abs(lang)} />
@@ -57,7 +65,7 @@ const abs = (l: Lang) => new URL(routeFor(l, route), Astro.site).href;
     >
       {t("nav.skip")}
     </a>
-    <Header lang={lang} route={route} />
+    <Header lang={lang} route={route} paths={paths} />
     <main id="contenido" class="flex-1">
       <slot />
     </main>

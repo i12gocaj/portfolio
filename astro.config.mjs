@@ -15,5 +15,11 @@ export default defineConfig({
       i18n: { defaultLocale: "es", locales: { es: "es-ES", en: "en" } },
     }),
   ],
+  markdown: {
+    shikiConfig: {
+      themes: { light: "github-light", dark: "github-dark" },
+      wrap: false,
+    },
+  },
   vite: { plugins: [tailwindcss()] },
 });

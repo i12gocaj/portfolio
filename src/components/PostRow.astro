@@ -1,0 +1,40 @@
+---
+import Cover from "@/components/Cover.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { formatDate, langOf, postUrl, readingMinutes, toneOf, typeLabels, type Post } from "@/lib/writing";
+
+interface Props {
+  post: Post;
+  lang: Lang;
+}
+const { post, lang } = Astro.props;
+const t = useTranslations(lang);
+const { data } = post;
+const book = data.type === "reflexion";
+const foreign = langOf(post) !== lang;
+---
+
+<article class="border-t border-line" data-post data-type={data.type}>
+  <a
+    href={postUrl(post)}
+    hreflang={foreign ? langOf(post) : undefined}
+    class="group grid grid-cols-[88px_minmax(0,1fr)] items-center gap-5 py-6 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-8"
+  >
+    <div class:list={["mx-auto w-full", book && "max-w-[64px] sm:max-w-[92px]"]}>
+      <Cover tone={toneOf(post)} image={data.cover} alt="" ratio={book ? "2/3" : "4/3"} sizes="132px" />
+    </div>
+    <div class="min-w-0">
+      <p class="meta flex flex-wrap gap-x-3 gap-y-1">
+        <span class="!text-accent">{typeLabels[data.type][lang]}</span>
+        <time datetime={data.date.toISOString()}>{formatDate(data.date, lang)}</time>
+        <span>{readingMinutes(post)} {t("writing.min")}</span>
+        {foreign && <span>[{t("writing.onlyEs")}]</span>}
+        {data.draft && <span class="!text-copper">[{t("writing.draft")}]</span>}
+      </p>
+      <h3 class="mt-2 text-lg font-semibold tracking-tight leading-snug transition-colors duration-150 group-hover:text-accent sm:text-xl">
+        {data.title}
+      </h3>
+      <p class="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-slate">{data.description}</p>
+    </div>
+  </a>
+</article>

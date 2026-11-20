@@ -1,6 +1,7 @@
 ---
 import Cover from "@/components/Cover.astro";
-import type { Lang } from "@/i18n/ui";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { postForProject, postUrl } from "@/lib/writing";
 import { isExternal, type Project } from "@/data/content";
 
 interface Props {
@@ -13,9 +14,11 @@ interface Props {
 const { project: p, lang, compact = false, detailsLabel } = Astro.props;
 const [main, ...rest] = p.links;
 const body = compact ? p.body.slice(0, 1) : p.body;
+const post = await postForProject(p.id, lang);
+const readLabel = useTranslations(lang)("projects.readPost");
 ---
 
-<article class="group relative">
+<article id={p.id} class="group relative scroll-mt-28">
   <Cover id={p.id} tone={p.tone} />
   <div class="mt-6 flex items-baseline justify-between gap-4">
     <span class="font-mono text-sm font-medium text-accent">{p.id}</span>
@@ -44,6 +47,15 @@ const body = compact ? p.body.slice(0, 1) : p.body;
   <ul class="meta mt-4 flex flex-wrap gap-x-4 gap-y-1">
     {p.tags.map((tag) => <li>{tag}</li>)}
   </ul>
+  {
+    post && (
+      <p class="relative z-10 mt-3 font-mono text-sm">
+        <a href={postUrl(post)} class="text-accent underline decoration-frame underline-offset-4">
+          {readLabel} <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    )
+  }
   {
     !compact && rest.length > 0 && (
       <ul class="relative z-10 mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">

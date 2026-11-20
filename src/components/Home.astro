@@ -6,12 +6,15 @@ import profile from "@/assets/profile.jpg";
 import { type Lang, route, useTranslations } from "@/i18n/ui";
 import { contact, highlights } from "@/data/home";
 import { featured } from "@/data/content";
+import PostRow from "@/components/PostRow.astro";
+import { listingFor } from "@/lib/writing";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const latest = (await listingFor(lang)).slice(0, 3);
 ---
 
 <BaseLayout lang={lang} route="home">
@@ -84,6 +87,23 @@ const t = useTranslations(lang);
         }
       </dl>
     </section>
+
+    <!-- Escritos -->
+    {
+      latest.length > 0 && (
+        <section aria-labelledby="writing-title" class="pb-16 md:pb-24">
+          <div class="mb-3 flex items-baseline justify-between gap-4">
+            <h2 id="writing-title" class="meta !text-accent !text-xs">
+              {t("writing.latest")}
+            </h2>
+            <a href={route(lang, "writing")} class="meta transition-colors duration-150 hover:text-accent">
+              {t("projects.all")} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          {latest.map((post) => <PostRow post={post} lang={lang} />)}
+        </section>
+      )
+    }
 
     <!-- Proyectos -->
     <section id="proyectos" aria-labelledby="projects-title" class="scroll-mt-24 pb-20 md:pb-28">

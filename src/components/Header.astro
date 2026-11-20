@@ -1,14 +1,19 @@
 ---
 import { type Lang, type RouteKey, route as routeFor, useTranslations } from "@/i18n/ui";
+import { listingFor } from "@/lib/writing";
 
 interface Props {
   lang: Lang;
   route: RouteKey;
+  paths: Record<Lang, string>;
 }
-const { lang, route } = Astro.props;
+const { lang, route, paths } = Astro.props;
 const t = useTranslations(lang);
 const home = routeFor(lang, "home");
+// Escritos solo aparece en el menú cuando hay algo publicado.
+const hasWriting = (await listingFor(lang)).length > 0;
 const nav: { key: RouteKey; label: string }[] = [
+  ...(hasWriting ? [{ key: "writing" as const, label: t("nav.writing") }] : []),
   { key: "projects", label: t("nav.projects") },
   { key: "about", label: t("nav.about") },
 ];
@@ -47,7 +52,7 @@ const nav: { key: RouteKey; label: string }[] = [
             <>
               {i > 0 && <span aria-hidden="true">/</span>}
               <a
-                href={routeFor(l, route)}
+                href={paths[l]}
                 hreflang={l}
                 lang={l}
                 aria-current={l === lang ? "true" : undefined}

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostRow from "@/components/PostRow.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { listingFor, typeLabels, type PostType } from "@/lib/writing";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const posts = await listingFor(lang);
+const types = (Object.keys(typeLabels) as PostType[]).filter((k) => posts.some((p) => p.data.type === k));
+---
+
+<BaseLayout lang={lang} route="writing" title={t("writing.title")} description={t("writing.lead")}>
+  <div class="mx-auto max-w-3xl px-5 md:px-8">
+    <header class="pt-14 pb-10 md:pt-20">
+      <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("writing.title")}</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate">{t("writing.lead")}</p>
+    </header>
+
+    {
+      types.length > 1 && (
+        <div class="meta mb-3 flex flex-wrap gap-x-5 gap-y-2" id="writing-filter">
+          <button type="button" data-filter="all" aria-pressed="true" class="filter-btn">
+            {t("writing.all")}
+          </button>
+          {types.map((k) => (
+            <button type="button" data-filter={k} aria-pressed="false" class="filter-btn">
+              {typeLabels[k][lang]}
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="pb-24">
+      {posts.length === 0 && <p class="border-t border-line py-10 text-slate">{t("writing.empty")}</p>}
+      {posts.map((post) => <PostRow post={post} lang={lang} />)}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    cursor: pointer;
+    padding: 0.25rem 0;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease;
+  }
+  .filter-btn:hover {
+    color: var(--accent);
+  }
+  .filter-btn[aria-pressed="true"] {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>
+
+<script>
+  const bar = document.getElementById("writing-filter");
+  bar?.addEventListener("click", (event) => {
+    const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-filter]");
+    if (!btn) return;
+    const filter = btn.dataset.filter;
+    bar.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    document.querySelectorAll<HTMLElement>("[data-post]").forEach((row) => {
+      row.hidden = filter !== "all" && row.dataset.type !== filter;
+    });
+  });
+</script>
