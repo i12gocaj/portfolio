@@ -15,7 +15,9 @@ export const ui = {
     "nav.home": "Javier González Casares, inicio",
     "theme.toggle": "Cambiar entre tema claro y oscuro",
     "hero.headline": "De pequeño rompía cosas sin querer; ahora lo hago <em>a propósito</em>.",
+    "hero.role": "Ingeniero de ciberseguridad",
     "hero.context": "IA y seguridad",
+    "hero.skills": "Análisis de malware · Forense digital · OSINT · Pentesting",
     "hero.lead":
       "Te doy la bienvenida a mi baúl digital. Aquí guardo una parte de lo que soy, por si algún día se me olvida.",
     "hero.cta": "Ver proyectos",
@@ -67,7 +69,9 @@ export const ui = {
     "nav.home": "Javier González Casares, home",
     "theme.toggle": "Switch between light and dark theme",
     "hero.headline": "As a kid, I used to break things by accident; now I do it <em>on purpose</em>.",
+    "hero.role": "Cybersecurity engineer",
     "hero.context": "AI & security",
+    "hero.skills": "Malware analysis · Digital forensics · OSINT · Pentesting",
     "hero.lead":
       "Welcome to my digital trunk. I keep a part of who I am in here, in case I ever forget.",
     "hero.cta": "View projects",

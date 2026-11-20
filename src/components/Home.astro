@@ -25,16 +25,19 @@ const latest = (await reflectionListing(lang)).slice(0, 3);
       class="grid items-center gap-12 pt-14 pb-16 md:grid-cols-[minmax(0,1fr)_300px] md:gap-16 md:pt-24 md:pb-20"
     >
       <div>
-        <p class="font-mono text-sm text-slate mb-4">Javier González Casares</p>
+        <p class="font-mono text-sm text-slate mb-4">
+          Javier González Casares{" "}<span aria-hidden="true" class="text-frame">·</span>{" "}<span class="text-ink">{t("hero.role")}</span>
+        </p>
         <h1
           id="hero-title"
           class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance [&_em]:not-italic [&_em]:text-accent"
           set:html={t("hero.headline")}
         />
-        <p class="meta mt-6 !text-accent">
-          <span aria-hidden="true" class="text-frame">[</span>
-          {t("hero.context")}
-          <span aria-hidden="true" class="text-frame">]</span>
+        <p class="meta mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
+          <span class="!text-accent whitespace-nowrap">
+            <span aria-hidden="true" class="text-frame">[</span>{t("hero.context")}<span aria-hidden="true" class="text-frame">]</span>
+          </span>
+          <span class="text-ink">{t("hero.skills")}</span>
         </p>
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">{t("hero.lead")}</p>
         <div class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
