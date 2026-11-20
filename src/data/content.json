@@ -1463,20 +1463,24 @@
   ],
   "about": [
     {
-      "es": "No sé mirar al techo, y cualquiera que me conozca lo sabe. Un día te estoy enseñando mi alarma para hacer palomitas y al siguiente he construido una herramienta OSINT que te saca hasta el color de la ropa interior.",
-      "en": "I can't just stare at the ceiling, and anyone who knows me knows it. One day I'm showing you my popcorn alarm, and the next I've built an OSINT tool that digs up everything about you, down to the colour of your underwear."
+      "es": "No sé mirar al techo, y cualquiera que me conozca lo sabe. Un día te estoy enseñando mi alarma para hacer palomitas y al siguiente he construido una herramienta OSINT que encuentra de ti más de lo que recuerdas haber publicado.",
+      "en": "I can't just stare at the ceiling, and anyone who knows me knows it. One day I'm showing you my popcorn alarm, and the next I've built an OSINT tool that finds more about you than you remember posting."
     },
     {
-      "es": "Tengo ideas en la cabeza a todas horas: soluciones, productos, mejoras. No puedo evitar analizar lo que tengo delante y que se me ocurran distintos enfoques para hacerlo mejor. Y lo que me apasiona me obsesiona: primero aprenderlo, después enseñarlo.",
-      "en": "I have ideas in my head at all hours: solutions, products, improvements. I can't help analysing whatever is in front of me and coming up with different ways to make it better. And whatever I'm passionate about, I get obsessed with: first learning it, then teaching it."
+      "es": "Tengo la cabeza llena de ideas a todas horas. No puedo evitar mirar lo que tengo delante y preguntarme cómo funciona, por dónde falla y qué haría yo distinto. Cuando algo me apasiona, me obsesiona: primero aprenderlo y después enseñarlo, que es cuando descubro si de verdad lo he entendido.",
+      "en": "My head is full of ideas at all hours. I can't help looking at whatever is in front of me and wondering how it works, where it fails and what I would do differently. When something excites me, it becomes an obsession: first learning it and then teaching it, which is when I find out whether I really understood it."
     },
     {
-      "es": "La ciberseguridad es lo que más me atrapa. Cómo se construyen virus que se comportan casi como los biológicos, cómo se levantan las defensas para que no nos infecten y cómo alguien encuentra la manera de saltárselas otra vez. Cómo se reúne inteligencia sobre alguien que creía estar oculto.",
-      "en": "Cybersecurity is what hooks me most. How viruses are built to behave almost like biological ones, how defences are raised so we don't get infected, and how someone finds a way around them again. How intelligence is gathered on someone who thought they were hidden."
+      "es": "De pequeño rompía cosas sin querer. Con el tiempo entendí que romper algo es la forma más honesta de conocerlo, y por eso acabé en la ciberseguridad: aquí entender un sistema significa saber cómo cae. Me fascina que un virus informático se comporte casi como uno biológico, que cada defensa nueva sea una invitación a saltársela y que quien creía estar oculto siempre deje un rastro. Es una partida que no se acaba nunca, y eso es justo lo que me engancha.",
+      "en": "As a kid I used to break things by accident. Over time I realised that breaking something is the most honest way to get to know it, and that is how I ended up in cybersecurity: here, understanding a system means knowing how it falls. I'm fascinated that a computer virus behaves almost like a biological one, that every new defence is an invitation to get around it, and that whoever thought they were hidden always leaves a trace. It's a game that never ends, and that is exactly what keeps me hooked."
     },
     {
-      "es": "Con la inteligencia artificial cualquier idea se puede materializar, y justo por eso lo humano pesa más que nunca. Creo que ahí es donde más destaco.",
-      "en": "With artificial intelligence any idea can be made real, and that is exactly why the human part matters more than ever. I think that's where I stand out most."
+      "es": "Pero no es solo el juego. Al otro lado siempre hay alguien: la persona a la que han estafado, el vecino que quiere saber qué pasa en su barrio, la empresa que no sabe que tiene la puerta abierta. Por eso colaboro con la Policía Nacional y por eso monté, sin cobrar, una plataforma para mi barrio.",
+      "en": "But it isn't just the game. There is always someone on the other side: the person who was scammed, the neighbour who wants to know what is going on in their area, the company that doesn't know its door is open. That is why I collaborate with the Spanish National Police, and why I built a platform for my neighbourhood without charging for it."
+    },
+    {
+      "es": "Ahora que con la inteligencia artificial cualquier idea se puede construir, lo difícil ya no es hacer, sino saber qué merece la pena hacer. Ahí es donde creo que más aporto.",
+      "en": "Now that artificial intelligence lets anyone build any idea, the hard part is no longer making things but knowing what is worth making. That is where I think I contribute most."
     }
   ]
 }
