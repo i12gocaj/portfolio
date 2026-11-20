@@ -5,5 +5,10 @@
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
-  }
+  },
+  // Dominios propios: wrangler crea el DNS y el certificado al desplegar.
+  "routes": [
+    { "pattern": "javiergc.es", "custom_domain": true },
+    { "pattern": "www.javiergc.es", "custom_domain": true }
+  ]
 }
