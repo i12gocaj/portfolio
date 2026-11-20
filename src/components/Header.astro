@@ -1,16 +1,16 @@
 ---
-import { type Lang, localePath, useTranslations } from "@/i18n/ui";
+import { type Lang, type RouteKey, route as routeFor, useTranslations } from "@/i18n/ui";
 
 interface Props {
   lang: Lang;
-  path: string;
+  route: RouteKey;
 }
-const { lang, path } = Astro.props;
+const { lang, route } = Astro.props;
 const t = useTranslations(lang);
-const home = localePath(lang, "/");
-const nav = [
-  { href: `${home}#proyectos`, label: t("nav.projects") },
-  { href: `${home}#contacto`, label: t("nav.contact") },
+const home = routeFor(lang, "home");
+const nav: { key: RouteKey; label: string }[] = [
+  { key: "projects", label: t("nav.projects") },
+  { key: "about", label: t("nav.about") },
 ];
 ---
 
@@ -27,7 +27,14 @@ const nav = [
         {
           nav.map((item) => (
             <li>
-              <a href={item.href} class="text-slate hover:text-ink transition-colors duration-150">
+              <a
+                href={routeFor(lang, item.key)}
+                aria-current={item.key === route ? "page" : undefined}
+                class:list={[
+                  "transition-colors duration-150 hover:text-ink",
+                  item.key === route ? "text-ink" : "text-slate",
+                ]}
+              >
                 {item.label}
               </a>
             </li>
@@ -40,7 +47,7 @@ const nav = [
             <>
               {i > 0 && <span aria-hidden="true">/</span>}
               <a
-                href={localePath(l, path)}
+                href={routeFor(l, route)}
                 hreflang={l}
                 lang={l}
                 aria-current={l === lang ? "true" : undefined}

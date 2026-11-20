@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Timeline from "@/components/Timeline.astro";
+import profile from "@/assets/profile.jpg";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { about, awards, community, documents, education, experience } from "@/data/content";
+import { contact } from "@/data/home";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const sections = [
+  { id: "experiencia", title: t("about.experience"), entries: experience },
+  { id: "formacion", title: t("about.education"), entries: education },
+  { id: "premios", title: t("about.awards"), entries: awards },
+  { id: "comunidad", title: t("about.community"), entries: community },
+];
+---
+
+<BaseLayout lang={lang} route="about" title={t("about.title")} description={about[0][lang]}>
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <header class="grid items-start gap-10 pt-14 md:grid-cols-[minmax(0,1fr)_220px] md:gap-16 md:pt-20">
+      <div>
+        <p class="font-mono text-sm text-slate mb-3">{t("about.title")}</p>
+        <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">Javier González Casares</h1>
+        <div class="mt-6 max-w-xl space-y-4 text-lg leading-relaxed text-slate">
+          {about.map((p) => <p>{p[lang]}</p>)}
+        </div>
+        <p class="mt-7 max-w-md border-l-2 border-copper pl-3.5 leading-relaxed">
+          <span class="meta !text-copper block mb-1">{t("about.focus")}</span>
+          {t("about.focusText")}
+        </p>
+        <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
+          <li><a href={contact.linkedin} rel="noopener" class="text-slate hover:text-accent">LinkedIn →</a></li>
+          <li><a href={contact.github} rel="noopener" class="text-slate hover:text-accent">GitHub →</a></li>
+          <li><a href={`mailto:${contact.email}`} class="text-slate hover:text-accent">Email →</a></li>
+        </ul>
+      </div>
+      <div class="frame mx-auto w-full max-w-[220px]" style="--frame-gap: 9px; --frame-size: 32px;">
+        <Image src={profile} alt={t("hero.photoAlt")} widths={[220, 440]} sizes="220px" class="aspect-square w-full object-cover" />
+      </div>
+    </header>
+
+    {sections.map((s) => <Timeline id={s.id} title={s.title} entries={s.entries} lang={lang} />)}
+
+    <section aria-labelledby="documentos" class="scroll-mt-24 pt-14 pb-24 md:pt-20">
+      <h2 id="documentos" class="meta !text-accent !text-xs">{t("about.documents")}</h2>
+      <p class="mt-2 mb-4 text-[0.9375rem] text-slate">{t("about.documentsLead")}</p>
+      <ul>
+        {
+          documents.map((d) => (
+            <li class="border-t border-line">
+              <a href={d.href} class="group flex items-baseline justify-between gap-6 py-4">
+                <span>
+                  <span class="font-semibold tracking-tight transition-colors duration-150 group-hover:text-accent">
+                    {d.title[lang]}
+                  </span>
+                  <span class="block text-sm text-slate">{d.meta[lang]}</span>
+                </span>
+                <span class="meta shrink-0 transition-colors duration-150 group-hover:text-accent">PDF ↓</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

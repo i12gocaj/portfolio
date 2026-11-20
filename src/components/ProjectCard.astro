@@ -1,0 +1,60 @@
+---
+import Cover from "@/components/Cover.astro";
+import type { Lang } from "@/i18n/ui";
+import { isExternal, type Project } from "@/data/content";
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  /** En la home se muestra solo el primer párrafo y sin enlaces secundarios. */
+  compact?: boolean;
+  detailsLabel?: string;
+}
+const { project: p, lang, compact = false, detailsLabel } = Astro.props;
+const [main, ...rest] = p.links;
+const body = compact ? p.body.slice(0, 1) : p.body;
+---
+
+<article class="group relative">
+  <Cover id={p.id} tone={p.tone} />
+  <div class="mt-6 flex items-baseline justify-between gap-4">
+    <span class="font-mono text-sm font-medium text-accent">{p.id}</span>
+    <span class="meta text-right">{p.kind[lang]}</span>
+  </div>
+  <h3 class="mt-2 text-xl font-semibold tracking-tight transition-colors duration-150 group-hover:text-accent">
+    {
+      main ? (
+        <a href={main.href} rel={isExternal(main.href) ? "noopener" : undefined} class="before:absolute before:inset-0">
+          {p.title[lang]}
+        </a>
+      ) : (
+        p.title[lang]
+      )
+    }
+  </h3>
+  {body.map((b) => <p class="mt-2 text-[0.9375rem] leading-relaxed text-slate">{b[lang]}</p>)}
+  {
+    !compact && p.details.length > 0 && (
+      <details class="relative z-10 mt-3 text-[0.9375rem] text-slate">
+        <summary class="meta cursor-pointer hover:text-accent">{detailsLabel}</summary>
+        {p.details.map((d) => <p class="mt-2 leading-relaxed">{d[lang]}</p>)}
+      </details>
+    )
+  }
+  <ul class="meta mt-4 flex flex-wrap gap-x-4 gap-y-1">
+    {p.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+  {
+    !compact && rest.length > 0 && (
+      <ul class="relative z-10 mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">
+        {rest.map((l) => (
+          <li>
+            <a href={l.href} rel="noopener" class="text-slate underline decoration-frame underline-offset-4 hover:text-accent">
+              {l.label[lang]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</article>

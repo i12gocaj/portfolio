@@ -1,0 +1,41 @@
+---
+import type { Lang } from "@/i18n/ui";
+import { isExternal, type Project } from "@/data/content";
+
+interface Props {
+  project: Project;
+  lang: Lang;
+}
+const { project: p, lang } = Astro.props;
+---
+
+<article class="grid gap-x-8 gap-y-2 border-t border-line py-6 md:grid-cols-[4.5rem_minmax(0,1fr)]">
+  <span class="font-mono text-sm font-medium text-accent md:pt-1">{p.id}</span>
+  <div>
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <h3 class="text-lg font-semibold tracking-tight">{p.title[lang]}</h3>
+      <span class="meta">{p.kind[lang]}</span>
+    </div>
+    {p.body.map((b) => <p class="mt-2 max-w-2xl text-[0.9375rem] leading-relaxed text-slate">{b[lang]}</p>)}
+    <ul class="meta mt-3 flex flex-wrap gap-x-4 gap-y-1">
+      {p.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    {
+      p.links.length > 0 && (
+        <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">
+          {p.links.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                rel={isExternal(l.href) ? "noopener" : undefined}
+                class="text-slate underline decoration-frame underline-offset-4 transition-colors duration-150 hover:text-accent"
+              >
+                {l.label[lang]} <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</article>

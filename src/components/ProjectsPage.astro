@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import ProjectRow from "@/components/ProjectRow.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { featured, projects } from "@/data/content";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const security = projects.filter((p) => p.group === "security");
+const other = projects.filter((p) => p.group === "other");
+---
+
+<BaseLayout lang={lang} route="projects" title={t("projects.pageTitle")} description={t("projects.lead")}>
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <header class="pt-14 pb-12 md:pt-20 md:pb-16">
+      <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("projects.pageTitle")}</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate">{t("projects.lead")}</p>
+    </header>
+
+    <section aria-labelledby="featured-title" class="pb-20">
+      <h2 id="featured-title" class="meta !text-accent !text-xs mb-9">{t("projects.title")}</h2>
+      <ul class="grid gap-x-10 gap-y-14 md:grid-cols-2">
+        {
+          featured.map((p) => (
+            <li>
+              <ProjectCard project={p} lang={lang} detailsLabel={t("projects.details")} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="security-title" class="pb-16">
+      <h2 id="security-title" class="meta !text-accent !text-xs mb-2">{t("projects.security")}</h2>
+      {security.map((p) => <ProjectRow project={p} lang={lang} />)}
+    </section>
+
+    <section aria-labelledby="other-title" class="pb-24">
+      <h2 id="other-title" class="meta !text-accent !text-xs">{t("projects.other")}</h2>
+      <p class="mt-2 mb-4 text-[0.9375rem] text-slate">{t("projects.otherLead")}</p>
+      {other.map((p) => <ProjectRow project={p} lang={lang} />)}
+    </section>
+  </div>
+</BaseLayout>
