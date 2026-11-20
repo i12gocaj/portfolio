@@ -29,6 +29,5 @@ export const contact = {
   email: "javiergc100@protonmail.com",
   github: "https://github.com/i12gocaj",
   linkedin: "https://www.linkedin.com/in/javier-gonzalez-casares/",
-  oldSite: "https://i12gocaj.github.io/portfolio/",
   cv: "/docs/cv-javier-gonzalez-casares.pdf",
 };

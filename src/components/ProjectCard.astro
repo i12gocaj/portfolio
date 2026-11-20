@@ -2,7 +2,7 @@
 import Cover from "@/components/Cover.astro";
 import { type Lang, useTranslations } from "@/i18n/ui";
 import { postForProject, postUrl } from "@/lib/writing";
-import { isExternal, type Project } from "@/data/content";
+import { coverOf, isExternal, type Project } from "@/data/content";
 
 interface Props {
   project: Project;
@@ -19,7 +19,7 @@ const readLabel = useTranslations(lang)("projects.readPost");
 ---
 
 <article id={p.id} class="group relative scroll-mt-28">
-  <Cover id={p.id} tone={p.tone} />
+  <Cover id={p.id} tone={p.tone} image={coverOf(p)} alt="" />
   <div class="mt-6 flex items-baseline justify-between gap-4">
     <span class="font-mono text-sm font-medium text-accent">{p.id}</span>
     <span class="meta text-right">{p.kind[lang]}</span>

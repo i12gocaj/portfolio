@@ -5,7 +5,7 @@ export const defaultLang: Lang = "es";
 export const ui = {
   es: {
     "site.description":
-      "Ingeniero de ciberseguridad y analista de malware en Córdoba, España. Herramientas de seguridad, vulnerabilidades reportadas y trabajo en informática forense.",
+      "Ingeniero de ciberseguridad especializado en análisis de malware, Red Team y análisis forense. Herramientas de seguridad, vulnerabilidades reportadas y trabajo en informática forense.",
     "nav.projects": "Proyectos",
     "nav.writing": "Escritos",
     "nav.about": "Sobre mí",
@@ -14,8 +14,8 @@ export const ui = {
     "nav.main": "Navegación principal",
     "nav.home": "Javier González Casares, inicio",
     "theme.toggle": "Cambiar entre tema claro y oscuro",
-    "hero.headline": "De pequeño rompía cosas sin querer; ahora lo hago <em>a propósito</em>.",
-    "hero.context": "Córdoba · Malware y Red Team · GSEC Málaga",
+    "hero.headline": "Análisis de malware, Red Team y forense digital.",
+    "hero.context": "Ingeniero de ciberseguridad · GSEC Málaga",
     "hero.lead":
       "Analizo malware y busco debilidades en sistemas. También desarrollo herramientas de seguridad y colaboro con la Policía Nacional en investigaciones de cibercrimen.",
     "hero.cta": "Ver proyectos",
@@ -55,11 +55,10 @@ export const ui = {
     "about.documentsLead": "Mi CV y cartas de reconocimiento y recomendación.",
     "contact.title": "Contacto",
     "contact.lead": "Para temas de trabajo o preguntas sobre un proyecto, escríbeme.",
-    "footer.oldSite": "Versión anterior",
   },
   en: {
     "site.description":
-      "Cybersecurity engineer and malware analyst based in Córdoba, Spain. Security tools, disclosed vulnerabilities and work in digital forensics.",
+      "Cybersecurity engineer specialising in malware analysis, red teaming and digital forensics. Security tools, disclosed vulnerabilities and work in digital forensics.",
     "nav.projects": "Projects",
     "nav.writing": "Writing",
     "nav.about": "About",
@@ -68,8 +67,8 @@ export const ui = {
     "nav.main": "Main navigation",
     "nav.home": "Javier González Casares, home",
     "theme.toggle": "Switch between light and dark theme",
-    "hero.headline": "As a kid, I used to break things by accident; now I do it <em>on purpose</em>.",
-    "hero.context": "Córdoba · Malware & Red Team · GSEC Málaga",
+    "hero.headline": "Malware analysis, red teaming and digital forensics.",
+    "hero.context": "Cybersecurity engineer · GSEC Málaga",
     "hero.lead":
       "I analyse malware and test systems for weaknesses. I also build security tools and collaborate with the Spanish National Police on cybercrime investigations.",
     "hero.cta": "View projects",
@@ -109,7 +108,6 @@ export const ui = {
     "about.documentsLead": "My CV and letters of recognition and recommendation.",
     "contact.title": "Contact",
     "contact.lead": "For work enquiries or questions about a project, email me.",
-    "footer.oldSite": "Previous version",
   },
 } as const;
 

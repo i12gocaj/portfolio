@@ -28,9 +28,10 @@ const latest = (await listingFor(lang)).slice(0, 3);
         <p class="font-mono text-sm text-slate mb-4">Javier González Casares</p>
         <h1
           id="hero-title"
-          class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance [&_em]:not-italic [&_em]:text-accent"
-          set:html={t("hero.headline")}
-        />
+          class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance"
+        >
+          {t("hero.headline")}
+        </h1>
         <p class="meta mt-6 !text-accent">
           <span aria-hidden="true" class="text-frame">[</span>
           {t("hero.context")}
@@ -115,7 +116,7 @@ const latest = (await listingFor(lang)).slice(0, 3);
       </div>
       <ul class="grid gap-x-10 gap-y-14 md:grid-cols-2">
         {
-          featured.map((p) => (
+          featured.slice(0, 4).map((p) => (
             <li>
               <ProjectCard project={p} lang={lang} compact />
             </li>

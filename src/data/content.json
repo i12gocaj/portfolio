@@ -33,7 +33,8 @@
           }
         }
       ],
-      "tone": "#8fa3b8"
+      "tone": "#8a9db5",
+      "cover": "allosint"
     },
     {
       "id": "P-02",
@@ -75,7 +76,8 @@
           }
         }
       ],
-      "tone": "#c98f73"
+      "tone": "#c98568",
+      "cover": "instagram-notes"
     },
     {
       "id": "P-03",
@@ -115,7 +117,8 @@
           }
         }
       ],
-      "tone": "#a79cc9"
+      "tone": "#a898c9",
+      "cover": "secemail"
     },
     {
       "id": "P-04",
@@ -150,10 +153,64 @@
           }
         }
       ],
-      "tone": "#9fb39a"
+      "tone": "#93ab8f",
+      "cover": "atlas"
     },
     {
-      "id": "P-05",
+      "group": "featured",
+      "title": {
+        "en": "CCBHash collision study",
+        "es": "Estudio de colisiones de CCBHash"
+      },
+      "kind": {
+        "en": "Malware research",
+        "es": "Investigación de malware"
+      },
+      "body": [
+        {
+          "en": "A reproducible study of when and why CCBHash, a function-level fuzzy hash for malware similarity, gives different functions the same signature. It separates three causes: information discarded before hashing, numeric quantization and 16-bit digest collisions.",
+          "es": "Un estudio reproducible de cuándo y por qué CCBHash, un fuzzy hash a nivel de función para similitud de malware, asigna la misma firma a funciones distintas. Separa tres causas: la información descartada antes del hash, la cuantización numérica y las colisiones del digest de 16 bits."
+        },
+        {
+          "en": "It builds 256 x86-64 functions with an identical signature and provably different return values, and counts every equal-signature pair among 7.2 million functions from a public corpus.",
+          "es": "Construye 256 funciones x86-64 con firma idéntica y valores de retorno demostrablemente distintos, y cuenta todos los pares con la misma firma entre 7,2 millones de funciones de un corpus público."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Malware Analysis",
+        "Fuzzy Hashing",
+        "Reverse Engineering",
+        "radare2"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/ccbhash-collision-study",
+          "label": {
+            "en": "View code",
+            "es": "Ver código"
+          }
+        },
+        {
+          "href": "https://github.com/i12gocaj/ccbhash-collision-study/blob/main/output/pdf/ESTUDIO_CCBHASH.pdf",
+          "label": {
+            "en": "Read the paper (PDF, Spanish)",
+            "es": "Leer el manuscrito (PDF)"
+          }
+        },
+        {
+          "href": "https://doi.org/10.5281/zenodo.24406637",
+          "label": {
+            "en": "DOI",
+            "es": "DOI"
+          }
+        }
+      ],
+      "tone": "#b9a98a",
+      "id": "P-05"
+    },
+    {
+      "id": "P-06",
       "group": "security",
       "title": {
         "en": "Instagram Password Bypass",
@@ -187,7 +244,7 @@
       "tone": "#8fa3b8"
     },
     {
-      "id": "P-06",
+      "id": "P-07",
       "group": "security",
       "title": {
         "en": "Club Gym Sierra Time Bypass",
@@ -221,7 +278,7 @@
       "tone": "#c98f73"
     },
     {
-      "id": "P-07",
+      "id": "P-08",
       "group": "security",
       "title": {
         "en": "Hackademics Forum III CTF",
@@ -256,7 +313,7 @@
       "tone": "#a79cc9"
     },
     {
-      "id": "P-08",
+      "id": "P-09",
       "group": "security",
       "title": {
         "en": "IG Audio Grabber Local",
@@ -291,7 +348,7 @@
       "tone": "#9fb39a"
     },
     {
-      "id": "P-09",
+      "id": "P-10",
       "group": "security",
       "title": {
         "en": "passwow",
@@ -325,7 +382,7 @@
       "tone": "#8fa3b8"
     },
     {
-      "id": "P-10",
+      "id": "P-11",
       "group": "security",
       "title": {
         "en": "AES-app",
@@ -359,7 +416,7 @@
       "tone": "#c98f73"
     },
     {
-      "id": "P-11",
+      "id": "P-12",
       "group": "other",
       "title": {
         "en": "Financial market prediction: BSc thesis",
@@ -401,7 +458,7 @@
       "tone": "#a79cc9"
     },
     {
-      "id": "P-12",
+      "id": "P-13",
       "group": "other",
       "title": {
         "en": "BrillanteSeguro",
@@ -443,7 +500,7 @@
       "tone": "#9fb39a"
     },
     {
-      "id": "P-13",
+      "id": "P-14",
       "group": "other",
       "title": {
         "en": "Network Monitor Pro",
@@ -474,7 +531,7 @@
       "tone": "#8fa3b8"
     },
     {
-      "id": "P-14",
+      "id": "P-15",
       "group": "other",
       "title": {
         "en": "footactik",
@@ -509,7 +566,7 @@
       "tone": "#c98f73"
     },
     {
-      "id": "P-15",
+      "id": "P-16",
       "group": "other",
       "title": {
         "en": "Helion Labs",
@@ -543,7 +600,7 @@
       "tone": "#a79cc9"
     },
     {
-      "id": "P-16",
+      "id": "P-17",
       "group": "other",
       "title": {
         "en": "BuyTheTop",
@@ -581,7 +638,7 @@
       "tone": "#9fb39a"
     },
     {
-      "id": "P-17",
+      "id": "P-18",
       "group": "other",
       "title": {
         "en": "Trading bots",
@@ -607,7 +664,7 @@
       "tone": "#8fa3b8"
     },
     {
-      "id": "P-18",
+      "id": "P-19",
       "group": "other",
       "title": {
         "en": "transcriptapp_bot",
@@ -642,7 +699,7 @@
       "tone": "#c98f73"
     },
     {
-      "id": "P-19",
+      "id": "P-20",
       "group": "other",
       "title": {
         "en": "Scouts La Salle website",
@@ -676,7 +733,7 @@
       "tone": "#a79cc9"
     },
     {
-      "id": "P-20",
+      "id": "P-21",
       "group": "other",
       "title": {
         "en": "HundirFlotaRedes",
@@ -710,7 +767,7 @@
       "tone": "#9fb39a"
     },
     {
-      "id": "P-21",
+      "id": "P-22",
       "group": "other",
       "title": {
         "en": "University projects",
@@ -925,8 +982,8 @@
     },
     {
       "date": {
-        "en": "Completed · Oct 2025 - Oct 2026",
-        "es": "Completado · Oct 2025 - Oct 2026"
+        "en": "Oct 2025 - Oct 2026",
+        "es": "Oct 2025 - Oct 2026"
       },
       "title": {
         "en": "Master’s in Offensive Security",
@@ -1368,7 +1425,8 @@
       "meta": {
         "en": "2 pages",
         "es": "2 páginas"
-      }
+      },
+      "preview": "cv-javier-gonzalez-casares"
     },
     {
       "href": "/docs/carta-reconocimiento-nasa-vdp.pdf",
@@ -1379,7 +1437,8 @@
       "meta": {
         "en": "NASA information security office · Jun 2026",
         "es": "Oficina de seguridad de la información de la NASA · Jun 2026"
-      }
+      },
+      "preview": "carta-reconocimiento-nasa-vdp"
     },
     {
       "href": "/docs/carta-recomendacion-policia-nacional.pdf",
@@ -1390,7 +1449,8 @@
       "meta": {
         "en": "Inspector, Brigada Provincial de Policía Judicial · Dec 2025",
         "es": "Inspector, Brigada Provincial de Policía Judicial · Dic 2025"
-      }
+      },
+      "preview": "carta-recomendacion-policia-nacional"
     },
     {
       "href": "/docs/carta-recomendacion-navantia.pdf",
@@ -1401,7 +1461,8 @@
       "meta": {
         "en": "Rafael Gómez Sánchez · Sep 2025",
         "es": "Rafael Gómez Sánchez · Sept 2025"
-      }
+      },
+      "preview": "carta-recomendacion-navantia"
     },
     {
       "href": "/docs/carta-recomendacion-universidad.pdf",
@@ -1412,7 +1473,8 @@
       "meta": {
         "en": "Feb 2025",
         "es": "Feb 2025"
-      }
+      },
+      "preview": "carta-recomendacion-universidad"
     }
   ],
   "about": [

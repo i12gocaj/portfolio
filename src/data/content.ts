@@ -1,4 +1,5 @@
 import raw from "./content.json";
+import type { ImageMetadata } from "astro";
 import type { Localized } from "@/i18n/ui";
 
 export interface Link {
@@ -17,6 +18,8 @@ export interface Project {
   links: Link[];
   /** Color plano de la portada hasta que exista la ilustración. */
   tone: string;
+  /** Nombre del fichero en src/assets/covers, sin extensión. */
+  cover?: string;
 }
 
 export interface HistoryEntry {
@@ -31,6 +34,8 @@ export interface Doc {
   href: string;
   title: Localized;
   meta: Localized;
+  /** Nombre de la miniatura en src/assets/docs, sin extensión. */
+  preview?: string;
 }
 
 export const projects = raw.projects as Project[];
@@ -41,5 +46,14 @@ export const awards = raw.awards as HistoryEntry[];
 export const community = raw.community as HistoryEntry[];
 export const documents = raw.documents as Doc[];
 export const about = raw.about as Localized[];
+
+const byName = (files: Record<string, { default: ImageMetadata }>) =>
+  Object.fromEntries(Object.entries(files).map(([path, mod]) => [path.split("/").pop()!.replace(/\.\w+$/, ""), mod.default]));
+
+const covers = byName(import.meta.glob<{ default: ImageMetadata }>("../assets/covers/*.{jpg,png,webp}", { eager: true }));
+const previews = byName(import.meta.glob<{ default: ImageMetadata }>("../assets/docs/*.{jpg,png,webp}", { eager: true }));
+
+export const coverOf = (p: Project): ImageMetadata | undefined => (p.cover ? covers[p.cover] : undefined);
+export const previewOf = (d: Doc): ImageMetadata | undefined => (d.preview ? previews[d.preview] : undefined);
 
 export const isExternal = (href: string) => /^https?:\/\//.test(href);

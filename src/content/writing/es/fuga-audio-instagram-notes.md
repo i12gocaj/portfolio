@@ -5,7 +5,9 @@ date: 2026-11-20
 type: proyecto
 project: P-02
 tags: ["Web Security", "Bug Bounty", "Meta"]
-tone: "#c98f73"
+cover: ../../../assets/covers/instagram-notes.jpg
+coverAlt: "Megáfono cubierto con un paño del que escapan ondas de sonido"
+tone: "#c98568"
 draft: true
 ---
 
