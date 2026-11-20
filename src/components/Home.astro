@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Cover from "@/components/Cover.astro";
+import profile from "@/assets/profile.jpg";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { contact, highlights, projects } from "@/data/home";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} path="/">
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <!-- Hero -->
+    <section
+      aria-labelledby="hero-title"
+      class="grid items-center gap-12 pt-14 pb-16 md:grid-cols-[minmax(0,1fr)_300px] md:gap-16 md:pt-24 md:pb-20"
+    >
+      <div>
+        <p class="font-mono text-sm text-slate mb-4">Javier González Casares</p>
+        <h1
+          id="hero-title"
+          class="text-[2rem] sm:text-4xl md:text-[2.75rem] font-semibold tracking-tight leading-[1.15] text-balance [&_em]:not-italic [&_em]:text-accent"
+          set:html={t("hero.headline")}
+        />
+        <p class="meta mt-6 !text-accent">
+          <span aria-hidden="true" class="text-frame">[</span>
+          {t("hero.context")}
+          <span aria-hidden="true" class="text-frame">]</span>
+        </p>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">{t("hero.lead")}</p>
+        <div class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <a
+            href="#proyectos"
+            class="inline-flex items-center gap-2 bg-ink px-5 py-3 text-[0.9375rem] font-medium text-paper transition-colors duration-150 hover:bg-accent"
+          >
+            {t("hero.cta")} <span aria-hidden="true">↓</span>
+          </a>
+          <a
+            href={contact.cv}
+            class="inline-flex items-center gap-2 font-mono text-sm text-slate transition-colors duration-150 hover:text-accent"
+          >
+            {t("hero.cv")} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto w-full max-w-[300px]">
+        <div class="frame" style="--frame-gap: 10px; --frame-size: 40px;">
+          <Image
+            src={profile}
+            alt={t("hero.photoAlt")}
+            widths={[300, 600]}
+            sizes="300px"
+            loading="eager"
+            fetchpriority="high"
+            class="aspect-square w-full object-cover"
+          />
+        </div>
+        <p class="mt-7 border-l-2 border-copper pl-3.5 text-sm leading-relaxed text-slate">
+          <span class="meta !text-copper block mb-1">{t("hero.now")}</span>
+          {t("hero.nowText")}
+        </p>
+      </div>
+    </section>
+
+    <!-- Logros -->
+    <section aria-labelledby="highlights-title" class="pb-16 md:pb-24">
+      <h2 id="highlights-title" class="sr-only">{t("highlights.title")}</h2>
+      <dl class="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+        {
+          highlights.map((h) => (
+            <div class="flex flex-col border-t-2 border-ink pt-4">
+              <dt class="meta order-2 mt-2 !text-ink">{h.label[lang]}</dt>
+              <dd class="order-1 text-3xl font-semibold tracking-tight leading-none">{h.value}</dd>
+              <dd class="order-3 mt-1 text-sm text-slate">{h.note[lang]}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" aria-labelledby="projects-title" class="scroll-mt-24 pb-20 md:pb-28">
+      <div class="mb-9 flex items-baseline justify-between gap-4">
+        <h2 id="projects-title" class="meta !text-accent !text-xs">{t("projects.title")}</h2>
+        <a href={`${contact.github}?tab=repositories`} class="meta transition-colors duration-150 hover:text-accent">
+          {t("projects.all")} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <ul class="grid gap-x-10 gap-y-14 md:grid-cols-2">
+        {
+          projects.map((p) => (
+            <li>
+              <article class="group relative">
+                <Cover id={p.id} tone={p.tone} />
+                <div class="mt-6 flex items-baseline justify-between gap-4">
+                  <span class="font-mono text-sm font-medium text-accent">{p.id}</span>
+                  <span class="meta">{p.kind[lang]}</span>
+                </div>
+                <h3 class="mt-2 text-xl font-semibold tracking-tight transition-colors duration-150 group-hover:text-accent">
+                  <a href={p.href} rel="noopener" class="before:absolute before:inset-0">
+                    {p.title[lang]}
+                  </a>
+                </h3>
+                <p class="mt-2 text-[0.9375rem] leading-relaxed text-slate">{p.summary[lang]}</p>
+                <ul class="meta mt-4 flex flex-wrap gap-x-4 gap-y-1">
+                  {p.tags.map((tag) => <li>{tag}</li>)}
+                </ul>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" aria-labelledby="contact-title" class="scroll-mt-24 border-t border-line py-16 md:py-20">
+      <h2 id="contact-title" class="meta !text-accent !text-xs mb-5">{t("contact.title")}</h2>
+      <p class="max-w-md text-lg text-slate">{t("contact.lead")}</p>
+      <a
+        href={`mailto:${contact.email}`}
+        class="mt-4 inline-block text-xl sm:text-2xl font-semibold tracking-tight underline decoration-frame decoration-2 underline-offset-[6px] transition-colors duration-150 hover:text-accent break-all"
+      >
+        {contact.email}
+      </a>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,26 +1,6 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Node (if needed in the future)
 node_modules/
-npm-debug.log*
-
-# OS
-Thumbs.db
-desktop.ini
-
-# Internal working notes and screenshots (not part of the site)
-*AUDIT*.md
-VALIDATION.md
-DESIGN.md
-audit-results.json
-preview-*.png
+dist/
+.astro/
+.wrangler/
+.DS_Store
+.env*

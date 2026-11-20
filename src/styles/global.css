@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-sans: "Hanken Grotesk Variable", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Los colores apuntan a variables para que el modo oscuro solo cambie valores. */
+  --color-paper: var(--paper);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-frame: var(--frame);
+  --color-copper: var(--copper);
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f2f4f7;
+  --raised: #e8ecf1;
+  --ink: #25303f;
+  --slate: #526078;
+  --line: #c8d0dc;
+  --accent: #5746a6;
+  --frame: #8b80b9;
+  --copper: #b5683f;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #14181f;
+  --raised: #1c222c;
+  --ink: #e4e8ee;
+  --slate: #9aa6b8;
+  --line: #2e3744;
+  --accent: #a99cf0;
+  --frame: #6f659c;
+  --copper: #dd9670;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Metadatos: mono pequena, mayusculas, espaciada. */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* Marcas de esquina: la firma visual del sitio. Dos esquinas opuestas. */
+  .frame {
+    position: relative;
+  }
+  .frame::before,
+  .frame::after {
+    content: "";
+    position: absolute;
+    width: var(--frame-size, 28px);
+    height: var(--frame-size, 28px);
+    border: 0 solid var(--frame);
+    pointer-events: none;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  }
+  .frame::before {
+    top: calc(var(--frame-gap, 8px) * -1);
+    left: calc(var(--frame-gap, 8px) * -1);
+    border-top-width: 2px;
+    border-left-width: 2px;
+  }
+  .frame::after {
+    bottom: calc(var(--frame-gap, 8px) * -1);
+    right: calc(var(--frame-gap, 8px) * -1);
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+  }
+  @media (hover: hover) {
+    .group:hover .frame::before,
+    .group:hover .frame::after {
+      width: calc(var(--frame-size, 28px) * 1.6);
+      height: calc(var(--frame-size, 28px) * 1.6);
+      border-color: var(--accent);
+    }
+  }
+}

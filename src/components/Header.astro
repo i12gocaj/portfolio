@@ -1,0 +1,84 @@
+---
+import { type Lang, localePath, useTranslations } from "@/i18n/ui";
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const home = localePath(lang, "/");
+const nav = [
+  { href: `${home}#proyectos`, label: t("nav.projects") },
+  { href: `${home}#contacto`, label: t("nav.contact") },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm">
+  <nav
+    aria-label={t("nav.main")}
+    class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 md:px-8"
+  >
+    <a href={home} aria-label={t("nav.home")} class="text-2xl font-bold tracking-tighter leading-none">
+      jg<span class="text-accent">.</span>
+    </a>
+    <div class="flex items-center gap-4 sm:gap-7">
+      <ul class="flex items-center gap-4 sm:gap-7 text-[0.9375rem]">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class="text-slate hover:text-ink transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="meta flex items-center gap-1.5">
+        {
+          (["es", "en"] as const).map((l, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">/</span>}
+              <a
+                href={localePath(l, path)}
+                hreflang={l}
+                lang={l}
+                aria-current={l === lang ? "true" : undefined}
+                class:list={[
+                  "py-1 transition-colors duration-150 hover:text-accent",
+                  l === lang && "text-ink font-medium",
+                ]}
+              >
+                {l === lang ? `[${l}]` : l}
+              </a>
+            </>
+          ))
+        }
+      </div>
+      <button
+        type="button"
+        id="theme-toggle"
+        aria-label={t("theme.toggle")}
+        class="grid h-8 w-8 place-items-center rounded-sm text-slate hover:text-accent transition-colors duration-150 cursor-pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("theme-toggle");
+  btn?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    if (next === "dark") root.dataset.theme = "dark";
+    else delete root.dataset.theme;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+</script>
