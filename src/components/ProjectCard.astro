@@ -14,7 +14,7 @@ const href = projectUrl(p, lang) ?? p.links[0]?.href;
 <article id={p.id} class="group relative scroll-mt-28">
   <Cover id={p.id} tone={p.tone} image={coverOf(p)} alt="" sizes="(min-width: 768px) 300px, 100vw" />
   <div class="mt-5 flex items-baseline justify-between gap-4">
-    <span class="font-mono text-sm font-medium text-accent">{p.id}</span>
+    <span class="shrink-0 whitespace-nowrap font-mono text-sm font-medium text-accent">{p.id}</span>
     <span class="meta text-right">{p.kind[lang]}</span>
   </div>
   <h3 class="mt-1.5 text-lg font-semibold tracking-tight leading-snug transition-colors duration-150 group-hover:text-accent">

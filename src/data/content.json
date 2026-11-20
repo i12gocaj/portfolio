@@ -247,8 +247,9 @@
           }
         }
       ],
-      "tone": "#b9a3a8",
-      "slug": "instagram-password-bypass"
+      "tone": "#a8979c",
+      "slug": "instagram-password-bypass",
+      "cover": "instagram-password-bypass"
     },
     {
       "id": "P-07",
@@ -282,8 +283,9 @@
           }
         }
       ],
-      "tone": "#9db0b3",
-      "slug": "club-gym-sierra"
+      "tone": "#6fa596",
+      "slug": "club-gym-sierra",
+      "cover": "club-gym-sierra"
     },
     {
       "id": "P-08",
@@ -1461,12 +1463,20 @@
   ],
   "about": [
     {
-      "en": "I studied Computer Engineering at the University of Córdoba and completed a master’s in Offensive Security at Campus Internacional de Ciberseguridad.",
-      "es": "Estudié Ingeniería Informática en la Universidad de Córdoba y completé un máster en Seguridad Ofensiva en el Campus Internacional de Ciberseguridad."
+      "es": "No sé mirar al techo, y cualquiera que me conozca lo sabe. Un día te estoy enseñando mi alarma para hacer palomitas y al siguiente he construido una herramienta OSINT que te saca hasta el color de la ropa interior.",
+      "en": "I can't just stare at the ceiling, and anyone who knows me knows it. One day I'm showing you my popcorn alarm, and the next I've built an OSINT tool that digs up everything about you, down to the colour of your underwear."
     },
     {
-      "en": "I’m now taking the Expert Diploma in Reverse Engineering and Malware Intelligence at Google’s Safety Engineering Center in Málaga.",
-      "es": "Ahora curso el Diploma de Experto en Ingeniería Inversa e Inteligencia de Malware en el Safety Engineering Center de Google en Málaga."
+      "es": "Tengo ideas en la cabeza a todas horas: soluciones, productos, mejoras. No puedo evitar analizar lo que tengo delante y que se me ocurran distintos enfoques para hacerlo mejor. Y lo que me apasiona me obsesiona: primero aprenderlo, después enseñarlo.",
+      "en": "I have ideas in my head at all hours: solutions, products, improvements. I can't help analysing whatever is in front of me and coming up with different ways to make it better. And whatever I'm passionate about, I get obsessed with: first learning it, then teaching it."
+    },
+    {
+      "es": "La ciberseguridad es lo que más me atrapa. Cómo se construyen virus que se comportan casi como los biológicos, cómo se levantan las defensas para que no nos infecten y cómo alguien encuentra la manera de saltárselas otra vez. Cómo se reúne inteligencia sobre alguien que creía estar oculto.",
+      "en": "Cybersecurity is what hooks me most. How viruses are built to behave almost like biological ones, how defences are raised so we don't get infected, and how someone finds a way around them again. How intelligence is gathered on someone who thought they were hidden."
+    },
+    {
+      "es": "Con la inteligencia artificial cualquier idea se puede materializar, y justo por eso lo humano pesa más que nunca. Creo que ahí es donde más destaco.",
+      "en": "With artificial intelligence any idea can be made real, and that is exactly why the human part matters more than ever. I think that's where I stand out most."
     }
   ]
 }
