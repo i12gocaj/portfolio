@@ -8,7 +8,7 @@ For a kid whose only question was "why?", that blew my mind.
 
 It didn't take me long to find [emkei.cz](https://emkei.cz), a site that let you send an email with any sender you wanted and which, surprisingly, is still running on the day I am writing this. It opened up endless ways to prank my friends and family. I don't remember exactly what I sent back then. I do remember that it wouldn't go down well today.
 
-I have a problem: I get bored fast. As soon as I understand how something works, or think I do, I stop using it. I came up with a thousand ways to do harm with it and used none, because doing harm has never been what drives me. But the opposite didn't drive me either: I didn't spend a single minute thinking about how it could be prevented. I moved on.
+Back then I had a problem: I got bored fast. As soon as I understood how something worked, or thought I did, I stopped using it. I came up with a thousand ways to do harm with it and used none, because doing harm has never been what drives me. But the opposite didn't drive me either: I didn't spend a single minute thinking about how it could be prevented. I moved on.
 
 Those were different times. Spam filters missed more than they caught and hardly anyone had seen a scam like that, so people fell for it completely. Today the odd thing is a day without one, and most of us spot them at a glance. And that is the ones that arrive: many are never delivered and others die in the spam folder.
 

@@ -8,7 +8,7 @@ A un niño al que no le cabía otra pregunta en la boca que "¿por qué?", aquel
 
 No tardé en dar con [emkei.cz](https://emkei.cz), una página que te dejaba enviar un correo con el remitente que quisieras y que, sorprendentemente, sigue activa el día en que escribo esto. Se me abrió un sinfín de posibilidades para gastar bromas a mis colegas y a mi familia. No recuerdo bien qué llegué a enviar en aquella época. Sí recuerdo que hoy no estaría muy bien visto.
 
-Tengo un problema, y es que me aburro enseguida. En cuanto entiendo cómo funciona algo, o creo que lo entiendo, dejo de usarlo. Se me ocurrieron mil formas de hacer daño con aquello y no usé ninguna, porque hacer el mal nunca ha sido lo que me mueve. Pero tampoco me movía lo contrario: no dediqué ni un minuto a pensar cómo se podía evitar. Pasé a otra cosa.
+Por aquel entonces tenía un problema, y es que me aburría enseguida. En cuanto entendía cómo funcionaba algo, o creía entenderlo, dejaba de usarlo. Se me ocurrieron mil formas de hacer daño con aquello y no usé ninguna, porque hacer el mal nunca ha sido lo que me mueve. Pero tampoco me movía lo contrario: no dediqué ni un minuto a pensar cómo se podía evitar. Pasé a otra cosa.
 
 Eran otros tiempos. Los filtros de correo no deseado fallaban más que acertaban y casi nadie había visto una estafa así, de modo que la gente se las comía con papas. Hoy lo raro es que pase un día sin recibir alguno, y la mayoría sabemos reconocerlos al vuelo. Eso los que llegan: muchos ni se entregan y otros mueren en la carpeta de spam.
 
