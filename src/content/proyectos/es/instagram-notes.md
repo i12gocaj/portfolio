@@ -1,38 +1,37 @@
 ---
-draft: true
+updated: 2026-11-21
 ---
 
-Esto es un borrador de ejemplo: solo se ve en desarrollo (`draft: true`). Sirve de plantilla. Sustituye cada bloque por tu texto y borra las notas. El título, la descripción y los enlaces salen de la ficha del proyecto; aquí va solo lo que quieras contar de más.
+Todo empezó por aburrimiento. Para que luego digan que no es bueno aburrirse de vez en cuando.
 
-## El comportamiento que me llamó la atención
+Era una de esas tardes de hacer scroll en Instagram y ver historias sin ver nada, cuando me dejé caer por Notes, la función que la aplicación había estrenado unos meses antes. La odiaba con toda mi alma. Nunca he entendido la necesidad de compartir con todo el mundo lo que piensas a todas horas, y aquello te lo ponía todavía más fácil.
 
-Nota: empieza por lo concreto. Qué estabas haciendo, qué esperabas ver y qué viste en su lugar.
+Entre decenas de notas vi una que no era una nota, sino un vídeo. Un vídeo dentro de Notes, que viene a ser lo mismo que subir una historia, pero en notas. Pilláis el sinsentido, ¿verdad?
 
-## Cómo lo comprobé
+Eso sí que era reciente. Y la primera versión de una función metida dentro de otra función que también es nueva tiene muchas papeletas para traer fallos. Así que, con el aburrimiento que me atormentaba esa tarde, me puse a mirar dónde se guardaba aquel vídeo y si podía descargarlo. Simple curiosidad, sin ninguna expectativa.
 
-Nota: los pasos reales, en orden. Aquí encajan las peticiones y respuestas, con bloques de código:
+Se podía. Bastaba con inspeccionar la página, copiar la dirección del vídeo y abrirla en otra pestaña. Lo descargué y pensé que ahí se acababa todo.
 
-```http
-GET /ruta/de/ejemplo HTTP/2
-Host: ejemplo.invalid
-```
+El vídeo llevaba de fondo una canción que su autor le había puesto desde Instagram. Pero cuando lo reproduje en mi ordenador no sonaba la canción. Sonaba el audio real de la grabación. Se oía a gente hablando al fondo.
 
-Explica qué buscabas en cada paso y qué descartaste. Los callejones sin salida también interesan.
+Y saltó la alarma dentro de mi cabeza.
 
-## Por qué ocurría
+En Notes un vídeo se ve siempre en silencio o con la canción que hayas elegido, nunca con su sonido original. Quien lo sube cuenta con eso. Aquella gente hablaba de cosas banales, pero ¿y si hubieran estado contando un secreto? ¿Y si de fondo sonara algo íntimo? Lo que creías haber silenciado seguía ahí, al alcance de cualquiera que supiera dónde mirar.
 
-Nota: la causa, hasta donde puedas afirmarla. Distingue lo que comprobaste de lo que supones.
+Era un problema de privacidad, así que fui a reportarlo al programa de recompensas de Meta.
 
-## El reporte
+---
 
-Nota: cómo redactaste el reporte, qué pruebas adjuntaste y cuánto tardó cada respuesta.
+Aquí viene la parte curiosa, porque si no llega a ser por mi cabezonería hoy no tendría este fallo reconocido.
 
-| Fecha | Qué pasó |
-| --- | --- |
-| Día 0 | Reporte enviado |
-| Día N | Meta confirma el fallo |
-| Día M | Corrección y recompensa |
+Me rechazaron el reporte. Tuve que reclamar hasta tres veces, con vídeos que demostraban que aquello era real, y la respuesta era siempre la misma: no conseguían reproducirlo.
 
-## Lo que me llevo
+En cierto modo tenían razón. Desde donde ellos probaban, el fallo no existía.
 
-Nota: cierra con algo que le sirva a otra persona que empieza en bug bounty.
+Nunca me dieron detalles, así que esto es lo que yo deduje. El audio se procesaba de forma distinta según los servidores por los que entraba el vídeo, y eso dependía del lugar desde el que lo subías. Si lo subías desde España, el sonido original se quedaba dentro del fichero. Cuando el equipo de Meta lo intentaba desde Estados Unidos, sus servidores lo limpiaban bien y no había nada que encontrar.
+
+Les di la pista: quizá era una cuestión geográfica. Supongo que lo probaron desde otra región, porque en la siguiente respuesta ya me daban la razón. Validaron el fallo, lo corrigieron y me premiaron con 1.000 dólares.
+
+Si algo aprendí es que un "no conseguimos reproducirlo" no siempre significa que el problema no exista. A veces solo significa que lo están mirando desde otro sitio.
+
+El informe y el vídeo de la prueba están en mi repositorio, por si queréis echarle un vistazo. Y no, sigo sin entender Instagram Notes.
