@@ -55,8 +55,8 @@
       "slug": "ccbhash",
       "cover": "ccbhash",
       "tagline": {
-        "es": "Le busqué las cosquillas a un hash pensado para reconocer malware y encontré 256 funciones distintas con la misma firma.",
-        "en": "I went looking for the weak spots of a hash built to recognise malware and found 256 different functions with the same signature."
+        "es": "Un profesor dijo medio en broma que alguien debería hacer las pruebas de colisiones de un hash de malware. Me lo tomé en serio.",
+        "en": "A professor said, half joking, that someone should run the collision tests on a malware hash. I took it seriously."
       }
     },
     {
