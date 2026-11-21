@@ -55,8 +55,8 @@
       "slug": "ccbhash",
       "cover": "ccbhash",
       "tagline": {
-        "es": "Un profesor dijo medio en broma que alguien debería hacer las pruebas de colisiones de un hash de malware. Me lo tomé en serio.",
-        "en": "A professor said, half joking, that someone should run the collision tests on a malware hash. I took it seriously."
+        "es": "«Quien quiera, que se anime», dijo el profesor. Me animé.",
+        "en": "\"Anyone who wants to can have a go,\" the professor said. I had a go."
       }
     },
     {
@@ -103,8 +103,8 @@
       "cover": "instagram-notes",
       "slug": "instagram-notes",
       "tagline": {
-        "es": "Una tarde de aburrimiento descargué un vídeo que Instagram enseñaba en silencio. Se oía a gente hablando.",
-        "en": "One bored afternoon I downloaded a video that Instagram showed in silence. You could hear people talking."
+        "es": "El vídeo estaba en silencio. El audio, no.",
+        "en": "The video was silent. The audio wasn't."
       }
     },
     {
@@ -144,8 +144,8 @@
       "cover": "allosint",
       "slug": "allosint",
       "tagline": {
-        "es": "Con un correo o un teléfono encontró de mis amigos cosas que ni ellos recordaban haber publicado.",
-        "en": "From an email or a phone number it found things about my friends that even they didn't remember posting."
+        "es": "Internet se acuerda de lo que tú ya has olvidado.",
+        "en": "The internet remembers what you have already forgotten."
       }
     },
     {
@@ -190,8 +190,8 @@
       "cover": "secemail",
       "slug": "secemail",
       "tagline": {
-        "es": "El truco con el que gastaba bromas a los nueve años, convertido en una herramienta para que no te lo hagan a ti.",
-        "en": "The trick I used for pranks at nine, turned into a tool so that nobody pulls it on you."
+        "es": "Lo que a los nueve años era una broma, hoy es una auditoría.",
+        "en": "What was a prank at nine is an audit today."
       }
     },
     {
@@ -231,8 +231,8 @@
       "cover": "atlas",
       "slug": "atlas",
       "tagline": {
-        "es": "Monté un copiloto que vigila a los copilotos, lo defendí con el mejor pitch que he hecho y no quedé ni entre los tres primeros.",
-        "en": "I built a copilot that watches the copilots, defended it with the best pitch I've ever given and didn't even make the top three."
+        "es": "¿Quién vigila a los copilotos? Yo tenía una respuesta. El jurado, otra opinión.",
+        "en": "Who watches the copilots? I had an answer. The jury had another opinion."
       }
     },
     {
@@ -271,8 +271,8 @@
       "slug": "instagram-password-bypass",
       "cover": "instagram-password-bypass",
       "tagline": {
-        "es": "Escribí mal mi contraseña desde una cama de hospital en Rumanía. Instagram me dejó cambiarla igualmente.",
-        "en": "I typed my password wrong from a hospital bed in Romania. Instagram let me change it anyway."
+        "es": "Instagram me pidió mi contraseña actual. Puse una «a» y coló.",
+        "en": "Instagram asked for my current password. I typed an \"a\" and it worked."
       }
     },
     {
@@ -311,151 +311,13 @@
       "slug": "club-gym-sierra",
       "cover": "club-gym-sierra",
       "tagline": {
-        "es": "Mis padres se quedaban sin plaza en las clases del gimnasio. Yo me acordé de un truco de los videojuegos.",
-        "en": "My parents kept missing out on gym classes. I remembered a trick from video games."
+        "es": "Mis padres nunca conseguían plaza. Hasta que adelanté el reloj del móvil.",
+        "en": "My parents never got a place. Until I set the phone's clock forward."
       }
     },
     {
       "id": "P-08",
-      "group": "security",
-      "title": {
-        "en": "Hackademics Forum III CTF",
-        "es": "Hackademics Forum III CTF"
-      },
-      "kind": {
-        "en": "CTF",
-        "es": "CTF"
-      },
-      "body": [
-        {
-          "en": "My solutions and write-ups from Hackademics Forum III, a capture-the-flag security competition. I won first prize in the attendee competition, sponsored by Hack The Box.",
-          "es": "Mis soluciones y write-ups del Hackademics Forum III, una competición de seguridad tipo capture the flag. Gané el primer premio de la competición para asistentes, patrocinada por Hack The Box."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "CTF",
-        "Reverse Engineering",
-        "Web Exploitation",
-        "Pwn"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/CTF-Hackademics-Forum-3",
-          "label": {
-            "en": "GitHub",
-            "es": "GitHub"
-          }
-        }
-      ],
-      "tone": "#a79cc9"
-    },
-    {
-      "id": "P-09",
-      "group": "security",
-      "title": {
-        "en": "IG Audio Grabber Local",
-        "es": "IG Audio Grabber Local"
-      },
-      "kind": {
-        "en": "Chrome Extension",
-        "es": "Extensión de Chrome"
-      },
-      "body": [
-        {
-          "en": "A Chrome extension that saves Instagram Direct voice messages. It finds audio resources in the browser, matches them to the message duration and downloads the original file or converts it to MP3 locally.",
-          "es": "Una extensión de Chrome que guarda las notas de voz de Instagram Direct. Localiza los recursos de audio en el navegador, los asocia con la duración del mensaje y descarga el archivo original o lo convierte a MP3 en local."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "Chrome Extension",
-        "Manifest V3",
-        "JavaScript",
-        "Browser APIs"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/ig-audio-downloader-extension",
-          "label": {
-            "en": "GitHub",
-            "es": "GitHub"
-          }
-        }
-      ],
-      "tone": "#9fb39a"
-    },
-    {
-      "id": "P-10",
-      "group": "security",
-      "title": {
-        "en": "passwow",
-        "es": "passwow"
-      },
-      "kind": {
-        "en": "Python",
-        "es": "Python"
-      },
-      "body": [
-        {
-          "en": "A command-line password manager that stores an encrypted vault on your computer. It uses AES-256-GCM encryption and Scrypt key derivation, with commands to create a vault and add, list, retrieve, remove, import or export entries.",
-          "es": "Un gestor de contraseñas de línea de comandos que guarda una bóveda cifrada en tu ordenador. Usa cifrado AES-256-GCM y derivación de claves con Scrypt, con comandos para crear una bóveda y añadir, listar, recuperar, eliminar, importar o exportar entradas."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "Python",
-        "Cryptography",
-        "CLI"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/passwow",
-          "label": {
-            "en": "GitHub",
-            "es": "GitHub"
-          }
-        }
-      ],
-      "tone": "#8fa3b8"
-    },
-    {
-      "id": "P-11",
-      "group": "security",
-      "title": {
-        "en": "AES-app",
-        "es": "AES-app"
-      },
-      "kind": {
-        "en": "Python",
-        "es": "Python"
-      },
-      "body": [
-        {
-          "en": "A desktop encryption app using AES-128-GCM. The Tkinter interface generates keys and nonces (one-use values) and checks whether encrypted data has been altered.",
-          "es": "Una app de escritorio de cifrado con AES-128-GCM. La interfaz en Tkinter genera claves y nonces (valores de un solo uso) y comprueba si los datos cifrados se han alterado."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "Python",
-        "Cryptography",
-        "AES-GCM"
-      ],
-      "links": [
-        {
-          "href": "https://github.com/i12gocaj/AES-app",
-          "label": {
-            "en": "GitHub",
-            "es": "GitHub"
-          }
-        }
-      ],
-      "tone": "#c98f73"
-    },
-    {
-      "id": "P-12",
-      "group": "other",
+      "group": "featured",
       "title": {
         "en": "Financial market prediction: BSc thesis",
         "es": "Predicción de mercados financieros: TFG"
@@ -493,11 +355,12 @@
           }
         }
       ],
-      "tone": "#a79cc9"
+      "tone": "#c9b27c",
+      "slug": "tfg-mercados"
     },
     {
-      "id": "P-13",
-      "group": "other",
+      "id": "P-09",
+      "group": "featured",
       "title": {
         "en": "BrillanteSeguro",
         "es": "BrillanteSeguro"
@@ -535,42 +398,12 @@
           }
         }
       ],
-      "tone": "#9fb39a"
+      "tone": "#7f97a3",
+      "slug": "brillanteseguro"
     },
     {
-      "id": "P-14",
-      "group": "other",
-      "title": {
-        "en": "Network Monitor Pro",
-        "es": "Network Monitor Pro"
-      },
-      "kind": {
-        "en": "Swift",
-        "es": "Swift"
-      },
-      "body": [
-        {
-          "en": "A macOS app I published on the App Store. It shows upload and download rates, connection delay and bandwidth usage, with configurable alerts.",
-          "es": "Una app para macOS que publiqué en la App Store. Muestra las velocidades de subida y bajada, la latencia de la conexión y el uso de ancho de banda, con alertas configurables."
-        },
-        {
-          "en": "App Store link currently unavailable.",
-          "es": "El enlace a la App Store no está disponible ahora mismo."
-        }
-      ],
-      "details": [],
-      "tags": [
-        "Swift",
-        "macOS",
-        "Monitoring",
-        "App Store"
-      ],
-      "links": [],
-      "tone": "#8fa3b8"
-    },
-    {
-      "id": "P-15",
-      "group": "other",
+      "id": "P-10",
+      "group": "featured",
       "title": {
         "en": "footactik",
         "es": "footactik"
@@ -601,7 +434,177 @@
           }
         }
       ],
+      "tone": "#a3a987",
+      "slug": "footactik"
+    },
+    {
+      "id": "P-11",
+      "group": "security",
+      "title": {
+        "en": "Hackademics Forum III CTF",
+        "es": "Hackademics Forum III CTF"
+      },
+      "kind": {
+        "en": "CTF",
+        "es": "CTF"
+      },
+      "body": [
+        {
+          "en": "My solutions and write-ups from Hackademics Forum III, a capture-the-flag security competition. I won first prize in the attendee competition, sponsored by Hack The Box.",
+          "es": "Mis soluciones y write-ups del Hackademics Forum III, una competición de seguridad tipo capture the flag. Gané el primer premio de la competición para asistentes, patrocinada por Hack The Box."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "CTF",
+        "Reverse Engineering",
+        "Web Exploitation",
+        "Pwn"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/CTF-Hackademics-Forum-3",
+          "label": {
+            "en": "GitHub",
+            "es": "GitHub"
+          }
+        }
+      ],
+      "tone": "#a79cc9"
+    },
+    {
+      "id": "P-12",
+      "group": "security",
+      "title": {
+        "en": "IG Audio Grabber Local",
+        "es": "IG Audio Grabber Local"
+      },
+      "kind": {
+        "en": "Chrome Extension",
+        "es": "Extensión de Chrome"
+      },
+      "body": [
+        {
+          "en": "A Chrome extension that saves Instagram Direct voice messages. It finds audio resources in the browser, matches them to the message duration and downloads the original file or converts it to MP3 locally.",
+          "es": "Una extensión de Chrome que guarda las notas de voz de Instagram Direct. Localiza los recursos de audio en el navegador, los asocia con la duración del mensaje y descarga el archivo original o lo convierte a MP3 en local."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Chrome Extension",
+        "Manifest V3",
+        "JavaScript",
+        "Browser APIs"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/ig-audio-downloader-extension",
+          "label": {
+            "en": "GitHub",
+            "es": "GitHub"
+          }
+        }
+      ],
+      "tone": "#9fb39a"
+    },
+    {
+      "id": "P-13",
+      "group": "security",
+      "title": {
+        "en": "passwow",
+        "es": "passwow"
+      },
+      "kind": {
+        "en": "Python",
+        "es": "Python"
+      },
+      "body": [
+        {
+          "en": "A command-line password manager that stores an encrypted vault on your computer. It uses AES-256-GCM encryption and Scrypt key derivation, with commands to create a vault and add, list, retrieve, remove, import or export entries.",
+          "es": "Un gestor de contraseñas de línea de comandos que guarda una bóveda cifrada en tu ordenador. Usa cifrado AES-256-GCM y derivación de claves con Scrypt, con comandos para crear una bóveda y añadir, listar, recuperar, eliminar, importar o exportar entradas."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Python",
+        "Cryptography",
+        "CLI"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/passwow",
+          "label": {
+            "en": "GitHub",
+            "es": "GitHub"
+          }
+        }
+      ],
+      "tone": "#8fa3b8"
+    },
+    {
+      "id": "P-14",
+      "group": "security",
+      "title": {
+        "en": "AES-app",
+        "es": "AES-app"
+      },
+      "kind": {
+        "en": "Python",
+        "es": "Python"
+      },
+      "body": [
+        {
+          "en": "A desktop encryption app using AES-128-GCM. The Tkinter interface generates keys and nonces (one-use values) and checks whether encrypted data has been altered.",
+          "es": "Una app de escritorio de cifrado con AES-128-GCM. La interfaz en Tkinter genera claves y nonces (valores de un solo uso) y comprueba si los datos cifrados se han alterado."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Python",
+        "Cryptography",
+        "AES-GCM"
+      ],
+      "links": [
+        {
+          "href": "https://github.com/i12gocaj/AES-app",
+          "label": {
+            "en": "GitHub",
+            "es": "GitHub"
+          }
+        }
+      ],
       "tone": "#c98f73"
+    },
+    {
+      "id": "P-15",
+      "group": "other",
+      "title": {
+        "en": "Network Monitor Pro",
+        "es": "Network Monitor Pro"
+      },
+      "kind": {
+        "en": "Swift",
+        "es": "Swift"
+      },
+      "body": [
+        {
+          "en": "A macOS app I published on the App Store. It shows upload and download rates, connection delay and bandwidth usage, with configurable alerts.",
+          "es": "Una app para macOS que publiqué en la App Store. Muestra las velocidades de subida y bajada, la latencia de la conexión y el uso de ancho de banda, con alertas configurables."
+        },
+        {
+          "en": "App Store link currently unavailable.",
+          "es": "El enlace a la App Store no está disponible ahora mismo."
+        }
+      ],
+      "details": [],
+      "tags": [
+        "Swift",
+        "macOS",
+        "Monitoring",
+        "App Store"
+      ],
+      "links": [],
+      "tone": "#8fa3b8"
     },
     {
       "id": "P-16",
