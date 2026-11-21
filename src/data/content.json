@@ -706,8 +706,12 @@
       },
       "body": [
         {
-          "en": "Trading bots for KuCoin and other cryptocurrency exchanges. They adjust order prices and spreads to stay competitive, balance holdings and manage risk, with settings adapted to each exchange.",
-          "es": "Bots de trading para KuCoin y otros exchanges de criptomonedas. Ajustan los precios de las órdenes y los spreads para seguir siendo competitivos, equilibran la cartera y gestionan el riesgo, con ajustes adaptados a cada exchange."
+          "es": "Bots de trading para KuCoin y otros exchanges de criptomonedas. Ajustan los precios de las órdenes y los spreads para seguir siendo competitivos, equilibran la cartera y gestionan el riesgo, con ajustes adaptados a cada exchange.",
+          "en": "Trading bots for KuCoin and other cryptocurrency exchanges. They adjust order prices and spreads to stay competitive, balance holdings and manage risk, with settings adapted to each exchange."
+        },
+        {
+          "es": "Hasta hoy han generado más de 50.000 € de beneficio. El código no lo publico, por razones obvias.",
+          "en": "To date they have generated more than €50,000 in profit. I don't publish the code, for obvious reasons."
         }
       ],
       "details": [],
@@ -767,8 +771,12 @@
       },
       "body": [
         {
-          "en": "I maintain the Scouts La Salle Córdoba website, updating its content and looking after availability and secure communication.",
-          "es": "Mantengo la web de Scouts La Salle Córdoba: actualizo sus contenidos y me ocupo de su disponibilidad y de que la comunicación sea segura."
+          "es": "Llevo la web de Scouts La Salle Córdoba. La mantengo al día, le añado secciones nuevas y me ocupo del SEO y de la seguridad.",
+          "en": "I run the Scouts La Salle Córdoba website. I keep it up to date, add new sections and look after SEO and security."
+        },
+        {
+          "es": "También he automatizado todo lo que antes se hacía a mano: la documentación, la subida de fotos y la creación de álbumes. La gestión es ahora mucho más sencilla, tanto para el grupo como para las familias.",
+          "en": "I have also automated everything that used to be done by hand: the paperwork, photo uploads and album creation. Administration is now much simpler, both for the group and for the families."
         }
       ],
       "details": [],
