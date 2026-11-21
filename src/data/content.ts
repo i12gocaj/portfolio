@@ -22,6 +22,8 @@ export interface Project {
   cover?: string;
   /** Solo los destacados: da nombre a su página propia. */
   slug?: string;
+  /** Solo los destacados: la frase que lo presenta en tarjetas y en su página. */
+  tagline?: Localized;
 }
 
 export interface HistoryEntry {

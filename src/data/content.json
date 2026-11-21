@@ -53,7 +53,11 @@
       "tone": "#d9b48f",
       "id": "P-01",
       "slug": "ccbhash",
-      "cover": "ccbhash"
+      "cover": "ccbhash",
+      "tagline": {
+        "es": "Le busqué las cosquillas a un hash pensado para reconocer malware y encontré 256 funciones distintas con la misma firma.",
+        "en": "I went looking for the weak spots of a hash built to recognise malware and found 256 different functions with the same signature."
+      }
     },
     {
       "id": "P-02",
@@ -97,7 +101,11 @@
       ],
       "tone": "#c98568",
       "cover": "instagram-notes",
-      "slug": "instagram-notes"
+      "slug": "instagram-notes",
+      "tagline": {
+        "es": "Las Notas de Instagram se reproducían en silencio. El audio seguía ahí, a un enlace de distancia.",
+        "en": "Instagram Notes played in silence. The audio was still there, one link away."
+      }
     },
     {
       "id": "P-03",
@@ -134,7 +142,11 @@
       ],
       "tone": "#8a9db5",
       "cover": "allosint",
-      "slug": "allosint"
+      "slug": "allosint",
+      "tagline": {
+        "es": "Dame un correo o un teléfono y te cuento qué sabe internet de ti.",
+        "en": "Give me an email or a phone number and I'll tell you what the internet knows about you."
+      }
     },
     {
       "id": "P-04",
@@ -176,7 +188,11 @@
       ],
       "tone": "#a898c9",
       "cover": "secemail",
-      "slug": "secemail"
+      "slug": "secemail",
+      "tagline": {
+        "es": "El truco con el que gastaba bromas a los nueve años, convertido en una herramienta para que no te lo hagan a ti.",
+        "en": "The trick I used for pranks at nine, turned into a tool so that nobody pulls it on you."
+      }
     },
     {
       "id": "P-05",
@@ -213,7 +229,11 @@
       ],
       "tone": "#93ab8f",
       "cover": "atlas",
-      "slug": "atlas"
+      "slug": "atlas",
+      "tagline": {
+        "es": "Un copiloto que vigila a los demás copilotos: cuánto cuestan, quién los usa y qué se les escapa.",
+        "en": "A copilot that watches the other copilots: what they cost, who uses them and what slips through."
+      }
     },
     {
       "id": "P-06",
@@ -249,7 +269,11 @@
       ],
       "tone": "#a8979c",
       "slug": "instagram-password-bypass",
-      "cover": "instagram-password-bypass"
+      "cover": "instagram-password-bypass",
+      "tagline": {
+        "es": "Cambiar la contraseña de una cuenta de Instagram sin saber la anterior. Ya no se puede.",
+        "en": "Changing an Instagram account's password without knowing the old one. Not possible any more."
+      }
     },
     {
       "id": "P-07",
@@ -285,7 +309,11 @@
       ],
       "tone": "#6fa596",
       "slug": "club-gym-sierra",
-      "cover": "club-gym-sierra"
+      "cover": "club-gym-sierra",
+      "tagline": {
+        "es": "Mi gimnasio decía que aún no era hora de reservar clase. Su app opinaba otra cosa.",
+        "en": "My gym said it wasn't time to book a class yet. Its app disagreed."
+      }
     },
     {
       "id": "P-08",
