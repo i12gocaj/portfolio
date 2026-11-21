@@ -446,7 +446,11 @@
       ],
       "tone": "#9aa37c",
       "slug": "footactik",
-      "cover": "footactik"
+      "cover": "footactik",
+      "tagline": {
+        "es": "Salí de una charla del Córdoba CF y me fui corriendo a casa a construir mi versión.",
+        "en": "I walked out of a Córdoba CF talk and rushed home to build my own version."
+      }
     },
     {
       "id": "P-11",
