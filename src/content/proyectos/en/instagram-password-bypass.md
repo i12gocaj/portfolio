@@ -4,7 +4,7 @@ updated: 2026-11-21
 
 This story begins in a hospital in Romania.
 
-During my Erasmus in Iași I was admitted with pharyngitis. That is a separate story, because there is plenty to tell there too, but you can get the idea: a public hospital, the infectious diseases ward and a room shared with eight other people. Great fun.
+During my Erasmus in Iași I was admitted with pharyngitis. That is a separate story, because there is plenty to tell there too, but you can get the idea: a public hospital, the infectious diseases ward and a room shared with eight other people, all elderly and frail-looking. Great fun.
 
 Anyway, I was bored. And when I'm bored I do odd things, like changing the passwords of every service I use. Instagram's turn came.
 

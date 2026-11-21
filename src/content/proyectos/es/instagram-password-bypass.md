@@ -4,7 +4,7 @@ updated: 2026-11-21
 
 Esta historia empieza en un hospital de Rumanía.
 
-Durante mi Erasmus en Iași me ingresaron por una faringitis. Eso da para otra historia aparte, porque ahí también hay tela que contar, pero os podéis hacer una idea: hospital público, planta de infecciosos y una habitación compartida con ocho personas más. Lo bien que se lo pasa uno.
+Durante mi Erasmus en Iași me ingresaron por una faringitis. Eso da para otra historia aparte, porque ahí también hay tela que contar, pero os podéis hacer una idea: hospital público, planta de infecciosos y una habitación compartida con ocho personas más, todas ancianas y con pinta delicada. Lo bien que se lo pasa uno.
 
 Total, que estaba aburrido. Y cuando me aburro hago cosas raras, como ponerme a cambiar las contraseñas de todos mis servicios. A Instagram le llegó su turno.
 
