@@ -26,8 +26,8 @@ const sections = [
       <div>
         <p class="font-mono text-sm text-slate mb-3">{t("about.title")}</p>
         <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">Javier González Casares</h1>
-        <div class="mt-6 max-w-xl space-y-5 text-lg leading-relaxed">
-          {about.map((p, i) => <p class={i === 0 ? "text-ink" : "text-slate"}>{p[lang]}</p>)}
+        <div class="mt-6 max-w-xl space-y-5 text-lg leading-relaxed [&_a]:text-ink [&_a]:underline [&_a]:decoration-frame [&_a]:underline-offset-4 [&_a:hover]:text-accent">
+          {about.map((p, i) => <p class={i === 0 ? "text-ink" : "text-slate"} set:html={p[lang]} />)}
         </div>
         <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
           <li><a href={contact.linkedin} rel="noopener" class="text-slate hover:text-accent">LinkedIn →</a></li>
