@@ -6,7 +6,7 @@ Hay una regla que en ciberseguridad se repite hasta el aburrimiento: nunca te f�
 
 Quien haya ido a clases en un gimnasio sabe de qué hablo. Las plazas son pocas, la reserva se abre a una hora exacta y hay gente dispuesta a todo con tal de no quedarse fuera. Había quien se salía en mitad de una clase para estar con el móvil en la mano en el segundo uno en que se podía reservar la siguiente. Así estaba el panorama.
 
-Y quien no haya tenido que enfrentarse a algo así no sabe lo que jode quedarse sin plaza, porque te rompe todos los esquemas. Lo que jode acabar en lista de espera y vivir con la incertidumbre de no saber si al final podrás entrar.
+Y quien no haya tenido que enfrentarse a algo así no sabe lo que jode quedarse sin plaza, porque te rompe todos los esquemas. Ni lo que es acabar en lista de espera y vivir con la incertidumbre de no saber si al final podrás entrar.
 
 Mis padres vivían con esa situación de forma constante. Hasta que un día me lo preguntaron, como quien le pregunta a su hijo si se pueden agrandar las letras del teléfono: ¿esto tiene alguna solución?
 

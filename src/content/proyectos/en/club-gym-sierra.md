@@ -6,7 +6,7 @@ There is a rule that gets repeated endlessly in cybersecurity: never trust what 
 
 Anyone who has taken classes at a gym knows what I mean. Places are limited, booking opens at an exact time and some people will do anything not to be left out. There were people who walked out halfway through a class to be phone in hand at the very first second the next one could be booked. That was the situation.
 
-And anyone who hasn't had to deal with it doesn't know how infuriating it is to miss out on a place, because it wrecks all your plans. How infuriating it is to end up on the waiting list and live with the uncertainty of not knowing whether you'll get in.
+And anyone who hasn't had to deal with it doesn't know how infuriating it is to miss out on a place, because it wrecks all your plans. Or what it's like to end up on the waiting list and live with the uncertainty of not knowing whether you'll get in.
 
 My parents lived with that constantly. Until one day they asked me, the way you ask your son whether the letters on the phone can be made bigger: is there any way to fix this?
 
