@@ -6,7 +6,7 @@ I was eight or nine the first time I saw an email that lied about who had sent i
 
 For a kid whose only question was "why?", that blew my mind.
 
-It didn't take me long to find [emkei.cz](https://emkei.cz), a site that let you send an email with any sender you wanted and which, surprisingly, is still running today. It opened up endless ways to prank my friends and family. I don't remember exactly what I sent back then. I do remember that it wouldn't go down well today.
+It didn't take me long to find [emkei.cz](https://emkei.cz), a site that let you send an email with any sender you wanted and which, surprisingly, is still running on the day I am writing this. It opened up endless ways to prank my friends and family. I don't remember exactly what I sent back then. I do remember that it wouldn't go down well today.
 
 I have a problem: I get bored fast. As soon as I understand how something works, or think I do, I stop using it. I came up with a thousand ways to do harm with it and used none, because doing harm has never been what drives me. But the opposite didn't drive me either: I didn't spend a single minute thinking about how it could be prevented. I moved on.
 

@@ -6,7 +6,7 @@ Tenía ocho o nueve años cuando vi por primera vez un correo que mentía sobre 
 
 A un niño al que no le cabía otra pregunta en la boca que "¿por qué?", aquello le explotó la cabeza.
 
-No tardé en dar con [emkei.cz](https://emkei.cz), una página que te dejaba enviar un correo con el remitente que quisieras y que, sorprendentemente, sigue activa hoy. Se me abrió un sinfín de posibilidades para gastar bromas a mis colegas y a mi familia. No recuerdo bien qué llegué a enviar en aquella época. Sí recuerdo que hoy no estaría muy bien visto.
+No tardé en dar con [emkei.cz](https://emkei.cz), una página que te dejaba enviar un correo con el remitente que quisieras y que, sorprendentemente, sigue activa el día en que escribo esto. Se me abrió un sinfín de posibilidades para gastar bromas a mis colegas y a mi familia. No recuerdo bien qué llegué a enviar en aquella época. Sí recuerdo que hoy no estaría muy bien visto.
 
 Tengo un problema, y es que me aburro enseguida. En cuanto entiendo cómo funciona algo, o creo que lo entiendo, dejo de usarlo. Se me ocurrieron mil formas de hacer daño con aquello y no usé ninguna, porque hacer el mal nunca ha sido lo que me mueve. Pero tampoco me movía lo contrario: no dediqué ni un minuto a pensar cómo se podía evitar. Pasé a otra cosa.
 
