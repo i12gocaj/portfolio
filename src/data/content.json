@@ -190,8 +190,8 @@
       "cover": "secemail",
       "slug": "secemail",
       "tagline": {
-        "es": "Lo que a los nueve años era una broma, hoy es una auditoría.",
-        "en": "What was a prank at nine is an audit today."
+        "es": "El correo decía venir de Google. No venía de Google.",
+        "en": "The email said it came from Google. It didn't come from Google."
       }
     },
     {
@@ -231,8 +231,8 @@
       "cover": "atlas",
       "slug": "atlas",
       "tagline": {
-        "es": "¿Quién vigila a los copilotos? Yo tenía una respuesta. El jurado, otra opinión.",
-        "en": "Who watches the copilots? I had an answer. The jury had another opinion."
+        "es": "¿Quién vigila a los copilotos? Yo tenía la respuesta. No el premio.",
+        "en": "Who watches the copilots? I had the answer. Not the prize."
       }
     },
     {
@@ -271,8 +271,8 @@
       "slug": "instagram-password-bypass",
       "cover": "instagram-password-bypass",
       "tagline": {
-        "es": "Instagram me pidió mi contraseña actual. Puse una «a» y coló.",
-        "en": "Instagram asked for my current password. I typed an \"a\" and it worked."
+        "es": "Instagram pedía la contraseña actual antes de cambiarla. Por pura cortesía.",
+        "en": "Instagram asked for your current password before changing it. Purely out of courtesy."
       }
     },
     {
@@ -359,8 +359,8 @@
       "slug": "tfg-mercados",
       "cover": "tfg-mercados",
       "tagline": {
-        "es": "Intenté predecir la bolsa. Me pusieron un 10 por demostrar que no se puede.",
-        "en": "I tried to predict the stock market. I got top marks for showing you can't."
+        "es": "Mis primeros resultados predecían la bolsa. Demasiado bien.",
+        "en": "My first results predicted the stock market. Too well."
       }
     },
     {
