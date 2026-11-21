@@ -355,8 +355,13 @@
           }
         }
       ],
-      "tone": "#c9b27c",
-      "slug": "tfg-mercados"
+      "tone": "#d8c39a",
+      "slug": "tfg-mercados",
+      "cover": "tfg-mercados",
+      "tagline": {
+        "es": "Intenté predecir la bolsa. Me pusieron un 10 por demostrar que no se puede.",
+        "en": "I tried to predict the stock market. I got top marks for showing you can't."
+      }
     },
     {
       "id": "P-09",
@@ -398,8 +403,9 @@
           }
         }
       ],
-      "tone": "#7f97a3",
-      "slug": "brillanteseguro"
+      "tone": "#5f8792",
+      "slug": "brillanteseguro",
+      "cover": "brillanteseguro"
     },
     {
       "id": "P-10",
@@ -434,8 +440,9 @@
           }
         }
       ],
-      "tone": "#a3a987",
-      "slug": "footactik"
+      "tone": "#9aa37c",
+      "slug": "footactik",
+      "cover": "footactik"
     },
     {
       "id": "P-11",
