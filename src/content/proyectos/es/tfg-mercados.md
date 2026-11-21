@@ -20,7 +20,11 @@ Porque al final lo que interesa no es saber a qué precio va a cerrar la bolsa, 
 
 Me puse manos a la obra. Comparé modelos estadísticos, de aprendizaje automático y de aprendizaje profundo sobre Bitcoin, Tesla y Nvidia, con y sin el sentimiento de las noticias. Y sobre todo hice muchas pruebas estadísticas, que son lo más importante y lo más sólido del estudio: son las que permiten demostrar que lo que digo es así.
 
-Llegué a una conclusión. No, no somos mejores que el lobo de Wall Street. Ni tampoco que los miles de analistas profesionales que llevan años buscando la clave.
+Los primeros resultados fueron buenísimos. Los modelos acertaban muy por encima del 50 %, y eso solo podía significar una cosa: que pronto alguien querría acabar conmigo, porque había descubierto la llave del mundo, la clave para hacer dinero.
+
+Evidentemente, eso era imposible. Repetí las pruebas hasta que me di cuenta de que había una fuga de información: estaba mezclando el entrenamiento de los modelos con datos del futuro. Ahí descubrí la validación walk-forward, que consiste en entrenar solo con lo que se sabía hasta cada momento y predecir lo que viene después, sin aprender nunca de datos que todavía no existían.
+
+Con eso corregido llegué a la conclusión de verdad. No, no somos mejores que el lobo de Wall Street. Ni tampoco que los miles de analistas profesionales que llevan años buscando la clave.
 
 Fue un estudio interesantísimo y me motivó muchísimo, porque me ayudó a entender qué ocurre con mi dinero cuando invierto. Y a entender de verdad la teoría del mercado eficiente, que viene a decir que el precio ya incluye la información que tú acabas de leer. Si crees que una empresa va a presentar buenos resultados porque lo has visto en las noticias, el mercado ya está valorando esa probabilidad. No eres un privilegiado por saberlo.
 

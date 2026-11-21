@@ -20,7 +20,11 @@ Because in the end what matters isn't knowing what price the market will close a
 
 I got to work. I compared statistical, machine learning and deep learning models on Bitcoin, Tesla and Nvidia, with and without news sentiment. And above all I ran a lot of statistical tests, which are the most important and most solid part of the study: they are what make it possible to show that what I'm saying holds.
 
-I reached a conclusion. No, we are not better than the wolf of Wall Street. Nor than the thousands of professional analysts who have spent years looking for the key.
+The first results were fantastic. The models were right far more than 50% of the time, and that could only mean one thing: that soon someone would want to get rid of me, because I had found the key to the world, the secret to making money.
+
+Obviously, that was impossible. I repeated the tests until I realised there was an information leak: I was mixing the models' training with data from the future. That is where I discovered walk-forward validation, which means training only on what was known up to each point and predicting what comes next, never learning from data that didn't exist yet.
+
+With that fixed I reached the real conclusion. No, we are not better than the wolf of Wall Street. Nor than the thousands of professional analysts who have spent years looking for the key.
 
 It was a fascinating study and it motivated me enormously, because it helped me understand what happens to my money when I invest. And to truly understand the efficient market hypothesis, which basically says the price already includes the information you have just read. If you think a company is going to post good results because you saw it in the news, the market is already pricing in that probability. Knowing it doesn't make you privileged.
 
