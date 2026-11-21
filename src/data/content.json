@@ -376,8 +376,8 @@
       },
       "body": [
         {
-          "en": "I built this platform for El Brillante, my neighbourhood in Córdoba, without charging the community. Residents can report security incidents, street problems and lost pets, filter reports, view maps, heatmaps and statistics, and use a local marketplace and services directory. It also handles association membership and moderation. More than 300 residents registered.",
-          "es": "Creé esta plataforma para El Brillante, mi barrio en Córdoba, sin cobrar nada a los vecinos. Permite avisar de incidentes de seguridad, problemas en la calle y mascotas perdidas, filtrar avisos, consultar mapas, mapas de calor y estadísticas, y usar un mercadillo y un directorio de servicios locales. También gestiona las altas en la asociación y la moderación. Se registraron más de 300 vecinos."
+          "en": "I built this platform for El Brillante, my neighbourhood in Córdoba. Residents can report security incidents, street problems and lost pets, filter reports, view maps, heatmaps and statistics, and use a local marketplace and services directory. It also handles association membership and moderation. More than 400 residents registered.",
+          "es": "Creé esta plataforma para El Brillante, mi barrio en Córdoba. Permite avisar de incidentes de seguridad, problemas en la calle y mascotas perdidas, filtrar avisos, consultar mapas, mapas de calor y estadísticas, y usar un mercadillo y un directorio de servicios locales. También gestiona las altas en la asociación y la moderación. Se registraron más de 400 vecinos."
         }
       ],
       "details": [],
@@ -405,7 +405,11 @@
       ],
       "tone": "#5f8792",
       "slug": "brillanteseguro",
-      "cover": "brillanteseguro"
+      "cover": "brillanteseguro",
+      "tagline": {
+        "es": "Más de 400 vecinos se apuntaron. Casi ninguno dejó WhatsApp.",
+        "en": "More than 400 neighbours signed up. Hardly any of them left WhatsApp."
+      }
     },
     {
       "id": "P-10",
