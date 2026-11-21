@@ -18,7 +18,7 @@ I knew it was complicated. Published information is already available to everyon
 
 Because in the end what matters isn't knowing what price the market will close at, but whether it will finish above or below where it started. That is what makes you win or lose money.
 
-I got to work. I compared statistical, machine learning and deep learning models on Bitcoin, Tesla and Nvidia, with and without news sentiment. And above all I ran a lot of statistical tests, which are the most important and most solid part of the study: they are what make it possible to show that what I'm saying holds.
+I got to work. I compared statistical, machine learning and deep learning models on Bitcoin, Tesla and Nvidia, across several time horizons, with and without news sentiment. And above all I ran a lot of statistical tests, which are the most important and most solid part of the study: they are what make it possible to show that what I'm saying holds.
 
 The first results were fantastic. The models were right far more than 50% of the time, and that could only mean one thing: that soon someone would want to get rid of me, because I had found the key to the world, the secret to making money.
 

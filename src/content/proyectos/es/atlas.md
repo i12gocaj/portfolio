@@ -2,15 +2,17 @@
 updated: 2026-11-21
 ---
 
-Llegué a esta competición con la moral por las nubes. Venía de ganar un premio en un hackathon de biotecnología y el reto no podía gustarme más: usar inteligencia artificial para resolver un problema que ya venía dado. El tema era el gobierno de los datos.
+Llegué a esta competición con la moral por las nubes. Venía de ganar un premio en un hackathon de biotecnología y el reto no podía gustarme más: usar inteligencia artificial para resolver un problema que ya venía dado. El reto: gobernar y controlar el uso de la IA en los equipos de desarrollo.
 
 Le di vueltas, debatí un buen rato con la IA y acabé en una pregunta. Hoy es normal que en una empresa todo el mundo trabaje a diario con un copiloto de IA. Pero ¿quién audita a esos copilotos? ¿Quién revisa lo que hacen las personas con ellos? ¿Cómo sabes que no estás tirando el dinero al dar acceso a toda la plantilla, que lo están usando bien, que nadie está filtrando información sin querer?
 
 De ahí salió Atlas: un copiloto que audita a los copilotos.
 
-Atlas es un juez que todo lo ve. Funciona en local, es ligero y no envía ningún dato a ningún sitio. Recoge la telemetría que dejan esos asistentes cada día o cada semana y te devuelve respuestas: qué departamentos podrían aprovechar mejor el presupuesto, cuáles están dejando escapar claves, dónde no se están cumpliendo las normas de uso.
+Atlas es un juez que todo lo ve. Funciona en local, es ligero y no envía ningún dato a ningún sitio. Tampoco intercepta ni bloquea nada: analiza la telemetría que esos asistentes ya han dejado, cada día o cada semana, y te devuelve respuestas: qué departamentos podrían aprovechar mejor el presupuesto, cuáles están dejando escapar claves, dónde no se están cumpliendo las normas de uso.
 
-Hay una decisión que defiendo dentro del propio proyecto. Las cuentas y la detección de secretos no las hace la IA, las hacen herramientas pensadas para eso, porque la IA se puede equivocar y en una auditoría eso no vale. El modelo de lenguaje entra solo al final, para convertir esos datos en un informe que se entienda. Usar la IA cuando de verdad hace falta, y no meterla con calzador.
+Hay una decisión que defiendo dentro del propio proyecto. Las cuentas, las normas y la detección de claves no las hace la IA, las hacen herramientas pensadas para eso, porque la IA se puede equivocar y en una auditoría eso no vale. El modelo de lenguaje, que también corre en local, se reserva para dos cosas: redactar un informe que se entienda y cazar lo que las reglas no ven, como una contraseña escrita en mitad de una frase. Y ni ahí se le deja solo: un verificador comprueba que cada cifra del informe sale de los datos. Usar la IA cuando de verdad hace falta, y no meterla con calzador.
+
+En la demo, con datos sintéticos, Atlas revisaba 6.826 usos de ocho semanas y enseñaba algo incómodo: el 60 % del gasto se había ido en respuestas que nadie llegó a aceptar.
 
 Me parecía una buena idea. De las que yo mismo estaría dispuesto a usar en mi empresa el día de mañana.
 

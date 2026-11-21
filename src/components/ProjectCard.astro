@@ -21,7 +21,4 @@ const href = projectUrl(p, lang) ?? p.links[0]?.href;
     {href ? <a href={href} class="before:absolute before:inset-0">{p.title[lang]}</a> : p.title[lang]}
   </h3>
   <p class="mt-2 line-clamp-4 text-[0.9375rem] leading-relaxed text-slate">{(p.tagline ?? p.body[0])?.[lang]}</p>
-  <ul class="meta mt-3 flex flex-wrap gap-x-4 gap-y-1">
-    {p.tags.slice(0, 3).map((tag) => <li>{tag}</li>)}
-  </ul>
 </article>

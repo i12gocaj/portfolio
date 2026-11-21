@@ -2,15 +2,17 @@
 updated: 2026-11-21
 ---
 
-I arrived at this competition on a high. I had just won an award at a biotechnology hackathon and the challenge couldn't have suited me better: use artificial intelligence to solve a problem that was already given. The topic was data governance.
+I arrived at this competition on a high. I had just won an award at a biotechnology hackathon and the challenge couldn't have suited me better: use artificial intelligence to solve a problem that was already given. The challenge: governing and controlling the use of AI in development teams.
 
 I turned it over, argued with the AI for a good while and ended up at a question. Today it is normal for everyone in a company to work daily with an AI copilot. But who audits those copilots? Who reviews what people do with them? How do you know you aren't throwing money away by giving the whole staff access, that they are using it well, that nobody is leaking information without meaning to?
 
 That is where Atlas came from: a copilot that audits the copilots.
 
-Atlas is a judge that sees everything. It runs locally, it is lightweight and it sends no data anywhere. It collects the telemetry those assistants leave behind every day or every week and gives you answers: which departments could make better use of the budget, which are letting keys slip out, where the usage policies aren't being followed.
+Atlas is a judge that sees everything. It runs locally, it is lightweight and it sends no data anywhere. It doesn't intercept or block anything either: it analyses the telemetry those assistants have already left behind, every day or every week, and gives you answers: which departments could make better use of the budget, which are letting keys slip out, where the usage policies aren't being followed.
 
-There is one decision I defend within the project itself. The calculations and the secret detection aren't done by the AI, they are done by tools built for that, because AI can get things wrong and in an audit that isn't acceptable. The language model only comes in at the end, to turn that data into a report people can understand. Use AI when it is really needed, and don't shoehorn it in.
+There is one decision I defend within the project itself. The calculations, the policies and the key detection aren't done by the AI, they are done by tools built for that, because AI can get things wrong and in an audit that isn't acceptable. The language model, which also runs locally, is kept for two things: writing a report people can understand and catching what the rules can't see, such as a password written in the middle of a sentence. And even there it isn't left alone: a verifier checks that every figure in the report comes from the data. Use AI when it is really needed, and don't shoehorn it in.
+
+In the demo, using synthetic data, Atlas reviewed 6,826 uses over eight weeks and showed something uncomfortable: 60% of the spend had gone on answers nobody ended up accepting.
 
 I thought it was a good idea. The kind I would be willing to use in my own company tomorrow.
 

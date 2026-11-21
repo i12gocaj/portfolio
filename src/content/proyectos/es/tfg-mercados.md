@@ -18,7 +18,7 @@ Sabía que era complicado. La información que se publica ya está al alcance de
 
 Porque al final lo que interesa no es saber a qué precio va a cerrar la bolsa, sino si va a terminar por encima o por debajo de donde empezó. Eso es lo que te hace ganar o perder dinero.
 
-Me puse manos a la obra. Comparé modelos estadísticos, de aprendizaje automático y de aprendizaje profundo sobre Bitcoin, Tesla y Nvidia, con y sin el sentimiento de las noticias. Y sobre todo hice muchas pruebas estadísticas, que son lo más importante y lo más sólido del estudio: son las que permiten demostrar que lo que digo es así.
+Me puse manos a la obra. Comparé modelos estadísticos, de aprendizaje automático y de aprendizaje profundo sobre Bitcoin, Tesla y Nvidia, en varios horizontes temporales, con y sin el sentimiento de las noticias. Y sobre todo hice muchas pruebas estadísticas, que son lo más importante y lo más sólido del estudio: son las que permiten demostrar que lo que digo es así.
 
 Los primeros resultados fueron buenísimos. Los modelos acertaban muy por encima del 50 %, y eso solo podía significar una cosa: que pronto alguien querría acabar conmigo, porque había descubierto la llave del mundo, la clave para hacer dinero.
 

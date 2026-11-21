@@ -12,13 +12,13 @@ The important things got lost among thousands of messages. People talked so much
 
 And something worse was happening: data was being lost. If I say today that I'm selling a sofa and a hundred messages from other people follow, whoever is looking for a sofa won't find it. If I say today that I've been burgled, a week later nobody remembers. Nobody connects one warning to another, and they may have been breaking in around the same area all week without us noticing, while the neighbours on those streets carry on calmly thinking it was a one-off.
 
-So I wanted to build a website for the community.
+So I wanted to build a website for the community. Not to replace the police or a formal report, but to give the neighbourhood a shared, organised memory.
 
-It brought together in one place what already existed in the channels: burglaries, street incidents and pets. At the centre, a map to see at a glance what is happening in the neighbourhood. You click on a pin and see the details, with photos and a description. You filter by what interests you. You turn on the heatmap and see where reports cluster over the period you choose. And the administrator can manage it all quickly.
+It brought together in one place what already existed in the channels: burglaries, street incidents and pets. And it added scam and fraud warnings, so that what someone had tried on one neighbour wouldn't work on the next. At the centre, a map to see at a glance what is happening in the neighbourhood. You click on a pin and see the details, with photos and a description. You filter by what interests you. You turn on the heatmap and see where reports cluster over the period you choose. And the administrator can manage it all quickly.
 
 There was a statistics section designed to show the police what is happening, where and since when, so that something could be done or patrols arranged. Even to get ahead of it: if a week before a run of burglaries other kinds of incidents tend to appear in that same area, there is a pattern there that lets officers be warned about what is likely to happen.
 
-And there was the neighbourhood side. A Wallapop-style marketplace, where what someone posted could be searched for later, and a services board to find a trusted plumber or gardener when needed.
+And there was the neighbourhood side. A Wallapop-style marketplace, where what someone posted could be searched for later, a services board to find a trusted plumber or gardener when needed, and a checklist for reviewing the security of your own home.
 
 ---
 
