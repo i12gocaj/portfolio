@@ -31,8 +31,8 @@ Presencia constante de astillas que no están rotas.
 
 Y luego, el vestigio.
 Siempre viene el vestigio:
-El dibujo de tu sombra,
-La sal que siempre sobra.
+> El dibujo de tu sombra,
+> La sal que siempre sobra.
 
 Intenté decírtelo, aún no existe la telepatía.
 

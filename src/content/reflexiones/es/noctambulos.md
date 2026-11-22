@@ -25,11 +25,11 @@ Que deja en cada rincón un susurro tan vasto como vacío.
 
 Existen lugares donde la noche reposa.
 
-Donde la corbata se desata con cada trago.
+> Donde la corbata se desata con cada trago.
 
-Donde las miradas perdidas se encuentran.
+>> Donde las miradas perdidas se encuentran.
 
-Donde los susurros no encuentran eco, rebotando en un cristal tan terso como arrecido.
+>>> Donde los susurros no encuentran eco, rebotando en un cristal tan terso como arrecido.
 
 Es ese olor: el aroma del café entrelazado con hojas de tabaco.
 

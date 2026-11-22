@@ -5,6 +5,10 @@
  *  - Estribillo: un verso que se repite dentro del poema.
  *  - Pregunta: un verso que empieza con signo de interrogación.
  *  - Remate: el último verso.
+ *
+ * Además admite dos marcas al principio de un verso, que no se muestran:
+ *    ">"  mete el verso hacia dentro (">>" dos pasos, ">>>" tres).
+ *    "!"  lo destaca. Si el poema marca alguno, ya no se destaca el último.
  */
 import "@fontsource-variable/newsreader/wght.css";
 import "@fontsource-variable/newsreader/wght-italic.css";
@@ -14,18 +18,47 @@ interface Props {
 }
 const { body } = Astro.props;
 
-const norm = (line: string) => line.trim().toLowerCase();
-const stanzas = body
+interface Verse {
+  text: string;
+  step: number;
+  key: boolean;
+}
+
+function parse(raw: string): Verse {
+  let text = raw.trim();
+  let key = false;
+  let step = 0;
+  for (;;) {
+    if (text.startsWith("!")) {
+      key = true;
+      text = text.slice(1).trimStart();
+    } else if (text.startsWith(">")) {
+      step += 1;
+      text = text.slice(1).trimStart();
+    } else break;
+  }
+  return { text, step, key };
+}
+
+const norm = (text: string) => text.trim().toLowerCase();
+const stanzas: Verse[][] = body
   .trim()
   .split(/\n\s*\n/)
-  .map((stanza) => stanza.split("\n").map((l) => l.trim()).filter(Boolean))
+  .map((stanza) =>
+    stanza
+      .split("\n")
+      .filter((l) => l.trim())
+      .map(parse),
+  )
   .filter((stanza) => stanza.length > 0);
 
+const all = stanzas.flat();
 const seen = new Map<string, number>();
-for (const line of stanzas.flat()) seen.set(norm(line), (seen.get(norm(line)) ?? 0) + 1);
-const isRefrain = (line: string) => (seen.get(norm(line)) ?? 0) > 1;
-const isQuestion = (line: string) => line.startsWith("¿");
+for (const v of all) seen.set(norm(v.text), (seen.get(norm(v.text)) ?? 0) + 1);
+const isRefrain = (v: Verse) => (seen.get(norm(v.text)) ?? 0) > 1;
+const isQuestion = (v: Verse) => v.text.startsWith("¿");
 
+const hasKeys = all.some((v) => v.key);
 const lastStanza = stanzas.length - 1;
 ---
 
@@ -33,17 +66,19 @@ const lastStanza = stanzas.length - 1;
   {
     stanzas.map((stanza, s) => (
       <p class:list={["stanza", stanza.every(isRefrain) && "refrain"]}>
-        {stanza.map((line, l) => (
+        {stanza.map((verse, l) => (
           <span
             class:list={[
               "line",
-              isRefrain(line) && "is-refrain",
-              isQuestion(line) && "is-question",
+              isRefrain(verse) && "is-refrain",
+              isQuestion(verse) && "is-question",
+              verse.key && "is-key",
               s === 0 && l === 0 && "is-first",
-              s === lastStanza && l === stanza.length - 1 && "is-last",
+              !hasKeys && s === lastStanza && l === stanza.length - 1 && "is-last",
             ]}
+            style={verse.step ? `--step: ${verse.step}` : undefined}
           >
-            {line}
+            {verse.text}
           </span>
         ))}
       </p>
@@ -70,21 +105,23 @@ const lastStanza = stanzas.length - 1;
      para que no se confunda con un verso nuevo. */
   .line {
     --indent: 0em;
+    --step: 0;
     display: block;
-    padding-left: calc(var(--indent) + 1.2em);
+    padding-left: calc(var(--indent) + var(--step) * 1.5em + 1.2em);
     text-indent: -1.2em;
     text-wrap: pretty;
   }
 
-  /* La primera letra abre el poema, como una capitular. */
-  .stanza:first-child {
-    display: flow-root;
+  /* La primera letra abre el poema. Va en línea, apoyada en su propio verso,
+     así que no puede montarse sobre los siguientes. */
+  .line.is-first {
+    line-height: 1.15;
+    margin-bottom: 0.2em;
   }
   .line.is-first::first-letter {
-    float: left;
-    margin: 0.05em 0.1em 0 0;
-    font-size: 3em;
-    line-height: 0.8;
+    margin-right: 0.03em;
+    font-size: 2.7em;
+    line-height: 1;
     font-weight: 500;
     color: var(--poem);
   }
@@ -123,6 +160,16 @@ const lastStanza = stanzas.length - 1;
     height: 2px;
     margin-bottom: 1.1em;
     background: var(--poem);
+  }
+
+  /* Un verso destacado en mitad del poema: más grande, sin raya. */
+  .line.is-key {
+    margin-block: 0.7em;
+    font-size: 1.3em;
+    line-height: 1.35;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
   }
 
   @media (width < 40rem) {

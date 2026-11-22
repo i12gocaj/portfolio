@@ -29,9 +29,9 @@ Yo veo al sol señalar el universo.
 
 Y el universo atado a un globo intentando volar.
 
-Tú ves un mapa dibujado en el cielo.
+>> Tú ves un mapa dibujado en el cielo.
 
-Y en el cielo la luna reflejada bajo mis pies.
+>> Y en el cielo la luna reflejada bajo mis pies.
 
 Por eso nuestros pasos cambiaron de compás.
 

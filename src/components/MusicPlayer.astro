@@ -1,8 +1,8 @@
 ---
 /**
  * Música para acompañar la lectura: un tramo de un vídeo de YouTube en bucle,
- * manejado desde una barra propia. No carga nada de YouTube hasta que el
- * lector pulsa el botón.
+ * manejado desde una barra propia. El reproductor se prepara al entrar la
+ * barra en pantalla, para que el primer clic ya suene.
  */
 interface Props {
   music: { title: string; artist: string; youtube: string; start: number; end: number };
@@ -133,31 +133,43 @@ const { music, label, play, pause } = Astro.props;
       }, 200);
     };
 
-    button.addEventListener("click", async () => {
-      if (player) {
-        const state = player.getPlayerState?.();
-        if (state === window.YT.PlayerState.PLAYING) player.pauseVideo();
-        else player.playVideo();
-        return;
-      }
+    // El reproductor se prepara en cuanto la barra entra en pantalla, para que
+    // el clic pueda darle a reproducir en el acto. Si se creara dentro del clic,
+    // el navegador ya no lo consideraría un gesto del lector y haría falta otro.
+    let ready = false;
+    let wanted = false;
+    let preparing = false;
+
+    const prepare = async () => {
+      if (preparing) return;
+      preparing = true;
       await loadApi();
       player = new window.YT.Player(target, {
         host: "https://www.youtube-nocookie.com",
         width: 200,
         height: 200,
         videoId: root.dataset.youtube,
-        playerVars: { start: Math.floor(start), autoplay: 1, controls: 0, playsinline: 1, rel: 0 },
+        playerVars: { start: Math.floor(start), autoplay: 0, controls: 0, playsinline: 1, rel: 0 },
         events: {
           onReady: (event: any) => {
-            event.target.seekTo(start, true);
-            event.target.playVideo();
+            ready = true;
             watch();
+            if (wanted) {
+              event.target.seekTo(start, true);
+              event.target.playVideo();
+            }
           },
           // Si el vídeo no permite incrustarse, se abre en YouTube.
           onError: () => {
             window.clearInterval(timer);
             setPlaying(false);
-            window.open(`https://www.youtube.com/watch?v=${root.dataset.youtube}&t=${Math.floor(start)}s`, "_blank", "noopener");
+            if (wanted) {
+              window.open(
+                `https://www.youtube.com/watch?v=${root.dataset.youtube}&t=${Math.floor(start)}s`,
+                "_blank",
+                "noopener",
+              );
+            }
           },
           onStateChange: (event: any) => {
             const S = window.YT.PlayerState;
@@ -169,6 +181,34 @@ const { music, label, play, pause } = Astro.props;
           },
         },
       });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          observer.disconnect();
+          prepare();
+        }
+      });
+      observer.observe(root);
+    } else {
+      prepare();
+    }
+
+    button.addEventListener("click", () => {
+      wanted = true;
+      if (!ready) {
+        prepare();
+        return;
+      }
+      if (player.getPlayerState() === window.YT.PlayerState.PLAYING) {
+        wanted = false;
+        player.pauseVideo();
+        return;
+      }
+      const now = player.getCurrentTime?.() ?? 0;
+      if (now < start || now >= end) player.seekTo(start, true);
+      player.playVideo();
     });
   });
 </script>
