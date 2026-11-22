@@ -4,7 +4,14 @@ description: "Lo noto, ¿lo notas? Nuestras voces sintonizan en distinta onda."
 date: 2026-05-24
 kind: poema
 cover: ../../../assets/covers/poemas/busco-cuaderno-de-una-hoja.jpg
+video: /video/busco-cuaderno-de-una-hoja.mp4
 tone: "#1a1a1a"
+music:
+  title: "Present"
+  artist: "Lloyd Vaan"
+  youtube: "rvjFKme0tt4"
+  start: 0
+  end: 56
 ---
 
 Lo noto,

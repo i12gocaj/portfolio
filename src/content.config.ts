@@ -18,6 +18,8 @@ const reflections = defineCollection({
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       coverAlt: z.string().default(""),
+      /** Vídeo sin sonido para la portada, en bucle. Ruta dentro de public/. */
+      video: z.string().optional(),
       /** Color plano de la portada mientras no haya ilustración. */
       tone: z.string().default("#a79cc9"),
       /** Un poema conserva sus saltos de línea tal como se escriben. */
