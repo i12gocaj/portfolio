@@ -9,40 +9,12 @@ const posterFiles = files(import.meta.glob<{ default: ImageMetadata }>("../asset
 
 export interface Photo {
   image: ImageMetadata;
-  year: number;
 }
 
-/** El orden es el del álbum: alterna colores, retratos y oscuridad para que respire. */
-const photoList: [file: string, year: number][] = [
-  ["01", 2026],
-  ["03", 2021],
-  ["13", 2022],
-  ["04", 2022],
-  ["07", 2022],
-  ["08", 2022],
-  ["02", 2024],
-  ["10", 2022],
-  ["14", 2020],
-  ["05", 2024],
-  ["19", 2020],
-  ["17", 2022],
-  ["06", 2026],
-  ["09", 2022],
-  ["15", 2021],
-  ["12", 2026],
-  ["16", 2023],
-  ["21", 2021],
-  ["11", 2026],
-  ["18", 2022],
-  ["22", 2018],
-  ["20", 2021],
-  ["23", 2020],
-  ["24", 2022],
-];
-
-export const photos: Photo[] = photoList
-  .filter(([file]) => photoFiles[file])
-  .map(([file, year]) => ({ image: photoFiles[file], year }));
+/** Las fotos se muestran en el orden de sus nombres de fichero: 01, 02, 03… */
+export const photos: Photo[] = Object.keys(photoFiles)
+  .sort()
+  .map((file) => ({ image: photoFiles[file] }));
 
 export interface Video {
   id: string;
