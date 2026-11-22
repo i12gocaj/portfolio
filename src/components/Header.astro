@@ -15,6 +15,7 @@ const hasReflections = (await reflectionListing(lang)).length > 0;
 const nav: { key: RouteKey; label: string }[] = [
   { key: "projects", label: t("nav.projects") },
   ...(hasReflections ? [{ key: "reflections" as const, label: t("nav.reflections") }] : []),
+  { key: "background", label: t("nav.background") },
   { key: "about", label: t("nav.about") },
 ];
 ---
@@ -22,13 +23,12 @@ const nav: { key: RouteKey; label: string }[] = [
 <header class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm">
   <nav
     aria-label={t("nav.main")}
-    class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 md:px-8"
+    class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-5 py-4 md:px-8"
   >
     <a href={home} aria-label={t("nav.home")} class="text-2xl font-bold tracking-tighter leading-none">
       jg<span class="text-accent">.</span>
     </a>
-    <div class="flex items-center gap-3 sm:gap-7">
-      <ul class="flex items-center gap-3 whitespace-nowrap text-sm sm:gap-7 sm:text-[0.9375rem]">
+    <ul class="order-last flex w-full items-center justify-between gap-3 whitespace-nowrap text-[0.9375rem] sm:order-none sm:ml-auto sm:w-auto sm:justify-start sm:gap-7">
         {
           nav.map((item) => (
             <li>
@@ -45,7 +45,8 @@ const nav: { key: RouteKey; label: string }[] = [
             </li>
           ))
         }
-      </ul>
+    </ul>
+    <div class="flex items-center gap-3 sm:ml-3 sm:gap-5">
       <div class="meta flex items-center gap-1.5">
         {
           (["es", "en"] as const).map((l, i) => (
@@ -71,7 +72,7 @@ const nav: { key: RouteKey; label: string }[] = [
         type="button"
         id="theme-toggle"
         aria-label={t("theme.toggle")}
-        class="hidden h-8 w-8 place-items-center sm:grid rounded-sm text-slate hover:text-accent transition-colors duration-150 cursor-pointer"
+        class="grid h-8 w-8 place-items-center rounded-sm text-slate hover:text-accent transition-colors duration-150 cursor-pointer"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
           <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>

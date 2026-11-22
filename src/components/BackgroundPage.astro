@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Timeline from "@/components/Timeline.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { awards, community, documents, education, experience, previewOf } from "@/data/content";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const sections = [
+  { id: "experiencia", title: t("about.experience"), entries: experience },
+  { id: "formacion", title: t("about.education"), entries: education },
+  { id: "premios", title: t("about.awards"), entries: awards },
+  { id: "comunidad", title: t("about.community"), entries: community },
+];
+---
+
+<BaseLayout lang={lang} route="background" title={t("background.title")} description={t("background.lead")}>
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <header class="pt-14 md:pt-20">
+      <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("background.title")}</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate">{t("background.lead")}</p>
+    </header>
+
+    {sections.map((s) => <Timeline id={s.id} title={s.title} entries={s.entries} lang={lang} />)}
+
+    <section aria-labelledby="documentos" class="scroll-mt-24 pt-14 pb-24 md:pt-20">
+      <h2 id="documentos" class="meta !text-accent !text-xs">{t("about.documents")}</h2>
+      <p class="mt-2 mb-4 text-[0.9375rem] text-slate">{t("about.documentsLead")}</p>
+      <ul class="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-8 sm:grid-cols-3 md:grid-cols-5">
+        {
+          documents.map((d) => {
+            const preview = previewOf(d);
+            return (
+              <li>
+                <a href={d.href} class="group block">
+                  <div class="relative overflow-hidden border border-line bg-white transition-colors duration-300 group-hover:border-accent">
+                    {preview && (
+                      <Image
+                        src={preview}
+                        alt=""
+                        widths={[200, 400]}
+                        sizes="(min-width: 768px) 170px, 45vw"
+                        class="aspect-[425/600] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    )}
+                    <span class="absolute right-0 bottom-0 bg-ink px-1.5 py-0.5 font-mono text-[0.625rem] tracking-widest text-paper">
+                      PDF
+                    </span>
+                  </div>
+                  <span class="mt-3 block text-[0.9375rem] font-semibold tracking-tight leading-snug transition-colors duration-150 group-hover:text-accent">
+                    {d.title[lang]}
+                  </span>
+                  <span class="mt-0.5 block text-sm leading-snug text-slate">{d.meta[lang]}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
