@@ -44,6 +44,11 @@ export async function projectNote(slug: string, lang: Lang): Promise<ProjectNote
   return notes.find((n) => langOf(n) === lang) ?? notes.find((n) => langOf(n) === "es");
 }
 
+export function readingMinutes(entry: Entry): number {
+  const words = (entry.body ?? "").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
 export function formatDate(date: Date, lang: Lang): string {
   return new Intl.DateTimeFormat(lang === "es" ? "es-ES" : "en-GB", {
     day: "numeric",
