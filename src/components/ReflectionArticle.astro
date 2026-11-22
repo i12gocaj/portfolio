@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import BookCover from "@/components/BookCover.astro";
 import Toc from "@/components/Toc.astro";
 import MusicPlayer from "@/components/MusicPlayer.astro";
+import Poem from "@/components/Poem.astro";
 import { type Lang, route, useTranslations } from "@/i18n/ui";
 import {
   formatDate,
@@ -72,11 +73,22 @@ const coverWidth = data.cover && data.cover.width > data.cover.height ? 230 : 14
       )
     }
 
-    <div class="mt-12"><Toc headings={headings} label={t("text.contents")} /></div>
-
-    <div class:list={["prose mt-10", data.kind === "poema" && "poem"]}>
-      <Content />
-    </div>
+    {
+      data.kind === "poema" ? (
+        <div class="mt-14">
+          <Poem body={r.body ?? ""} />
+        </div>
+      ) : (
+        <>
+          <div class="mt-12">
+            <Toc headings={headings} label={t("text.contents")} />
+          </div>
+          <div class="prose mt-10">
+            <Content />
+          </div>
+        </>
+      )
+    }
 
     {
       data.tags.length > 0 && (

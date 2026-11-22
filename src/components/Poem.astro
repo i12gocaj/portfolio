@@ -1,0 +1,175 @@
+---
+/**
+ * Compone un poema verso a verso a partir del texto tal como está escrito.
+ * No cambia ni una palabra: solo decide cómo se ve cada verso.
+ *  - Estribillo: un verso que se repite dentro del poema.
+ *  - Pregunta: un verso que empieza con signo de interrogación.
+ *  - Remate: el último verso.
+ */
+import "@fontsource-variable/newsreader/wght.css";
+import "@fontsource-variable/newsreader/wght-italic.css";
+
+interface Props {
+  body: string;
+}
+const { body } = Astro.props;
+
+const norm = (line: string) => line.trim().toLowerCase();
+const stanzas = body
+  .trim()
+  .split(/\n\s*\n/)
+  .map((stanza) => stanza.split("\n").map((l) => l.trim()).filter(Boolean))
+  .filter((stanza) => stanza.length > 0);
+
+const seen = new Map<string, number>();
+for (const line of stanzas.flat()) seen.set(norm(line), (seen.get(norm(line)) ?? 0) + 1);
+const isRefrain = (line: string) => (seen.get(norm(line)) ?? 0) > 1;
+const isQuestion = (line: string) => line.startsWith("¿");
+
+const lastStanza = stanzas.length - 1;
+---
+
+<div class="poem">
+  {
+    stanzas.map((stanza, s) => (
+      <p class:list={["stanza", stanza.every(isRefrain) && "refrain"]}>
+        {stanza.map((line, l) => (
+          <span
+            class:list={[
+              "line",
+              isRefrain(line) && "is-refrain",
+              isQuestion(line) && "is-question",
+              s === 0 && l === 0 && "is-first",
+              s === lastStanza && l === stanza.length - 1 && "is-last",
+            ]}
+          >
+            {line}
+          </span>
+        ))}
+      </p>
+    ))
+  }
+</div>
+
+<style>
+  .poem {
+    --poem: #b98a16;
+    max-width: 34rem;
+    font-family: "Newsreader Variable", Georgia, "Times New Roman", serif;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  :global([data-theme="dark"]) .poem {
+    --poem: #e6bd4a;
+  }
+  .stanza + .stanza {
+    margin-top: 1.15em;
+  }
+  /* Sangría francesa: si un verso no cabe, su continuación entra un poco,
+     para que no se confunda con un verso nuevo. */
+  .line {
+    --indent: 0em;
+    display: block;
+    padding-left: calc(var(--indent) + 1.2em);
+    text-indent: -1.2em;
+    text-wrap: pretty;
+  }
+
+  /* La primera letra abre el poema, como una capitular. */
+  .stanza:first-child {
+    display: flow-root;
+  }
+  .line.is-first::first-letter {
+    float: left;
+    margin: 0.05em 0.1em 0 0;
+    font-size: 3em;
+    line-height: 0.8;
+    font-weight: 500;
+    color: var(--poem);
+  }
+
+  /* El estribillo se aparta, baja la voz y se agrupa. */
+  .line.is-refrain {
+    --indent: 1.6em;
+    font-style: italic;
+    color: var(--slate);
+  }
+  .stanza.refrain + .stanza.refrain {
+    margin-top: 0.15em;
+  }
+
+  /* Las preguntas se salen de la columna, como una réplica. */
+  .line.is-question,
+  .line.is-question.is-refrain {
+    --indent: 3.2em;
+    font-style: italic;
+  }
+
+  /* El remate: espacio, una marca y el último verso más grande. */
+  .line.is-last {
+    --indent: 0em;
+    margin-top: 2.2em;
+    font-size: 1.4em;
+    line-height: 1.3;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .line.is-last::before {
+    content: "";
+    display: block;
+    width: 2.25rem;
+    height: 2px;
+    margin-bottom: 1.1em;
+    background: var(--poem);
+  }
+
+  @media (width < 40rem) {
+    .poem {
+      font-size: 1.1875rem;
+    }
+    .line.is-refrain {
+      --indent: 1em;
+    }
+    .line.is-question,
+    .line.is-question.is-refrain {
+      --indent: 1.8em;
+    }
+    .line.is-last {
+      --indent: 0em;
+    }
+  }
+
+  /* Las estrofas aparecen a medida que se llega a ellas. */
+  .poem.is-live .stanza {
+    opacity: 0;
+    transform: translateY(0.5em);
+    transition:
+      opacity 0.9s ease,
+      transform 0.9s ease;
+  }
+  .poem.is-live .stanza.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+
+<script>
+  const poem = document.querySelector<HTMLElement>(".poem");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (poem && !still && "IntersectionObserver" in window) {
+    poem.classList.add("is-live");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "0px 0px -12% 0px" },
+    );
+    poem.querySelectorAll(".stanza").forEach((stanza) => observer.observe(stanza));
+  }
+</script>
