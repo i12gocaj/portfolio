@@ -1,0 +1,427 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type Lang, useTranslations } from "@/i18n/ui";
+import { accounts, photos, videos } from "@/data/album";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+// Cada copia va un poco torcida, como pegada a mano. El giro es fijo por posición.
+const tilts = [-1.6, 1.1, -0.6, 1.8, -1.2, 0.7, 1.4, -1.9, 0.5, -0.9];
+const first = videos[0];
+---
+
+<BaseLayout lang={lang} route="album" title={t("album.title")} description={t("album.lead")}>
+  <div class="mx-auto max-w-5xl px-5 pb-24 md:px-8">
+    <header class="pt-14 pb-12 md:pt-20">
+      <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("album.title")}</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate">{t("album.lead")}</p>
+    </header>
+
+    <!-- Fotos -->
+    <section aria-labelledby="photos-title">
+      <h2 id="photos-title" class="meta !text-accent !text-xs mb-8">{t("album.photos")}</h2>
+      <ul class="prints">
+        {
+          photos.map((p, i) => (
+            <li style={`--tilt: ${tilts[i % tilts.length]}deg`}>
+              <button type="button" class="print" data-index={i} aria-label={p.alt[lang]}>
+                <Image
+                  src={p.image}
+                  alt={p.alt[lang]}
+                  widths={[360, 720]}
+                  sizes="(min-width: 768px) 300px, 45vw"
+                  loading={i < 3 ? "eager" : "lazy"}
+                />
+                <span class="print-year">{p.year}</span>
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Vídeos -->
+    <section aria-labelledby="videos-title" class="pt-24">
+      <h2 id="videos-title" class="meta !text-accent !text-xs">{t("album.videos")}</h2>
+      <p class="mt-2 mb-8 text-[0.9375rem] text-slate">{t("album.videosLead")}</p>
+
+      <div class="projector" data-play={t("music.play")}>
+        <div class="frame" style="--frame-gap: 9px; --frame-size: 30px;">
+          <div class="screen">
+            <button type="button" class="screen-poster" aria-label={`${t("music.play")}: ${first.title}`}>
+              {first.poster && <img src={first.poster.src} alt="" />}
+              <span class="screen-play" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor" /></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <p class="mt-5 flex flex-wrap items-baseline gap-x-3">
+          <span class="screen-title text-xl font-semibold tracking-tight">{first.title}</span>
+          <span class="screen-place meta">{first.place[lang]}</span>
+        </p>
+      </div>
+
+      <div class="reel" role="list" aria-label={t("album.videos")}>
+        {
+          videos.map((v, i) => (
+            <button
+              type="button"
+              role="listitem"
+              class="reel-frame"
+              aria-pressed={i === 0 ? "true" : "false"}
+              data-id={v.id}
+              data-title={v.title}
+              data-place={v.place[lang]}
+              data-poster={v.poster?.src}
+            >
+              {v.poster && <Image src={v.poster} alt="" widths={[240, 480]} sizes="200px" loading="lazy" />}
+              <span class="reel-label">
+                <span class="reel-number">{String(videos.length - i).padStart(2, "0")}</span>
+                <span class="reel-title">{v.title}</span>
+              </span>
+            </button>
+          ))
+        }
+      </div>
+    </section>
+
+    <p class="mt-20 border-t border-line pt-6 font-mono text-sm text-slate">
+      {t("album.more")}{" "}
+      <a href={accounts.instagram} rel="noopener" class="text-ink underline decoration-frame underline-offset-4 hover:text-accent">Instagram</a>
+      {" · "}
+      <a href={accounts.youtube} rel="noopener" class="text-ink underline decoration-frame underline-offset-4 hover:text-accent">YouTube</a>
+    </p>
+  </div>
+
+  <dialog class="lightbox" aria-label={t("album.photos")}>
+    <button type="button" class="lightbox-close" aria-label={t("album.close")}>×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label={t("album.prev")}>←</button>
+    <figure>
+      <img alt="" />
+      <figcaption class="meta"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" aria-label={t("album.next")}>→</button>
+  </dialog>
+
+  <script type="application/json" id="album-photos" set:html={JSON.stringify(photos.map((p) => ({ src: p.image.src, alt: p.alt[lang], year: p.year })))} />
+</BaseLayout>
+
+<style>
+  /* --- Fotos: copias en papel pegadas en una página de álbum --- */
+  .prints {
+    columns: 2;
+    column-gap: 1.25rem;
+  }
+  @media (width >= 48rem) {
+    .prints {
+      columns: 3;
+      column-gap: 2rem;
+    }
+  }
+  .prints li {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    padding: 0.25rem;
+  }
+  @media (width >= 48rem) {
+    .prints li {
+      margin-bottom: 2.25rem;
+    }
+  }
+  .print {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.5rem 1.9rem;
+    background: #fbfaf7;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.14),
+      0 8px 22px rgb(0 0 0 / 0.12);
+    rotate: var(--tilt);
+    cursor: zoom-in;
+    transition:
+      rotate 0.3s ease,
+      scale 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  /* Un trozo de cinta sujeta cada copia. */
+  .print::before {
+    content: "";
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    width: 3.6rem;
+    height: 1.1rem;
+    translate: -50% 0;
+    rotate: calc(var(--tilt) * -2);
+    background: color-mix(in oklab, var(--frame) 38%, transparent);
+    backdrop-filter: blur(1px);
+  }
+  .print img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .print-year {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+  }
+  @media (hover: hover) {
+    .print:hover {
+      rotate: 0deg;
+      scale: 1.03;
+      z-index: 2;
+      box-shadow:
+        0 2px 4px rgb(0 0 0 / 0.16),
+        0 16px 34px rgb(0 0 0 / 0.2);
+    }
+  }
+
+  /* --- Vídeos: una pantalla y, debajo, el carrete --- */
+  .screen {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0d1016;
+    overflow: hidden;
+  }
+  .screen :global(iframe),
+  .screen-poster,
+  .screen-poster img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .screen-poster {
+    cursor: pointer;
+  }
+  .screen-poster img {
+    object-fit: cover;
+    transition: scale 0.6s ease;
+  }
+  .screen-poster:hover img {
+    scale: 1.03;
+  }
+  .screen-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    width: 4.25rem;
+    height: 4.25rem;
+    border-radius: 999px;
+    background: rgb(13 16 22 / 0.72);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease;
+  }
+  .screen-poster:hover .screen-play {
+    background: var(--accent);
+  }
+
+  .reel {
+    --hole: radial-gradient(circle, var(--paper) 0 3px, transparent 3.5px);
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    padding: 1.15rem 0.75rem;
+    overflow-x: auto;
+    background:
+      var(--hole) 0 0.3rem / 1.1rem 0.5rem repeat-x,
+      var(--hole) 0 calc(100% - 0.3rem) / 1.1rem 0.5rem repeat-x,
+      #10141b;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+  .reel-frame {
+    position: relative;
+    flex: none;
+    width: 11.5rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    scroll-snap-align: start;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    transition: outline-color 0.2s ease;
+  }
+  .reel-frame :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.62;
+    transition: opacity 0.25s ease;
+  }
+  .reel-frame:hover :global(img),
+  .reel-frame[aria-pressed="true"] :global(img) {
+    opacity: 1;
+  }
+  .reel-frame[aria-pressed="true"] {
+    outline-color: var(--copper);
+  }
+  .reel-label {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 1.4rem 0.55rem 0.4rem;
+    background: linear-gradient(transparent, rgb(0 0 0 / 0.78));
+    color: #fff;
+    text-align: left;
+  }
+  .reel-number {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    color: var(--copper);
+  }
+  .reel-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* --- Visor de fotos --- */
+  .lightbox {
+    max-width: none;
+    max-height: none;
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgb(10 12 17 / 0.94);
+    color: #fff;
+  }
+  .lightbox[open] {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .lightbox::backdrop {
+    background: transparent;
+  }
+  .lightbox figure {
+    display: grid;
+    justify-items: center;
+    gap: 0.9rem;
+    padding: 1rem 0;
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: calc(100dvh - 6rem);
+    object-fit: contain;
+  }
+  .lightbox figcaption {
+    color: #c8d0dc;
+    text-align: center;
+  }
+  .lightbox-nav,
+  .lightbox-close {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+  }
+  .lightbox-nav:hover,
+  .lightbox-close:hover {
+    opacity: 1;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2rem;
+  }
+</style>
+
+<script>
+  // --- Visor de fotos ---
+  const data = document.getElementById("album-photos");
+  const dialog = document.querySelector<HTMLDialogElement>(".lightbox");
+  if (data && dialog) {
+    const photos: { src: string; alt: string; year: number }[] = JSON.parse(data.textContent ?? "[]");
+    const img = dialog.querySelector("img")!;
+    const caption = dialog.querySelector("figcaption")!;
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + photos.length) % photos.length;
+      const photo = photos[current];
+      img.src = photo.src;
+      img.alt = photo.alt;
+      caption.textContent = `${photo.alt} · ${photo.year}`;
+    };
+
+    document.querySelectorAll<HTMLButtonElement>(".print").forEach((button) => {
+      button.addEventListener("click", () => {
+        show(Number(button.dataset.index));
+        dialog.showModal();
+      });
+    });
+    dialog.querySelector(".lightbox-prev")!.addEventListener("click", () => show(current - 1));
+    dialog.querySelector(".lightbox-next")!.addEventListener("click", () => show(current + 1));
+    dialog.querySelector(".lightbox-close")!.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") show(current - 1);
+      if (event.key === "ArrowRight") show(current + 1);
+    });
+  }
+
+  // --- Proyector: el vídeo de YouTube solo se carga al pulsar ---
+  const projector = document.querySelector<HTMLElement>(".projector");
+  const reel = document.querySelector<HTMLElement>(".reel");
+  if (projector && reel) {
+    const screen = projector.querySelector<HTMLElement>(".screen")!;
+    const title = projector.querySelector<HTMLElement>(".screen-title")!;
+    const place = projector.querySelector<HTMLElement>(".screen-place")!;
+    let selected = reel.querySelector<HTMLElement>('[aria-pressed="true"]')!;
+
+    const play = (id: string) => {
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+      frame.title = title.textContent ?? "";
+      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      screen.replaceChildren(frame);
+    };
+
+    projector.querySelector(".screen-poster")?.addEventListener("click", () => play(selected.dataset.id!));
+
+    reel.querySelectorAll<HTMLElement>(".reel-frame").forEach((frame) => {
+      frame.addEventListener("click", () => {
+        selected.setAttribute("aria-pressed", "false");
+        frame.setAttribute("aria-pressed", "true");
+        selected = frame;
+        title.textContent = frame.dataset.title ?? "";
+        place.textContent = frame.dataset.place ?? "";
+        // Al elegir desde el carrete se entiende que se quiere ver ya.
+        play(frame.dataset.id!);
+        projector.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+  }
+</script>

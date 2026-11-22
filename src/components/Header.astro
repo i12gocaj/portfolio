@@ -15,6 +15,7 @@ const hasReflections = (await reflectionListing(lang)).length > 0;
 const nav: { key: RouteKey; label: string }[] = [
   { key: "projects", label: t("nav.projects") },
   ...(hasReflections ? [{ key: "reflections" as const, label: t("nav.reflections") }] : []),
+  { key: "album", label: t("nav.album") },
   { key: "background", label: t("nav.background") },
   { key: "about", label: t("nav.about") },
 ];
@@ -28,7 +29,7 @@ const nav: { key: RouteKey; label: string }[] = [
     <a href={home} aria-label={t("nav.home")} class="text-2xl font-bold tracking-tighter leading-none">
       jg<span class="text-accent">.</span>
     </a>
-    <ul class="order-last flex w-full items-center justify-between gap-3 whitespace-nowrap text-[0.9375rem] sm:order-none sm:ml-auto sm:w-auto sm:justify-start sm:gap-7">
+    <ul class="nav-row order-last flex w-full items-center justify-between gap-3 overflow-x-auto whitespace-nowrap text-[0.8125rem] sm:text-[0.9375rem] sm:order-none sm:overflow-visible sm:ml-auto sm:w-auto sm:justify-start sm:gap-7">
         {
           nav.map((item) => (
             <li>
@@ -82,6 +83,16 @@ const nav: { key: RouteKey; label: string }[] = [
     </div>
   </nav>
 </header>
+
+<style>
+  /* En móvil el menú puede deslizarse si no cabe, sin mostrar barra. */
+  .nav-row {
+    scrollbar-width: none;
+  }
+  .nav-row::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 
 <script>
   const btn = document.getElementById("theme-toggle");
