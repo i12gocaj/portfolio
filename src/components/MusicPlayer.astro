@@ -81,6 +81,14 @@ const { music, label, play, pause } = Astro.props;
     aspect-ratio: 16 / 9;
     border: 1px solid var(--line);
   }
+  .music-frame :global(.music-fallback) {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--accent);
+  }
   .music-frame :global(iframe) {
     display: block;
     width: 100%;
@@ -150,6 +158,17 @@ const { music, label, play, pause } = Astro.props;
             event.target.seekTo(start, true);
             event.target.playVideo();
             watch();
+          },
+          // Si el vídeo no permite incrustarse, se ofrece el enlace directo.
+          onError: () => {
+            window.clearInterval(timer);
+            setPlaying(false);
+            const link = document.createElement("a");
+            link.href = `https://www.youtube.com/watch?v=${root.dataset.youtube}&t=${Math.floor(start)}s`;
+            link.rel = "noopener";
+            link.textContent = "YouTube →";
+            link.className = "music-fallback";
+            frame.replaceChildren(link);
           },
           onStateChange: (event: any) => {
             const S = window.YT.PlayerState;

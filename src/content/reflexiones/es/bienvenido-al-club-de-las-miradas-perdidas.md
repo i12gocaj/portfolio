@@ -5,6 +5,12 @@ date: 2024-05-24
 kind: poema
 cover: ../../../assets/covers/poemas/club-de-las-miradas-perdidas.jpg
 tone: "#1c1d2b"
+music:
+  title: "Púrpura"
+  artist: "Xavibo"
+  youtube: "6qv0HCEAzSk"
+  start: 0
+  end: 19
 ---
 
 Toc, toc, toc…

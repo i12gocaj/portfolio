@@ -5,6 +5,12 @@ date: 2024-01-03
 kind: poema
 cover: ../../../assets/covers/poemas/entre-telas-de-arana.jpg
 tone: "#8a8a8a"
+music:
+  title: "Charleston"
+  artist: "Kino"
+  youtube: "ptTKC1oTrkQ"
+  start: 67.5
+  end: 157.5
 ---
 
 Las flores se secan bajo la misma lluvia,

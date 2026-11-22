@@ -5,6 +5,12 @@ date: 2023-11-01T12:00:00
 kind: poema
 cover: ../../../assets/covers/poemas/donde-las-heridas-se-cosen-del-reves.jpg
 tone: "#3a3a3a"
+music:
+  title: "Jacob and the Stone"
+  artist: "Emile Mosseri"
+  youtube: "mbm3Llu2114"
+  start: 0.4
+  end: 90.4
 ---
 
 Me encontrarás acostado sobre la luna, pescando humanos.

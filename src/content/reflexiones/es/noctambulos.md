@@ -3,7 +3,14 @@ title: "Noctámbulos"
 description: "El nudo de la corbata se ajustó un poco más; parecía molestar solo cuando me acordaba."
 date: 2023-11-01T09:00:00
 kind: poema
+cover: ../../../assets/covers/poemas/noctambulos.jpg
 tone: "#2b2b2b"
+music:
+  title: "Lost and Found"
+  artist: "Tom Day"
+  youtube: "s6PjJsfE6LE"
+  start: 32.2
+  end: 122.2
 ---
 
 El nudo de la corbata se ajustó un poco más; parecía molestar solo cuando me acordaba.
