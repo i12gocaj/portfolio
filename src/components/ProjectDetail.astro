@@ -37,8 +37,7 @@ const alternates = { es: projectUrl(p, "es")!, en: projectUrl(p, "en")! };
     <header class="mt-8 grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_260px] md:gap-10">
       <div>
         <p class="meta flex flex-wrap gap-x-3 gap-y-1">
-          <span class="!text-accent">{p.id}</span>
-          <span>{p.kind[lang]}</span>
+          <span class="!text-accent">{p.kind[lang]}</span>
           {note && <span>{readingMinutes(note)} {t("text.min")}</span>}
           {note?.data.draft && <span class="!text-copper">[{t("text.draft")}]</span>}
         </p>

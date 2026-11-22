@@ -12,8 +12,7 @@ const filler = new Set(["Python", "Swift", "Java", "C", "Web", "Next.js", "JavaS
 const kind = filler.has(p.kind.en) ? undefined : p.kind[lang];
 ---
 
-<article id={p.id} class="scroll-mt-24 grid gap-x-8 gap-y-2 border-t border-line py-6 md:grid-cols-[4.5rem_minmax(0,1fr)]">
-  <span class="font-mono text-sm font-medium text-accent md:pt-1">{p.id}</span>
+<article id={p.id} class="scroll-mt-24 border-t border-line py-6">
   <div>
     <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
       <h3 class="text-lg font-semibold tracking-tight">{p.title[lang]}</h3>
