@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionTabs from "@/components/SectionTabs.astro";
 import { type Lang, useTranslations } from "@/i18n/ui";
 import { accounts, photos, videos } from "@/data/album";
 
@@ -16,22 +17,30 @@ const first = videos[0];
 
 <BaseLayout lang={lang} route="album" title={t("album.title")} description={t("album.lead")}>
   <div class="mx-auto max-w-5xl px-5 pb-24 md:px-8">
-    <header class="pt-14 pb-12 md:pt-20">
+    <header class="pt-14 pb-8 md:pt-20">
       <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("album.title")}</h1>
       <p class="mt-4 max-w-xl text-lg text-slate">{t("album.lead")}</p>
     </header>
 
+    <SectionTabs
+      label={t("album.title")}
+      initial="fotos"
+      tabs={[
+        { id: "fotos", label: t("album.photos") },
+        { id: "videos", label: t("album.videos") },
+      ]}
+    />
+
     <!-- Fotos -->
-    <section aria-labelledby="photos-title">
-      <h2 id="photos-title" class="meta !text-accent !text-xs mb-8">{t("album.photos")}</h2>
+    <section data-panel="fotos" aria-label={t("album.photos")} class="pt-12">
       <ul class="prints">
         {
           photos.map((p, i) => (
             <li style={`--tilt: ${tilts[i % tilts.length]}deg`}>
-              <button type="button" class="print" data-index={i} aria-label={p.alt[lang]}>
+              <button type="button" class="print" data-index={i} aria-label={`${t("album.photo")} ${i + 1}`}>
                 <Image
                   src={p.image}
-                  alt={p.alt[lang]}
+                  alt=""
                   widths={[360, 720]}
                   sizes="(min-width: 768px) 300px, 45vw"
                   loading={i < 3 ? "eager" : "lazy"}
@@ -45,9 +54,8 @@ const first = videos[0];
     </section>
 
     <!-- Vídeos -->
-    <section aria-labelledby="videos-title" class="pt-24">
-      <h2 id="videos-title" class="meta !text-accent !text-xs">{t("album.videos")}</h2>
-      <p class="mt-2 mb-8 text-[0.9375rem] text-slate">{t("album.videosLead")}</p>
+    <section data-panel="videos" aria-label={t("album.videos")} class="pt-10">
+      <p class="mb-8 text-[0.9375rem] text-slate">{t("album.videosLead")}</p>
 
       <div class="projector" data-play={t("music.play")}>
         <div class="frame" style="--frame-gap: 9px; --frame-size: 30px;">
@@ -103,34 +111,24 @@ const first = videos[0];
     <button type="button" class="lightbox-nav lightbox-prev" aria-label={t("album.prev")}>←</button>
     <figure>
       <img alt="" />
-      <figcaption class="meta"></figcaption>
     </figure>
     <button type="button" class="lightbox-nav lightbox-next" aria-label={t("album.next")}>→</button>
   </dialog>
 
-  <script type="application/json" id="album-photos" set:html={JSON.stringify(photos.map((p) => ({ src: p.image.src, alt: p.alt[lang], year: p.year })))} />
+  <script type="application/json" id="album-photos" set:html={JSON.stringify(photos.map((p) => p.image.src))} />
 </BaseLayout>
 
 <style>
   /* --- Fotos: copias en papel pegadas en una página de álbum --- */
   .prints {
-    columns: 2;
-    column-gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.1rem;
   }
   @media (width >= 48rem) {
     .prints {
-      columns: 3;
-      column-gap: 2rem;
-    }
-  }
-  .prints li {
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    padding: 0.25rem;
-  }
-  @media (width >= 48rem) {
-    .prints li {
-      margin-bottom: 2.25rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3rem 2.25rem;
     }
   }
   .print {
@@ -162,10 +160,13 @@ const first = videos[0];
     background: color-mix(in oklab, var(--frame) 38%, transparent);
     backdrop-filter: blur(1px);
   }
-  .print img {
+  /* Todas las copias tienen el mismo formato, para que la página quede regular. */
+  .print :global(img) {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
   }
   .print-year {
     position: absolute;
@@ -318,18 +319,13 @@ const first = videos[0];
   }
   .lightbox figure {
     display: grid;
-    justify-items: center;
-    gap: 0.9rem;
+    place-items: center;
     padding: 1rem 0;
   }
   .lightbox img {
     max-width: 100%;
-    max-height: calc(100dvh - 6rem);
+    max-height: calc(100dvh - 3rem);
     object-fit: contain;
-  }
-  .lightbox figcaption {
-    color: #c8d0dc;
-    text-align: center;
   }
   .lightbox-nav,
   .lightbox-close {
@@ -360,17 +356,13 @@ const first = videos[0];
   const data = document.getElementById("album-photos");
   const dialog = document.querySelector<HTMLDialogElement>(".lightbox");
   if (data && dialog) {
-    const photos: { src: string; alt: string; year: number }[] = JSON.parse(data.textContent ?? "[]");
+    const photos: string[] = JSON.parse(data.textContent ?? "[]");
     const img = dialog.querySelector("img")!;
-    const caption = dialog.querySelector("figcaption")!;
     let current = 0;
 
     const show = (index: number) => {
       current = (index + photos.length) % photos.length;
-      const photo = photos[current];
-      img.src = photo.src;
-      img.alt = photo.alt;
-      caption.textContent = `${photo.alt} · ${photo.year}`;
+      img.src = photos[current];
     };
 
     document.querySelectorAll<HTMLButtonElement>(".print").forEach((button) => {

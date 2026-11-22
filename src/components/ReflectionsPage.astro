@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ReflectionRow from "@/components/ReflectionRow.astro";
+import SectionTabs from "@/components/SectionTabs.astro";
 import { type Lang, useTranslations } from "@/i18n/ui";
 import { reflectionListing } from "@/lib/content";
 
@@ -13,38 +14,35 @@ const items = await reflectionListing(lang);
 // Los ensayos y los poemas no se mezclan: cada uno tiene su apartado.
 const essays = items.filter((r) => r.data.kind !== "poema");
 const poems = items.filter((r) => r.data.kind === "poema");
+// Se entra por el apartado que tenga algo que leer.
+const initial = essays.length > 0 || poems.length === 0 ? "ensayos" : "cosecha-propia";
 ---
 
 <BaseLayout lang={lang} route="reflections" title={t("reflections.title")} description={t("reflections.lead")}>
   <div class="mx-auto max-w-3xl px-5 pb-24 md:px-8">
-    <header class="pt-14 pb-10 md:pt-20">
+    <header class="pt-14 pb-8 md:pt-20">
       <h1 class="text-4xl font-semibold tracking-tight md:text-[2.75rem]">{t("reflections.title")}</h1>
       <p class="mt-4 max-w-xl text-lg text-slate">{t("reflections.lead")}</p>
     </header>
 
-    {items.length === 0 && <p class="border-t border-line py-10 text-slate">{t("reflections.empty")}</p>}
+    <SectionTabs
+      label={t("reflections.title")}
+      initial={initial}
+      tabs={[
+        { id: "ensayos", label: t("reflections.essays") },
+        { id: "cosecha-propia", label: t("reflections.poem") },
+      ]}
+    />
 
-    {
-      essays.length > 0 && (
-        <section aria-labelledby="essays-title" class="pb-14">
-          <h2 id="essays-title" class="meta !text-accent !text-xs mb-3">
-            {t("reflections.essays")}
-          </h2>
-          {essays.map((r) => <ReflectionRow reflection={r} lang={lang} />)}
-        </section>
-      )
-    }
+    <section data-panel="ensayos" aria-label={t("reflections.essays")} class="pt-6">
+      {essays.length === 0 && <p class="py-8 text-slate">{t("reflections.empty")}</p>}
+      {essays.map((r) => <ReflectionRow reflection={r} lang={lang} />)}
+    </section>
 
-    {
-      poems.length > 0 && (
-        <section id="cosecha-propia" aria-labelledby="poems-title" class="scroll-mt-24">
-          <h2 id="poems-title" class="meta !text-accent !text-xs">
-            {t("reflections.poem")}
-          </h2>
-          <p class="mt-2 mb-4 text-[0.9375rem] text-slate">{t("reflections.poemsLead")}</p>
-          {poems.map((r) => <ReflectionRow reflection={r} lang={lang} inSection />)}
-        </section>
-      )
-    }
+    <section data-panel="cosecha-propia" aria-label={t("reflections.poem")} class="pt-8">
+      <p class="mb-5 text-[0.9375rem] text-slate">{t("reflections.poemsLead")}</p>
+      {poems.length === 0 && <p class="py-8 text-slate">{t("reflections.empty")}</p>}
+      {poems.map((r) => <ReflectionRow reflection={r} lang={lang} inSection />)}
+    </section>
   </div>
 </BaseLayout>

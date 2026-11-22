@@ -10,36 +10,39 @@ const posterFiles = files(import.meta.glob<{ default: ImageMetadata }>("../asset
 export interface Photo {
   image: ImageMetadata;
   year: number;
-  alt: Localized;
 }
 
-/** El orden es el del álbum: alterna luz y oscuridad para que respire. */
-const photoList: [file: string, year: number, es: string, en: string][] = [
-  ["DcHoYxEjD9y", 2026, "Sillón rojo sobre la nieve", "Red armchair on the snow"],
-  ["C9VhU49oewz", 2024, "Arcos de la Mezquita de Córdoba", "Arches of the Mosque of Córdoba"],
-  ["C9VijAhIDiW", 2024, "La costa vista desde la cabina de una avioneta", "The coast seen from a light aircraft cockpit"],
-  ["DcHnaeQjHx9", 2026, "La luna en cuarto", "The half moon"],
-  ["DcHqHijjOg9", 2026, "Santa Sofía con una gaviota en vuelo", "Hagia Sophia with a seagull in flight"],
-  ["C9Vg8pLIw3D", 2024, "Aplique encendido entre flores rojas", "Lit wall lamp among red flowers"],
-  ["DcHqQVXjIRR", 2026, "Atardecer rosa tras la silueta de un árbol", "Pink sunset behind the silhouette of a tree"],
-  ["CuzfUaTo9U9", 2023, "Cúpula de vidriera vista desde abajo", "Stained-glass dome seen from below"],
-  ["C9VhOiWIl2t", 2024, "Hortensias azules", "Blue hydrangeas"],
-  ["CuzZ4nBI54X", 2023, "Esculturas de figuras caminando de noche", "Sculptures of walking figures at night"],
-  ["Cuzbk7xIhMT", 2023, "Farol encendido sobre una pared blanca", "Lit lantern on a white wall"],
-  ["C9ViaW6ICel", 2024, "Dado de veinte caras iluminado en azul", "Twenty-sided die glowing blue"],
-  ["CuwuLimoGtS", 2023, "Papel picado de colores", "Colourful paper bunting"],
-  ["CuzfoV-ImMg", 2023, "Ventana en arco a contraluz", "Arched window against the light"],
-  ["CuzbISNoLN9", 2023, "Columna barroca bajo las nubes", "Baroque column under the clouds"],
-  ["C9VYqm-IvJF", 2024, "Noria iluminada de noche", "Ferris wheel lit up at night"],
-  ["DcHnwl0jD4M", 2026, "Flor amarilla de cerca", "Yellow flower up close"],
-  ["CuzWQN5oCxS", 2023, "Bloques de hormigón de un memorial", "Concrete blocks of a memorial"],
-  ["CunFrI-Is_G", 2023, "Torre de iglesia al sol de la tarde", "Church tower in the evening sun"],
-  ["C9Viw6rIEqD", 2024, "Lámpara encendida sobre ladrillo", "Lamp glowing on a brick wall"],
+/** El orden es el del álbum: alterna colores, retratos y oscuridad para que respire. */
+const photoList: [file: string, year: number][] = [
+  ["01", 2026],
+  ["03", 2021],
+  ["13", 2022],
+  ["04", 2022],
+  ["07", 2022],
+  ["08", 2022],
+  ["02", 2024],
+  ["10", 2022],
+  ["14", 2020],
+  ["05", 2024],
+  ["19", 2020],
+  ["17", 2022],
+  ["06", 2026],
+  ["09", 2022],
+  ["15", 2021],
+  ["12", 2026],
+  ["16", 2023],
+  ["21", 2021],
+  ["11", 2026],
+  ["18", 2022],
+  ["22", 2018],
+  ["20", 2021],
+  ["23", 2020],
+  ["24", 2022],
 ];
 
 export const photos: Photo[] = photoList
   .filter(([file]) => photoFiles[file])
-  .map(([file, year, es, en]) => ({ image: photoFiles[file], year, alt: { es, en } }));
+  .map(([file, year]) => ({ image: photoFiles[file], year }));
 
 export interface Video {
   id: string;

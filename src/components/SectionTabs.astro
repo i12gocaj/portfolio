@@ -1,0 +1,78 @@
+---
+/**
+ * Pestañas para elegir entre los apartados de una página. Cada apartado es un
+ * elemento con `data-panel="<id>"`. Sin JavaScript se ven todos, uno tras otro.
+ */
+interface Props {
+  tabs: { id: string; label: string }[];
+  /** Apartado que se muestra al entrar, si la dirección no indica otro. */
+  initial: string;
+  label: string;
+}
+const { tabs, initial, label } = Astro.props;
+---
+
+<div class="section-tabs" role="tablist" aria-label={label} data-initial={initial}>
+  {
+    tabs.map((tab) => (
+      <button type="button" role="tab" data-tab={tab.id} aria-selected={tab.id === initial ? "true" : "false"}>
+        {tab.label}
+      </button>
+    ))
+  }
+</div>
+
+<style>
+  .section-tabs {
+    display: flex;
+    gap: 1.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-tabs button {
+    margin-bottom: -1px;
+    padding: 0.6rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .section-tabs button:hover {
+    color: var(--ink);
+  }
+  .section-tabs button[aria-selected="true"] {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".section-tabs").forEach((bar) => {
+    const buttons = [...bar.querySelectorAll<HTMLButtonElement>("[data-tab]")];
+    const ids = buttons.map((b) => b.dataset.tab!);
+    const panels = [...document.querySelectorAll<HTMLElement>("[data-panel]")];
+
+    const show = (id: string, remember: boolean) => {
+      buttons.forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === id)));
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== id));
+      if (remember) history.replaceState(null, "", `#${id}`);
+    };
+
+    const fromHash = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      return ids.includes(id) ? id : undefined;
+    };
+
+    show(fromHash() ?? bar.dataset.initial!, false);
+    buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.tab!, true)));
+    window.addEventListener("hashchange", () => {
+      const id = fromHash();
+      if (id) show(id, false);
+    });
+  });
+</script>
