@@ -242,3 +242,18 @@
     color: var(--shiki-dark) !important;
   }
 }
+
+/* Poemas: cada salto de línea es un verso y se respeta tal cual. */
+@layer components {
+  .prose.poem {
+    font-size: 1.1875rem;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .prose.poem p {
+    white-space: pre-line;
+  }
+  .prose.poem > * + * {
+    margin-top: 1.05em;
+  }
+}

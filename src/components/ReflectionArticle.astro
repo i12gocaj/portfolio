@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BookCover from "@/components/BookCover.astro";
 import Toc from "@/components/Toc.astro";
+import MusicPlayer from "@/components/MusicPlayer.astro";
 import { type Lang, route, useTranslations } from "@/i18n/ui";
 import {
   formatDate,
@@ -49,6 +50,7 @@ const alternates = {
       </div>
       <div>
         <p class="meta flex flex-wrap gap-x-3 gap-y-1">
+          {data.kind === "poema" && <span class="!text-accent">{t("reflections.poem")}</span>}
           <time datetime={data.date.toISOString()}>{formatDate(data.date, lang)}</time>
           <span>{readingMinutes(r)} {t("text.min")}</span>
           {data.draft && <span class="!text-copper">[{t("text.draft")}]</span>}
@@ -56,13 +58,21 @@ const alternates = {
         <h1 class="mt-3 text-[2rem] font-semibold tracking-tight leading-[1.15] text-balance md:text-[2.5rem]">
           {data.title}
         </h1>
-        <p class="mt-3 text-lg leading-relaxed text-slate">{data.description}</p>
+        {data.kind !== "poema" && <p class="mt-3 text-lg leading-relaxed text-slate">{data.description}</p>}
       </div>
     </header>
 
+    {
+      data.music && (
+        <div class="mt-10">
+          <MusicPlayer music={data.music} label={t("music.label")} play={t("music.play")} pause={t("music.pause")} />
+        </div>
+      )
+    }
+
     <div class="mt-12"><Toc headings={headings} label={t("text.contents")} /></div>
 
-    <div class="prose mt-10">
+    <div class:list={["prose mt-10", data.kind === "poema" && "poem"]}>
       <Content />
     </div>
 

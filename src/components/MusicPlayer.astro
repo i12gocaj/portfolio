@@ -1,0 +1,166 @@
+---
+/**
+ * Música para acompañar la lectura: un tramo de un vídeo de YouTube en bucle.
+ * No carga nada de YouTube hasta que el lector pulsa el botón.
+ */
+interface Props {
+  music: { title: string; artist: string; youtube: string; start: number; end: number };
+  label: string;
+  play: string;
+  pause: string;
+}
+const { music, label, play, pause } = Astro.props;
+---
+
+<div
+  class="music"
+  data-youtube={music.youtube}
+  data-start={music.start}
+  data-end={music.end}
+  data-play={play}
+  data-pause={pause}
+>
+  <button type="button" class="music-button group" aria-pressed="false" aria-label={`${play}: ${music.title}, ${music.artist}`}>
+    <span class="music-icon" aria-hidden="true">
+      <svg class="icon-play" width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor"></path></svg>
+      <svg class="icon-pause" width="14" height="14" viewBox="0 0 14 14"><path d="M3 2h3v10H3zM8 2h3v10H8z" fill="currentColor"></path></svg>
+    </span>
+    <span class="text-left">
+      <span class="meta block">{label}</span>
+      <span class="block text-[0.9375rem] leading-snug">
+        <span class="font-semibold">{music.title}</span>
+        <span class="text-slate"> · {music.artist}</span>
+      </span>
+    </span>
+  </button>
+  <div class="music-frame" hidden>
+    <div class="music-target"></div>
+  </div>
+</div>
+
+<style>
+  .music-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.6rem 1rem 0.6rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+  .music-button:hover {
+    border-color: var(--accent);
+  }
+  .music-icon {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper);
+    transition: background-color 0.15s ease;
+  }
+  .music-button:hover .music-icon,
+  .music-button[aria-pressed="true"] .music-icon {
+    background: var(--accent);
+  }
+  .icon-pause,
+  .music-button[aria-pressed="true"] .icon-play {
+    display: none;
+  }
+  .music-button[aria-pressed="true"] .icon-pause {
+    display: block;
+  }
+  /* YouTube pide que su reproductor esté a la vista mientras suena. */
+  .music-frame {
+    margin-top: 0.85rem;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--line);
+  }
+  .music-frame :global(iframe) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  declare global {
+    interface Window {
+      YT?: any;
+      onYouTubeIframeAPIReady?: () => void;
+    }
+  }
+
+  let apiReady: Promise<void> | undefined;
+  function loadApi(): Promise<void> {
+    apiReady ??= new Promise((resolve) => {
+      if (window.YT?.Player) return resolve();
+      const previous = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        previous?.();
+        resolve();
+      };
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.append(script);
+    });
+    return apiReady;
+  }
+
+  document.querySelectorAll<HTMLElement>(".music").forEach((root) => {
+    const button = root.querySelector<HTMLButtonElement>(".music-button")!;
+    const frame = root.querySelector<HTMLElement>(".music-frame")!;
+    const target = root.querySelector<HTMLElement>(".music-target")!;
+    const start = Number(root.dataset.start);
+    const end = Number(root.dataset.end);
+    let player: any;
+    let timer: number | undefined;
+
+    const setPlaying = (playing: boolean) => button.setAttribute("aria-pressed", String(playing));
+
+    // Vuelve al inicio del tramo en cuanto se alcanza el final.
+    const watch = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        const now = player?.getCurrentTime?.();
+        if (typeof now === "number" && (now >= end || now < start - 1)) player.seekTo(start, true);
+      }, 250);
+    };
+
+    button.addEventListener("click", async () => {
+      if (player) {
+        const state = player.getPlayerState?.();
+        if (state === window.YT.PlayerState.PLAYING) player.pauseVideo();
+        else player.playVideo();
+        return;
+      }
+      frame.hidden = false;
+      await loadApi();
+      player = new window.YT.Player(target, {
+        host: "https://www.youtube-nocookie.com",
+        videoId: root.dataset.youtube,
+        playerVars: { start, end, autoplay: 1, controls: 1, playsinline: 1, rel: 0, modestbranding: 1 },
+        events: {
+          onReady: (event: any) => {
+            event.target.seekTo(start, true);
+            event.target.playVideo();
+            watch();
+          },
+          onStateChange: (event: any) => {
+            const S = window.YT.PlayerState;
+            if (event.data === S.ENDED) {
+              event.target.seekTo(start, true);
+              event.target.playVideo();
+            }
+            setPlaying(event.data === S.PLAYING || event.data === S.BUFFERING);
+          },
+        },
+      });
+    });
+  });
+</script>
