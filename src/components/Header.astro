@@ -14,10 +14,10 @@ const home = routeFor(lang, "home");
 const hasReflections = (await reflectionListing(lang)).length > 0;
 const nav: { key: RouteKey; label: string }[] = [
   { key: "projects", label: t("nav.projects") },
-  ...(hasReflections ? [{ key: "reflections" as const, label: t("nav.reflections") }] : []),
-  { key: "album", label: t("nav.album") },
   { key: "background", label: t("nav.background") },
   { key: "about", label: t("nav.about") },
+  ...(hasReflections ? [{ key: "reflections" as const, label: t("nav.reflections") }] : []),
+  { key: "album", label: t("nav.album") },
 ];
 ---
 
