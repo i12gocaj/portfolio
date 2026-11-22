@@ -5,7 +5,7 @@ import Cover from "@/components/Cover.astro";
 import Toc from "@/components/Toc.astro";
 import { type Lang, route, useTranslations } from "@/i18n/ui";
 import { coverOf, isExternal, projectUrl, type Project } from "@/data/content";
-import { projectNote, readingMinutes } from "@/lib/content";
+import { projectNote } from "@/lib/content";
 
 interface Props {
   project: Project;
@@ -38,7 +38,6 @@ const alternates = { es: projectUrl(p, "es")!, en: projectUrl(p, "en")! };
       <div>
         <p class="meta flex flex-wrap gap-x-3 gap-y-1">
           <span class="!text-accent">{p.kind[lang]}</span>
-          {note && <span>{readingMinutes(note)} {t("text.min")}</span>}
           {note?.data.draft && <span class="!text-copper">[{t("text.draft")}]</span>}
         </p>
         <h1 class="mt-3 text-[2rem] font-semibold tracking-tight leading-[1.15] text-balance md:text-[2.5rem]">

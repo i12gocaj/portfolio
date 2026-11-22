@@ -1,7 +1,7 @@
 ---
 import BookCover from "@/components/BookCover.astro";
 import { type Lang, useTranslations } from "@/i18n/ui";
-import { formatDate, langOf, readingMinutes, reflectionUrl, type Reflection } from "@/lib/content";
+import { formatDate, langOf, reflectionUrl, type Reflection } from "@/lib/content";
 
 interface Props {
   reflection: Reflection;
@@ -23,7 +23,6 @@ const foreign = langOf(r) !== lang;
     <div class="min-w-0">
       <p class="meta flex flex-wrap gap-x-3 gap-y-1">
         <time datetime={data.date.toISOString()}>{formatDate(data.date, lang)}</time>
-        <span>{readingMinutes(r)} {t("text.min")}</span>
         {foreign && <span>[{t("reflections.onlyEs")}]</span>}
         {data.draft && <span class="!text-copper">[{t("text.draft")}]</span>}
       </p>
